@@ -1,0 +1,42 @@
+@@if (!context.centerLogo) {
+<ul class="navbar-nav">
+  }
+@@if (context.centerLogo) {
+  <div class="w-100 order-1 order-lg-0 d-lg-flex offcanvas-body">
+    <ul class="navbar-nav ms-lg-auto">
+      }
+      <li class="nav-item ">
+        <a class="nav-link" href="#">A propos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Nos services</a>
+        <ul class="dropdown-menu">
+          <li class="nav-item"><a class="dropdown-item" href="@@webRoot/pricing.html">servcie 1</a></li>
+          <li class="nav-item"><a class="dropdown-item" href="@@webRoot/pricing.html">servcie 1</a></li>
+          <li class="nav-item"><a class="dropdown-item" href="@@webRoot/pricing.html">servcie 1</a></li>
+          <li class="nav-item"><a class="dropdown-item" href="@@webRoot/pricing.html">servcie 1</a></li>
+          <li class="nav-item"><a class="dropdown-item" href="@@webRoot/pricing.html">servcie 1</a></li>`
+        </ul>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </li>
+        @@if (context.centerLogo) {
+      </ul>
+      <!-- /.navbar-nav -->
+  </div>
+  <div class="w-100 order-3 order-lg-2 d-lg-flex offcanvas-body">
+    <ul class="navbar-nav me-lg-auto">
+      }
+      @@if (context.centerLogo) {
+    </ul>
+    <!-- /.navbar-nav -->
+  </div>
+}
+@@if (!context.centerLogo) {
+</ul>
+<!-- /.navbar-nav -->
+}
