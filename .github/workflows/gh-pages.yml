@@ -22,7 +22,7 @@ jobs:
 
       - name: Build project
         run: npm run build 
-
+        
       - name: Deploy dist to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
