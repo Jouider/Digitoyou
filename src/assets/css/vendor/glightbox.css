@@ -865,6 +865,88 @@ iframe.wait-autoplay {
   margin-bottom: 1rem;
 }
 
+/* Contact Angled Sections */
+.angled-section-right{
+  position: relative;
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
+  /* Adjust the "5%" to control the angle */
+}
+
+.angled-section-left {
+  position: relative;
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.project-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-carousel {
+  display: flex;
+  overflow-x: auto;
+
+  scroll-behavior: smooth;
+  gap: 1rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.project-card {
+  min-width: 380px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+.project-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.carousel-arrow {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+
+
+.carousel-arrow.left {
+  order: -1;
+}
+
+.carousel-arrow.right {
+  order: 1;
+}
+
+
+/* Contact Angled Sections */
 /*
 @media (min-width:992px) {
   .glightbox-clean .gclose {
