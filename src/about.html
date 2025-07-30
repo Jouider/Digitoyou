@@ -9,8 +9,8 @@
 
 </head>
 <body>
-    	<div class="content-wrapper" data-cue="fadeIn">
-		<header class="wrapper bg-light pt-1" data-cue="slideInDown">
+  <div class="content-wrapper">
+		<header class="wrapper bg-light pt-1">
 			@@include('_navbar.html', {
 				"classList": "classic transparent navbar-light",
 				"logoAlt": "logo-dark",
@@ -19,12 +19,10 @@
 				"otherBtnClassList": "btn-sm btn-primary rounded-pill",
 				"otherBtnText": "Prendre RDV",
 				"otherBtnLink": "#modal-signin",
-				"otherBtnModal": true,
-				"otherSearch": true
+
 			})
 		</header>
-		<!-- /header -->
-<section class="wrapper bg-light" data-cue="fadeIn">
+    <section class="wrapper bg-light" data-cue="fadeIn">
 <div class="container">
 <div class="card bg-soft-primary rounded-4 mt-2 mb-13 mb-md-17" data-cue="slideInUp">
   <div class="card-body p-md-10 py-xl-11 px-xl-15">
@@ -620,27 +618,6 @@
 	@@include('_page-progress.html')
 	@@include('_scripts.html')
   <!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1.2,
-    spaceBetween: 20,
-    loop: true,
-    grabCursor: true,
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false,
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2.5,
-      },
-      1200: {
-        slidesPerView: 3.5,
-      }
-    }
-  });
-</script>
 
 
 </body>
