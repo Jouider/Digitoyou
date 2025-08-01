@@ -46,7 +46,7 @@
 				<div class="container pt-17 pb-20 pt-md-19 pb-md-21 text-center">
 				  <div class="row text-center mb-10">
 					<div class="col-lg-10 mx-auto">
-					  <h3 class="display-4 mb-10 px-xl-10 text-white">Nos derniers projets</h3>
+					  <h3 class="display-4 mb-10 px-xl-10 text-white" >Nos derniers projets</h3>
 					</div>
 				  </div>
 			  
@@ -56,25 +56,61 @@
 			  
 					<!-- Cards -->
 					<div class="project-carousel" id="projectCarousel">
-					  <div class="project-card" style="background-image: url('./assets/img/projects/project-card1.png');">
-						<div class="project-title">WEB SITE 1</div>
-					  </div>
-					  <div class="project-card" style="background-image: url('./assets/img/projects/project-card2.png');">
-						<div class="project-title">WEB SITE 2</div>
-					  </div>
-					  <div class="project-card" style="background-image: url('./assets/img/projects/project-card3.png');">
-						<div class="project-title">WEB SITE 3</div>
-					  </div>
-					  <div class="project-card" style="background-image: url('./assets/img/projects/project-card1.png');">
-						<div class="project-title">WEB SITE 1</div>
-					  </div>
-					  <div class="project-card" style="background-image: url('./assets/img/projects/project-card2.png');">
-						<div class="project-title">WEB SITE 2</div>
-					  </div>
-					  <div class="project-card" style="background-image: url('./assets/img/projects/project-card3.png');">
-						<div class="project-title">WEB SITE 3</div>
-					  </div>
-					  <!-- Add more cards as needed -->
+						<div class="project-card" style="background-image: url('./assets/img/projects/project-card1.png');"
+							data-bs-toggle="modal" data-bs-target="#projectModal"
+							data-title="Shopping Marrakech">
+						<div class="project-overlay">
+							<div class="project-title">Shopping Marrakech</div>
+							<div class="project-description">Boutique locale transformée en e-commerce moderne.</div>
+						</div>
+						</div>
+
+						<div class="project-card" style="background-image: url('./assets/img/projects/project-card2.png');"
+							data-bs-toggle="modal" data-bs-target="#projectModal"
+							data-title="Coffee Shop">
+						<div class="project-overlay">
+							<div class="project-title">Coffee Shop</div>
+							<div class="project-description">Site vitrine pour un café chaleureux en centre-ville.</div>
+						</div>
+						</div>
+
+						<div class="project-card" style="background-image: url('./assets/img/projects/project-card3.png');"
+							data-bs-toggle="modal" data-bs-target="#projectModal"
+							data-title="Doctor">
+						<div class="project-overlay">
+							<div class="project-title">Doctor</div>
+							<div class="project-description">Prise de rendez-vous en ligne pour un cabinet médical.</div>
+						</div>
+						</div>
+
+						<div class="project-card" style="background-image: url('./assets/img/projects/project-card1.png');"
+							data-bs-toggle="modal" data-bs-target="#projectModal"
+							data-title="WEB SITE 1">
+						<div class="project-overlay">
+							<div class="project-title">WEB SITE 1</div>
+							<div class="project-description">Site professionnel pour consultant indépendant.</div>
+						</div>
+						</div>
+
+						<div class="project-card" style="background-image: url('./assets/img/projects/project-card2.png');"
+							data-bs-toggle="modal" data-bs-target="#projectModal"
+							data-title="WEB SITE 2">
+						<div class="project-overlay">
+							<div class="project-title">WEB SITE 2</div>
+							<div class="project-description">Landing page optimisée pour une campagne marketing.</div>
+						</div>
+						</div>
+
+						<div class="project-card" style="background-image: url('./assets/img/projects/project-card3.png');"
+							data-bs-toggle="modal" data-bs-target="#projectModal"
+							data-title="WEB SITE 3">
+						<div class="project-overlay">
+							<div class="project-title">WEB SITE 3</div>
+							<div class="project-description">Portfolio interactif pour une photographe freelance.</div>
+						</div>
+						</div>
+					<!-- /cards -->
+					<!-- /project-carousel -->
 					</div>
 			  
 					<!-- Right Arrow -->
@@ -265,6 +301,144 @@
 	  </script>
 	  
 	  
+	  <script>
+		const projectData = {
+		"Shopping Marrakech": {
+			description: "E-commerce moderne pour une boutique locale à Gueliz.",
+			images: [
+			"./assets/img/projects/project-card1.png",
+			"./assets/img/projects/project-card1b.png",
+			"./assets/img/projects/project-card1c.png"
+			],
+			tech: ["WordPress", "WooCommerce", "CSS", "Figma"],
+			link: "https://example.com/shopping"
+		},
+		"Coffee Shop": {
+			description: "Site vitrine pour un café chaleureux en centre-ville.",
+			images: ["./assets/img/projects/project-card2.png"],
+			tech: ["HTML", "Bootstrap", "SEO"],
+			link: "https://example.com/coffee"
+		},
+		"Doctor": {
+			description: "Prise de rendez-vous en ligne pour un cabinet médical.",
+			images: ["./assets/img/projects/project-card3.png"],
+			tech: ["React", "Node.js", "MongoDB"],
+			link: "https://example.com/doctor"
+		},
+		"WEB SITE 1": {
+			description: "Site professionnel pour consultant indépendant.",
+			images: ["./assets/img/projects/project-card1.png"],
+			tech: ["WordPress", "Elementor", "SEO"],
+			link: "https://example.com/site1"
+		},
+		"WEB SITE 2": {
+			description: "Landing page optimisée pour une campagne marketing.",
+			images: ["./assets/img/projects/project-card2.png"],
+			tech: ["Next.js", "Tailwind CSS", "GA"],
+			link: "https://example.com/site2"
+		},
+		"WEB SITE 3": {
+			description: "Portfolio interactif pour une photographe freelance.",
+			images: ["./assets/img/projects/project-card3.png"],
+			tech: ["Vue.js", "GSAP", "Lightbox"],
+			link: "https://example.com/site3"
+		}
+		};
+
 	  
+		const modal = document.getElementById('projectModal');
+		modal.addEventListener('show.bs.modal', event => {
+		  const card = event.relatedTarget;
+		  const title = card.getAttribute('data-title');
+		  const data = projectData[title];
+	  
+		  // Set text content
+		  document.getElementById('modalProjectTitle').textContent = title;
+		  document.getElementById('modalProjectDescription').textContent = data?.description || '—';
+	  
+		  // Set link
+		  const link = document.getElementById('modalProjectLink');
+		  link.href = data?.link || '#';
+		  link.style.display = data?.link ? 'inline-block' : 'none';
+	  
+		  // Tech stack
+		  const techStack = document.getElementById('modalTechStack');
+		  techStack.innerHTML = '';
+		  (data?.tech || []).forEach(tech => {
+			const tag = document.createElement('span');
+			tag.className = 'badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill';
+			tag.textContent = tech;
+			techStack.appendChild(tag);
+		  });
+	  
+		  // Swiper slides
+		  const carousel = document.getElementById('modalImageCarousel');
+		  carousel.innerHTML = '';
+		  (data?.images || []).forEach(imgSrc => {
+			const slide = document.createElement('div');
+			slide.className = 'swiper-slide';
+			slide.innerHTML = `<img src="${imgSrc}" alt="${title}" class="img-fluid w-100 h-100 object-fit-cover">`;
+			carousel.appendChild(slide);
+		  });
+	  
+		  setTimeout(() => {
+			if (window.modalSwiper) {
+			  window.modalSwiper.update();
+			} else {
+			  window.modalSwiper = new Swiper(".mySwiper", {
+				loop: true,
+				navigation: {
+				  nextEl: ".swiper-button-next",
+				  prevEl: ".swiper-button-prev"
+				},
+				pagination: {
+				  el: ".swiper-pagination",
+				  clickable: true
+				}
+			  });
+			}
+		  }, 100);
+		});
+	  </script>
+	  
+	  <!-- Swiper for modal carousel -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="row g-0">
+          <div class="col-md-6 bg-dark">
+            <!-- Swiper carousel -->
+            <div class="swiper mySwiper h-100">
+              <div class="swiper-wrapper" id="modalImageCarousel">
+                <!-- Slides will be injected dynamically -->
+              </div>
+              <!-- Swiper controls -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-md-6 p-4">
+            <h5 id="modalProjectTitle" class="mb-2">Titre</h5>
+            <p id="modalProjectDescription" class="mb-3">Description du projet ici...</p>
+            <div id="modalTechStack" class="mb-3 d-flex flex-wrap gap-2">
+              <!-- Tags injected -->
+            </div>
+            <a id="modalProjectLink" href="#" target="_blank" class="btn btn-outline-primary mb-2">Voir le site</a>
+            <button type="button" class="btn btn-secondary ms-2" data-bs-dismiss="modal">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
+
+  
 </html>
