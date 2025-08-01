@@ -896,31 +896,46 @@ iframe.wait-autoplay {
 
 .project-card {
   min-width: 380px;
-  height: 200px;
+  height: 250px;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
+  overflow: hidden;
   position: relative;
-  flex-shrink: 0;
-  transition: transform 0.3s;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.project-card:hover {
-  transform: scale(1.03);
+.project-overlay {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(30, 30, 30, 0.7); /* greyish overlay */
+  color: #fff;
+  border-radius: 12px;
+
+  backdrop-filter: blur(2px);
+  position: relative;
+  z-index: 2;
 }
 
 .project-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0,0,0,0.6);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
 }
+
+.project-description {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Optional hover effect */
+.project-card:hover .project-overlay {
+  background: rgba(30, 30, 30, 0.85);
+}
+
 
 .carousel-arrow {
   color: #fff;
