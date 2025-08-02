@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	@@include('_head.html')
-	<link rel="stylesheet" href="@@webRoot/assets/css/colors/orange.css">
-	<link rel="preload" href="@@webRoot/assets/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
-  <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <head>
+    @@include('_head.html')
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="@@webRoot/assets/css/colors/orange.css">
+    <link rel="preload" href="@@webRoot/assets/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
 
-</head>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  </head>
+  
 <body>
 	<div class="content-wrapper">
 		<header class="wrapper bg-light">
@@ -24,20 +26,50 @@
 			})
 		</header>
 		<!-- /header -->
-		<section class="wrapper bg-light">
-			<div class="container pt-11 pt-md-13  text-center">
-				<div class="row">
-					<div class="col-lg-10 col-xl-9 mx-auto mb-2" data-cues="slideInDown" data-group="page-title">
-						<h1 class="display-1 fs-60 mb-8 px-md-15 px-lg-0 ">Passez du Local à l'Online <span class="underline-3 style-3 primary">Simplement</span></h1>
-						<p class="lead fs-lg px-lg-5 mb-8 px-xxl-8">Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité. Que vous soyez artisan, commerçant ou entrepreneur, Digitoyou vous connecte au monde en ligne, sans prise de tête.</p>
-					</div>
-						<div class="d-flex justify-content-center justify-content-lg-center">
-							<span><a class="btn btn-primary btn-icon btn-icon-start rounded "><i class="uil uil-schedule"></i>Parlons de votre projet – 100% gratuit, 0 engagement</a></span>
-						</div>
-						<p> Un expert <b>Digitoyou</b> vous répond en 24h.</p>
-					</div>
-			</div>
-			</div>
+		<!-- Hero Section -->
+    <section
+      class="wrapper hero-enhanced position-relative overflow-hidden"
+      style="
+        min-height: 100vh;
+        padding: 8rem 0;
+        background-image: url('./assets/img/photos/hero-1800x1250.png');
+        background-size: cover;
+        background-position: center;
+      ">
+     <div class="container position-relative h-100" style="z-index:10;">
+       <div class="row h-100 align-items-center">
+         <div class="col-lg-6 text-start animate__animated animate__fadeInLeft">
+           <h1 class="display-1 fw-bold mb-4">
+             Passez du <span class="text-warning">Local</span> à l'<span class="text-warning">Online</span><br>
+             <span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>
+           </h1>
+           <p class="lead fs-lg mb-5 animate__animated animate__fadeInUp">
+             Nous développons <strong>des sites sur mesure</strong> pour artisans, commerçants et entrepreneurs.
+           </p>
+           <div class="text-center mb-5">
+            <a class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 shadow btn-icon btn-icon-start">
+              <i class="uil uil-schedule"></i>
+              Parlons de votre projet – 100% gratuit, 0 engagement
+            </a>
+            <p class="mt-3 mb-0 ">
+              Un expert <b>Digitoyou</b> vous répond en 24h.
+            </p>
+          </div>
+          </div>
+          </div>           
+         </div>
+       </div>
+       
+     </div>
+     
+     <div class="scroll-down position-absolute bottom-4 start-50 translate-middle-x">
+       <i class="uil uil-angle-down fs-1 text-light animate__bounce"></i>
+     </div>
+   </section>
+
+  
+
+    
 			<!-- /.container -->
 		</section>
 		<section class="wrapper bg-light">
@@ -65,7 +97,8 @@
 						<h2>Market <br> Research</h2>
 					</div>
 					<!--/column -->
-					</div>
+					<p class="lead fs-lg px-lg-5 mb-8 px-xxl-8">Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité. Que vous soyez artisan, commerçant ou entrepreneur, Digitoyou vous connecte au monde en ligne, sans prise de tête.</p>
+        </div>
 					<!--/.row -->
 				</div>
 				<!-- /column -->
@@ -76,7 +109,7 @@
 		</section>
 
     
-<section class="wrapper bg-dark angled upper-start lower-end">
+<section class="wrapper bg-dark ">
     <div class="container py-14 py-md-16 text-center">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
@@ -137,7 +170,7 @@
     </div>
   </section>
 
-  <section class="wrapper bg-light angled upper-end">
+  <section class="wrapper bg-light ">
     <div class="container py-14 py-md-16">
       <div class="row text-center mb-10">
         <div class="col-lg-10 mx-auto">
@@ -263,7 +296,7 @@
   
   
 
-  <section class="wrapper bg-soft-primary angled upper-end lower-end">
+  <section class="wrapper bg-soft-primary ">
     <div class="container py-14 py-md-16">
       <div class="row gx-lg-8 gy-8 align-items-center">
         <!-- Bloc d'images à droite -->
@@ -472,40 +505,55 @@
 	@@include('_page-progress.html')
 	@@include('_scripts.html')
   <!-- Swiper JS -->
-   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-   <script>
-    const swiper = new Swiper('.mySwiper', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    speed: 4000, // slow and smooth
-    allowTouchMove: true, // disable user dragging
-    loop: true, // IMPORTANT: DO NOT USE loop!
-    freeMode: true,
-    freeModeMomentum: false,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false
-    },
-    breakpoints: {
-    320: {
-      slidesPerView: 1.2,
-    },
-    768: {
-      slidesPerView: 2.2,
-    },
-    1200: {
-      slidesPerView: 3.5,
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
+   <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Swiper
+      new Swiper('.mySwiper', {
+        slidesPerView: 'auto', spaceBetween: 20, speed: 4000,
+        freeMode: true, freeModeMomentum: false,
+        autoplay: { delay: 0, disableOnInteraction: false },
+        breakpoints: { 320:{slidesPerView:1.2},768:{slidesPerView:2.2},1200:{slidesPerView:3.5} }
+      });
+
+    // Hero dynamic typing
+    const words = ["Simplement", "Rapidement", "Facilement"];
+    const typingEl = document.querySelector(".text-typing");
+    let wordIndex = 0;
+    let letterIndex = 0;
+    let typingForward = true;
+
+    function animateTyping() {
+      if (!typingEl) return;
+
+      const currentWord = words[wordIndex];
+
+      if (typingForward) {
+        letterIndex++;
+        if (letterIndex > currentWord.length) {
+          typingForward = false;
+          setTimeout(animateTyping, 1000); // Pause before deleting
+          return;
+        }
+      } else {
+        letterIndex--;
+        if (letterIndex === 0) {
+          typingForward = true;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+
+      typingEl.textContent = currentWord.slice(0, letterIndex);
+      setTimeout(animateTyping, typingForward ? 150 : 50);
     }
-}
 
+    animateTyping();
 
-  });
-
-
+      // tsParticles
+    });
   </script>
-  
-
-
 
 </body>
 </html> 
