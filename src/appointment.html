@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@@include('_head.html')
+	<link rel="stylesheet" href="@@webRoot/assets/css/colors/orange.css">
+	<link rel="preload" href="@@webRoot/assets/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+<body>
+	<div class="content-wrapper">
+		<header class="wrapper bg-light">
+			@@include('_navbar.html', {
+			"classList": "fancy navbar-light navbar-bg-light caret-none",
+			"fancy": true,
+			"otherClassList": "w-100 d-flex ms-auto",
+			"otherLanguageSelect": true,
+			"otherBtn": true,
+			"otherBtnClassList": "btn-sm btn-primary rounded-pill",
+			"otherBtnText": "Prendre RDV",
+			"otherBtnLink": "@@webRoot/contact.html",
+			"otherBtnIcon": "uil uil-phone",
+			})
+		</header>
+		<!-- /header -->
+		<section class="wrapper bg-light">
+            <div class="container pt-8 pt-md-10 pb-6 text-center">
+            <div class="row">
+                <div class="col-lg-10 col-xl-9 mx-auto mb-2" data-cues="slideInDown" data-group="page-title">
+                <h1 class="display-2 fs-50 mb-4 px-md-15 px-lg-0">
+                    Réservez votre <span class="underline-3 style-3 primary">Session Stratégique</span>
+                </h1>
+                <p class="lead fs-lg px-lg-5 mb-4 px-xxl-8">
+                    Ensemble, définissons un <b>plan d'actions clair et un calendrier réaliste</b> pour votre projet web.
+                </p>
+                </div>
+                <p class="fs-16">
+                Vous préférez parler directement ? <strong>📞 07 56 93 35 90</strong> | <a href="mailto:hello@digitoyou.me">✉ hello@digitoyou.me</a>
+                </p>
+            </div>
+            </div>
+		</section>
+
+        <!-- Appointment Booking Section -->
+        <section class="wrapper bg-soft-primary">
+            <div class="container py-8 py-md-10">
+                <div class="row gx-lg-6 gy-6 align-items-start justify-content-center">
+                    <!-- Profile Column (Left) -->
+                    <div class="col-lg-4 col-xl-4">
+                        <div class="card shadow-lg h-100">
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <div class="avatar avatar-lg mb-3">
+                                        <img src="@@webRoot/assets/img/avatars/brahim.jpg" alt="Brahim" class="rounded-circle" />
+                                    </div>
+                                    <h4 class="mb-2">Parlons de votre projet 🚀</h4>
+                                    <p class="lead mb-1 fs-lg">15 min</p>
+                                    <p class="text-primary mb-3">Consultation gratuite</p>
+                                    <div class="alert alert-soft-primary">
+                                        <i class="uil uil-gift fs-5 me-2"></i>
+                                        <p>Bonus : maquettes UX sous 72h</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Right Column (Calendar/Form) -->
+                    <div class="col-lg-8 col-xl-7">
+                        <div class="card shadow-lg">
+                            <div class="card-body p-4">
+                                <div class="steps-indicator mb-3">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="step small" id="step1">1. Choisir un créneau</span>
+                                        <span class="step small" id="step2">2. Vos coordonnées</span>
+                                    </div>
+                                    <div class="progress mt-2" style="height: 3px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 50%" id="stepProgress"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 1: Calendar View -->
+                                <div id="calendarStep">
+                                    <div class="calendar-wrapper" id="appointmentCalendar">
+                                        <!-- Calendar will be inserted here by JavaScript -->
+                                    </div>
+                                    <div class="time-slots mt-3" id="timeSlots">
+                                        <h5 class="mb-2">Créneaux disponibles</h5>
+                                        <div class="d-flex flex-wrap gap-2" id="timeSlotsGrid">
+                                            <!-- Time slots will be dynamically populated -->
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary rounded-pill w-100 mt-3" id="nextToContactInfo" style="display: none;">
+                                        <i class="uil uil-arrow-right me-2"></i>Continuer
+                                    </button>
+                                </div>
+
+                                <!-- Step 2: Contact Form -->
+                                <div id="contactStep" style="display: none;">
+                                    <h4 class="mb-3">Vos informations</h4>
+
+                                <form id="appointmentForm" class="booking-form">
+                                    <input type="hidden" id="appointment_date">
+                                    <input type="hidden" id="appointment_time">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" placeholder="Votre nom" id="name" required>
+                                                <label for="name">Nom complet</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" class="form-control" placeholder="Votre email" id="email" required>
+                                                <label for="email">Email</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-floating mb-3">
+                                        <input type="tel" class="form-control" placeholder="Votre téléphone" id="phoneNumber" required>
+                                        <label for="phoneNumber">Numéro de téléphone</label>
+                                    </div>
+
+                                    <!-- Communication preference - Icons in one line -->
+                                    <div class="mb-3">
+                                        <label class="form-label small">Comment souhaitez-vous échanger ?</label>
+                                        <div class="communication-icons d-flex justify-content-center gap-3 mt-2">
+                                            <div class="form-check-icon">
+                                                <input class="form-check-input d-none" type="radio" name="communication" id="phone" value="phone" checked>
+                                                <label class="icon-option" for="phone" title="Téléphone">
+                                                    <i class="uil uil-phone fs-3"></i>
+                                                </label>
+                                            </div>
+                                            <div class="form-check-icon">
+                                                <input class="form-check-input d-none" type="radio" name="communication" id="whatsapp" value="whatsapp">
+                                                <label class="icon-option" for="whatsapp" title="WhatsApp">
+                                                    <i class="uil uil-whatsapp fs-3"></i>
+                                                </label>
+                                            </div>
+                                            <div class="form-check-icon">
+                                                <input class="form-check-input d-none" type="radio" name="communication" id="meet" value="meet">
+                                                <label class="icon-option" for="meet" title="Google Meet">
+                                                    <i class="uil uil-video fs-3"></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" placeholder="Votre message" id="message" style="height: 80px"></textarea>
+                                        <label for="message">Que puis-je faire pour vous ? (optionnel)</label>
+                                    </div>
+
+                                    <div class="selected-slot mb-3" id="selectedSlotDisplay">
+                                        <div class="alert alert-primary d-none py-2" role="alert">
+                                            <small>Créneau : <span id="selectedDateTime">Aucun</span></small>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary rounded-pill w-100" type="submit" id="submitButton">
+                                        <i class="uil uil-check me-2"></i>Confirmer le rendez-vous
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Message Modal -->
+                <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body text-center p-6">
+                                <i class="uil uil-check-circle text-primary" style="font-size: 3rem;"></i>
+                                <h3 class="mt-4">Rendez-vous confirmé !</h3>
+                                <p class="mb-0">Votre demande a été enregistrée avec succès.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Appointment Booking Section -->
+
+		<!-- /section -->
+	</div>
+	<!-- /.content-wrapper -->
+	<footer class="bg-dark text-inverse">
+	  <div class="container py-13 py-md-15">
+	    @@include('_footer-widgets.html', {
+				"lightText": true
+			})
+	  </div>
+	  <!-- /.container -->
+	</footer>
+	@@include('_page-progress.html')
+	@@include('_scripts.html')
+  <!-- Swiper JS -->
+   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+   <script>
+    const swiper = new Swiper('.mySwiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    speed: 4000, // slow and smooth
+    allowTouchMove: true, // disable user dragging
+    loop: true, // IMPORTANT: DO NOT USE loop!
+    freeMode: true,
+    freeModeMomentum: false,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false
+    }
+
+  });
+
+
+  </script>
+
+  <!-- Appointment Booking Scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Calendar initialization
+    let currentDate = new Date();
+    let selectedDate = null;
+    let selectedTimeSlot = null;
+
+    function generateCalendar() {
+        const calendar = document.getElementById('appointmentCalendar');
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+
+        // Calendar header
+        const header = document.createElement('div');
+        header.className = 'calendar-header d-flex justify-content-between align-items-center mb-3';
+        header.innerHTML = `
+            <button class="btn btn-sm btn-outline-primary" onclick="previousMonth()">
+                <i class="uil uil-angle-left"></i>
+            </button>
+            <h5 class="mb-0">${new Date(currentYear, currentMonth).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</h5>
+            <button class="btn btn-sm btn-outline-primary" onclick="nextMonth()">
+                <i class="uil uil-angle-right"></i>
+            </button>
+        `;
+        calendar.innerHTML = '';
+        calendar.appendChild(header);
+
+        // Calendar grid
+        const grid = document.createElement('div');
+        grid.className = 'calendar-grid';
+        
+        const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+        days.forEach(day => {
+            const dayEl = document.createElement('div');
+            dayEl.className = 'calendar-day-header';
+            dayEl.textContent = day;
+            grid.appendChild(dayEl);
+        });
+
+        const firstDay = new Date(currentYear, currentMonth, 1);
+        const lastDay = new Date(currentYear, currentMonth + 1, 0);
+        const startDay = firstDay.getDay() || 7;
+
+        for (let i = 0; i < startDay - 1; i++) {
+            grid.appendChild(document.createElement('div'));
+        }
+
+        for (let day = 1; day <= lastDay.getDate(); day++) {
+            const dayEl = document.createElement('div');
+            dayEl.className = 'calendar-day';
+            dayEl.textContent = day;
+            
+            const dateToCheck = new Date(currentYear, currentMonth, day);
+            if (dateToCheck >= new Date()) {
+                dayEl.classList.add('available');
+                dayEl.onclick = () => selectDate(dateToCheck);
+            } else {
+                dayEl.classList.add('disabled');
+            }
+            grid.appendChild(dayEl);
+        }
+
+        calendar.appendChild(grid);
+    }
+
+    function generateTimeSlots(date) {
+        const timeSlotsGrid = document.getElementById('timeSlotsGrid');
+        timeSlotsGrid.innerHTML = '';
+        const slots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
+        slots.forEach(time => {
+            const slot = document.createElement('button');
+            slot.className = 'btn btn-outline-primary btn-sm rounded-pill px-3';
+            slot.textContent = time;
+            slot.onclick = () => selectTimeSlot(time);
+            timeSlotsGrid.appendChild(slot);
+        });
+    }
+
+    function selectDate(date) {
+        selectedDate = date;
+        document.querySelectorAll('.calendar-day').forEach(day => {
+            day.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+        generateTimeSlots(date);
+        updateSelectedSlotDisplay();
+    }
+
+    function selectTimeSlot(time) {
+        selectedTimeSlot = time;
+        document.querySelectorAll('#timeSlotsGrid .btn').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline-primary');
+        });
+        event.target.classList.remove('btn-outline-primary');
+        event.target.classList.add('btn-primary');
+        updateSelectedSlotDisplay();
+    }
+
+    function updateSelectedSlotDisplay() {
+        const display = document.getElementById('selectedSlotDisplay').querySelector('.alert');
+        if (selectedDate && selectedTimeSlot) {
+            display.classList.remove('d-none');
+            const formattedDate = selectedDate.toLocaleDateString('fr-FR', { 
+                weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+            });
+
+            document.getElementById('selectedDateTime').textContent = `${formattedDate} à ${selectedTimeSlot}`;
+
+            // Ajouter les valeurs dans les champs cachés
+            document.getElementById('appointment_date').value = formattedDate;
+            document.getElementById('appointment_time').value = selectedTimeSlot;
+
+            document.getElementById('nextToContactInfo').style.display = 'block';
+        }
+    }
+
+    // Navigation étapes
+    document.getElementById('nextToContactInfo').addEventListener('click', function() {
+        document.getElementById('stepProgress').style.width = '100%';
+        document.getElementById('calendarStep').style.display = 'none';
+        document.getElementById('contactStep').style.display = 'block';
+    });
+
+    // Formulaire
+    const form = document.getElementById('appointmentForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (!selectedDate || !selectedTimeSlot) {
+            alert('Veuillez sélectionner une date et un créneau horaire');
+            return;
+        }
+
+        const formData = new FormData(form);
+        formData.append('appointment_date', document.getElementById('appointment_date').value);
+        formData.append('appointment_time', document.getElementById('appointment_time').value);
+
+        // Convert form data to an object
+        const formDataObj = {};
+        formData.forEach((value, key) => formDataObj[key] = value);
+
+        // Format message for Slack
+        const slackMessage = {
+            text: "🎯 Nouveau rendez-vous !",
+            blocks: [
+                {
+                    type: "header",
+                    text: {
+                        type: "plain_text",
+                        text: "📅 Nouvelle demande de rendez-vous",
+                        emoji: true
+                    }
+                },
+                {
+                    type: "section",
+                    fields: [
+                        {
+                            type: "mrkdwn",
+                            text: `*Nom:*\n${document.getElementById('name').value}`
+                        },
+                        {
+                            type: "mrkdwn",
+                            text: `*Email:*\n${document.getElementById('email').value}`
+                        }
+                    ]
+                },
+                {
+                    type: "section",
+                    fields: [
+                        {
+                            type: "mrkdwn",
+                            text: `*Date:*\n${document.getElementById('appointment_date').value}`
+                        },
+                        {
+                            type: "mrkdwn",
+                            text: `*Heure:*\n${document.getElementById('appointment_time').value}`
+                        }
+                    ]
+                },
+                {
+                    type: "section",
+                    fields: [
+                        {
+                            type: "mrkdwn",
+                            text: `*Téléphone:*\n${document.getElementById('phoneNumber').value}`
+                        },
+                        {
+                            type: "mrkdwn",
+                            text: `*Mode de communication:*\n${document.querySelector('input[name="communication"]:checked').value}`
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Add message if provided
+        const message = document.getElementById('message').value;
+        if (message) {
+            slackMessage.blocks.push({
+                type: "section",
+                text: {
+                    type: "mrkdwn",
+                    text: `*Message:*\n${message}`
+                }
+            });
+        }
+
+        // Send to proxy server
+        fetch('http://localhost:3001/api/slack-webhook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(slackMessage)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de l\'envoi à Slack');
+            }
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+            form.reset();
+            selectedDate = null;
+            selectedTimeSlot = null;
+            generateCalendar();
+            document.getElementById('timeSlotsGrid').innerHTML = '';
+            document.getElementById('selectedSlotDisplay').querySelector('.alert').classList.add('d-none');
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            alert("Une erreur est survenue lors de l'envoi du formulaire");
+        });
+    });
+
+    generateCalendar();
+    window.previousMonth = function() { currentDate.setMonth(currentDate.getMonth() - 1); generateCalendar(); };
+    window.nextMonth = function() { currentDate.setMonth(currentDate.getMonth() + 1); generateCalendar(); };
+});
+</script>
+
+
+  <!-- Calendar Styles -->
+  <style>
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+        margin-top: 0.5rem;
+    }
+
+    .calendar-day-header {
+        text-align: center;
+        font-weight: bold;
+        padding: 4px;
+        font-size: 0.8rem;
+    }
+
+    .calendar-day {
+        text-align: center;
+        padding: 6px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .calendar-day.available:hover {
+        background-color: var(--bs-primary);
+        color: white;
+    }
+
+    .calendar-day.selected {
+        background-color: var(--bs-primary);
+        color: white;
+    }
+
+    .calendar-day.disabled {
+        color: #ccc;
+        cursor: not-allowed;
+    }
+
+    .time-slots .btn {
+        margin: 2px;
+    }
+
+    .steps-indicator .step {
+        color: #6c757d;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    .steps-indicator .step.active {
+        color: var(--bs-primary);
+    }
+
+    .communication-icons .icon-option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #dee2e6;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: #6c757d;
+    }
+
+    .communication-icons .icon-option:hover {
+        border-color: var(--bs-primary);
+        color: var(--bs-primary);
+        transform: scale(1.05);
+    }
+
+    .communication-icons input:checked + .icon-option {
+        border-color: var(--bs-primary);
+        background-color: var(--bs-primary);
+        color: white;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .alert-soft-primary {
+        background-color: rgba(var(--bs-primary-rgb), 0.1);
+        border: none;
+        color: var(--bs-primary);
+    }
+  </style>
+
+</body>
+</html>
