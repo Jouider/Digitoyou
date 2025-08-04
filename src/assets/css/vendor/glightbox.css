@@ -820,6 +820,77 @@ iframe.wait-autoplay {
   }
 }
 
+/* Force l’orange warning sur tous les .btn */
+.btn {
+  background-color: var(--bs-warning) !important;
+  border-color: var(--bs-warning) !important;
+  color: #212529 !important;       /* texte foncé pour le contraste */
+}
+
+/* Boutons outlines re-colorés au survol */
+.btn.btn-outline-light {
+  border-color: var(--bs-warning) !important;
+  color: #fff;
+}
+.btn.btn-outline-light:hover,
+.btn.btn-outline-light:focus {
+  background-color: var(--bs-warning) !important;
+  color: #212529 !important;
+}
+
+/* 1. Overlay dégradé animé */
+.hero-gradient {
+  /* background: linear-gradient(45deg, rgba(0,123,255,0.5), rgba(255,193,7,0.5)); */
+  animation: gradientShift 10s ease infinite;
+  mix-blend-mode: overlay;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 2. Typing effect (JS nécessaire) */
+.typing-text {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  height: 2em;  /* pour éviter le saut de ligne */
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255,255,255,0.75);
+}
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+/* 3. Scroll-down arrow */
+.scroll-down i {
+  color: rgba(255,255,255,0.8);
+}
+
+/* 4. Particules peuvent se faire avec tsParticles ou trois.js, init en JS */
+
+.typing-text {
+  border-right: 2px solid rgba(255,255,255,0.75);
+  white-space: nowrap;
+  overflow: hidden;
+}
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+.text-typing::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
 .testimonial-slide {
   width: 280px !important; /* Swiper slide size */
   flex-shrink: 0;
@@ -865,6 +936,116 @@ iframe.wait-autoplay {
   margin-bottom: 1rem;
 }
 
+/* Contact Angled Sections */
+.angled-section-right{
+  position: relative;
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0% 100%);
+  /* Adjust the "5%" to control the angle */
+}
+
+.angled-section-left {
+  position: relative;
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.project-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-carousel {
+  display: flex;
+  overflow-x: auto;
+
+  scroll-behavior: smooth;
+  gap: 1rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.project-card {
+  min-width: 380px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-overlay {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(30, 30, 30, 0.7); /* greyish overlay */
+  color: #fff;
+  border-radius: 12px;
+
+  backdrop-filter: blur(2px);
+  position: relative;
+  z-index: 2;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Optional hover effect */
+.project-card:hover .project-overlay {
+  background: rgba(30, 30, 30, 0.85);
+}
+
+
+.carousel-arrow {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+
+
+.carousel-arrow.left {
+  order: -1;
+}
+
+.carousel-arrow.right {
+  order: 1;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Contact Angled Sections */
 /*
 @media (min-width:992px) {
   .glightbox-clean .gclose {
