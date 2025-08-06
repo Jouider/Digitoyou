@@ -1101,6 +1101,18 @@ iframe.wait-autoplay {
   pointer-events: none;
   z-index: 2;
 }
+@media (max-width: 576px) {
+  .hero-enhanced {
+    padding: 5rem 1rem !important;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #responsive-btn {
+    font-size: 0.875rem; /* smaller text */
+    padding: 0.6rem 1.2rem !important; /* smaller padding */
+  }
+}
 
 
 
