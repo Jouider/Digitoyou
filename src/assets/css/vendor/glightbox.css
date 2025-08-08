@@ -960,6 +960,7 @@ iframe.wait-autoplay {
   overflow-x: auto;
 
   scroll-behavior: smooth;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
   gap: 1rem;
   max-width: 100%;
   overflow: hidden;

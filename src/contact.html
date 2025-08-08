@@ -46,7 +46,14 @@
 						<p class="lead fs-lg px-lg-5 mb-8 px-xxl-8">Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité. Que vous soyez artisan, commerçant ou entrepreneur, Digitoyou vous connecte au monde en ligne, sans prise de tête.</p>
 					</div>
 						<div class="d-flex justify-content-center justify-content-lg-center">
-							<span><a class="btn btn-primary btn-icon btn-icon-start btn btn-outline-light btn-lg rounded-pill px-5 py-3 shadow "><i class="uil uil-schedule"></i>Parlons de votre projet – 100% gratuit, 0 engagement</a></span>
+							<span><a
+								class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 shadow btn-icon btn-icon-start d-inline-flex align-items-center"
+								id="responsive-btn"
+							  >
+								<i class="uil uil-schedule me-2"></i>
+								<span class="d-none d-sm-inline">Parlons de votre projet – 100% gratuit, 0 engagement</span>
+								<span class="d-inline d-sm-none">Parlons de votre projet</span>
+							  </a></span>
 						</div>
 						<p class="mt-3 mb-0 ">
 							Un expert <b>Digitoyou</b> vous répond en 24h.
@@ -57,22 +64,24 @@
 			
 			<!-- /.container -->
 			<section class="wrapper bg-soft-primary " >
-				<div class="container pb-20 pt-md-9 pb-md-11 text-center">
+				<div class="container pb-10 mt-10  pb-md-11 text-center">
 
-				  <div class="row text-center mb-10">
-					<div class="col-lg-10 mx-auto">
-					  <h3 class="display-4 mb-10 px-xl-10 " >Nos derniers projets</h3>
-					</div>
-				  </div>
+					<div class="row text-center mb-10">
+						<div class="col-lg-10 mx-auto">
+						  <h2 class="fs-15 text-uppercase text-muted mb-3">Nos Réalisations</h2>
+						  <h3 class="display-4 px-xl-10">Nos derniers projets</h3>
+						</div>
+					  </div>
+				  
 			  
-				  <div class="project-carousel-wrapper d-flex align-items-center justify-content-center">
+				  <div class="project-carousel-wrapper d-flex align-items-center justify-content-center flex-nowrap overflow-hidden w-100 position-relative">
 					<!-- Left Arrow -->
-					<button class="carousel-arrow left text-warning" onclick="scrollProjects(-1)">&#10094;</button>
+					<button class="carousel-arrow left text-warning d-none d-md-block" onclick="scrollProjects(-1)">&#10094;</button>
 			  
 					<!-- Cards -->
-					<div class="project-carousel d-flex" id="projectCarousel">
+					<div class="project-carousel d-flex flex-nowrap overflow-auto w-100 px-2" id="projectCarousel">
 
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 370px;">
+						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
 						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Shopping Marrakech">
 							<img src="./assets/img/projects/project-card1.png" alt="Shopping Marrakech" />
 						  </a>
@@ -82,7 +91,7 @@
 						  </figcaption>
 						</figure>
 					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 370px;">
+						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
 						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Coffee Shop">
 							<img src="./assets/img/projects/project-card2.png" alt="Coffee Shop" />
 						  </a>
@@ -92,7 +101,7 @@
 						  </figcaption>
 						</figure>
 					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 370px;">
+						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
 						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Doctor">
 							<img src="./assets/img/projects/project-card3.png" alt="Doctor" />
 						  </a>
@@ -102,7 +111,7 @@
 						  </figcaption>
 						</figure>
 					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 370px;">
+						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
 						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="WEB SITE 1">
 							<img src="./assets/img/projects/project-card1.png" alt="WEB SITE 1" />
 						  </a>
@@ -112,7 +121,7 @@
 						  </figcaption>
 						</figure>
 					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 370px;">
+						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
 						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="WEB SITE 2">
 							<img src="./assets/img/projects/project-card2.png" alt="WEB SITE 2" />
 						  </a>
@@ -122,7 +131,7 @@
 						  </figcaption>
 						</figure>
 					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 370px;">
+						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
 						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="WEB SITE 3">
 							<img src="./assets/img/projects/project-card3.png" alt="WEB SITE 3" />
 						  </a>
@@ -137,7 +146,21 @@
 					  
 			  
 					<!-- Right Arrow -->
-					<button class="carousel-arrow right text-warning " onclick="scrollProjects(1)">&#10095;</button>
+					<button class="carousel-arrow right text-warning d-none d-md-block" onclick="scrollProjects(1)">&#10095;</button>
+				  </div>
+				  <!-- Swiper Slider -->
+				  <div class="swiper brand-swiper px-4 mt-10">
+					<div class="swiper-wrapper align-items-center">
+					  <!-- Slides -->
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c1.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c2.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c3.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c4.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c5.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c6.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c7.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c8.png" alt=""></div>
+					</div>
 				  </div>
 				</div>
 			  </section>
@@ -148,7 +171,7 @@
 		
 		<!-- /section -->
 		<section class="wrapper image-wrapper bg-auto no-overlay bg-image text-center bg-map " data-image-src="@@webRoot/assets/img/map.png">
-			<div class="container pt-0 pb-14 pt-md-16 pb-md-18">
+			<div class="container pt-10 pb-14 pt-md-16 pb-md-18">
 				<div class="row">
 					<div class="col-lg-9 col-xxl-8 mx-auto">
 						<h3 class="display-4 mb-8 px-xl-12">Déjà <span class="text-warning">5000 clients</span> clients satisfaits.<br>Et si vous étiez le prochain?</h3>
@@ -325,6 +348,23 @@
 	  
 	  
 	  <script>
+
+		new Swiper('.brand-swiper', {
+			slidesPerView: 2,
+			spaceBetween: 30,
+			loop: true,
+			speed: 3000,
+			autoplay: {
+			delay: 0,
+			disableOnInteraction: false,
+			},
+			breakpoints: {
+			768: { slidesPerView: 3 },
+			992: { slidesPerView: 4 },
+			1200: { slidesPerView: 5 }  // max 5 if you have only 6 slides
+			}
+		});
+
 		const projectData = {
 		"Shopping Marrakech": {
 			description: "E-commerce moderne pour une boutique locale à Gueliz.",
