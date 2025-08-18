@@ -101,6 +101,8 @@ var theme = {
     if (navbar == null) return;
     const navOffCanvasBtn = document.querySelectorAll(".offcanvas-nav-btn");
     const navOffCanvas = document.querySelector('.navbar:not(.navbar-clone) .offcanvas-nav');
+    // If there's no offcanvas-nav in the current navbar, skip offcanvas init to avoid JS errors
+    if (!navOffCanvas) return;
     const bsOffCanvas = new bootstrap.Offcanvas(navOffCanvas, {scroll: true});
     const scrollLink = document.querySelectorAll('.onepage .navbar li a.scroll');
     const searchOffcanvas = document.getElementById('offcanvas-search');

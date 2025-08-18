@@ -1,11 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 
 // Enable CORS for your frontend domain
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from the `src` directory so assets are available at /assets/...
+app.use(express.static(path.join(__dirname, 'src')));
 
 // Proxy endpoint for Slack
 app.post('/api/slack-webhook', async (req, res) => {
@@ -23,7 +27,8 @@ app.post('/api/slack-webhook', async (req, res) => {
   }
 });
 
-const PORT = 3001;
+// Allow override via PORT env var; default to 3002 (matching your dev server URL)
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-  console.log(`Proxy server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT} (serving /src static files)`);
 });

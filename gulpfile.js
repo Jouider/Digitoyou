@@ -300,6 +300,15 @@ gulp.task('themejs:dist', function () {
     .on('end', () => { reload(); });
 });
 
+// Copy other JS (i18n, etc.) to dist
+gulp.task('js:dist', function () {
+  return gulp.src([path.src.js + '*.js', '!' + path.src.themejs, '!' + path.src.vendorjs])
+    .pipe(newer(path.dist.js))
+    .pipe(gulp.dest(path.dist.js))
+    .pipe(touch())
+    .on('end', () => { reload(); });
+});
+
 // Move media
 gulp.task('media:dev', function () {
   return gulp.src(path.src.media)
@@ -399,6 +408,7 @@ gulp.task('build:dist',
       'vendorcss:dist',
       'pluginsjs:dist',
       'themejs:dist',
+      'js:dist',
       'fonts:dist',
       'media:dist',
       'php:dist',
@@ -417,6 +427,8 @@ gulp.task('watch', function () {
     gulp.watch(path.watch.vendorcss, gulp.series('vendorcss:dist'));
     gulp.watch(path.watch.vendorjs, gulp.series('pluginsjs:dist'));
     gulp.watch(path.watch.themejs, gulp.series('themejs:dist'));
+    // watch general JS files (i18n.js etc.)
+    gulp.watch(path.src.js + '*.js', gulp.series('js:dist'));
     gulp.watch(path.watch.img, gulp.series('image:dist'));
     gulp.watch(path.watch.fonts, gulp.series('fonts:dist'));
     gulp.watch(path.watch.media, gulp.series('media:dist'));
