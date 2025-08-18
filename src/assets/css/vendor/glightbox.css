@@ -1130,4 +1130,17 @@ iframe.wait-autoplay {
     background: #000
   }
 }
+*/
+#timeSlotsGrid .time-slot-btn {
+    /* Specific styles for appointment page buttons */
+    background-color: transparent;
+    border: 1px solid var(--bs-primary);
+    color: var(--bs-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#timeSlotsGrid .time-slot-btn.selected {
+    background-color: var(--bs-primary);
+    color: #fff;
+}
 
