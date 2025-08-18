@@ -29,14 +29,17 @@
             <div class="row">
                 <div class="col-lg-10 col-xl-9 mx-auto mb-2" data-cues="slideInDown" data-group="page-title">
                 <h1 class="display-2 fs-50 mb-4 px-md-15 px-lg-0 text-light ">
-                    Réservez votre <span class="underline-3 style-3 ">Session</span> Stratégique
+                    Réservez votre <span class="underline-3 style-3 text-warning">Session</span> Stratégique
                 </h1>
                 <p class="lead fs-lg px-lg-5 mb-4 px-xxl-8">
                     Ensemble, définissons un <b>plan d'actions clair et un calendrier réaliste</b> pour votre projet web.
                 </p>
                 </div>
                 <p class="fs-16">
-                Vous préférez parler directement ? <strong>📞 07 56 93 35 90</strong> | <a href="mailto:hello@digitoyou.me">✉ hello@digitoyou.me</a>
+                Vous préférez parler directement ? 
+                <div class="text-center">
+                  <strong>📞 07 56 93 35 90</strong> | <a href="mailto:hello@digitoyou.me" class="text-warning">✉ hello@digitoyou.me</a>
+                </div>
                 </p>
             </div>
             </div>
@@ -59,7 +62,7 @@
                             <p class="lead mb-1 fs-lg">15 min</p>
                             <p class="text-primary mb-3">Consultation gratuite</p>
                             <div class="alert alert-soft-primary">
-                                <i class="uil uil-gift fs-5 me-2"></i>
+                                <i class="uil uil-gift me-2" style="font-size: 30px;"></i>
                                 <p>Bonus : maquettes UX sous 72h</p>
                             </div>
                         </div>
@@ -99,7 +102,13 @@
 
                         <!-- Step 2: Contact Form -->
                         <div id="contactStep" style="display: none;">
-                            <h4 class="mb-3">Vos informations</h4>
+                            <!-- Add a smaller return button next to 'Vos informations' -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0">Vos informations</h4>
+                                <button class="btn btn-sm btn-outline-primary rounded-pill" id="backToCalendar">
+                                    <i class="uil uil-arrow-left me-2"></i>Retour
+                                </button>
+                            </div>
 
                         <form id="appointmentForm" class="booking-form">
                             <input type="hidden" id="appointment_date">
@@ -162,6 +171,8 @@
                                     <small>Créneau : <span id="selectedDateTime">Aucun</span></small>
                                 </div>
                             </div>
+
+                         
 
                             <button class="btn btn-primary rounded-pill w-100" type="submit" id="submitButton">
                                 <i class="uil uil-check me-2"></i>Confirmer le rendez-vous
@@ -355,7 +366,7 @@
           <li>📈 Ajustements illimités jusqu'à votre validation</li>
         </ul>
         <p class="fw-bold text-danger mb-4">⚠️ Places limitées : 2 projets ouverts ce mois-ci.</p>
-        <a href="#contact" class="btn btn-gradient gradient-7 rounded-pill mt-3">Réservez votre appel gratuit</a>
+        <a href="@@webRoot/appointment.html" class="btn btn-gradient gradient-7 rounded-pill mt-3">Réservez votre appel gratuit</a>
       </div>
     </div>
   </div>
@@ -468,92 +479,70 @@
         <h2 class="fs-15 text-uppercase text-muted mb-3">Notre Méthode</h2>
         <h3 class="display-4 mb-5">Un seul objectif : transformer votre vision en réalité tangible.</h3>
         <p>De la première esquisse à la mise en ligne, nous avançons main dans la main avec vous grâce à un processus clair, des livraisons rapides et un suivi continu pour que chaque détail soit parfaitement exécuté.</p>
-        <a href="#contact" class="btn btn-navy rounded-pill mt-3">Démarrer mon projet</a>
+        <a href="@@webRoot/appointment.html" class="btn btn-navy rounded-pill mt-3">Démarrer mon projet</a>
       </div>
     </div>
   </div>
 </section>
 
-  <section class="wrapper bg-soft-primary angled upper-end lower-end" data-cue="fadeIn">
-    <div class="container py-14 py-md-16">
-      <div class="row gx-lg-8 gy-8 align-items-center">
-        <!-- Bloc d'images à droite -->
-        <div class="col-lg-6 order-lg-2">
-          <div class="row gx-md-5 gy-5">
-            <div class="col-md-4 offset-md-2 align-self-end">
-              <figure class="rounded"><img src="./assets/img/photos/g1.jpg" srcset="./assets/img/photos/g1@2x.jpg 2x" alt=""></figure>
-            </div>
-            <div class="col-md-6 align-self-end">
-              <figure class="rounded"><img src="./assets/img/photos/g2.jpg" srcset="./assets/img/photos/g2@2x.jpg 2x" alt=""></figure>
-            </div>
-            <div class="col-md-6 offset-md-1">
-              <figure class="rounded"><img src="./assets/img/photos/g3.jpg" srcset="./assets/img/photos/g3@2x.jpg 2x" alt=""></figure>
-            </div>
-            <div class="col-md-4 align-self-start">
-              <figure class="rounded"><img src="./assets/img/photos/g4.jpg" srcset="./assets/img/photos/g4@2x.jpg 2x" alt=""></figure>
-            </div>
+<section class="wrapper bg-soft-primary " data-cue="fadeIn">
+  <div class="container py-14 py-md-16">
+    <div class="row gx-lg-8 gy-8 align-items-center">
+      <!-- Bloc d'images à droite -->
+      <div class="col-lg-6 order-lg-2">
+        <div class="row gx-md-5 gy-5">
+          <div class="col-md-6 align-self-end">
+            <figure class="rounded"><img src="./assets/img/photos/g1.jpg" srcset="./assets/img/photos/g1@2x.jpg 2x" alt=""></figure>
+          </div>
+          <div class="col-md-6 align-self-start d-none d-lg-block">
+            <figure class="rounded"><img src="./assets/img/photos/g2.jpg" srcset="./assets/img/photos/g2@2x.jpg 2x" alt=""></figure>
           </div>
         </div>
-        <!-- Bloc de contenu -->
-        <div class="col-lg-6">
-          <h2 class="display-4 mb-3">Livraison garantie, ou services offerts</h2>
-          <p class="lead fs-lg mb-8 pe-xxl-2"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
-          <div class="row gx-xl-10 gy-6">
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-wrench"></i>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="mb-1">2 mois de maintenance</h4>
-                </div>
+      </div>
+      <!-- Bloc de contenu -->
+      <div class="col-lg-6">
+        <h2 class="display-4 mb-3">Livraison garantie, ou services offerts</h2>
+        <p class="lead fs-lg mb-8 pe-xxl-2"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
+        <div class="row gx-xl-10 gy-6">
+          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+            <div class="d-flex flex-column align-items-center align-items-md-start">
+              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                <i class="uil uil-wrench"></i>
               </div>
+              <h4 class="mb-1">2 mois de maintenance</h4>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-server"></i>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="mb-1">2 mois d’hébergement</h4>
-                </div>
+          </div>
+          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+            <div class="d-flex flex-column align-items-center align-items-md-start">
+              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                <i class="uil uil-server"></i>
               </div>
+              <h4 class="mb-1">2 mois d’hébergement</h4>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-document-layout-left"></i>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="mb-1">2 mois d’articles de blog</h4>
-                </div>
+          </div>
+          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+            <div class="d-flex flex-column align-items-center align-items-md-start">
+              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                <i class="uil uil-document-layout-left"></i>
               </div>
+              <h4 class="mb-1">2 mois d’articles de blog</h4>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-instagram"></i>
-                  </div>
-                </div>
-                <div>
-                  <h4 class="mb-1">2 mois de social media</h4>
-                </div>
+          </div>
+          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+            <div class="d-flex flex-column align-items-center align-items-md-start">
+              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                <i class="uil uil-instagram"></i>
               </div>
+              <h4 class="mb-1">2 mois de social media</h4>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-<section class="wrapper bg-light angled lower-end" data-cue="fadeIn">
+<section class="wrapper bg-light " data-cue="fadeIn">
   <div class="container py-14 py-md-16">
     <h2 class="display-4 mb-3 text-center">Questions fréquentes</h2>
     <p class="lead text-center mb-10 px-md-16 px-lg-0">
@@ -659,7 +648,7 @@
         </div>
 
         <!-- ✅ Bouton à droite (après le texte) -->
-        <a href="#contact" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap">Prendre RDV</a>
+        <a href="@@webRoot/appointment.html" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap">Prendre RDV</a>
 
       </div>
     </div>
@@ -718,11 +707,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const header = document.createElement('div');
         header.className = 'calendar-header d-flex justify-content-between align-items-center mb-3';
         header.innerHTML = `
-            <button class="btn btn-sm btn-outline-primary" onclick="previousMonth()">
+            <button class="btn btn-sm btn-outline-primary" style="background: none; color: yellow;" onclick="previousMonth()">
                 <i class="uil uil-angle-left"></i>
             </button>
             <h5 class="mb-0">${new Date(currentYear, currentMonth).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</h5>
-            <button class="btn btn-sm btn-outline-primary" onclick="nextMonth()">
+            <button class="btn btn-sm btn-outline-primary" style="background: none; color: yellow;" onclick="nextMonth()">
                 <i class="uil uil-angle-right"></i>
             </button>
         `;
@@ -773,7 +762,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const slots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
         slots.forEach(time => {
             const slot = document.createElement('button');
-            slot.className = 'btn btn-outline-primary btn-sm rounded-pill px-3';
+            slot.className = 'btn btn-sm rounded-pill px-3 time-slot-btn';
             slot.textContent = time;
             slot.onclick = () => selectTimeSlot(time);
             timeSlotsGrid.appendChild(slot);
@@ -792,12 +781,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function selectTimeSlot(time) {
         selectedTimeSlot = time;
-        document.querySelectorAll('#timeSlotsGrid .btn').forEach(btn => {
-            btn.classList.remove('btn-primary');
-            btn.classList.add('btn-outline-primary');
+        document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => {
+            btn.classList.remove('btn');
+            btn.classList.add('btn-outline');
         });
-        event.target.classList.remove('btn-outline-primary');
-        event.target.classList.add('btn-primary');
+        event.target.classList.remove('btn-outline');
+        event.target.classList.add('btn');
         updateSelectedSlotDisplay();
     }
 
@@ -824,6 +813,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('stepProgress').style.width = '100%';
         document.getElementById('calendarStep').style.display = 'none';
         document.getElementById('contactStep').style.display = 'block';
+    });
+
+    // Update event listener for the return button
+    const backToCalendarButton = document.getElementById('backToCalendar');
+    backToCalendarButton.addEventListener('click', function() {
+        document.getElementById('stepProgress').style.width = '50%';
+        document.getElementById('contactStep').style.display = 'none';
+        document.getElementById('calendarStep').style.display = 'block';
     });
 
     // Formulaire
@@ -984,13 +981,23 @@ document.addEventListener('DOMContentLoaded', function() {
         cursor: not-allowed;
     }
 
-    .time-slots .btn {
-        margin: 2px;
+    #timeSlotsGrid .time-slot-btn {
+        /* Initial state: transparent background */
+        background-color: transparent;
+        border: 1px solid var(--bs-primary);
+        color: var(--bs-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #timeSlotsGrid .time-slot-btn.selected {
+        /* Selected state: filled background */
+        background-color: var(--bs-primary);
+        color: #fff;
     }
 
     .steps-indicator .step {
         color: #6c757d;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 0.9rem;
     }
 
@@ -1002,8 +1009,8 @@ document.addEventListener('DOMContentLoaded', function() {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border: 3px solid #dee2e6;
         border-radius: 50%;
         cursor: pointer;
@@ -1014,7 +1021,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     .communication-icons .icon-option i {
-        font-size: 1.5rem !important;
+        font-size: 1.2rem !important;
     }
 
     .communication-icons .icon-option:hover {
@@ -1032,7 +1039,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     .communication-icons .icon-label {
-        font-size: 1rem;
+        font-size: 0.85rem;
         color: #6c757d;
         font-weight: 600;
         margin-top: 0.75rem;
@@ -1067,6 +1074,13 @@ document.addEventListener('DOMContentLoaded', function() {
         background-color: rgba(var(--bs-primary-rgb), 0.1);
         border: none;
         color: var(--bs-primary);
+        padding-bottom: 11px;
+    }
+
+    .calendar-header button {
+        background: none !important;
+        color: #fab758 !important;
+        padding: 10;
     }
   </style>
 
