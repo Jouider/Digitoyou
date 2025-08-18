@@ -30,7 +30,7 @@
       
       <!-- Image + Carte Statistique -->
       <div class="col-lg-6 order-lg-2 d-flex position-relative">
-        <img class="img-fluid ms-auto mx-auto me-lg-8" src="@@webRoot/assets/img/photos/co3.png" srcset="@@webRoot/assets/img/photos/co3@2x.png 2x" alt="Digitoyou" data-cue="fadeIn">
+        <img class="img-fluid ms-auto mx-auto me-lg-8" src="@@webRoot/assets/img/avatars/brahim.jpg" srcset="@@webRoot/assets/img/avatars/brahim.jpg" alt="Digitoyou" data-cue="fadeIn">
         <div data-cue="slideInRight" data-delay="300">
           <div class="card shadow-lg position-absolute" style="bottom: 10%; right: -3%;">
             <div class="card-body py-4 px-5">
@@ -57,7 +57,7 @@
           Nous concevons des sites web modernes et efficaces, pensés pour refléter votre identité, séduire vos prospects et transformer chaque visite en opportunité.
         </p>
         <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
-          <span><a href="#contact" class="btn btn-lg btn-primary rounded-pill me-2">Réservez votre consultation gratuite</a></span>
+          <span><a href="@@webRoot/appointment.html" class="btn btn-lg btn-primary rounded-pill me-2">Réservez votre consultation gratuite</a></span>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
     <div class="row gx-lg-8 gx-xl-12 gy-12 align-items-center">
       
       <!-- Images -->
-      <div class="col-lg-6 position-relative"  data-cue="slideInDown">
+      <div class="col-lg-6 position-relative d-none d-lg-block"  data-cue="slideInDown">
         <div class="btn btn-circle btn-primary pe-none position-absolute counter-wrapper flex-column d-none d-md-flex" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 170px; height: 170px;">
           <h3 class="text-white mb-1 mt-n2"><span class="counter counter-lg">4</span></h3>
           <p>Amis fondateurs</p>
@@ -96,8 +96,10 @@
 
       <!-- Texte Notre Histoire -->
       <div class="col-lg-6">
-        <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="Icône partenariat" />
-        <h3 class="display-5 mb-5">Notre Histoire</h3>
+        <div class="text-center">
+          <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="Icône partenariat" />
+          <h3 class="display-5 mb-5">Notre Histoire</h3>
+        </div>
         <p class="mb-4">
           Tout a commencé avec <strong>quatre amis passionnés par le digital</strong> et un rêve commun : rendre le web accessible et performant pour les petites entreprises.
         </p>
@@ -108,7 +110,7 @@
           Aujourd’hui, nous accompagnons entrepreneurs, artisans et PME pour <strong>transformer leurs idées en sites web modernes et performants</strong>, pensés pour séduire, convaincre et convertir.
         </p>
 
-        <div class="row counter-wrapper gy-6">
+        <div class="row counter-wrapper gy-6 text-center text-md-start">
           <div class="col-md-4">
             <h3 class="counter text-primary">4</h3>
             <p>Amis fondateurs</p>
@@ -136,7 +138,7 @@
           Chaque projet est unique. Découvrez des stratégies éprouvées et des outils innovants pour transformer vos idées en succès concret. 
           Laissez-nous vous guider vers l’excellence.
         </p>
-        <a href="#" class="btn btn-lg btn-primary btn-icon btn-icon-end">En savoir plus <i class="uil uil-arrow-up-right"></i></a>
+        <a href="@@webRoot/blog2.html" class="btn btn-lg btn-primary btn-icon btn-icon-end">En savoir plus <i class="uil uil-arrow-up-right"></i></a>
       </div>
       <!-- /column -->
       
@@ -292,7 +294,7 @@
           <li>📈 Ajustements illimités jusqu'à votre validation</li>
         </ul>
         <p class="fw-bold text-danger mb-4">⚠️ Places limitées : 2 projets ouverts ce mois-ci.</p>
-        <a href="#contact" class="btn btn-gradient gradient-7 rounded-pill mt-3">Réservez votre appel gratuit</a>
+        <a href="@@webRoot/appointment.html" class="btn btn-gradient gradient-7 rounded-pill mt-3">Réservez votre appel gratuit</a>
       </div>
     </div>
   </div>
@@ -405,29 +407,23 @@
         <h2 class="fs-15 text-uppercase text-muted mb-3">Notre Méthode</h2>
         <h3 class="display-4 mb-5">Un seul objectif : transformer votre vision en réalité tangible.</h3>
         <p>De la première esquisse à la mise en ligne, nous avançons main dans la main avec vous grâce à un processus clair, des livraisons rapides et un suivi continu pour que chaque détail soit parfaitement exécuté.</p>
-        <a href="#contact" class="btn btn-navy rounded-pill mt-3">Démarrer mon projet</a>
+        <a href="@@webRoot/appointment.html" class="btn btn-navy rounded-pill mt-3">Démarrer mon projet</a>
       </div>
     </div>
   </div>
 </section>
 
-  <section class="wrapper bg-soft-primary angled upper-end lower-end" data-cue="fadeIn">
+  <section class="wrapper bg-soft-primary " data-cue="fadeIn">
     <div class="container py-14 py-md-16">
       <div class="row gx-lg-8 gy-8 align-items-center">
         <!-- Bloc d'images à droite -->
         <div class="col-lg-6 order-lg-2">
           <div class="row gx-md-5 gy-5">
-            <div class="col-md-4 offset-md-2 align-self-end">
+            <div class="col-md-6 align-self-end">
               <figure class="rounded"><img src="./assets/img/photos/g1.jpg" srcset="./assets/img/photos/g1@2x.jpg 2x" alt=""></figure>
             </div>
-            <div class="col-md-6 align-self-end">
+            <div class="col-md-6 align-self-start d-none d-lg-block">
               <figure class="rounded"><img src="./assets/img/photos/g2.jpg" srcset="./assets/img/photos/g2@2x.jpg 2x" alt=""></figure>
-            </div>
-            <div class="col-md-6 offset-md-1">
-              <figure class="rounded"><img src="./assets/img/photos/g3.jpg" srcset="./assets/img/photos/g3@2x.jpg 2x" alt=""></figure>
-            </div>
-            <div class="col-md-4 align-self-start">
-              <figure class="rounded"><img src="./assets/img/photos/g4.jpg" srcset="./assets/img/photos/g4@2x.jpg 2x" alt=""></figure>
             </div>
           </div>
         </div>
@@ -436,52 +432,36 @@
           <h2 class="display-4 mb-3">Livraison garantie, ou services offerts</h2>
           <p class="lead fs-lg mb-8 pe-xxl-2"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
           <div class="row gx-xl-10 gy-6">
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-wrench"></i>
-                  </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-wrench"></i>
                 </div>
-                <div>
-                  <h4 class="mb-1">2 mois de maintenance</h4>
-                </div>
+                <h4 class="mb-1">2 mois de maintenance</h4>
               </div>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-server"></i>
-                  </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-server"></i>
                 </div>
-                <div>
-                  <h4 class="mb-1">2 mois d’hébergement</h4>
-                </div>
+                <h4 class="mb-1">2 mois d’hébergement</h4>
               </div>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-document-layout-left"></i>
-                  </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-document-layout-left"></i>
                 </div>
-                <div>
-                  <h4 class="mb-1">2 mois d’articles de blog</h4>
-                </div>
+                <h4 class="mb-1">2 mois d’articles de blog</h4>
               </div>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-              <div class="d-flex flex-row">
-                <div>
-                  <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-5">
-                    <i class="uil uil-instagram"></i>
-                  </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-instagram"></i>
                 </div>
-                <div>
-                  <h4 class="mb-1">2 mois de social media</h4>
-                </div>
+                <h4 class="mb-1">2 mois de social media</h4>
               </div>
             </div>
           </div>
@@ -490,7 +470,7 @@
     </div>
   </section>
 
-<section class="wrapper bg-light angled lower-end" data-cue="fadeIn">
+<section class="wrapper bg-light " data-cue="fadeIn">
   <div class="container py-14 py-md-16">
     <h2 class="display-4 mb-3 text-center">Questions fréquentes</h2>
     <p class="lead text-center mb-10 px-md-16 px-lg-0">
@@ -596,7 +576,7 @@
         </div>
 
         <!-- ✅ Bouton à droite (après le texte) -->
-        <a href="#contact" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap">Prendre RDV</a>
+        <a href="@@webRoot/appointment.html" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap">Prendre RDV</a>
 
       </div>
     </div>
