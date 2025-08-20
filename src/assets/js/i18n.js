@@ -75,6 +75,38 @@
           q3: { q: 'Quels types de projets réalisez-vous ?', a: 'Sites vitrines, e-commerce, landing pages, refontes, branding… On s’adapte à vos besoins pour livrer une solution clé en main, toujours orientée conversion.' },
           q4: { q: 'Et si je veux faire des ajustements après la livraison ?', a: 'Pas de souci. On inclut 2 à 3 mois de maintenance selon le projet, pour corriger, ajuster ou faire évoluer votre site. C’est compris dans notre engagement.' },
           q5: { q: 'Quels sont vos tarifs ?', a: 'Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.' }
+        },
+        projects: {
+          wgs: {
+            title: 'Wolves Groups Services',
+            desc: 'Développement du site pour <strong>WGS.ma</strong>, une entreprise de services de sécurité.',
+            cta: 'Visiter le site >'
+          },
+            storymedia: {
+            title: 'Story Media',
+            desc: 'Conception et réalisation du site <strong>Storymedia.ma</strong>, une agence de storytelling.',
+            cta: 'Visiter le site >'
+          },
+          faciclean: {
+            title: 'Faciclean',
+            desc: 'Développement du site pour <strong>Faciclean</strong>, entreprise spécialisée dans le nettoyage professionnel.',
+            cta: 'Visiter le site >'
+          },
+          agile5s: {
+            title: 'Agile5S',
+            desc: 'Développement du site pour <strong>Agile5S</strong>, société américaine de services IT spécialisée dans des solutions logicielles évolutives.',
+            cta: 'Visiter le site >'
+          },
+          groupsaz: {
+            title: 'Group SAZ',
+            desc: 'Développement du site pour <strong>Group SAZ</strong>, couvrant la gestion immobilière, le facility management, le conseil IT et l\'aviation.',
+            cta: 'Visiter le site >'
+          },
+          syndicaz: {
+            title: 'SyndicAZ',
+            desc: 'Développement du site pour <strong>SyndicAZ</strong>, plateforme de gestion de copropriété et de conseil en immobilier dédiée à des services immobiliers.',
+            cta: 'Visiter le site >'
+          }
         }
       }
     },
@@ -148,6 +180,38 @@
           q3: { q: 'What types of projects do you handle?', a: 'Showcase sites, e-commerce, landing pages, redesigns, branding… We adapt to your needs to deliver a turnkey solution, always conversion-oriented.' },
           q4: { q: 'What if I want to make adjustments after delivery?', a: 'No problem. We include 2 to 3 months of maintenance depending on the project, to correct, adjust, or evolve your site. It’s part of our commitment.' },
           q5: { q: 'What are your rates?', a: 'Each project is unique. But to give you an idea, our support starts from €3,000, with real follow-up, a real strategy, and a custom site.' }
+        },
+        projects: {
+          wgs: {
+            title: 'Wolves Groups Services',
+            desc: 'Development of the website for <strong>WGS.ma</strong>, a security services company.',
+            cta: 'Visit Website >'
+          },
+          storymedia: {
+            title: 'Story Media',
+            desc: 'Designing and building <strong>Storymedia.ma</strong>\'s website, a storytelling agency.',
+            cta: 'Visit Website >'
+          },
+          faciclean: {
+            title: 'Faciclean',
+            desc: 'Development of the website for <strong>Faciclean</strong>, a company specializing in professional cleaning services.',
+            cta: 'Visit Website >'
+          },
+          agile5s: {
+            title: 'Agile5S',
+            desc: 'Development of the website for <strong>Agile5S</strong>, a leading US-based IT services company specializing in scalable software solutions.',
+            cta: 'Visit Website >'
+          },
+          groupsaz: {
+            title: 'Group SAZ',
+            desc: 'Development of the website for <strong>Group SAZ</strong>, covering property management, facility management, IT consulting, and aviation.',
+            cta: 'Visit Website >'
+          },
+          syndicaz: {
+            title: 'SyndicAZ',
+            desc: 'Development of the website for <strong>SyndicAZ</strong>, a property management and co-ownership consulting platform dedicated to efficient .',
+            cta: 'Visit Website >'
+          }
         }
       }
     }
