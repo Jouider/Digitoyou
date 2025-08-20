@@ -143,117 +143,20 @@
           </div>
         </div>
     
-        <!-- Swiper -->
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-    
-            <!-- Card 1 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project1.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Pierre</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">Digitoyou a fait un boulot impeccable pour IPxcs. Adam et son équipe ont créé une...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-    
-            <!-- Card 2 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project2.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Alexis</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">J'ai été très heureux de travailler avec Adam et son équipe. Adam c'est quelqu’un d’impliqué...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-  
-            <!-- Card 3 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project3.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Alexis</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">J'ai été très heureux de travailler avec Adam et son équipe. Adam c'est quelqu’un d’impliqué...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-  
-            <!-- Card 3 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project1.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Alexis</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">J'ai été très heureux de travailler avec Adam et son équipe. Adam c'est quelqu’un d’impliqué...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-  
-            <!-- Card 1 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project2.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Pierre</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">CyberScale a fait un boulot impeccable pour IPxcs. Adam et son équipe ont créé une...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-    
-            <!-- Card 2 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project3.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Alexis</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">J'ai été très heureux de travailler avec Adam et son équipe. Adam c'est quelqu’un d’impliqué...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-  
-            <!-- Card 3 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project1.png" alt="Mockup" class="img-fluid rounded" >
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Alexis</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">J'ai été très heureux de travailler avec Adam et son équipe. Adam c'est quelqu’un d’impliqué...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-  
-            <!-- Card 3 -->
-            <div class="swiper-slide testimonial-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-img mb-4">
-                  <img loading="lazy" src="./assets/img/projects/project2.png" alt="Mockup" class="img-fluid rounded">
-                </div>
-                <h5 class="testimonial-title">Le témoignage de <strong>Alexis</strong></h5>
-                <div class="text-warning mb-2">★★★★★</div>
-                <p class="text-muted">J'ai été très heureux de travailler avec Adam et son équipe. Adam c'est quelqu’un d’impliqué...</p>
-                <a href="#" class=" fw-bold mt-auto">Voir plus &gt;</a>
-              </div>
-            </div>
-            <!-- Add more cards here -->
-    
-          </div>
+        <!-- Swiper (Projects injected dynamically) -->
+<div class="swiper mySwiper" id="projects-swiper" data-source="./assets/data/projects.json">
+  <div class="swiper-wrapper" id="projects-swiper-wrapper">
+    <!-- Project slides will be injected here dynamically -->
+    <div class="swiper-slide" data-placeholder hidden>
+      <div class="testimonial-card text-center py-5">
+        <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;">
+          <span class="visually-hidden">Loading...</span>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </section>
     <section class="wrapper bg-dark ">
@@ -512,27 +415,71 @@
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
    <script defer>
     document.addEventListener('DOMContentLoaded', () => {
-      // Swiper
-      new Swiper('.mySwiper', {
-        slidesPerView: 'auto', spaceBetween: 30, speed: 3000,
-        freeMode: true, freeModeMomentum: false,
-        autoplay: { delay: 0, disableOnInteraction: false },
-        breakpoints: { 320:{slidesPerView:1.2},768:{slidesPerView:2.2},1200:{slidesPerView:3.5} }
-      });
+      // Dynamic Projects Loader then Swiper init
+      const projectsSwiperEl = document.getElementById('projects-swiper');
+      const projectsWrapper = document.getElementById('projects-swiper-wrapper');
+      const dataSource = projectsSwiperEl?.getAttribute('data-source');
+
+      function buildSlide(p){
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide testimonial-slide';
+        slide.innerHTML = `
+          <div class="testimonial-card d-flex flex-column h-100">
+            <div class="testimonial-img mb-3">
+              <video class="img-fluid rounded" autoplay muted loop playsinline preload="metadata" poster="${p.poster}" width="190">
+                <source src="${p.video?.src || ''}" type="${p.video?.type || 'video/webm'}">
+                ${p.video?.label || p.name || ''}
+              </video>
+            </div>
+            <h5 class="testimonial-title" data-i18n="${p.i18nTitle || ''}">${p.title}</h5>
+            <p class="text-muted flex-grow-1" data-i18n-html="${p.i18nDesc || ''}">${p.desc}</p>
+            <a href="${p.link}" target="_blank" class="fw-bold mt-auto" data-i18n="${p.i18nCta || ''}">Visit Website &gt;</a>
+          </div>`;
+        return slide;
+      }
+
+      async function loadProjects(){
+        if(!dataSource || !projectsWrapper) return;
+        try{
+          const res = await fetch(dataSource, { cache: 'no-store' });
+          if(!res.ok) throw new Error('Failed to load projects');
+          const data = await res.json();
+          // Clear existing (placeholders)
+            projectsWrapper.innerHTML = '';
+          (data.sort?.((a,b)=> (a.order||0)-(b.order||0)) || data).forEach(p=>{
+            projectsWrapper.appendChild(buildSlide(p));
+          });
+          // Apply i18n if available
+          if(window.applyI18n){ window.applyI18n(); }
+        }catch(err){
+          console.error(err);
+          projectsWrapper.innerHTML = '<div class="text-danger p-4">Failed to load projects.</div>';
+        }finally{
+          initProjectsSwiper();
+        }
+      }
+
+      function initProjectsSwiper(){
+        if(projectsSwiperEl.dataset.initialized) return; // guard
+        new Swiper('.mySwiper', {
+          slidesPerView: 'auto', spaceBetween: 30, speed: 3000,
+          freeMode: true, freeModeMomentum: false,
+          autoplay: { delay: 0, disableOnInteraction: false },
+          breakpoints: { 320:{slidesPerView:1.2},768:{slidesPerView:2.2},1200:{slidesPerView:3.5} }
+        });
+        projectsSwiperEl.dataset.initialized = 'true';
+      }
+
+      // Load projects then init brand swiper (independent)
+      loadProjects();
+
       new Swiper('.brand-swiper', {
         slidesPerView: 2,
         spaceBetween: 30,
         loop: true,
         speed: 3000,
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-        },
-        breakpoints: {
-          768: { slidesPerView: 3 },
-          992: { slidesPerView: 4 },
-          1200: { slidesPerView: 5 }  // max 5 if you have only 6 slides
-        }
+        autoplay: { delay: 0, disableOnInteraction: false },
+        breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 }, 1200: { slidesPerView: 5 } }
       });
     // Hero dynamic typing (uses localized words from i18n.js)
     (function(){
@@ -581,10 +528,8 @@
         }
       });
     })();
-    // tsParticles
+      // tsParticles (left as is if initialized elsewhere)
     });
-    
-
   </script>
 
 </body>

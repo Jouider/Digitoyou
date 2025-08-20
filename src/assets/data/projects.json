@@ -1,0 +1,104 @@
+[
+  {
+    "id": "wgs",
+    "order": 1,
+    "title": "Wolves Groups Services",
+    "name": "WGS.ma",
+    "desc": "Development of the website for WGS.ma, a security services company.",
+    "i18nTitle": "index.projects.wgs.title",
+    "i18nDesc": "index.projects.wgs.desc",
+    "i18nCta": "index.projects.wgs.cta",
+    "poster": "./assets/img/projects/wgs.png",
+    "video": {
+      "src": "./assets/img/projects/wgs.webm",
+      "type": "video/webm",
+      "label": "WGS.ma"
+    },
+    "link": "https://www.wgs.ma/"
+  },
+  {
+    "id": "storymedia",
+    "order": 2,
+    "title": "Story Media",
+    "name": "Storymedia.ma",
+    "desc": "Designing and building Storymedia.ma's website, a storytelling agency.",
+    "i18nTitle": "index.projects.storymedia.title",
+    "i18nDesc": "index.projects.storymedia.desc",
+    "i18nCta": "index.projects.storymedia.cta",
+    "poster": "./assets/img/projects/storymedia.png",
+    "video": {
+      "src": "./assets/img/projects/sm.webm",
+      "type": "video/webm",
+      "label": "Storymedia.ma"
+    },
+    "link": "https://www.storymedia.ma/"
+  },
+  {
+    "id": "faciclean",
+    "order": 3,
+    "title": "Faciclean",
+    "name": "Faciclean",
+    "desc": "Development of the website for Faciclean, a company specializing in professional cleaning services.",
+    "i18nTitle": "index.projects.faciclean.title",
+    "i18nDesc": "index.projects.faciclean.desc",
+    "i18nCta": "index.projects.faciclean.cta",
+    "poster": "./assets/img/projects/faciclean.png",
+    "video": {
+      "src": "./assets/img/projects/faciclean.webm",
+      "type": "video/webm",
+      "label": "Faciclean"
+    },
+    "link": "https://faciclean.ma/"
+  },
+  {
+    "id": "agile5s",
+    "order": 4,
+    "title": "Agile5S",
+    "name": "Agile5S",
+    "desc": "Development of the website for Agile5S, a leading US-based IT services company specializing in scalable software solutions.",
+    "i18nTitle": "index.projects.agile5s.title",
+    "i18nDesc": "index.projects.agile5s.desc",
+    "i18nCta": "index.projects.agile5s.cta",
+    "poster": "./assets/img/projects/agile5s.png",
+    "video": {
+      "src": "./assets/img/projects/agile5s.webm",
+      "type": "video/webm",
+      "label": "Agile5S"
+    },
+    "link": "https://agile5s.com/"
+  },
+  {
+    "id": "groupsaz",
+    "order": 5,
+    "title": "Group SAZ",
+    "name": "Group SAZ",
+    "desc": "Development of the website for Group SAZ, covering property management, facility management, IT consulting, and aviation.",
+    "i18nTitle": "index.projects.groupsaz.title",
+    "i18nDesc": "index.projects.groupsaz.desc",
+    "i18nCta": "index.projects.groupsaz.cta",
+    "poster": "./assets/img/projects/groupsaz.png",
+    "video": {
+      "src": "./assets/img/projects/groupsaz.webm",
+      "type": "video/webm",
+      "label": "Group SAZ"
+    },
+    "link": "https://groupsaz.com/"
+  },
+  {
+    "id": "syndicaz",
+    "order": 6,
+    "title": "SyndicAZ",
+    "name": "SyndicAZ",
+    "desc": "Development of the website for SyndicAZ, a property management and co-ownership consulting platform dedicated to efficient and transparent real estate services.",
+    "i18nTitle": "index.projects.syndicaz.title",
+    "i18nDesc": "index.projects.syndicaz.desc",
+    "i18nCta": "index.projects.syndicaz.cta",
+    "poster": "./assets/img/projects/saz.png",
+    "video": {
+      "src": "./assets/img/projects/saz.webm",
+      "type": "video/webm",
+      "label": "SyndicAZ"
+    },
+    "link": "https://www.syndicaz.com/"
+  }
+]

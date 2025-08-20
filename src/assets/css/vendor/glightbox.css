@@ -98,7 +98,7 @@
   flex-direction: column;
   max-width: 100%;
   margin: auto;
-  //height: 100vh;
+  /* height: 100vh; */
 }
 .glightbox-container .ginner-container.gvideo-container {
   width: 100%;
@@ -352,7 +352,7 @@
   display: none !important;
 }
 .glightbox-open {
-  //overflow: hidden;
+  /* overflow: hidden; */
 }
 .gloader {
   height: 25px;
@@ -900,7 +900,8 @@ iframe.wait-autoplay {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 390px;
+  height: auto; /* allow content-driven height */
+  min-height: 390px; /* maintain previous visual baseline */
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -908,6 +909,10 @@ iframe.wait-autoplay {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .testimonial-card { min-height: 340px; }
 }
 
 .testimonial-card:hover {
