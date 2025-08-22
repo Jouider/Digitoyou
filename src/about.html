@@ -16,9 +16,10 @@
 				"logoAlt": "logo-dark",
 				"otherClassList": "ms-lg-4",
 				"otherBtn": true,
+        "otherLanguageSelect": true,
 				"otherBtnClassList": "btn-sm btn-primary rounded-pill",
 				"otherBtnText": "Prendre RDV",
-				"otherBtnLink": "#modal-signin",
+				"otherBtnLink": "@@webRoot/contact.html",
 
 			})
 		</header>
@@ -41,8 +42,8 @@
                   </div>
                 </div>
                 <div>
-                  <h3 class="counter mb-0 text-nowrap">100% Remote</h3>
-                  <p class="fs-14 lh-sm mb-0 text-nowrap">Agence Digitale</p>
+                  <h3 class="counter mb-0 text-nowrap" data-i18n="index.about.card.remote.heading">100% Remote</h3>
+                  <p class="fs-14 lh-sm mb-0 text-nowrap" data-i18n="index.about.card.remote.sub">Agence Digitale</p>
                 </div>
               </div>
             </div>
@@ -52,12 +53,10 @@
       
       <!-- Contenu About -->
       <div class="col-lg-6 text-center text-lg-start" data-cues="slideInDown" data-group="page-title" data-delay="600">
-        <h1 class="display-2 mb-5">Digitoyou,<span class="text-primary">le digital devient vôtre.</span></h1>
-        <p class="lead fs-lg lh-sm mb-6 pe-xl-10">
-          Nous concevons des sites web modernes et efficaces, pensés pour refléter votre identité, séduire vos prospects et transformer chaque visite en opportunité.
-        </p>
+        <h1 class="display-2 mb-5" data-i18n-html="index.about.hero.h1"></h1>
+        <p class="lead fs-lg lh-sm mb-6 pe-xl-10" data-i18n-html="index.about.hero.lead"></p>
         <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
-          <span><a href="@@webRoot/appointment.html" class="btn btn-lg btn-primary rounded-pill me-2">Réservez votre consultation gratuite</a></span>
+          <span><a href="@@webRoot/appointment.html" class="btn btn-lg btn-primary rounded-pill me-2" data-i18n="index.about.hero.cta_button"></a></span>
         </div>
       </div>
     </div>
@@ -75,7 +74,7 @@
       <div class="col-lg-6 position-relative d-none d-lg-block"  data-cue="slideInDown">
         <div class="btn btn-circle btn-primary pe-none position-absolute counter-wrapper flex-column d-none d-md-flex" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 170px; height: 170px;">
           <h3 class="text-white mb-1 mt-n2"><span class="counter counter-lg">4</span></h3>
-          <p>Amis fondateurs</p>
+          <p data-i18n="index.about.counters.founders">Amis fondateurs</p>
         </div>
         <div class="row gx-md-5 gy-5 align-items-center">
           <div class="col-md-6">
@@ -98,30 +97,24 @@
       <div class="col-lg-6">
         <div class="text-center">
           <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="Icône partenariat" />
-          <h3 class="display-5 mb-5">Notre Histoire</h3>
+          <h3 class="display-5 mb-5" data-i18n="index.about.history.title"></h3>
         </div>
-        <p class="mb-4">
-          Tout a commencé avec <strong>quatre amis passionnés par le digital</strong> et un rêve commun : rendre le web accessible et performant pour les petites entreprises.
-        </p>
-        <p class="mb-4">
-          En unissant nos expertises en <strong>développement web, design, data et vente</strong>, nous avons créé <strong>Digitoyou</strong>, une agence humaine et ambitieuse qui place vos besoins au centre de chaque projet.
-        </p>
-        <p class="mb-7">
-          Aujourd’hui, nous accompagnons entrepreneurs, artisans et PME pour <strong>transformer leurs idées en sites web modernes et performants</strong>, pensés pour séduire, convaincre et convertir.
-        </p>
+        <p class="mb-4" data-i18n-html="index.about.history.p1"></p>
+        <p class="mb-4" data-i18n-html="index.about.history.p2"></p>
+        <p class="mb-7" data-i18n-html="index.about.history.p3"></p>
 
         <div class="row counter-wrapper gy-6 text-center text-md-start">
           <div class="col-md-4">
             <h3 class="counter text-primary">4</h3>
-            <p>Amis fondateurs</p>
+            <p data-i18n="index.about.counters.founders">Amis fondateurs</p>
           </div>
           <div class="col-md-4">
             <h3 class="counter text-primary">+20</h3>
-            <p>Projets livrés</p>
+            <p data-i18n="index.about.counters.delivered">Projets livrés</p>
           </div>
           <div class="col-md-4">
             <h3 class="counter text-primary">100%</h3>
-            <p>Satisfaction client</p>
+            <p data-i18n="index.about.counters.satisfaction">Satisfaction client</p>
           </div>
         </div>
       </div>
@@ -133,12 +126,9 @@
     <div class="row d-flex align-items-start gy-10">
       
       <div class="col-lg-5 position-lg-sticky" style="top: 8rem;">
-        <h3 class="display-2 mb-5">Des conseils experts taillés sur mesure pour faire décoller votre projet.</h3>
-        <p class="mb-7">
-          Chaque projet est unique. Découvrez des stratégies éprouvées et des outils innovants pour transformer vos idées en succès concret. 
-          Laissez-nous vous guider vers l’excellence.
-        </p>
-        <a href="@@webRoot/blog2.html" class="btn btn-lg btn-primary btn-icon btn-icon-end">En savoir plus <i class="uil uil-arrow-up-right"></i></a>
+        <h3 class="display-2 mb-5" data-i18n="index.about.advice.title"></h3>
+        <p class="mb-7" data-i18n="index.about.advice.lead"></p>
+        <a href="@@webRoot/blog2.html" class="btn btn-lg btn-primary btn-icon btn-icon-end" data-i18n="index.about.advice.button" >En savoir plus <i class="uil uil-arrow-up-right"></i></a>
       </div>
       <!-- /column -->
       
@@ -150,8 +140,8 @@
               <img src="./assets/img/icons/lineal/target.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Ciblage stratégique" />
             </div>
             <div>
-              <h3 class="fs-21 mb-2">Ciblage stratégique</h3>
-              <p class="mb-0">Identifiez précisément votre audience idéale pour maximiser l’impact de chaque action, sans dispersion inutile.</p>
+              <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card1.title">Ciblage stratégique</h3>
+              <p class="mb-0" data-i18n="index.about.features_cards.card1.desc">Identifiez précisément votre audience idéale pour maximiser l’impact de chaque action, sans dispersion inutile.</p>
             </div>
           </div>
         </div>
@@ -163,8 +153,8 @@
               <img src="./assets/img/icons/lineal/shield.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Sécurité avancée" />
             </div>
             <div>
-              <h3 class="fs-21 mb-2">Sécurité avancée</h3>
-              <p class="mb-0">Protégez vos données et celles de vos clients avec des solutions robustes, pour bâtir une relation de confiance durable.</p>
+              <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card2.title">Sécurité avancée</h3>
+              <p class="mb-0" data-i18n="index.about.features_cards.card2.desc">Protégez vos données et celles de vos clients avec des solutions robustes, pour bâtir une relation de confiance durable.</p>
             </div>
           </div>
         </div>
@@ -176,8 +166,8 @@
               <img src="./assets/img/icons/lineal/performance.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Performance optimisée" />
             </div>
             <div>
-              <h3 class="fs-21 mb-2">Performance optimisée</h3>
-              <p class="mb-0">Offrez à vos utilisateurs une expérience fluide et rapide, facteur clé pour garder leur attention et les convertir.</p>
+              <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card3.title">Performance optimisée</h3>
+              <p class="mb-0" data-i18n="index.about.features_cards.card3.desc">Offrez à vos utilisateurs une expérience fluide et rapide, facteur clé pour garder leur attention et les convertir.</p>
             </div>
           </div>
         </div>
@@ -189,8 +179,8 @@
               <img src="./assets/img/icons/lineal/workflows.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Automatisation intelligente" />
             </div>
             <div>
-              <h3 class="fs-21 mb-2">Automatisation intelligente</h3>
-              <p class="mb-0">Libérez-vous des tâches répétitives et concentrez-vous sur ce qui crée de la valeur, grâce à des outils performants et intuitifs.</p>
+              <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card4.title">Automatisation intelligente</h3>
+              <p class="mb-0" data-i18n="index.about.features_cards.card4.desc">Libérez-vous des tâches répétitives et concentrez-vous sur ce qui crée de la valeur, grâce à des outils performants et intuitifs.</p>
             </div>
           </div>
         </div>
@@ -202,8 +192,8 @@
               <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Support dédié" />
             </div>
             <div>
-              <h3 class="fs-21 mb-2">Support dédié</h3>
-              <p class="mb-0">Un accompagnement réactif et personnalisé, parce que chaque question mérite une réponse claire et rapide.</p>
+              <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card5.title">Support dédié</h3>
+              <p class="mb-0" data-i18n="index.about.features_cards.card5.desc">Un accompagnement réactif et personnalisé, parce que chaque question mérite une réponse claire et rapide.</p>
             </div>
           </div>
         </div>
@@ -215,8 +205,8 @@
               <img src="./assets/img/icons/lineal/analytics.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Analyse performante" />
             </div>
             <div>
-              <h3 class="fs-21 mb-2">Analyse performante</h3>
-              <p class="mb-0">Des données claires et exploitables pour ajuster votre stratégie et accélérer votre croissance avec précision.</p>
+              <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card6.title">Analyse performante</h3>
+              <p class="mb-0" data-i18n="index.about.features_cards.card6.desc">Des données claires et exploitables pour ajuster votre stratégie et accélérer votre croissance avec précision.</p>
             </div>
           </div>
         </div>
@@ -251,8 +241,8 @@
                     <div class="icon btn btn-circle btn-lg btn-soft-blue pe-none mb-3">
                       <i class="uil uil-rocket"></i>
                     </div>
-                    <h4>Livraison Express</h4>
-                    <p class="mb-2">Un site clé en main prêt en moins de 10 jours pour démarrer rapidement.</p>
+                    <h4 data-i18n="index.about.shortcards.delivery.title">Livraison Express</h4>
+                    <p class="mb-2" data-i18n="index.about.shortcards.delivery.desc">Un site clé en main prêt en moins de 10 jours pour démarrer rapidement.</p>
                   </div>
                 </div>
               </div>
@@ -272,8 +262,8 @@
                     <div class="icon btn btn-circle btn-lg btn-soft-blue pe-none mb-3">
                       <i class="uil uil-headphones"></i>
                     </div>
-                    <h4>Support Réactif</h4>
-                    <p class="mb-2">90% des messages et appels traités en moins d'une heure, 7j/7.</p>
+                    <h4 data-i18n="index.about.shortcards.support.title">Support Réactif</h4>
+                    <p class="mb-2" data-i18n="index.about.shortcards.support.desc">90% des messages et appels traités en moins d'une heure, 7j/7.</p>
                   </div>
                 </div>
               </div>
@@ -284,17 +274,13 @@
       
       <!-- Colonne droite CTA -->
       <div class="col-lg-5 offset-lg-1">
-        <h2 class="display-4 mb-3">Prêt à booster votre présence en ligne ?</h2>
-        <p class="lead fs-lg">
-          Chez <strong>Digitoyou</strong>, nous limitons volontairement le nombre de projets pour vous garantir un suivi personnalisé et des résultats rapides.
-        </p>
-        <ul class="mb-4">
-          <li>🚀 Un site clé en main livré en moins de 10 jours</li>
-          <li>🤝 Un accompagnement humain à chaque étape</li>
-          <li>📈 Ajustements illimités jusqu'à votre validation</li>
+        <h2 class="display-4 mb-3" data-i18n="index.about.cta_section.heading">Prêt à booster votre présence en ligne ?</h2>
+        <p class="lead fs-lg" data-i18n-html="index.about.cta_section.lead">Chez <strong>Digitoyou</strong>, nous limitons volontairement le nombre de projets pour vous garantir un suivi personnalisé et des résultats rapides.</p>
+        <ul class="mb-4" data-i18n="index.about.cta_section.bullets">
+          <!-- bullets will be injected by i18n.js -->
         </ul>
-        <p class="fw-bold text-danger mb-4">⚠️ Places limitées : 2 projets ouverts ce mois-ci.</p>
-        <a href="@@webRoot/appointment.html" class="btn btn-gradient gradient-7 rounded-pill mt-3">Réservez votre appel gratuit</a>
+        <p class="fw-bold text-danger mb-4" data-i18n="index.about.cta_section.limited">⚠️ Places limitées : 2 projets ouverts ce mois-ci.</p>
+        <a href="@@webRoot/appointment.html" class="btn btn-gradient gradient-7 rounded-pill mt-3" data-i18n="index.about.cta_section.button">Réservez votre appel gratuit</a>
       </div>
     </div>
   </div>
@@ -306,8 +292,8 @@
       <div class="col-md-10 col-lg-7 mx-auto position-relative">
         <img src="./assets/img/svg/doodle5.svg" class="w-15 position-absolute d-none d-lg-block" data-delay="1800" style="bottom: -60%; right: 10%" alt="">
         <img src="./assets/img/svg/doodle6.svg" class="h-15 position-absolute d-none d-lg-block" data-delay="1800" style="top: -40%; left: -5%" alt="">
-        <h2 class="fs-16 text-uppercase text-muted mb-3">Notre Processus</h2>
-        <h3 class="display-3 mb-8 px-xl-6">Un processus simple, <span class="text-gradient gradient-7">transparent</span> et sans stress.</h3>
+        <h2 class="fs-16 text-uppercase text-muted mb-3" data-i18n="index.about.process.small">Notre Processus</h2>
+        <h3 class="display-3 mb-8 px-xl-6" data-i18n-html="index.about.process.title">Un processus simple, <span class="text-gradient gradient-7">transparent</span> et sans stress.</h3>
       </div>
     </div>
 
@@ -324,13 +310,13 @@
           <div class="col-md-6 col-lg-4 order-lg-first">
             <div class="mb-8">
               <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">01</span>
-              <h4 class="fs-20">Des tarifs limpides</h4>
-              <p class="mb-0 px-xl-7">Des devis clairs et détaillés – aucun frais caché, jamais.</p>
+              <h4 class="fs-20" data-i18n="index.about.process.step01.title">Des tarifs limpides</h4>
+              <p class="mb-0 px-xl-7" data-i18n="index.about.process.step01.desc">Des devis clairs et détaillés – aucun frais caché, jamais.</p>
             </div>
             <div>
               <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">02</span>
-              <h4 class="fs-20">Une équipe ultra-disponible</h4>
-              <p class="mb-0 px-xl-7">90% des messages et appels traités en moins d’une heure.</p>
+              <h4 class="fs-20" data-i18n="index.about.process.step02.title">Une équipe ultra-disponible</h4>
+              <p class="mb-0 px-xl-7" data-i18n="index.about.process.step02.desc">90% des messages et appels traités en moins d’une heure.</p>
             </div>
           </div>
 
@@ -338,13 +324,13 @@
           <div class="col-md-6 col-lg-4">
             <div class="mb-8">
               <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">03</span>
-              <h4 class="fs-20">Des délais respectés</h4>
-              <p class="mb-0 px-xl-7">Livraison rapide garantie pour dépasser vos attentes.</p>
+              <h4 class="fs-20" data-i18n="index.about.process.step03.title">Des délais respectés</h4>
+              <p class="mb-0 px-xl-7" data-i18n="index.about.process.step03.desc">Livraison rapide garantie pour dépasser vos attentes.</p>
             </div>
             <div>
               <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">04</span>
-              <h4 class="fs-20">Un code conçu pour durer</h4>
-              <p class="mb-0 px-xl-7">Un site optimisé, évolutif et pensé pour réduire vos coûts futurs.</p>
+              <h4 class="fs-20" data-i18n="index.about.process.step04.title">Un code conçu pour durer</h4>
+              <p class="mb-0 px-xl-7" data-i18n="index.about.process.step04.desc">Un site optimisé, évolutif et pensé pour réduire vos coûts futurs.</p>
             </div>
           </div>
         </div>
@@ -364,8 +350,8 @@
             <div class="card ">
               <div class="card-body">
                 <img src="./assets/img/icons/lineal/web.svg" class="svg-inject icon-svg icon-svg-md  mb-3" alt="" />
-                <h4>Wireframes & Workflows</h4>
-                <p class="mb-0">Des maquettes offertes pour visualiser votre projet dès le départ.</p>
+                <h4 data-i18n="index.about.services_cards.wf.title">Wireframes & Workflows</h4>
+                <p class="mb-0" data-i18n="index.about.services_cards.wf.desc">Des maquettes offertes pour visualiser votre projet dès le départ.</p>
               </div>
             </div>
           </div>
@@ -374,8 +360,8 @@
             <div class="card bg-pale-primary">
               <div class="card-body">
                 <img src="./assets/img/icons/lineal/clendar.svg" class="svg-inject icon-svg icon-svg-md  mb-3" alt="" />
-                <h4>Livraisons Hebdomadaires</h4>
-                <p class="mb-0">Chaque semaine, recevez une nouvelle partie du projet et validez vos retours.</p>
+                <h4 data-i18n="index.about.services_cards.weekly.title">Livraisons Hebdomadaires</h4>
+                <p class="mb-0" data-i18n="index.about.services_cards.weekly.desc">Chaque semaine, recevez une nouvelle partie du projet et validez vos retours.</p>
               </div>
             </div>
           </div>
@@ -384,8 +370,8 @@
             <div class="card bg-pale-primary">
               <div class="card-body">
                 <img src="./assets/img/icons/lineal/refresh.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" />
-                <h4>Flexibilité Totale</h4>
-                <p class="mb-0">Vos besoins évoluent ? Nous adaptons notre travail en temps réel.</p>
+                <h4 data-i18n="index.about.services_cards.flex.title">Flexibilité Totale</h4>
+                <p class="mb-0" data-i18n="index.about.services_cards.flex.desc">Vos besoins évoluent ? Nous adaptons notre travail en temps réel.</p>
               </div>
             </div>
           </div>
@@ -394,8 +380,8 @@
             <div class="card ">
               <div class="card-body">
                 <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" />
-                <h4>Suivi Post-Livraison</h4>
-                <p class="mb-0">Bénéficiez de 3 mois de suivi inclus pour ajuster et optimiser votre projet.</p>
+                <h4 data-i18n="index.about.services_cards.post.title">Suivi Post-Livraison</h4>
+                <p class="mb-0" data-i18n="index.about.services_cards.post.desc">Bénéficiez de 3 mois de suivi inclus pour ajuster et optimiser votre projet.</p>
               </div>
             </div>
           </div>
@@ -404,10 +390,10 @@
       
       <!-- Texte principal -->
       <div class="col-lg-5">
-        <h2 class="fs-15 text-uppercase text-muted mb-3">Notre Méthode</h2>
-        <h3 class="display-4 mb-5">Un seul objectif : transformer votre vision en réalité tangible.</h3>
-        <p>De la première esquisse à la mise en ligne, nous avançons main dans la main avec vous grâce à un processus clair, des livraisons rapides et un suivi continu pour que chaque détail soit parfaitement exécuté.</p>
-        <a href="@@webRoot/appointment.html" class="btn btn-navy rounded-pill mt-3">Démarrer mon projet</a>
+        <h2 class="fs-15 text-uppercase text-muted mb-3" data-i18n="index.about.method.small">Notre Méthode</h2>
+        <h3 class="display-4 mb-5" data-i18n="index.about.method.title">Un seul objectif : transformer votre vision en réalité tangible.</h3>
+        <p data-i18n="index.about.method.lead">De la première esquisse à la mise en ligne, nous avançons main dans la main avec vous grâce à un processus clair, des livraisons rapides et un suivi continu pour que chaque détail soit parfaitement exécuté.</p>
+        <a href="@@webRoot/appointment.html" class="btn btn-navy rounded-pill mt-3" data-i18n="index.about.method.button">Démarrer mon projet</a>
       </div>
     </div>
   </div>
@@ -429,15 +415,15 @@
         </div>
         <!-- Bloc de contenu -->
         <div class="col-lg-6">
-          <h2 class="display-4 mb-3">Livraison garantie, ou services offerts</h2>
-          <p class="lead fs-lg mb-8 pe-xxl-2"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
+          <h2 class="display-4 mb-3" data-i18n="index.about.delivery.title">Livraison garantie, ou services offerts</h2>
+          <p class="lead fs-lg mb-8 pe-xxl-2" data-i18n-html="index.about.delivery.lead"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
           <div class="row gx-xl-10 gy-6">
             <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
               <div class="d-flex flex-column align-items-center align-items-md-start">
                 <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
                   <i class="uil uil-wrench"></i>
                 </div>
-                <h4 class="mb-1">2 mois de maintenance</h4>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.0">2 mois de maintenance</h4>
               </div>
             </div>
             <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
@@ -445,7 +431,7 @@
                 <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
                   <i class="uil uil-server"></i>
                 </div>
-                <h4 class="mb-1">2 mois d’hébergement</h4>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.1">2 mois d’hébergement</h4>
               </div>
             </div>
             <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
@@ -453,7 +439,7 @@
                 <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
                   <i class="uil uil-document-layout-left"></i>
                 </div>
-                <h4 class="mb-1">2 mois d’articles de blog</h4>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.2">2 mois d’articles de blog</h4>
               </div>
             </div>
             <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
@@ -461,7 +447,7 @@
                 <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
                   <i class="uil uil-instagram"></i>
                 </div>
-                <h4 class="mb-1">2 mois de social media</h4>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.3">2 mois de social media</h4>
               </div>
             </div>
           </div>
@@ -470,121 +456,118 @@
     </div>
   </section>
 
-<section class="wrapper bg-light " data-cue="fadeIn">
-  <div class="container py-14 py-md-16">
-    <h2 class="display-4 mb-3 text-center">Questions fréquentes</h2>
-    <p class="lead text-center mb-10 px-md-16 px-lg-0">
-      On a regroupé ici tout ce que vous devez savoir avant de lancer votre projet avec nous. Vous avez encore des questions ? Contactez-nous, on répond rapidement.
-    </p>
-
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <div class="accordion-wrapper" id="faq-accordion">
-          <!-- Exemple 1 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-1">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1">
-                Pourquoi choisir Digitoyou plutôt qu’une autre agence ?
-              </button>
+  <section class="wrapper bg-light ">
+    <div class="container py-14 py-md-16">
+      <h2 class="display-4 mb-3 text-center" data-i18n="index.faq.title">Questions fréquentes</h2>
+      <p class="lead text-center mb-10 px-md-16 px-lg-0" data-i18n="index.faq.lead">
+        On a regroupé ici tout ce que vous devez savoir avant de lancer votre projet avec nous. Vous avez encore des questions ? Contactez-nous, on répond rapidement.
+      </p>
+  
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="accordion-wrapper" id="faq-accordion">
+            <!-- Exemple 1 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-1">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1" data-i18n="index.faq.q1.q">
+                  Pourquoi choisir Digitoyou plutôt qu’une autre agence ?
+                </button>
+              </div>
+              <div id="faq-collapse-1" class="collapse" aria-labelledby="faq-heading-1" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q1.a">Digitoyou mise sur la qualité, la transparence et la vitesse. Nous ne prenons jamais plus de 3 projets en parallèle pour offrir une attention totale à chaque client.</p>
+                </div>
+              </div>
             </div>
-            <div id="faq-collapse-1" class="collapse" aria-labelledby="faq-heading-1" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Digitoyou mise sur la qualité, la transparence et la vitesse. Nous ne prenons jamais plus de 3 projets en parallèle pour offrir une attention totale à chaque client.</p>
+  
+            <!-- Exemple 2 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-2">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2" data-i18n="index.faq.q2.q">
+                  Quand pouvez-vous démarrer mon projet ?
+                </button>
+              </div>
+              <div id="faq-collapse-2" class="collapse" aria-labelledby="faq-heading-2" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q2.a">Nous pouvons démarrer en 5 à 10 jours, selon nos disponibilités. On prend vite contact pour organiser ça ensemble.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 3 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-3">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3" data-i18n="index.faq.q3.q">
+                  Quels types de projets réalisez-vous ?
+                </button>
+              </div>
+              <div id="faq-collapse-3" class="collapse" aria-labelledby="faq-heading-3" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q3.a">Sites vitrines, e-commerce, landing pages, refontes, branding… On s’adapte à vos besoins pour livrer une solution clé en main, toujours orientée conversion.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 4 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-4">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4" data-i18n="index.faq.q4.q">
+                  Et si je veux faire des ajustements après la livraison ?
+                </button>
+              </div>
+              <div id="faq-collapse-4" class="collapse" aria-labelledby="faq-heading-4" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q4.a">Pas de souci. On inclut 2 à 3 mois de maintenance selon le projet, pour corriger, ajuster ou faire évoluer votre site. C’est compris dans notre engagement.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 5 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-5">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5" data-i18n="index.faq.q5.q">
+                  Quels sont vos tarifs ?
+                </button>
+              </div>
+              <div id="faq-collapse-5" class="collapse" aria-labelledby="faq-heading-5" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q5.a">Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.</p>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Exemple 2 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-2">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
-                Quand pouvez-vous démarrer mon projet ?
-              </button>
-            </div>
-            <div id="faq-collapse-2" class="collapse" aria-labelledby="faq-heading-2" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Nous pouvons démarrer en 5 à 10 jours, selon nos disponibilités. On prend vite contact pour organiser ça ensemble.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 3 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-3">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
-                Quels types de projets réalisez-vous ?
-              </button>
-            </div>
-            <div id="faq-collapse-3" class="collapse" aria-labelledby="faq-heading-3" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Sites vitrines, e-commerce, landing pages, refontes, branding… On s’adapte à vos besoins pour livrer une solution clé en main, toujours orientée conversion.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 4 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-4">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4">
-                Et si je veux faire des ajustements après la livraison ?
-              </button>
-            </div>
-            <div id="faq-collapse-4" class="collapse" aria-labelledby="faq-heading-4" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Pas de souci. On inclut 2 à 3 mois de maintenance selon le projet, pour corriger, ajuster ou faire évoluer votre site. C’est compris dans notre engagement.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 5 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-5">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5">
-                Quels sont vos tarifs ?
-              </button>
-            </div>
-            <div id="faq-collapse-5" class="collapse" aria-labelledby="faq-heading-5" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.</p>
-              </div>
-            </div>
-          </div>
+          <!-- /.accordion-wrapper -->
         </div>
-        <!-- /.accordion-wrapper -->
       </div>
-    </div>
-
-    <!-- CTA -->
-<div class="row justify-content-center mt-10">
-  <div class="col-xl-10 mx-auto">
-    <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-500 position-relative" data-image-src="./assets/img/photos/bg3.jpg">
-      <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-between text-center text-lg-start position-relative">
-
-        <!-- ✅ Image flottante en bas à gauche -->
-        <div class="position-absolute d-none d-lg-block" style="bottom:0; left:10%; width: 16%; z-index:2">
-          <figure>
-            <img src="./assets/img/photos/co2.png" srcset="./assets/img/photos/co2@2x.png 2x" alt="">
-          </figure>
+  
+      <!-- CTA -->
+  <div class="row justify-content-center mt-10">
+    <div class="col-xl-10 mx-auto">
+      <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-500 position-relative" data-image-src="./assets/img/photos/bg3.jpg">
+        <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-between text-center text-lg-start position-relative">
+  
+          <!-- ✅ Image flottante en bas à gauche -->
+          <div class="position-absolute d-none d-lg-block" style="bottom:0; left:10%; width: 16%; z-index:2">
+            <figure>
+              <img src="./assets/img/photos/co2.png" srcset="./assets/img/photos/co2@2x.png 2x" alt="">
+            </figure>
+          </div>
+  
+          <!-- ✅ Texte à droite sur large -->
+          <div class="ms-lg-auto">
+            <h3 class="text-light text-center display-6 mb-6 mb-lg-0" data-i18n-html="index.cta.heading">Vous avez encore des questions ?<br>Discutons-en autour d’un appel rapide.</h3>
+          </div>
+  
+          <!-- ✅ Bouton à droite (après le texte) -->
+          <a href="@@webRoot/appointment.html" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap" data-i18n="index.cta.button">Prendre RDV</a>
+  
         </div>
-
-        <!-- ✅ Texte à droite sur large -->
-        <div class="ms-lg-auto">
-          <h3 class="text-light text-center display-6 mb-6 mb-lg-0">
-            Vous avez encore des questions ?<br>
-            Discutons-en autour d’un appel rapide.
-          </h3>
-        </div>
-
-        <!-- ✅ Bouton à droite (après le texte) -->
-        <a href="@@webRoot/appointment.html" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap">Prendre RDV</a>
-
       </div>
     </div>
   </div>
-</div>
-
-
-</section>
+  
+  
+  </section>
 </div>
 	<!-- /.content-wrapper -->
 	<footer class="bg-dark text-inverse">
