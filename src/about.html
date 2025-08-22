@@ -31,7 +31,7 @@
       
       <!-- Image + Carte Statistique -->
       <div class="col-lg-6 order-lg-2 d-flex position-relative">
-        <img class="img-fluid ms-auto mx-auto me-lg-8" src="@@webRoot/assets/img/avatars/brahim.jpg" srcset="@@webRoot/assets/img/avatars/brahim.jpg" alt="Digitoyou" data-cue="fadeIn">
+        <img class="img-fluid ms-auto mx-auto me-lg-8" src="@@webRoot/assets/img/pages/about-hero.png" srcset="@@webRoot/assets/img/pages/about-hero.png" alt="Digitoyou" data-cue="fadeIn" width="350">
         <div data-cue="slideInRight" data-delay="300">
           <div class="card shadow-lg position-absolute" style="bottom: 10%; right: -3%;">
             <div class="card-body py-4 px-5">
@@ -232,7 +232,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <figure class="rounded mb-6">
-                  <img src="./assets/img/photos/se1.jpg" srcset="./assets/img/photos/se1@2x.jpg 2x" alt="Livraison rapide">
+                  <img src="./assets/img/pages/support.jpg" srcset="./assets/img/pages/support.jpg 2x" alt="Livraison rapide">
                 </figure>
               </div>
               <div class="col-lg-12">
@@ -253,7 +253,7 @@
             <div class="row">
               <div class="col-lg-12 order-md-2">
                 <figure class="rounded mb-6 mb-md-0">
-                  <img src="./assets/img/photos/se2.jpg" srcset="./assets/img/photos/se2@2x.jpg 2x" alt="Support rapide">
+                  <img src="./assets/img/pages/delivery.jpg" srcset="./assets/img/pages/delivery.jpg 2x" alt="Support rapide">
                 </figure>
               </div>
               <div class="col-lg-12">
@@ -273,11 +273,10 @@
       </div>
       
       <!-- Colonne droite CTA -->
-      <div class="col-lg-5 offset-lg-1">
+      <div class="col-lg-5 offset-lg-1 text-center d-flex flex-column align-items-center align-items-lg-start justify-content-center">
         <h2 class="display-4 mb-3" data-i18n="index.about.cta_section.heading">Prêt à booster votre présence en ligne ?</h2>
         <p class="lead fs-lg" data-i18n-html="index.about.cta_section.lead">Chez <strong>Digitoyou</strong>, nous limitons volontairement le nombre de projets pour vous garantir un suivi personnalisé et des résultats rapides.</p>
-        <ul class="mb-4" data-i18n="index.about.cta_section.bullets">
-          <!-- bullets will be injected by i18n.js -->
+        <ul class="mb-4 d-inline-block text-start" data-i18n="index.about.cta_section.bullets">
         </ul>
         <p class="fw-bold text-danger mb-4" data-i18n="index.about.cta_section.limited">⚠️ Places limitées : 2 projets ouverts ce mois-ci.</p>
         <a href="@@webRoot/appointment.html" class="btn btn-gradient gradient-7 rounded-pill mt-3" data-i18n="index.about.cta_section.button">Réservez votre appel gratuit</a>
@@ -301,7 +300,11 @@
       <div class="col-xxl-11 mx-auto">
         <div class="row gy-10 gy-lg-0 text-center d-flex align-items-center">
           <div class="col-md-6 col-lg-4 mx-auto mb-n10 mb-lg-0">
-            <figure class="mx-auto"><img src="./assets/img/photos/devices4.png" srcset="./assets/img/photos/devices4@2x.png 2x" alt="Processus simple Digitoyou"></figure>
+            <figure class="mx-auto">
+              <video class="img-fluid" autoplay muted loop playsinline preload="metadata" poster="./assets/img/pages/steps-phone-poster.jpg" aria-label="Processus simple Digitoyou">
+                <source src="./assets/img/pages/steps-phone.webm" type="video/webm" />
+              </video>
+            </figure>
           </div>
 
           <div class="w-100 d-lg-none"></div>

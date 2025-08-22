@@ -661,15 +661,6 @@
     }
   };
 
-  // Expose helper to retrieve translation values outside this IIFE (for dynamic content)
-  window.i18nGet = function(key, lang){
-    try {
-      const l = lang || (localStorage.getItem(LS_KEY) || defaultLang);
-      const dict = translations[l] || translations[defaultLang];
-      return key.split('.').reduce((o,k)=> o && o[k], dict);
-    } catch(e){ return undefined; }
-  };
-
   function getSaved() { return localStorage.getItem(LS_KEY) || defaultLang; }
   function save(lang){ localStorage.setItem(LS_KEY, lang); }
 
@@ -744,6 +735,7 @@
       document.documentElement.removeAttribute('dir');
       document.documentElement.setAttribute('lang', lang);
     }
+  }
 
   function setLanguage(lang){
     if(!supported.includes(lang)) lang = defaultLang;
