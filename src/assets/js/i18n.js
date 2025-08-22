@@ -377,6 +377,15 @@
     }
   };
 
+  // Expose helper to retrieve translation values outside this IIFE (for dynamic content)
+  window.i18nGet = function(key, lang){
+    try {
+      const l = lang || (localStorage.getItem(LS_KEY) || defaultLang);
+      const dict = translations[l] || translations[defaultLang];
+      return key.split('.').reduce((o,k)=> o && o[k], dict);
+    } catch(e){ return undefined; }
+  };
+
   function getSaved() { return localStorage.getItem(LS_KEY) || defaultLang; }
   function save(lang){ localStorage.setItem(LS_KEY, lang); }
 
@@ -439,9 +448,11 @@
     try { document.dispatchEvent(new CustomEvent('i18n:updated')); } catch(e){}
 
     // update current language display
-    document.querySelectorAll('.current-lang').forEach(el => {
-      el.textContent = lang === 'fr' ? 'Fr' : 'En';
-    });
+    const cur = document.querySelector('.language-select .current-lang');
+    if(cur) cur.textContent = lang === 'fr' ? 'Fr' : 'En';
+
+  // publish current language globally for dynamic modules
+  window.i18nCurrentLang = lang;
   }
 
   function setLanguage(lang){
