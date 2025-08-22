@@ -22,11 +22,19 @@
         <a href="@@if (context.linkModal === 'true') {#}@@if (context.linkModal !== 'true') {@@linkLink}" class="nav-link" @@if (context.linksNewTab === 'true') {target="_blank"} @@if (context.linkModal === 'true') { data-bs-toggle="modal" data-bs-target="@@linkLink"}>@@linkText</a>
       </li>
     }
+   
     @@if (context.btn === 'true') {
-    <li class="nav-item d-none d-md-block">
-      <a href="@@if (context.btnModal === 'true') {#}@@if (context.btnModal !== 'true') {@@btnLink}" class="btn @@btnClassList" @@if (context.linksNewTab === 'true') {target="_blank"} @@if (context.btnModal === 'true') { data-bs-toggle="modal" data-bs-target="@@btnLink"}><i class="uil uil-calendar-alt" style="margin-right: 10px;" ></i> @@btnText</a>
-    </li>
-    }
+      <li class="nav-item d-none d-md-block">
+        <a href="@@if (context.btnModal === 'true') {#}@@if (context.btnModal !== 'true') {@@btnLink}" 
+           class="btn @@btnClassList" 
+           @@if (context.linksNewTab === 'true') {target="_blank"} 
+           @@if (context.btnModal === 'true') { data-bs-toggle="modal" data-bs-target="@@btnLink"}
+           data-i18n="index.cta.button">
+           <i class="uil uil-calendar-alt" style="margin-right: 10px;"></i> @@btnText
+        </a>
+      </li>
+      }
+      
     @@if (context.social === 'true') {
       <li class="nav-item">
         <nav class="nav social social-muted justify-content-end text-end">

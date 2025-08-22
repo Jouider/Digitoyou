@@ -901,7 +901,8 @@ iframe.wait-autoplay {
   flex-direction: column;
   align-items: center;
   height: auto; /* allow content-driven height */
-  min-height: 390px; /* maintain previous visual baseline */
+  max-height: 390px; /* maintain previous visual baseline */
+  min-height: 390px; /* ensure minimum height */
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -912,7 +913,8 @@ iframe.wait-autoplay {
 }
 
 @media (max-width: 576px) {
-  .testimonial-card { min-height: 340px; }
+  .testimonial-card { max-height: 390px; /* maintain previous visual baseline */
+    min-height: 390px; /* ensure minimum height */; }
 }
 
 .testimonial-card:hover {
