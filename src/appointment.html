@@ -7,321 +7,319 @@
   <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+
+
 </head>
 <body>
 	<div class="content-wrapper">
-		<header class="wrapper image-wrapper bg-image  " data-image-src="./assets/img/photos/bg3.jpg">
+		<header class="wrapper  bg-image  " data-image-src="./assets/img/photos/bg3.jpg">
 			@@include('_navbar.html', {
-			"classList": "fancy navbar-light navbar-bg-light caret-none ",
-			"fancy": true,
-			"otherClassList": "w-100 d-flex ms-auto",
-			"otherLanguageSelect": true,
-			"otherBtn": true,
-			"otherBtnClassList": "btn-sm btn-primary rounded-pill",
-			"otherBtnText": "Prendre RDV",
-			"otherBtnLink": "@@webRoot/contact.html",
-			"otherBtnIcon": "uil uil-phone",
-			})
+        "classList": "fancy navbar-light navbar-bg-light caret-none",
+        "fancy": true,
+        "otherClassList": "w-100 d-flex ms-auto",
+        "otherLanguageSelect": true,
+        "otherBtn": true,
+        "otherBtnClassList": "btn-sm btn-primary rounded-pill",
+        "otherBtnText": "Prendre RDV",
+        "otherBtnLink": "@@webRoot/appointment.html",
+        "otherBtnIcon": "uil uil-phone",
+        })
 		</header>
 		<!-- /header -->
 		<section class="wrapper image-wrapper bg-image text-light"  data-image-src="./assets/img/photos/bg3.jpg">
             <div class="container pt-8 pt-md-10 pb-6 text-center">
             <div class="row">
                 <div class="col-lg-10 col-xl-9 mx-auto mb-2" data-cues="slideInDown" data-group="page-title">
-                <h1 class="display-2 fs-50 mb-4 px-md-15 px-lg-0 text-light ">
-                    Réservez votre <span class="underline-3 style-3 text-warning">Session</span> Stratégique
-                </h1>
-                <p class="lead fs-lg px-lg-5 mb-4 px-xxl-8">
-                    Ensemble, définissons un <b>plan d'actions clair et un calendrier réaliste</b> pour votre projet web.
-                </p>
+                <h1 class="display-2 fs-50 mb-4 px-md-15 px-lg-0 text-light " data-i18n-html="index.appointment.hero.h1"></h1>
+                <p class="lead fs-lg px-lg-5 mb-4 px-xxl-8" data-i18n-html="index.appointment.hero.lead"></p>
                 </div>
-                <p class="fs-16">
-                Vous préférez parler directement ? 
+                <p class="fs-16" data-i18n="index.appointment.hero.contact_prompt"></p>
                 <div class="text-center">
                   <strong>📞 07 56 93 35 90</strong> | <a href="mailto:hello@digitoyou.me" class="text-warning">✉ hello@digitoyou.me</a>
                 </div>
-                </p>
+              
             </div>
             </div>
 		</section>
 
-        <!-- Appointment Booking Section -->
-<section class="wrapper image-wrapper bg-image py-8 " data-image-src="./assets/img/photos/bg3.jpg">
-    <div class="container py-8 py-md-10">
-        <div class="row gx-lg-6 gy-6 align-items-start justify-content-center">
-            <!-- Profile Column (Left) -->
-            <div class="col-lg-4 col-xl-4">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <div class="avatar avatar-lg mb-3">
-                                <img src="@@webRoot/assets/img/avatars/brahim.jpg" alt="Brahim" class="rounded-circle" />
-                            </div>
-                            <p class="text-primary mb-2 fs-15 fw-bold">Brahim Berouini</p>
-                            <h4 class="mb-2">Parlons de votre projet 🚀</h4>
-                            <p class="lead mb-1 fs-lg">15 min</p>
-                            <p class="text-primary mb-3">Consultation gratuite</p>
-                            <div class="alert alert-soft-primary">
-                                <i class="uil uil-gift me-2" style="font-size: 30px;"></i>
-                                <p>Bonus : maquettes UX sous 72h</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dynamic Right Column (Calendar/Form) -->
-            <div class="col-lg-7 col-xl-6">
-                <div class="card shadow-lg">
-                    <div class="card-body p-3">
-                        <div class="steps-indicator mb-2">
-                            <div class="d-flex justify-content-between">
-                                <span class="step small" id="step1">1. Choisir un créneau</span>
-                                <span class="step small" id="step2">2. Vos coordonnées</span>
-                            </div>
-                            <div class="progress mt-2" style="height: 3px;">
-                                <div class="progress-bar" role="progressbar" style="width: 50%" id="stepProgress"></div>
-                            </div>
-                        </div>
-
-                        <!-- Step 1: Calendar View -->
-                        <div id="calendarStep">
-                            <div class="calendar-wrapper" id="appointmentCalendar">
-                                <!-- Calendar will be inserted here by JavaScript -->
-                            </div>
-                            <div class="time-slots mt-3" id="timeSlots">
-                                <h5 class="mb-2">Créneaux disponibles</h5>
-                                <div class="d-flex flex-wrap gap-2" id="timeSlotsGrid">
-                                    <!-- Time slots will be dynamically populated -->
-                                </div>
-                            </div>
-                            <button class="btn btn-primary rounded-pill w-100 mt-3" id="nextToContactInfo" style="display: none;">
-                                <i class="uil uil-arrow-right me-2"></i>Continuer
-                            </button>
-                        </div>
-
-                        <!-- Step 2: Contact Form -->
-                        <div id="contactStep" style="display: none;">
-                            <!-- Add a smaller return button next to 'Vos informations' -->
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="mb-0">Vos informations</h4>
-                                <button class="btn btn-sm btn-outline-primary rounded-pill" id="backToCalendar">
-                                    <i class="uil uil-arrow-left me-2"></i>Retour
-                                </button>
-                            </div>
-
-                        <form id="appointmentForm" class="booking-form">
-                            <input type="hidden" id="appointment_date">
-                            <input type="hidden" id="appointment_time">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" placeholder="Votre nom" id="name" required>
-                                        <label for="name">Nom complet</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" placeholder="Votre email" id="email" required>
-                                        <label for="email">Email</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-floating mb-3">
-                                <input type="tel" class="form-control" placeholder="Votre téléphone" id="phoneNumber" required>
-                                <label for="phoneNumber">Numéro de téléphone</label>
-                            </div>
-
-                            <!-- Communication preference - Icons in one line -->
-                            <div class="mb-4">
-                                <label class="form-label">Comment souhaitez-vous échanger ?</label>
-                                <div class="communication-icons d-flex justify-content-center gap-4 mt-3">
-                                    <div class="form-check-icon text-center">
-                                        <input class="form-check-input d-none" type="radio" name="communication" id="phone" value="phone" checked>
-                                        <label class="icon-option" for="phone">
-                                            <i class="uil uil-phone fs-3"></i>
-                                        </label>
-                                        <div class="icon-label mt-2">Téléphone</div>
-                                    </div>
-                                    <div class="form-check-icon text-center">
-                                        <input class="form-check-input d-none" type="radio" name="communication" id="whatsapp" value="whatsapp">
-                                        <label class="icon-option" for="whatsapp">
-                                            <i class="uil uil-whatsapp fs-3"></i>
-                                        </label>
-                                        <div class="icon-label mt-2">WhatsApp</div>
-                                    </div>
-                                    <div class="form-check-icon text-center">
-                                        <input class="form-check-input d-none" type="radio" name="communication" id="meet" value="meet">
-                                        <label class="icon-option" for="meet">
-                                            <i class="uil uil-video fs-3"></i>
-                                        </label>
-                                        <div class="icon-label mt-2">Google Meet</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" placeholder="Votre message" id="message" style="height: 80px"></textarea>
-                                <label for="message">Que puis-je faire pour vous ? (optionnel)</label>
-                            </div>
-
-                            <div class="selected-slot mb-3" id="selectedSlotDisplay">
-                                <div class="alert alert-primary d-none py-2" role="alert">
-                                    <small>Créneau : <span id="selectedDateTime">Aucun</span></small>
-                                </div>
-                            </div>
-
-                         
-
-                            <button class="btn btn-primary rounded-pill w-100" type="submit" id="submitButton">
-                                <i class="uil uil-check me-2"></i>Confirmer le rendez-vous
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Success Message Modal -->
-        <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center p-6">
-                        <i class="uil uil-check-circle text-primary" style="font-size: 3rem;"></i>
-                        <h3 class="mt-4">Rendez-vous confirmé !</h3>
-                        <p class="mb-0">Votre demande a été enregistrée avec succès.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal">Fermer</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="wrapper bg-soft-primary angled" data-cue="fadeIn">
-  <div class="container py-14 py-md-16">
-    <div class="row d-flex align-items-start gy-10">
-      
-      <div class="col-lg-5 position-lg-sticky" style="top: 8rem;">
-        <h3 class="display-2 mb-5">Des conseils experts taillés sur mesure pour faire décoller votre projet.</h3>
-        <p class="mb-7">
-          Chaque projet est unique. Découvrez des stratégies éprouvées et des outils innovants pour transformer vos idées en succès concret. 
-          Laissez-nous vous guider vers l’excellence.
-        </p>
-        <a href="#" class="btn btn-lg btn-primary btn-icon btn-icon-end">En savoir plus <i class="uil uil-arrow-up-right"></i></a>
-      </div>
-      <!-- /column -->
-      
-      <div class="col-lg-6 ms-auto">
-
-        <div class="card mb-6">
-          <div class="card-body d-flex flex-row">
-            <div>
-              <img src="./assets/img/icons/lineal/target.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Ciblage stratégique" />
-            </div>
-            <div>
-              <h3 class="fs-21 mb-2">Ciblage stratégique</h3>
-              <p class="mb-0">Identifiez précisément votre audience idéale pour maximiser l’impact de chaque action, sans dispersion inutile.</p>
-            </div>
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card  mb-6">
-          <div class="card-body d-flex flex-row">
-            <div>
-              <img src="./assets/img/icons/lineal/shield.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Sécurité avancée" />
-            </div>
-            <div>
-              <h3 class="fs-21 mb-2">Sécurité avancée</h3>
-              <p class="mb-0">Protégez vos données et celles de vos clients avec des solutions robustes, pour bâtir une relation de confiance durable.</p>
-            </div>
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card mb-6">
-          <div class="card-body d-flex flex-row">
-            <div>
-              <img src="./assets/img/icons/lineal/performance.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Performance optimisée" />
-            </div>
-            <div>
-              <h3 class="fs-21 mb-2">Performance optimisée</h3>
-              <p class="mb-0">Offrez à vos utilisateurs une expérience fluide et rapide, facteur clé pour garder leur attention et les convertir.</p>
-            </div>
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card  mb-6">
-          <div class="card-body d-flex flex-row">
-            <div>
-              <img src="./assets/img/icons/lineal/workflows.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Automatisation intelligente" />
-            </div>
-            <div>
-              <h3 class="fs-21 mb-2">Automatisation intelligente</h3>
-              <p class="mb-0">Libérez-vous des tâches répétitives et concentrez-vous sur ce qui crée de la valeur, grâce à des outils performants et intuitifs.</p>
-            </div>
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card  mb-6">
-          <div class="card-body d-flex flex-row">
-            <div>
-              <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Support dédié" />
-            </div>
-            <div>
-              <h3 class="fs-21 mb-2">Support dédié</h3>
-              <p class="mb-0">Un accompagnement réactif et personnalisé, parce que chaque question mérite une réponse claire et rapide.</p>
-            </div>
-          </div>
-        </div>
-        <!-- /.card -->
-
-        <div class="card ">
-          <div class="card-body d-flex flex-row">
-            <div>
-              <img src="./assets/img/icons/lineal/analytics.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Analyse performante" />
-            </div>
-            <div>
-              <h3 class="fs-21 mb-2">Analyse performante</h3>
-              <p class="mb-0">Des données claires et exploitables pour ajuster votre stratégie et accélérer votre croissance avec précision.</p>
-            </div>
-          </div>
-        </div>
-        <!-- /.card -->
-
-      </div>
-      <!-- /column -->
-
-    </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
-</section>
-
-<section class="wrapper bg-light" data-cue="fadeIn">
-  <div class="container py-14 py-md-16">
-    <div class="row gx-lg-0 gy-10 align-items-center">
-      
-      <!-- Colonne gauche avec images et cartes -->
-      <div class="col-lg-6">
-        <div class="row g-6 text-center">
-          <div class="col-md-6">
-            <div class="row">
-              <div class="col-lg-12">
-                <figure class="rounded mb-6">
-                  <img src="./assets/img/pages/support.jpg" srcset="./assets/img/pages/support.jpg 2x" alt="Livraison rapide">
-                </figure>
+    <!-- Appointment Booking Section -->
+  <section class="wrapper image-wrapper bg-image py-8 " data-image-src="./assets/img/photos/bg3.jpg">
+      <div class="container py-8 py-md-10">
+          <div class="row gx-lg-6 gy-6 align-items-start justify-content-center">
+              <!-- Profile Column (Left) -->
+              <div class="col-lg-4 col-xl-4">
+                  <div class="card shadow-lg h-100">
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <div class="avatar avatar-lg mb-3">
+                                  <img src="@@webRoot/assets/img/avatars/brahim.jpg" alt="Brahim" class="rounded-circle" />
+                              </div>
+                              <p class="text-primary mb-2 fs-15 fw-bold" >Brahim Berouini</p>
+                              <h4 class="mb-2" data-i18n="index.appointment.booking.profile.talk_title">Parlons de votre projet 🚀</h4>
+                              <p class="lead mb-1 fs-lg">15 min</p>
+                              <p class="text-primary mb-3" data-i18n="index.appointment.booking.profile.free">Consultation gratuite</p>
+                              <div class="alert alert-soft-primary">
+                                  <i class="uil uil-gift me-2" style="font-size: 30px;"></i>
+                                  <p data-i18n="index.appointment.booking.profile.free">Bonus : maquettes UX sous 72h</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <div class="col-lg-12">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="icon btn btn-circle btn-lg btn-soft-blue pe-none mb-3">
-                      <i class="uil uil-rocket"></i>
+
+              <!-- Dynamic Right Column (Calendar/Form) -->
+              <div class="col-lg-7 col-xl-6">
+                  <div class="card shadow-lg">
+                      <div class="card-body p-3">
+                          <div class="steps-indicator mb-2">
+                              <div class="d-flex justify-content-between">
+                                  <span class="step small" id="step1" data-i18n="index.appointment.booking.steps.step1">1. Choisir un créneau</span>
+                                  <span class="step small" id="step2" data-i18n="index.appointment.booking.steps.step2">2. Vos coordonnées</span>
+                              </div>
+                              <div class="progress mt-2" style="height: 3px;">
+                                  <div class="progress-bar" role="progressbar" style="width: 50%" id="stepProgress"></div>
+                              </div>
+                          </div>
+
+                          <!-- Step 1: Calendar View -->
+                          <div id="calendarStep">
+                              <div class="calendar-wrapper" id="appointmentCalendar">
+                                  <!-- Calendar will be inserted here by JavaScript -->
+                              </div>
+                              <div class="time-slots mt-3" id="timeSlots">
+                                  <h5 class="mb-2" data-i18n="index.appointment.booking.calendar.slots_title">Créneaux disponibles</h5>
+                                  <div class="d-flex flex-wrap gap-2" id="timeSlotsGrid">
+                                      <!-- Time slots will be dynamically populated -->
+                                  </div>
+                              </div>
+                              <button class="btn btn-primary rounded-pill w-100 mt-3" id="nextToContactInfo" style="display: none;" data-i18n="index.appointment.booking.calendar.continue">
+                                  <i class="uil uil-arrow-right me-2"></i>Continuer
+                              </button>
+                          </div>
+
+                          <!-- Step 2: Contact Form -->
+                          <div id="contactStep" style="display: none;">
+                              <!-- Add a smaller return button next to 'Vos informations' -->
+                              <div class="d-flex justify-content-between align-items-center mb-3">
+                                  <h4 class="mb-0" data-i18n="index.appointment.booking.contact.title">Vos informations</h4>
+                                  <button class="btn btn-sm btn-outline-primary rounded-pill" id="backToCalendar" data-i18n="index.appointment.booking.contact.back">
+                                      <i class="uil uil-arrow-left me-2"></i>Retour
+                                  </button>
+                              </div>
+
+                          <form id="appointmentForm" class="booking-form">
+                              <input type="hidden" id="appointment_date">
+                              <input type="hidden" id="appointment_time">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="form-floating mb-3">
+                                          <input type="text" class="form-control" placeholder="Votre nom" id="name" required data-i18n-placeholder="index.appointment.booking.contact.name_placeholder">
+                                          <label for="name" data-i18n="index.appointment.booking.contact.name_label">Nom complet</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="form-floating mb-3">
+                                          <input type="email" class="form-control" placeholder="Votre email" id="email" required data-i18n-placeholder="index.appointment.booking.contact.email_placeholder">
+                                          <label for="email" data-i18n="index.appointment.booking.contact.email_label">Email</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              
+                              <div class="form-floating mb-3">
+                                  <input type="tel" class="form-control" placeholder="Votre téléphone" id="phoneNumber" required data-i18n-placeholder="index.appointment.booking.contact.phone_placeholder">
+                                  <label for="phoneNumber" data-i18n="index.appointment.booking.contact.phone_label">Numéro de téléphone</label>
+                              </div>
+
+                              <!-- Communication preference - Icons in one line -->
+                              <div class="mb-4">
+                                  <label class="form-label" data-i18n="index.appointment.booking.contact.communication_label">Comment souhaitez-vous échanger ?</label>
+                                  <div class="communication-icons d-flex justify-content-center gap-4 mt-3">
+                                      <div class="form-check-icon text-center">
+                                          <input class="form-check-input d-none" type="radio" name="communication" id="phone" value="phone" checked>
+                                          <label class="icon-option" for="phone">
+                                              <i class="uil uil-phone fs-3"></i>
+                                          </label>
+                                          <div class="icon-label mt-2" data-i18n="index.appointment.booking.contact.comm_phone">Téléphone</div>
+                                      </div>
+                                      <div class="form-check-icon text-center">
+                                          <input class="form-check-input d-none" type="radio" name="communication" id="whatsapp" value="whatsapp">
+                                          <label class="icon-option" for="whatsapp">
+                                              <i class="uil uil-whatsapp fs-3"></i>
+                                          </label>
+                                          <div class="icon-label mt-2" data-i18n="index.appointment.booking.contact.comm_whatsapp">WhatsApp</div>
+                                      </div>
+                                      <div class="form-check-icon text-center">
+                                          <input class="form-check-input d-none" type="radio" name="communication" id="meet" value="meet">
+                                          <label class="icon-option" for="meet">
+                                              <i class="uil uil-video fs-3"></i>
+                                          </label>
+                                          <div class="icon-label mt-2" data-i18n="index.appointment.booking.contact.comm_meet">Google Meet</div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="form-floating mb-3">
+                                  <textarea class="form-control" placeholder="Votre message" id="message" style="height: 80px" data-i18n-placeholder="index.appointment.booking.contact.message_placeholder"></textarea>
+                                  <label for="message" data-i18n="index.appointment.booking.contact.message_label">Que puis-je faire pour vous ? (optionnel)</label>
+                              </div>
+
+                              <div class="selected-slot mb-3" id="selectedSlotDisplay">
+                                  <div class="alert alert-primary d-none py-2" role="alert">
+                                      <small > <span data-i18n="index.appointment.booking.contact.slot_label"  >Créneau :</span>
+                                        <span id="selectedDateTime" data-i18n="index.appointment.booking.contact.none">Aucun</span></small>
+                                  </div>
+                              </div>
+
+                          
+
+                              <button class="btn btn-primary rounded-pill w-100" type="submit" id="submitButton" data-i18n="index.appointment.booking.contact.submit">
+                                  <i class="uil uil-check me-2"></i>Confirmer le rendez-vous
+                              </button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Success Message Modal -->
+          <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                      <div class="modal-body text-center p-6">
+                          <i class="uil uil-check-circle text-primary" style="font-size: 3rem;"></i>
+                          <h3 class="mt-4" data-i18n="index.appointment.booking.modal.success_title">Rendez-vous confirmé !</h3>
+                          <p class="mb-0" data-i18n="index.appointment.booking.modal.success_body" >Votre demande a été enregistrée avec succès.</p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal" data-i18n="index.appointment.booking.modal.close" >Fermer</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <section class="wrapper bg-soft-primary " data-cue="fadeIn">
+    <div class="container py-14 py-md-16">
+      <div class="row d-flex align-items-start gy-10">
+        
+        <div class="col-lg-5 position-lg-sticky" style="top: 8rem;">
+          <h3 class="display-2 mb-5" data-i18n="index.about.advice.title"></h3>
+          <p class="mb-7" data-i18n="index.about.advice.lead"></p>
+          <a href="@@webRoot/blog2.html" class="btn btn-lg btn-primary btn-icon btn-icon-end" data-i18n="index.about.advice.button" >En savoir plus <i class="uil uil-arrow-up-right"></i></a>
+        </div>
+        <!-- /column -->
+        
+        <div class="col-lg-6 ms-auto">
+
+          <div class="card mb-6">
+            <div class="card-body d-flex flex-row">
+              <div>
+                <img src="./assets/img/icons/lineal/target.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Ciblage stratégique" />
+              </div>
+              <div>
+                <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card1.title">Ciblage stratégique</h3>
+                <p class="mb-0" data-i18n="index.about.features_cards.card1.desc">Identifiez précisément votre audience idéale pour maximiser l’impact de chaque action, sans dispersion inutile.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card  mb-6">
+            <div class="card-body d-flex flex-row">
+              <div>
+                <img src="./assets/img/icons/lineal/shield.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Sécurité avancée" />
+              </div>
+              <div>
+                <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card2.title">Sécurité avancée</h3>
+                <p class="mb-0" data-i18n="index.about.features_cards.card2.desc">Protégez vos données et celles de vos clients avec des solutions robustes, pour bâtir une relation de confiance durable.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card mb-6">
+            <div class="card-body d-flex flex-row">
+              <div>
+                <img src="./assets/img/icons/lineal/performance.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Performance optimisée" />
+              </div>
+              <div>
+                <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card3.title">Performance optimisée</h3>
+                <p class="mb-0" data-i18n="index.about.features_cards.card3.desc">Offrez à vos utilisateurs une expérience fluide et rapide, facteur clé pour garder leur attention et les convertir.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card  mb-6">
+            <div class="card-body d-flex flex-row">
+              <div>
+                <img src="./assets/img/icons/lineal/workflows.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Automatisation intelligente" />
+              </div>
+              <div>
+                <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card4.title">Automatisation intelligente</h3>
+                <p class="mb-0" data-i18n="index.about.features_cards.card4.desc">Libérez-vous des tâches répétitives et concentrez-vous sur ce qui crée de la valeur, grâce à des outils performants et intuitifs.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card  mb-6">
+            <div class="card-body d-flex flex-row">
+              <div>
+                <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Support dédié" />
+              </div>
+              <div>
+                <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card5.title">Support dédié</h3>
+                <p class="mb-0" data-i18n="index.about.features_cards.card5.desc">Un accompagnement réactif et personnalisé, parce que chaque question mérite une réponse claire et rapide.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <div class="card ">
+            <div class="card-body d-flex flex-row">
+              <div>
+                <img src="./assets/img/icons/lineal/analytics.svg" class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="Analyse performante" />
+              </div>
+              <div>
+                <h3 class="fs-21 mb-2" data-i18n="index.about.features_cards.card6.title">Analyse performante</h3>
+                <p class="mb-0" data-i18n="index.about.features_cards.card6.desc">Des données claires et exploitables pour ajuster votre stratégie et accélérer votre croissance avec précision.</p>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+
+        </div>
+        <!-- /column -->
+
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+
+  <section class="wrapper bg-light" data-cue="fadeIn">
+    <div class="container py-14 py-md-16">
+      <div class="row gx-lg-0 gy-10 align-items-center">
+        
+        <!-- Colonne gauche avec images et cartes -->
+        <div class="col-lg-6">
+          <div class="row g-6 text-center">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-lg-12">
+                  <figure class="rounded mb-6">
+                    <img src="./assets/img/photos/se1.jpg" srcset="./assets/img/photos/se1@2x.jpg 2x" alt="Livraison rapide">
+                  </figure>
+                </div>
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="icon btn btn-circle btn-lg btn-soft-blue pe-none mb-3">
+                        <i class="uil uil-rocket"></i>
+                      </div>
+                      <h4 data-i18n="index.about.shortcards.delivery.title">Livraison Express</h4>
+                      <p class="mb-2" data-i18n="index.about.shortcards.delivery.desc">Un site clé en main prêt en moins de 10 jours pour démarrer rapidement.</p>
                     </div>
                     <h4 data-i18n="index.about.shortcards.delivery.title">Livraison Express</h4>
                     <p class="mb-2" data-i18n="index.about.shortcards.delivery.desc">Un site clé en main prêt en moins de 10 jours pour démarrer rapidement.</p>
@@ -364,9 +362,7 @@
         <a href="@@webRoot/appointment.html" class="btn btn-gradient gradient-7 rounded-pill mt-3" data-i18n="index.about.cta_section.button">Réservez votre appel gratuit</a>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 <section class="wrapper bg-soft-primary angled lower-end lower-star" data-cue="fadeIn">
   <div class="container py-14 py-md-16">
     <div class="row text-center">
@@ -377,7 +373,7 @@
         <h3 class="display-3 mb-8 px-xl-6" data-i18n-html="index.about.process.title">Un processus simple, <span class="text-gradient gradient-7">transparent</span> et sans stress.</h3>
       </div>
     </div>
-
+  </section>
     <div class="row">
       <div class="col-xxl-11 mx-auto">
         <div class="row gy-10 gy-lg-0 text-center d-flex align-items-center">
@@ -404,6 +400,18 @@
               <p class="mb-0 px-xl-7" data-i18n="index.about.process.step02.desc">90% des messages et appels traités en moins d’une heure.</p>
             </div>
           </div>
+        </div>
+        
+        <!-- Texte principal -->
+        <div class="col-lg-5">
+          <h2 class="fs-15 text-uppercase text-muted mb-3" data-i18n="index.about.method.small">Notre Méthode</h2>
+          <h3 class="display-4 mb-5" data-i18n="index.about.method.title">Un seul objectif : transformer votre vision en réalité tangible.</h3>
+          <p data-i18n="index.about.method.lead">De la première esquisse à la mise en ligne, nous avançons main dans la main avec vous grâce à un processus clair, des livraisons rapides et un suivi continu pour que chaque détail soit parfaitement exécuté.</p>
+          <a href="@@webRoot/appointment.html" class="btn btn-navy rounded-pill mt-3" data-i18n="index.about.method.button">Démarrer mon projet</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
           <!-- Colonne droite -->
           <div class="col-md-6 col-lg-4">
@@ -419,243 +427,161 @@
             </div>
           </div>
         </div>
+        <!-- Bloc de contenu -->
+        <div class="col-lg-6">
+          <h2 class="display-4 mb-3" data-i18n="index.about.delivery.title">Livraison garantie, ou services offerts</h2>
+          <p class="lead fs-lg mb-8 pe-xxl-2" data-i18n-html="index.about.delivery.lead"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
+          <div class="row gx-xl-10 gy-6">
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-wrench"></i>
+                </div>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.0">2 mois de maintenance</h4>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-server"></i>
+                </div>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.1">2 mois d’hébergement</h4>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-document-layout-left"></i>
+                </div>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.2">2 mois d’articles de blog</h4>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
+              <div class="d-flex flex-column align-items-center align-items-md-start">
+                <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
+                  <i class="uil uil-instagram"></i>
+                </div>
+                <h4 class="mb-1" data-i18n="index.about.delivery.benefits.3">2 mois de social media</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper bg-light ">
+    <div class="container py-14 py-md-16">
+      <h2 class="display-4 mb-3 text-center" data-i18n="index.faq.title">Questions fréquentes</h2>
+      <p class="lead text-center mb-10 px-md-16 px-lg-0" data-i18n="index.faq.lead">
+        On a regroupé ici tout ce que vous devez savoir avant de lancer votre projet avec nous. Vous avez encore des questions ? Contactez-nous, on répond rapidement.
+      </p>
+  
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="accordion-wrapper" id="faq-accordion">
+            <!-- Exemple 1 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-1">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1" data-i18n="index.faq.q1.q">
+                  Pourquoi choisir Digitoyou plutôt qu’une autre agence ?
+                </button>
+              </div>
+              <div id="faq-collapse-1" class="collapse" aria-labelledby="faq-heading-1" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q1.a">Digitoyou mise sur la qualité, la transparence et la vitesse. Nous ne prenons jamais plus de 3 projets en parallèle pour offrir une attention totale à chaque client.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 2 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-2">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2" data-i18n="index.faq.q2.q">
+                  Quand pouvez-vous démarrer mon projet ?
+                </button>
+              </div>
+              <div id="faq-collapse-2" class="collapse" aria-labelledby="faq-heading-2" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q2.a">Nous pouvons démarrer en 5 à 10 jours, selon nos disponibilités. On prend vite contact pour organiser ça ensemble.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 3 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-3">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3" data-i18n="index.faq.q3.q">
+                  Quels types de projets réalisez-vous ?
+                </button>
+              </div>
+              <div id="faq-collapse-3" class="collapse" aria-labelledby="faq-heading-3" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q3.a">Sites vitrines, e-commerce, landing pages, refontes, branding… On s’adapte à vos besoins pour livrer une solution clé en main, toujours orientée conversion.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 4 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-4">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4" data-i18n="index.faq.q4.q">
+                  Et si je veux faire des ajustements après la livraison ?
+                </button>
+              </div>
+              <div id="faq-collapse-4" class="collapse" aria-labelledby="faq-heading-4" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q4.a">Pas de souci. On inclut 2 à 3 mois de maintenance selon le projet, pour corriger, ajuster ou faire évoluer votre site. C’est compris dans notre engagement.</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Exemple 5 -->
+            <div class="card accordion-item">
+              <div class="card-header" id="faq-heading-5">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5" data-i18n="index.faq.q5.q">
+                  Quels sont vos tarifs ?
+                </button>
+              </div>
+              <div id="faq-collapse-5" class="collapse" aria-labelledby="faq-heading-5" data-bs-parent="#faq-accordion">
+                <div class="card-body">
+                  <p data-i18n="index.faq.q5.a">Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.accordion-wrapper -->
+        </div>
+      </div>
+  
+      <!-- CTA -->
+  <div class="row justify-content-center mt-10">
+    <div class="col-xl-10 mx-auto">
+      <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-500 position-relative" data-image-src="./assets/img/photos/bg3.jpg">
+        <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-between text-center text-lg-start position-relative">
+  
+          <!-- ✅ Image flottante en bas à gauche -->
+          <div class="position-absolute d-none d-lg-block" style="bottom:0; left:10%; width: 16%; z-index:2">
+            <figure>
+              <img src="./assets/img/photos/co2.png" srcset="./assets/img/photos/co2@2x.png 2x" alt="">
+            </figure>
+          </div>
+  
+          <!-- ✅ Texte à droite sur large -->
+          <div class="ms-lg-auto">
+            <h3 class="text-light text-center display-6 mb-6 mb-lg-0" data-i18n-html="index.cta.heading">Vous avez encore des questions ?<br>Discutons-en autour d’un appel rapide.</h3>
+          </div>
+  
+          <!-- ✅ Bouton à droite (après le texte) -->
+          <a href="@@webRoot/appointment.html" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap" data-i18n="index.cta.button">Prendre RDV</a>
+  
+        </div>
       </div>
     </div>
   </div>
-</section>
-
-<section class="wrapper bg-light" data-cue="fadeIn">
-  <div class="container py-14 py-md-16">
-    <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-      
-      <!-- Cartes avec icônes -->
-      <div class="col-lg-7 order-lg-2">
-        <div class="row gx-md-5 gy-5">
-          <div class="col-md-5 offset-md-1 align-self-end">
-            <div class="card ">
-              <div class="card-body">
-                <img src="./assets/img/icons/lineal/web.svg" class="svg-inject icon-svg icon-svg-md  mb-3" alt="" />
-                <h4>Wireframes & Workflows</h4>
-                <p class="mb-0">Des maquettes offertes pour visualiser votre projet dès le départ.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-6 align-self-end">
-            <div class="card bg-pale-primary">
-              <div class="card-body">
-                <img src="./assets/img/icons/lineal/clendar.svg" class="svg-inject icon-svg icon-svg-md  mb-3" alt="" />
-                <h4>Livraisons Hebdomadaires</h4>
-                <p class="mb-0">Chaque semaine, recevez une nouvelle partie du projet et validez vos retours.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-5">
-            <div class="card bg-pale-primary">
-              <div class="card-body">
-                <img src="./assets/img/icons/lineal/refresh.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" />
-                <h4>Flexibilité Totale</h4>
-                <p class="mb-0">Vos besoins évoluent ? Nous adaptons notre travail en temps réel.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-6 align-self-start">
-            <div class="card ">
-              <div class="card-body">
-                <img src="./assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" />
-                <h4>Suivi Post-Livraison</h4>
-                <p class="mb-0">Bénéficiez de 3 mois de suivi inclus pour ajuster et optimiser votre projet.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Texte principal -->
-      <div class="col-lg-5">
-        <h2 class="fs-15 text-uppercase text-muted mb-3">Notre Méthode</h2>
-        <h3 class="display-4 mb-5">Un seul objectif : transformer votre vision en réalité tangible.</h3>
-        <p>De la première esquisse à la mise en ligne, nous avançons main dans la main avec vous grâce à un processus clair, des livraisons rapides et un suivi continu pour que chaque détail soit parfaitement exécuté.</p>
-        <a href="@@webRoot/appointment.html" class="btn btn-navy rounded-pill mt-3">Démarrer mon projet</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="wrapper bg-soft-primary " data-cue="fadeIn">
-  <div class="container py-14 py-md-16">
-    <div class="row gx-lg-8 gy-8 align-items-center">
-      <!-- Bloc d'images à droite -->
-      <div class="col-lg-6 order-lg-2">
-        <div class="row gx-md-5 gy-5">
-          <div class="col-md-6 align-self-end">
-            <figure class="rounded"><img src="./assets/img/photos/g1.jpg" srcset="./assets/img/photos/g1@2x.jpg 2x" alt=""></figure>
-          </div>
-          <div class="col-md-6 align-self-start d-none d-lg-block">
-            <figure class="rounded"><img src="./assets/img/photos/g2.jpg" srcset="./assets/img/photos/g2@2x.jpg 2x" alt=""></figure>
-          </div>
-        </div>
-      </div>
-      <!-- Bloc de contenu -->
-      <div class="col-lg-6">
-        <h2 class="display-4 mb-3">Livraison garantie, ou services offerts</h2>
-        <p class="lead fs-lg mb-8 pe-xxl-2"> Chez Digitoyou, on respecte les délais.<br> Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous : </p>
-        <div class="row gx-xl-10 gy-6">
-          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
-            <div class="d-flex flex-column align-items-center align-items-md-start">
-              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
-                <i class="uil uil-wrench"></i>
-              </div>
-              <h4 class="mb-1">2 mois de maintenance</h4>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
-            <div class="d-flex flex-column align-items-center align-items-md-start">
-              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
-                <i class="uil uil-server"></i>
-              </div>
-              <h4 class="mb-1">2 mois d’hébergement</h4>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
-            <div class="d-flex flex-column align-items-center align-items-md-start">
-              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
-                <i class="uil uil-document-layout-left"></i>
-              </div>
-              <h4 class="mb-1">2 mois d’articles de blog</h4>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-12 col-xl-6 text-center text-md-start">
-            <div class="d-flex flex-column align-items-center align-items-md-start">
-              <div class="icon btn btn-circle btn-lg btn-soft-primary pe-none mb-3">
-                <i class="uil uil-instagram"></i>
-              </div>
-              <h4 class="mb-1">2 mois de social media</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="wrapper bg-light " data-cue="fadeIn">
-  <div class="container py-14 py-md-16">
-    <h2 class="display-4 mb-3 text-center">Questions fréquentes</h2>
-    <p class="lead text-center mb-10 px-md-16 px-lg-0">
-      On a regroupé ici tout ce que vous devez savoir avant de lancer votre projet avec nous. Vous avez encore des questions ? Contactez-nous, on répond rapidement.
-    </p>
-
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <div class="accordion-wrapper" id="faq-accordion">
-          <!-- Exemple 1 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-1">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1">
-                Pourquoi choisir Digitoyou plutôt qu’une autre agence ?
-              </button>
-            </div>
-            <div id="faq-collapse-1" class="collapse" aria-labelledby="faq-heading-1" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Digitoyou mise sur la qualité, la transparence et la vitesse. Nous ne prenons jamais plus de 3 projets en parallèle pour offrir une attention totale à chaque client.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 2 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-2">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
-                Quand pouvez-vous démarrer mon projet ?
-              </button>
-            </div>
-            <div id="faq-collapse-2" class="collapse" aria-labelledby="faq-heading-2" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Nous pouvons démarrer en 5 à 10 jours, selon nos disponibilités. On prend vite contact pour organiser ça ensemble.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 3 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-3">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
-                Quels types de projets réalisez-vous ?
-              </button>
-            </div>
-            <div id="faq-collapse-3" class="collapse" aria-labelledby="faq-heading-3" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Sites vitrines, e-commerce, landing pages, refontes, branding… On s’adapte à vos besoins pour livrer une solution clé en main, toujours orientée conversion.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 4 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-4">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-4" aria-expanded="false" aria-controls="faq-collapse-4">
-                Et si je veux faire des ajustements après la livraison ?
-              </button>
-            </div>
-            <div id="faq-collapse-4" class="collapse" aria-labelledby="faq-heading-4" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Pas de souci. On inclut 2 à 3 mois de maintenance selon le projet, pour corriger, ajuster ou faire évoluer votre site. C’est compris dans notre engagement.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exemple 5 -->
-          <div class="card accordion-item">
-            <div class="card-header" id="faq-heading-5">
-              <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5">
-                Quels sont vos tarifs ?
-              </button>
-            </div>
-            <div id="faq-collapse-5" class="collapse" aria-labelledby="faq-heading-5" data-bs-parent="#faq-accordion">
-              <div class="card-body">
-                <p>Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.accordion-wrapper -->
-      </div>
-    </div>
-
-    <!-- CTA -->
-<div class="row justify-content-center mt-10">
-  <div class="col-xl-10 mx-auto">
-    <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-500 position-relative" data-image-src="./assets/img/photos/bg3.jpg">
-      <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-between text-center text-lg-start position-relative">
-
-        <!-- ✅ Image flottante en bas à gauche -->
-        <div class="position-absolute d-none d-lg-block" style="bottom:0; left:10%; width: 16%; z-index:2">
-          <figure>
-            <img src="./assets/img/photos/co2.png" srcset="./assets/img/photos/co2@2x.png 2x" alt="">
-          </figure>
-        </div>
-
-        <!-- ✅ Texte à droite sur large -->
-        <div class="ms-lg-auto">
-          <h3 class="text-light text-center display-6 mb-6 mb-lg-0">
-            Vous avez encore des questions ?<br>
-            Discutons-en autour d’un appel rapide.
-          </h3>
-        </div>
-
-        <!-- ✅ Bouton à droite (après le texte) -->
-        <a href="@@webRoot/appointment.html" class="btn btn-white rounded-pill mb-0 ms-lg-4 mt-4 mt-lg-0 text-nowrap">Prendre RDV</a>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-</section>>
+  
+  
+  </section>
 	</div>
 	<!-- /.content-wrapper -->
 	<footer class="bg-dark text-inverse">
@@ -942,6 +868,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Calendar Styles -->
   <style>
+    
     .calendar-grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
