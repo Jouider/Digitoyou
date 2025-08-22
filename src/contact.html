@@ -9,6 +9,10 @@
 	 <!-- Swiper CSS -->
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<style>
+		/* Make overlay background non-interactive so the anchor remains clickable */
+		figure.overlay span.bg { pointer-events: none; }
+	</style>
 </head>
 <body>
 	<div class="content-wrapper">
@@ -79,68 +83,10 @@
 			  
 					<!-- Cards -->
 					<div class="project-carousel d-flex flex-nowrap overflow-auto w-100 px-2" id="projectCarousel">
-
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
-						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Shopping Marrakech">
-							<img src="./assets/img/projects/project-card1.png" alt="Shopping Marrakech" />
-						  </a>
-						  <figcaption>
-							<h5 class="from-top mb-1">Shopping Marrakech</h5>
-							<p class="from-bottom">Boutique locale transformée en e-commerce moderne.</p>
-						  </figcaption>
-						</figure>
-					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
-						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Coffee Shop">
-							<img src="./assets/img/projects/project-card2.png" alt="Coffee Shop" />
-						  </a>
-						  <figcaption>
-							<h5 class="from-top mb-1">Coffee Shop</h5>
-							<p class="from-bottom">Site vitrine pour un café chaleureux en centre-ville.</p>
-						  </figcaption>
-						</figure>
-					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
-						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Doctor">
-							<img src="./assets/img/projects/project-card3.png" alt="Doctor" />
-						  </a>
-						  <figcaption>
-							<h5 class="from-top mb-1">Doctor</h5>
-							<p class="from-bottom">Prise de rendez-vous en ligne pour un cabinet médical.</p>
-						  </figcaption>
-						</figure>
-					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
-						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="WEB SITE 1">
-							<img src="./assets/img/projects/project-card1.png" alt="WEB SITE 1" />
-						  </a>
-						  <figcaption>
-							<h5 class="from-top mb-1">WEB SITE 1</h5>
-							<p class="from-bottom">Site professionnel pour consultant indépendant.</p>
-						  </figcaption>
-						</figure>
-					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
-						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="WEB SITE 2">
-							<img src="./assets/img/projects/project-card2.png" alt="WEB SITE 2" />
-						  </a>
-						  <figcaption>
-							<h5 class="from-top mb-1">WEB SITE 2</h5>
-							<p class="from-bottom">Landing page optimisée pour une campagne marketing.</p>
-						  </figcaption>
-						</figure>
-					  
-						<figure class="overlay overlay-2 hover-scale color rounded me-3" style="min-width: 360px;">
-						  <a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="WEB SITE 3">
-							<img src="./assets/img/projects/project-card3.png" alt="WEB SITE 3" />
-						  </a>
-						  <figcaption>
-							<h5 class="from-top mb-1">WEB SITE 3</h5>
-							<p class="from-bottom">Portfolio interactif pour une photographe freelance.</p>
-						  </figcaption>
-						</figure>
-					  
-					  </div>
+						<div class="d-flex align-items-center justify-content-center text-muted py-5 w-100" id="projectCarouselLoading" style="min-width:360px;">
+							Loading projects...
+						</div>
+					</div>
 					  
 					  
 			  
@@ -345,168 +291,215 @@
 	  
 	  
 	  <script>
-
-		new Swiper('.brand-swiper', {
-			slidesPerView: 2,
-			spaceBetween: 30,
-			loop: true,
-			speed: 3000,
-			autoplay: {
-			delay: 0,
-			disableOnInteraction: false,
-			},
-			breakpoints: {
-			768: { slidesPerView: 3 },
-			992: { slidesPerView: 4 },
-			1200: { slidesPerView: 5 }  // max 5 if you have only 6 slides
-			}
-		});
-
-		const projectData = {
-		"Shopping Marrakech": {
-			description: "E-commerce moderne pour une boutique locale à Gueliz.",
-			images: [
-			"./assets/img/projects/project-card1.png",
-			"./assets/img/projects/project-card1b.png",
-			"./assets/img/projects/project-card1c.png"
-			],
-			tech: ["WordPress", "WooCommerce", "CSS", "Figma"],
-			link: "https://example.com/shopping"
-		},
-		"Coffee Shop": {
-			description: "Site vitrine pour un café chaleureux en centre-ville.",
-			images: ["./assets/img/projects/project-card2.png"],
-			tech: ["HTML", "Bootstrap", "SEO"],
-			link: "https://example.com/coffee"
-		},
-		"Doctor": {
-			description: "Prise de rendez-vous en ligne pour un cabinet médical.",
-			images: ["./assets/img/projects/project-card3.png"],
-			tech: ["React", "Node.js", "MongoDB"],
-			link: "https://example.com/doctor"
-		},
-		"WEB SITE 1": {
-			description: "Site professionnel pour consultant indépendant.",
-			images: ["./assets/img/projects/project-card1.png"],
-			tech: ["WordPress", "Elementor", "SEO"],
-			link: "https://example.com/site1"
-		},
-		"WEB SITE 2": {
-			description: "Landing page optimisée pour une campagne marketing.",
-			images: ["./assets/img/projects/project-card2.png"],
-			tech: ["Next.js", "Tailwind CSS", "GA"],
-			link: "https://example.com/site2"
-		},
-		"WEB SITE 3": {
-			description: "Portfolio interactif pour une photographe freelance.",
-			images: ["./assets/img/projects/project-card3.png"],
-			tech: ["Vue.js", "GSAP", "Lightbox"],
-			link: "https://example.com/site3"
-		}
-		};
-
-	  
-		document.addEventListener('DOMContentLoaded', function () {
-		const modal = document.getElementById('projectModal');
-		modal.addEventListener('show.bs.modal', event => {
-			const card = event.relatedTarget;
-			const title = card.getAttribute('data-title');
-			const data = projectData[title];
-
-			// Fallback
-			if (!data) return;
-
-			// Title
-			document.getElementById('modalProjectTitle').textContent = title;
-
-			// Description
-			document.getElementById('modalProjectDescription').textContent = data.description || '—';
-
-			// Link
-			const link = document.getElementById('modalProjectLink');
-			link.href = data.link || '#';
-			link.style.display = data.link ? 'inline-block' : 'none';
-
-			// Tech
-			const techStack = document.getElementById('modalTechStack');
-			techStack.innerHTML = '';
-			(data.tech || []).forEach(tech => {
-			const tag = document.createElement('span');
-			tag.className = 'badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill';
-			tag.textContent = tech;
-			techStack.appendChild(tag);
-			});
-
-			// Images
-			const carousel = document.getElementById('modalImageCarousel');
-			carousel.innerHTML = '';
-			(data.images || []).forEach(imgSrc => {
-			const slide = document.createElement('div');
-			slide.className = 'swiper-slide';
-			slide.innerHTML = `<img src="${imgSrc}" alt="${title}" class="img-fluid w-100 h-100 object-fit-cover">`;
-			carousel.appendChild(slide);
-			});
-
-			// Swiper Init
-			setTimeout(() => {
-			if (window.modalSwiper) {
-				window.modalSwiper.update();
-			} else {
-				window.modalSwiper = new Swiper(".mySwiper", {
-				loop: true,
-				navigation: {
-					nextEl: ".swiper-button-next",
-					prevEl: ".swiper-button-prev"
-				},
-				pagination: {
-					el: ".swiper-pagination",
-					clickable: true
+			// Delay until window load so Swiper library (loaded later) is available
+			window.addEventListener('load', () => {
+				if (window.Swiper) {
+					new Swiper('.brand-swiper', {
+						slidesPerView: 2,
+						spaceBetween: 30,
+						loop: true,
+						speed: 3000,
+						autoplay: { delay: 0, disableOnInteraction: false },
+						breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 }, 1200: { slidesPerView: 5 } }
+					});
 				}
+			});
+
+			// Dynamic project data (fetched from JSON with multilingual fields)
+			let projectData = {};
+			let projectList = [];
+
+			async function loadProjects(){
+				try {
+					const res = await fetch('./assets/js/projects2.json', { cache: 'no-store' });
+					const json = await res.json();
+					projectList = (json.projects || []).sort((a,b)=> (a.order||0) - (b.order||0));
+					// Build lookup by translated title for backward compatibility
+					projectData = {};
+					projectList.forEach(p=>{
+						const title = (p.title && (p.title[window.i18nCurrentLang] || p.title.en || p.title.fr)) || p.id;
+						projectData[title] = p; // store raw project object
+					});
+					rebuildCarousel();
+				} catch(e){
+					console.error('Failed to load projects2.json', e);
+					const loadingEl = document.getElementById('projectCarouselLoading');
+					if(loadingEl) loadingEl.textContent = 'Failed to load projects';
+				}
+			}
+
+			function localizeProject(p){
+				// Support schema with either nested multilingual objects (title.{fr,en}) OR i18nTitle key referencing translations
+				const lang = window.i18nCurrentLang || 'fr';
+				const i18nGet = window.i18nGet || function(k){ return k; };
+				// Title resolution priority: i18nTitle key -> nested title map -> fallback id
+				let resolvedTitle = p.i18nTitle ? i18nGet(p.i18nTitle, lang) : (p.title && (p.title[lang] || p.title.en || p.title.fr));
+				if(!resolvedTitle) resolvedTitle = p.id;
+				// Description resolution priority: i18nDesc -> nested description map
+				let resolvedDesc = p.i18nDesc ? i18nGet(p.i18nDesc, lang) : (p.description && (p.description[lang] || p.description.en || p.description.fr));
+				if(!resolvedDesc) resolvedDesc = '';
+				// CTA resolution (optional per project)
+				let resolvedCta = p.i18nCta ? i18nGet(p.i18nCta, lang) : null;
+				return {
+					id: p.id,
+					title: resolvedTitle,
+					description: resolvedDesc,
+					cta: resolvedCta,
+					images: p.images || [],
+					tech: p.tech || [],
+					link: p.link || '#'
+				};
+			}
+
+			function rebuildCarousel(){
+				const carousel = document.getElementById('projectCarousel');
+				if(!carousel) return;
+				carousel.innerHTML = '';
+				if(!projectList.length){
+					const loading = document.createElement('div');
+					loading.className = 'd-flex align-items-center justify-content-center text-muted py-5 w-100';
+					loading.style.minWidth = '360px';
+					loading.textContent = 'No projects';
+					carousel.appendChild(loading);
+					return;
+				}
+				projectList.forEach(pRaw => {
+					const p = localizeProject(pRaw);
+					const fig = document.createElement('figure');
+					fig.className = 'overlay overlay-2 hover-scale color rounded me-3';
+					fig.style.minWidth = '360px';
+					fig.innerHTML = `
+						<a href="#" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-id="${p.id}">
+							<img src="${(p.images && p.images[0]) || ''}" alt="${p.title}" loading="lazy" />
+						</a>
+						<span class="bg"></span>
+						<figcaption>
+							<h5 class="from-top mb-1">${p.title}</h5>
+							<p class="from-bottom small mb-0">${p.description.length>90? p.description.slice(0,87)+'...': p.description}</p>
+						</figcaption>`;
+					carousel.appendChild(fig);
 				});
 			}
-			}, 100);
-		});
-		
 
-	  
-		  // Tech stack
-		  const techStack = document.getElementById('modalTechStack');
-		  techStack.innerHTML = '';
-		  (data?.tech || []).forEach(tech => {
-			const tag = document.createElement('span');
-			tag.className = 'badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill';
-			tag.textContent = tech;
-			techStack.appendChild(tag);
-		  });
-	  
-		  // Swiper slides
-		  const carousel = document.getElementById('modalImageCarousel');
-		  carousel.innerHTML = '';
-		  (data?.images || []).forEach(imgSrc => {
-			const slide = document.createElement('div');
-			slide.className = 'swiper-slide';
-			slide.innerHTML = `<img src="${imgSrc}" alt="${title}" class="img-fluid w-100 h-100 object-fit-cover">`;
-			carousel.appendChild(slide);
-		  });
-	  
-		  setTimeout(() => {
-			if (window.modalSwiper) {
-			  window.modalSwiper.update();
-			} else {
-			  window.modalSwiper = new Swiper(".mySwiper", {
-				loop: true,
-				navigation: {
-				  nextEl: ".swiper-button-next",
-				  prevEl: ".swiper-button-prev"
-				},
-				pagination: {
-				  el: ".swiper-pagination",
-				  clickable: true
-				}
-			  });
-			}
-		  }, 100);
-		});
+			// Modal population logic
+			document.addEventListener('DOMContentLoaded', () => {
+				// initial load
+				loadProjects();
+				// reload entire page on language change (after first init)
+				let i18nInit = true;
+				document.addEventListener('i18n:updated', () => {
+					if(i18nInit){ i18nInit = false; return; }
+					window.location.reload();
+				});
+				const modal = document.getElementById('projectModal');
+				if (!modal) return;
+				modal.addEventListener('show.bs.modal', event => {
+					const trigger = event.relatedTarget;
+					if (!trigger) return;
+					const id = trigger.getAttribute('data-project-id');
+					const raw = projectList.find(p=>p.id===id);
+					if (!raw) return;
+					const data = localizeProject(raw);
+
+					// Ensure modal structure (lazy inject content only once)
+					if(!modal.querySelector('.project-modal-body')){
+						modal.querySelector('.modal-body').innerHTML = `
+							<div class="row g-0 project-modal-body">
+								<div class="col-lg-7 p-4 border-end">
+									<div class="swiper project-modal-swiper mb-3">
+										<div class="swiper-wrapper" id="modalImageCarousel"></div>
+										<div class="swiper-button-next"></div>
+										<div class="swiper-button-prev"></div>
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+								<div class="col-lg-5 p-4">
+									<h4 id="modalProjectTitle" class="mb-3"></h4>
+									<p id="modalProjectDescription" class="small"></p>
+									<div class="mb-3" id="modalTechStack"></div>
+									<a id="modalProjectLink" href="#" target="_blank" rel="noopener" class="btn btn-primary btn-sm rounded-pill">Visit Website</a>
+								</div>
+							</div>`;
+					}
+
+					// Populate text
+					document.getElementById('modalProjectTitle').textContent = data.title;
+					document.getElementById('modalProjectDescription').textContent = data.description || '';
+
+					// Tech stack
+					const techStack = document.getElementById('modalTechStack');
+					techStack.innerHTML = '';
+					(data.tech || []).forEach(tech => {
+						const tag = document.createElement('span');
+						tag.className = 'badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill';
+						tag.textContent = tech;
+						techStack.appendChild(tag);
+					});
+
+					// Media (video takes priority over images)
+					const carousel = document.getElementById('modalImageCarousel');
+					carousel.innerHTML = '';
+					const nextBtn = modal.querySelector('.swiper-button-next');
+					const prevBtn = modal.querySelector('.swiper-button-prev');
+					const pagEl = modal.querySelector('.swiper-pagination');
+					if(raw.video && raw.video.src){
+						// Hide swiper controls when video present
+						if(nextBtn) nextBtn.classList.add('d-none');
+						if(prevBtn) prevBtn.classList.add('d-none');
+						if(pagEl) pagEl.classList.add('d-none');
+						const slide = document.createElement('div');
+						slide.className = 'swiper-slide';
+						// Video without controls, no hover interaction
+						slide.innerHTML = `
+							<video class="w-100 h-100 object-fit-cover rounded" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="${raw.poster || ''}" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" style="pointer-events:none;">
+								<source src="${raw.video.src}" type="${raw.video.type || 'video/webm'}" />
+								Your browser does not support the video tag.
+							</video>`;
+						carousel.appendChild(slide);
+					} else {
+						// Show images with swiper controls
+						if(nextBtn) nextBtn.classList.remove('d-none');
+						if(prevBtn) prevBtn.classList.remove('d-none');
+						if(pagEl) pagEl.classList.remove('d-none');
+						(data.images || []).forEach(src => {
+							const slide = document.createElement('div');
+							slide.className = 'swiper-slide';
+							slide.innerHTML = `<img src="${src}" alt="${data.title}" class="img-fluid w-100 h-100 object-fit-cover" loading="lazy">`;
+							carousel.appendChild(slide);
+						});
+					}
+
+					// Link + optional per-project CTA text (translated)
+						const link = document.getElementById('modalProjectLink');
+						if (link) {
+							link.href = data.link || '#';
+							link.style.display = data.link ? 'inline-block' : 'none';
+							if(data.cta){
+								// Replace inner span text (which has data-i18n default) with project-specific label
+								const span = link.querySelector('span[data-i18n]');
+								if(span){ span.removeAttribute('data-i18n'); span.textContent = data.cta; }
+							}
+						}
+
+					// Ensure Swiper library loaded then init/update
+					// Init/update swiper only if we have multiple slides or images (video alone doesn't need loop)
+					const initModalSwiper = () => {
+						if (!window.Swiper) { setTimeout(initModalSwiper, 50); return; }
+						const needsSwiper = !(raw.video && raw.video.src);
+						if(!needsSwiper){
+							if(window.modalSwiper){ window.modalSwiper.destroy(true,true); window.modalSwiper=null; }
+							return;
+						}
+						if (window.modalSwiper) { window.modalSwiper.update(); return; }
+						window.modalSwiper = new Swiper('.project-modal-swiper', {
+							loop: true,
+							navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+							pagination: { el: '.swiper-pagination', clickable: true }
+						});
+					};
+					initModalSwiper();
+				});
+			});
 	  </script>
 	  
 	  <!-- Swiper for modal carousel -->
@@ -517,49 +510,37 @@
 	<!-- Preview Modal -->
 	<!-- ENHANCED MODAL DESIGN + ACCESSIBILITY IMPROVEMENTS -->
 	<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered modal-xl"></div>
-		<div class="modal-content">
-			<div class="modal-body p-0">
-			<div class="row g-0">
-	
-				<!-- Left: Swiper Carousel -->
-				<div class="col-md-6 bg-dark position-relative">
-				<div class="swiper mySwiper h-100 rounded-start">
-					<div class="swiper-wrapper" id="modalImageCarousel">
-					<!-- Slides injected via JS -->
+		<div class="modal-dialog modal-dialog-centered modal-xl">
+			<div class="modal-content">
+				<div class="modal-body p-0 position-relative">
+					<button type="button" class="btn-close position-absolute top-0 end-0 m-2 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+					<div class="row g-0">
+						<!-- Left: Swiper Carousel -->
+						<div class="col-md-6 bg-dark position-relative">
+							<div class="swiper project-modal-swiper h-100 rounded-start">
+								<div class="swiper-wrapper" id="modalImageCarousel"></div>
+								<div class="swiper-button-next text-white"></div>
+								<div class="swiper-button-prev text-white"></div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+						<!-- Right: Content -->
+						<div class="col-md-6 p-5 d-flex flex-column">
+							<div class="pe-2">
+								<h2 id="modalProjectTitle" class="fw-bold mb-3 text-dark">Titre</h2>
+								<p id="modalProjectDescription" class="text-secondary mb-4">Description du projet ici...</p>
+								<div id="modalTechStack" class="d-flex flex-wrap gap-2 mb-4"></div>
+							</div>
+							<div class="mt-auto pt-4 border-top d-flex flex-column flex-sm-row gap-3 justify-content-sm-between align-items-stretch">
+								<a id="modalProjectLink" href="#" target="_blank" class="btn btn-outline-primary w-100"><i class="uil uil-link"></i> <span data-i18n="index.projects.cta_visit">Voir le site</span></a>
+								<button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal"><i class="uil uil-times"></i> <span data-i18n="index.projects.cta_close">Fermer</span></button>
+							</div>
+						</div>
 					</div>
-					<!-- Controls -->
-					<div class="swiper-button-next text-white"></div>
-					<div class="swiper-button-prev text-white"></div>
-					<div class="swiper-pagination"></div>
 				</div>
-				</div>
-	
-				<!-- Right: Content -->
-				<div class="col-md-6 p-5 d-flex flex-column justify-content-between">
-				<div>
-					<h2 id="modalProjectTitle" class="fw-bold mb-3 text-dark">Titre</h2>
-					<p id="modalProjectDescription" class="text-secondary mb-4">Description du projet ici...</p>
-	
-					<div id="modalTechStack" class="d-flex flex-wrap gap-2 mb-4">
-					<!-- Tech badges injected here -->
-					</div>
-				</div>
-	
-				<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-auto">
-					<a id="modalProjectLink" href="#" target="_blank" class="btn btn-outline-primary mb-3 mb-md-0">
-					<i class="uil uil-link"></i> Voir le site
-					</a>
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-					<i class="uil uil-times"></i> Fermer
-					</button>
-				</div>
-				</div>
-	
-			</div>
 			</div>
 		</div>
-		</div>
+	</div>
 	</div>
   
 
