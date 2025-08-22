@@ -2,7 +2,7 @@
   // Simple client-side i18n
   const LS_KEY = 'site_lang';
   const defaultLang = 'fr';
-  const supported = ['fr','en'];
+  const supported = ['fr','en','ar'];
 
   const translations = {
     fr: {
@@ -22,6 +22,61 @@
           cta_short: 'Parlons de votre projet',
           expert_line: 'Un expert <b>Digitoyou</b> vous répond en 24h.',
           h1: 'Passez du <span class="text-warning">Local</span> à l\' <span class="text-warning">Online</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
+        },
+        // Appointment / Reservation translations
+        appointment: {
+          hero: {
+            // contains HTML, should be used with data-i18n-html
+            h1: 'Réservez votre <span class="underline-3 style-3 text-warning">Session</span> Stratégique',
+            lead: 'Ensemble, définissons un <strong>plan d\'actions clair et un calendrier réaliste</strong> pour votre projet web.',
+            contact_prompt: 'Vous préférez parler directement ?'
+          },
+          booking: {
+            profile: {
+              name: 'Brahim Berouini',
+              talk_title: 'Parlons de votre projet 🚀',
+              duration: '15 min',
+              free: 'Consultation gratuite',
+              bonus: 'Bonus : maquettes UX sous 72h'
+            },
+            steps: {
+              step1: '1. Choisir un créneau',
+              step2: '2. Vos coordonnées'
+            },
+            calendar: {
+              slots_title: 'Créneaux disponibles',
+              continue: 'Continuer'
+            },
+            contact: {
+              title: 'Vos informations',
+              back: 'Retour',
+              name_placeholder: 'Votre nom',
+              name_label: 'Nom complet',
+              email_placeholder: 'Votre email',
+              email_label: 'Email',
+              phone_placeholder: 'Votre téléphone',
+              phone_label: 'Numéro de téléphone',
+              communication_label: 'Comment souhaitez-vous échanger ?',
+              comm_phone: 'Téléphone',
+              comm_whatsapp: 'WhatsApp',
+              comm_meet: 'Google Meet',
+              message_placeholder: 'Votre message',
+              message_label: 'Que puis-je faire pour vous ? (optionnel)',
+              slot_label: 'Créneau :',
+              none: 'Aucun',
+              submit: 'Confirmer le rendez-vous'
+            },
+            modal: {
+              success_title: 'Rendez-vous confirmé !',
+              success_body: 'Votre demande a été enregistrée avec succès.',
+              close: 'Fermer'
+            },
+            alerts: {
+              select_slot: 'Veuillez sélectionner une date et un créneau horaire',
+              send_error: 'Erreur lors de l\'envoi à Slack',
+              send_failed: 'Une erreur est survenue lors de l\'envoi du formulaire'
+            }
+          }
         },
         features: {
           f1: 'Gagnez en visibilité',
@@ -188,6 +243,159 @@
             cta: 'Visiter le site >'
           }
         }
+      },
+      // Footer translations
+      footer: {
+        logo_alt: 'Digitoyou',
+        copyright: 'Digitoyou © 2025. Tous droits réservés.',
+        contact: {
+          title: 'Contact',
+          email: 'hello@digitoyou.com',
+          phone: '+1 866 306 4636'
+        },
+        resources: {
+          title: 'Ressources',
+          blog: 'Blog',
+          legal: 'Mentions légales',
+          privacy: 'Politique de confidentialité'
+        },
+        discover: {
+          title: 'Découvrir',
+          about: 'À propos de nous',
+          services: 'Nos services'
+        }
+      }
+    },
+    // Arabic translations (expanded)
+    ar: {
+      nav: { about: 'معلومات', blog: 'مدونة', case_client: 'دراسات حالة' },
+      links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
+      index: {
+        hero: {
+          prefix: 'انتقل من ',
+          local: 'محلي',
+          middle: ' إلى ',
+          online: 'عبر الإنترنت',
+          typing: 'ببساطة',
+          typing_words: ['ببساطة','بسرعة','بسهولة'],
+          lead: 'نقوم ببناء <strong>مواقع مخصصة</strong> للحرفيين وأصحاب المتاجر ورواد الأعمال.',
+          cta_long: 'لنتحدث عن مشروعك – مجاني 100%، دون التزام',
+          cta_short: 'تحدث عن مشروعك',
+          expert_line: 'سيجيبك خبير <b>Digitoyou</b> خلال 24 ساعة.',
+          h1: 'انتقل من <span class="text-warning">محلي</span> إلى <span class="text-warning">عبر الإنترنت</span><br /><span class="underline-3 style-3 text-typing d-inline-block">ببساطة</span>'
+        },
+        appointment: {
+          hero: {
+            h1: 'احجز جلستك الاستراتيجية',
+            lead: 'معاً سنحدد <strong>خطة عمل واضحة وجدول زمني واقعي</strong> لمشروعك.',
+            contact_prompt: 'هل تفضل التحدث مباشرة؟'
+          },
+          booking: {
+            profile: {
+              name: 'براهيم بيروين',
+              talk_title: 'دعنا نتحدث عن مشروعك 🚀',
+              duration: '15 دقيقة',
+              free: 'استشارة مجانية',
+              bonus: 'مكافأة: نماذج UX خلال 72 ساعة'
+            },
+            steps: { step1: '1. اختر فتحة زمنية', step2: '2. معلوماتك' },
+            calendar: { slots_title: 'الفتحات المتاحة', continue: 'متابعة' },
+            contact: {
+              title: 'معلوماتك', back: 'عودة', name_placeholder: 'اسمك', name_label: 'الاسم الكامل',
+              email_placeholder: 'بريدك الإلكتروني', email_label: 'البريد الإلكتروني',
+              phone_placeholder: 'هاتفك', phone_label: 'رقم الهاتف',
+              communication_label: 'كيف تود التواصل؟', comm_phone: 'هاتف', comm_whatsapp: 'واتساب', comm_meet: 'Google Meet',
+              message_placeholder: 'رسالتك', message_label: 'ماذا أستطيع أن أفعل من أجلك؟ (اختياري)', slot_label: 'الفتحة :', none: 'لا شيء', submit: 'تأكيد الموعد'
+            },
+            modal: { success_title: 'تم تأكيد الموعد!', success_body: 'تم تسجيل طلبك بنجاح.', close: 'إغلاق' },
+            alerts: { select_slot: 'يرجى اختيار تاريخ وفتحة زمنية', send_error: 'خطأ أثناء الإرسال إلى Slack', send_failed: 'حدث خطأ أثناء إرسال النموذج' }
+          }
+        },
+        features: {
+          f1: 'زد من ظهورك', f2: 'وضّح رسالتك', f3: 'افتح إمكانيات المبيعات', f4: 'بحث السوق',
+          lead: 'نُنشئ <b>مواقع عرض مخصصة 100%</b>، مصممة لتلبية احتياجاتك وسوقك وواقعك. سواء كنت حرفياً أو صاحب متجر أو رائد أعمال، نربطك بعالم الإنترنت بسهولة.'
+        },
+        realizations: { small: 'أعمالنا', title: 'مشاريعنا الأخيرة' },
+        clients: { heading: 'أكثر من <span class="text-warning">5000 عميل</span> راضٍ.<br>هل ستكون التالي؟' },
+        counters: { completed: 'المشروعات المنجزة', satisfied: 'عملاء راضون', experts: 'خبراء في خدمتك' },
+        about: {
+          card: { remote: { heading: 'عن بُعد 100%', sub: 'وكالة رقمية' } },
+          hero: { h1: 'ديجيتويو، الرقمي يصبح لك.', lead: 'نصمم مواقع حديثة وفعّالة تعكس هويتك وتجذب عملاءك وتحول كل زيارة إلى فرصة.', cta_button: 'احجز استشارتك المجانية' },
+          history: {
+            title: 'قصتنا',
+            p1: 'بدأ كل شيء بأربع أصدقاء شغوفين بالرقميات وحلم مشترك: جعل الويب متاحاً وفعّالاً للأعمال الصغيرة.',
+            p2: 'بجمع خبراتنا في <strong>تطوير الويب، التصميم، البيانات والمبيعات</strong> أنشأنا <strong>Digitoyou</strong>، وكالة إنسانية وطموحة تضع احتياجاتك في مركز كل مشروع.',
+            p3: 'اليوم نرافق رواد الأعمال والحرفيين والشركات الصغيرة لتحويل أفكارهم إلى مواقع حديثة وعالية الأداء.'
+          },
+          counters: { founders: 'المؤسسون', delivered: 'المشروعات المسلّمة', satisfaction: 'رضا العملاء' },
+          advice: { button: 'المزيد', title: 'نصائح خبراء مصممة لرفع مشروعك.', lead: 'كل مشروع فريد. اكتشف استراتيجيات مجربة وأدوات مبتكرة لتحويل أفكارك إلى نجاح.' },
+          features_cards: {
+            card1: { title: 'استهداف استراتيجي', desc: 'حدّد جمهورك المثالي بدقة لزيادة تأثير كل إجراء.' },
+            card2: { title: 'أمان متقدم', desc: 'احمِ بياناتك وبيانات عملائك بحلول قوية.' },
+            card3: { title: 'أداء محسن', desc: 'قدّم تجربة سريعة وسلسة للمستخدمين.' },
+            card4: { title: 'أتمتة ذكية', desc: 'تخلص من المهام المتكررة وركّز على ما يخلق قيمة.' },
+            card5: { title: 'دعم مخصص', desc: 'متابعة سريعة وشخصية لكل استفساراتك.' },
+            card6: { title: 'تحليلات فعّالة', desc: 'بيانات واضحة قابلة للتنفيذ لتسريع نموك.' }
+          },
+          shortcards: { delivery: { title: 'تسليم سريع', desc: 'موقع جاهز في أقل من 10 أيام.' }, support: { title: 'دعم سريع', desc: '90% من الرسائل والمكالمات يتم التعامل معها خلال ساعة.' } },
+          cta_section: {
+            heading: 'هل أنت مستعد لتعزيز وجودك على الإنترنت؟',
+            lead: 'في <strong>Digitoyou</strong> نحد من عدد المشاريع لضمان متابعة شخصية ونتائج سريعة.',
+            bullets: ['🚀 موقع جاهز خلال 10 أيام','🤝 دعم إنساني في كل خطوة','📈 تعديلات غير محدودة حتى الموافقة'],
+            limited: '⚠️ المقاعد محدودة: مشروعان مفتوحان هذا الشهر.',
+            button: 'احجز مكالمتك المجانية'
+          },
+          process: {
+            small: 'عمليتنا',
+            title: 'عملية بسيطة، <span class="text-gradient gradient-7">شفافة</span> وخالية من الضغوط.',
+            step01: { title: 'أسعار واضحة', desc: 'عروض تفصيلية وواضحة – لا رسوم مخفية.' },
+            step02: { title: 'فريق متاح للغاية', desc: '90% من الرسائل والمكالمات تتم معالجتها خلال ساعة.' },
+            step03: { title: 'مواعيد التزامية', desc: 'تسليم سريع مضمون لتجاوز توقعاتك.' },
+            step04: { title: 'كود مصمم ليصمد', desc: 'موقع محسن وقابل للتطوير لتقليل تكاليفك المستقبلية.' }
+          },
+          method: { small: 'طريقتنا', title: 'هدف واحد: تحويل رؤيتك إلى واقع ملموس.', lead: 'من المسودة الأولى إلى الإطلاق، نعمل معك خطوة بخطوة بعملية واضحة وتسليمات سريعة ومتابعة مستمرة.', button: 'ابدأ مشروعي' },
+          services_cards: {
+            wf: { title: 'تصاميم أولية & سير العمل', desc: 'نماذج مجانية لتصور مشروعك من البداية.' },
+            weekly: { title: 'تسليمات أسبوعية', desc: 'استلم جزءًا جديدًا كل أسبوع ووافق على ملاحظاتك.' },
+            flex: { title: 'مرونة كاملة', desc: 'نكيف عملنا حسب تغير احتياجاتك.' },
+            post: { title: 'متابعة بعد التسليم', desc: '3 أشهر متابعة لإجراء التعديلات والتحسينات.' }
+          },
+          delivery: { title: 'تسليم مضمون أو خدمات مجانية', lead: 'نحترم المواعيد؛ وإلا ستحصل على <strong>شهرين مجاناً</strong> من كل خدمة أدناه:', benefits: ['شهرين من الصيانة','شهرين من الاستضافة','شهرين من المقالات','شهرين من وسائل التواصل'] }
+        },
+        offers: { small: 'عروضنا', title: 'حلول رقمية مصممة لتعزيز عملك.' },
+        offer_cards: {
+          landing_title: 'صفحة هبوط', landing_cta: 'تحدث إلى خبير', landing_desc: 'صفحة سريعة ومصممة لتحويل الزوار لعملاء.',
+          redesign_title: 'إعادة تصميم الموقع', redesign_cta: 'حدد موعدي', redesign_desc: 'جدد موقعك بتصميم أفضل وأداء أعلى.',
+          showcase_title: 'موقع عرض', showcase_cta: 'ابدأ مشروعك', showcase_desc: 'اعرض نشاطك بأناقة مع تصميم متوافق.' ,
+          ecommerce_title: 'متجر إلكتروني', ecommerce_cta: 'أرغب بالمراسلة', ecommerce_desc: 'بع منتجاتك عبر متجر متكامل وسهل الإدارة.'
+        },
+        delivery: { title: 'تسليم مضمون أو خدمات مجانية', lead: 'نحترم المواعيد؛ وإلا ستحصل على <strong>شهرين مجاناً</strong> من كل خدمة:', benefit1: 'شهرين من الصيانة', benefit2: 'شهرين من الاستضافة', benefit3: 'شهرين من الاستضافة', benefit4: 'شهرين من المقالات', benefit5: 'شهرين من وسائل التواصل' },
+        cta: { heading: 'هل لا تزال لديك أسئلة؟<br>هيا نناقشها في مكالمة سريعة.', button: 'حجز مكالمة' },
+        faq: {
+          title: 'الأسئلة المتكررة',
+          lead: 'جمعنا هنا كل ما تحتاج لمعرفته قبل بدء المشروع معنا. لا تزال لديك أسئلة؟ تواصل معنا، نرد سريعاً.',
+          q1: { q: 'لماذا تختار Digitoyou بدل وكالة أخرى؟', a: 'نركز على الجودة، الشفافية والسرعة. لا نتعاطى أكثر من 3 مشاريع في آن واحد لنمنح كل عميل اهتمامنا الكامل.' },
+          q2: { q: 'متى يمكنكم بدء مشروعي؟', a: 'يمكننا البدء خلال 5 إلى 10 أيام حسب التوافر.' },
+          q3: { q: 'ما أنواع المشاريع التي تنفذونها؟', a: 'مواقع عرض، متاجر إلكترونية، صفحات هبوط، إعادة تصميمات، علامات تجارية... نتكيف لتقديم حل جاهز.' },
+          q4: { q: 'ماذا إذا أردت تعديلات بعد التسليم؟', a: 'لا مشكلة. نضمّن 2-3 أشهر من الصيانة حسب المشروع.' },
+          q5: { q: 'ما هي أسعاركم؟', a: 'كل مشروع فريد. لكن كبداية، تبدأ خدماتنا من 3000€.' }
+        },
+        projects: {
+          wgs: { title: 'Wolves Groups Services', desc: 'تطوير موقع <strong>WGS.ma</strong>، شركة خدمات أمنية.', cta: 'زيارة الموقع >' },
+          storymedia: { title: 'Story Media', desc: 'تصميم وتنفيذ موقع <strong>Storymedia.ma</strong>، وكالة رواية القصص.', cta: 'زيارة الموقع >' },
+          faciclean: { title: 'Faciclean', desc: 'تطوير موقع <strong>Faciclean</strong> لخدمات التنظيف المهنية.', cta: 'زيارة الموقع >' },
+          agile5s: { title: 'Agile5S', desc: 'تطوير موقع <strong>Agile5S</strong>، شركة خدمات تقنية.', cta: 'زيارة الموقع >' },
+          groupsaz: { title: 'Group SAZ', desc: 'تطوير موقع <strong>Group SAZ</strong>.', cta: 'زيارة الموقع >' },
+          syndicaz: { title: 'SyndicAZ', desc: 'تطوير موقع <strong>SyndicAZ</strong>.', cta: 'زيارة الموقع >' }
+        }
+      },
+      // Footer translations (Arabic)
+      footer: {
+        logo_alt: 'ديجيتويو',
+        copyright: 'ديجيتويو © 2025. كل الحقوق محفوظة.',
+        contact: { title: 'اتصل', email: 'hello@digitoyou.com', phone: '+1 866 306 4636' },
+        resources: { title: 'الموارد', blog: 'مدونة', legal: 'ملاحظات قانونية', privacy: 'سياسة الخصوصية' },
+        discover: { title: 'اكتشف', about: 'معلومات عنا', services: 'خدماتنا' }
       }
     },
     en: {
@@ -207,6 +415,61 @@
           cta_short: 'Talk about your project',
           expert_line: 'A <b>Digitoyou</b> expert replies within 24h.',
           h1: 'Go from <span class="text-warning">Local</span> to <span class="text-warning">Online</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simply</span>'
+        },
+        // Appointment / Reservation translations
+        appointment: {
+          hero: {
+            // contains HTML, should be used with data-i18n-html
+            h1: 'Book your <span class="underline-3 style-3 text-warning">Strategic</span> Session',
+            lead: 'Together, let’s define a <strong>clear action plan and a realistic timeline</strong> for your web project.',
+            contact_prompt: 'Prefer to talk directly?'
+          },
+          booking: {
+            profile: {
+              name: 'Brahim Berouini',
+              talk_title: 'Let’s talk about your project 🚀',
+              duration: '15 min',
+              free: 'Free consultation',
+              bonus: 'Bonus: UX mockups within 72h'
+            },
+            steps: {
+              step1: '1. Choose a slot',
+              step2: '2. Your details'
+            },
+            calendar: {
+              slots_title: 'Available slots',
+              continue: 'Continue'
+            },
+            contact: {
+              title: 'Your information',
+              back: 'Back',
+              name_placeholder: 'Your name',
+              name_label: 'Full name',
+              email_placeholder: 'Your email',
+              email_label: 'Email',
+              phone_placeholder: 'Your phone',
+              phone_label: 'Phone number',
+              communication_label: 'How would you like to communicate?',
+              comm_phone: 'Phone',
+              comm_whatsapp: 'WhatsApp',
+              comm_meet: 'Google Meet',
+              message_placeholder: 'Your message',
+              message_label: 'What can I do for you? (optional)',
+              slot_label: 'Slot:',
+              none: 'None',
+              submit: 'Confirm appointment'
+            },
+            modal: {
+              success_title: 'Appointment confirmed!',
+              success_body: 'Your request has been successfully recorded.',
+              close: 'Close'
+            },
+            alerts: {
+              select_slot: 'Please select a date and time slot',
+              send_error: 'Error sending to Slack',
+              send_failed: 'An error occurred while submitting the form'
+            }
+          }
         },
         features: {
           f1: 'Get more visibility',
@@ -373,6 +636,27 @@
             cta: 'Visit Website >'
           }
         }
+      },
+      // Footer translations
+      footer: {
+        logo_alt: 'Digitoyou',
+        copyright: 'Digitoyou © 2025. All rights reserved.',
+        contact: {
+          title: 'Contact',
+          email: 'hello@digitoyou.com',
+          phone: '+1 866 306 4636'
+        },
+        resources: {
+          title: 'Resources',
+          blog: 'Blog',
+          legal: 'Legal Notice',
+          privacy: 'Privacy Policy'
+        },
+        discover: {
+          title: 'Discover',
+          about: 'About us',
+          services: 'Our services'
+        }
       }
     }
   };
@@ -448,12 +732,18 @@
     try { document.dispatchEvent(new CustomEvent('i18n:updated')); } catch(e){}
 
     // update current language display
-    const cur = document.querySelector('.language-select .current-lang');
-    if(cur) cur.textContent = lang === 'fr' ? 'Fr' : 'En';
+    document.querySelectorAll('.current-lang').forEach(el => {
+      el.textContent = lang === 'fr' ? 'Fr' : lang === 'en' ? 'En' : 'Ar';
+    });
 
-  // publish current language globally for dynamic modules
-  window.i18nCurrentLang = lang;
-  }
+    // handle RTL for Arabic
+    if(lang === 'ar'){
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('lang', 'ar');
+    } else {
+      document.documentElement.removeAttribute('dir');
+      document.documentElement.setAttribute('lang', lang);
+    }
 
   function setLanguage(lang){
     if(!supported.includes(lang)) lang = defaultLang;
