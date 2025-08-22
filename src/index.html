@@ -144,18 +144,18 @@
         </div>
     
         <!-- Swiper (Projects injected dynamically) -->
-<div class="swiper mySwiper" id="projects-swiper" data-source="./assets/js/projects.json">
-  <div class="swiper-wrapper" id="projects-swiper-wrapper">
-    <!-- Project slides will be injected here dynamically -->
-    <div class="swiper-slide" data-placeholder hidden>
-      <div class="testimonial-card text-center py-5">
-        <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;">
-          <span class="visually-hidden">Loading...</span>
+      <div class="swiper mySwiper" id="projects-swiper" data-source="./assets/js/projects.json">
+        <div class="swiper-wrapper" id="projects-swiper-wrapper">
+          <!-- Project slides will be injected here dynamically -->
+          <div class="swiper-slide" data-placeholder hidden>
+            <div class="testimonial-card text-center py-5">
+              <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
       </div>
     </section>
@@ -424,7 +424,7 @@
         const slide = document.createElement('div');
         slide.className = 'swiper-slide testimonial-slide';
         slide.innerHTML = `
-          <div class="testimonial-card d-flex flex-column h-100">
+          <div class="testimonial-card d-flex flex-column h-150">
             <div class="testimonial-img mb-3">
               <video class="img-fluid rounded" autoplay muted loop playsinline preload="metadata" poster="${p.poster}" width="190">
                 <source src="${p.video?.src || ''}" type="${p.video?.type || 'video/webm'}">
