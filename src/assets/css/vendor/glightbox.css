@@ -1098,6 +1098,16 @@ iframe.wait-autoplay {
   opacity: 1;
 }
 
+.hero-enhanced { position: relative; min-height: 95vh; padding: 10.5rem 0 6rem 0; background-size: cover; background-repeat: no-repeat; }
+.hero-enhanced .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,10,20,0.55), rgba(6,10,20,0.25)); z-index:1; }
+.hero-enhanced .hero-content { position: relative; z-index: 10; }
+.hero-highlight { color: var(--bs-primary); background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); padding: .25rem .5rem; border-radius: .5rem; }
+.hero-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); border-radius: 1rem; padding: .75rem; box-shadow: 0 10px 30px rgba(2,6,23,0.45); }
+.hero-image { border-radius: .75rem; width:100%; height:auto; display:block; }
+.trust-logos img { max-height: 28px; opacity: .85; filter: grayscale(.2); }
+.cta-row .btn { min-width: 190px; }
+@media (max-width: 991px){ .hero-enhanced { padding: 9rem 0 4.5rem 0; background-position: center 65%; } .hero-card{ margin-top:1.5rem; } }
+@media (max-width: 575px){ .hero-enhanced { padding-top: 8rem; } .cta-row { display:flex; gap:.5rem; flex-direction:column; } }
 .hero-enhanced::after {
   content: '';
   position: absolute;
@@ -1150,4 +1160,37 @@ iframe.wait-autoplay {
     background-color: var(--bs-primary);
     color: #fff;
 }
+
+/* RTL adjustments: mirror directional UI for Arabic and other RTL languages */
+html[dir="rtl"] .hero-enhanced {
+  background-position: left center !important;
+}
+html[dir="rtl"] .hero-enhanced::after {
+  left: auto;
+  right: 0;
+}
+
+/* Mirror brand-swiper fade overlays */
+html[dir="rtl"] .brand-swiper::before { left: auto; right: 0; background: linear-gradient(to left, rgba(255,255,255,0.75), transparent); }
+html[dir="rtl"] .brand-swiper::after  { right: auto; left: 0; background: linear-gradient(to right, rgba(255,255,255,0.75), transparent); }
+
+/* GLightbox nav buttons: swap prev/next positions */
+html[dir="rtl"] .glightbox-clean .gprev { left: auto; right: 30px; }
+html[dir="rtl"] .glightbox-clean .gnext { right: auto; left: 30px; }
+
+/* Carousel arrows ordering for flex-based layouts */
+html[dir="rtl"] .carousel-arrow.left  { order: 1; }
+html[dir="rtl"] .carousel-arrow.right { order: -1; }
+
+/* Flip decorative/scroll indicators */
+html[dir="rtl"] .scroll-down i { transform: scaleX(-1); }
+
+/* Small helpers: make testimonial cards align RTL-friendly text */
+html[dir="rtl"] .testimonial-card { direction: rtl; text-align: right; }
+html[dir="rtl"] .testimonial-title { text-align: right; }
+
+/* Text alignment utility flip for elements using .text-start */
+html[dir="rtl"] .text-start { text-align: right !important; }
+
+/* End RTL adjustments */
 
