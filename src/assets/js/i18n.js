@@ -275,14 +275,14 @@
           prefix: 'انتقل من ',
           local: 'محلي',
           middle: ' إلى ',
-          online: 'عبر الإنترنت',
+          online: ' عالمي',
           typing: 'ببساطة',
           typing_words: ['ببساطة','بسرعة','بسهولة'],
           lead: 'نقوم ببناء <strong>مواقع مخصصة</strong> للحرفيين وأصحاب المتاجر ورواد الأعمال.',
           cta_long: 'لنتحدث عن مشروعك – مجاني 100%، دون التزام',
           cta_short: 'تحدث عن مشروعك',
           expert_line: 'سيجيبك خبير <b>Digitoyou</b> خلال 24 ساعة.',
-          h1: 'انتقل من <span class="text-warning">محلي</span> إلى <span class="text-warning">عبر الإنترنت</span><br /><span class="underline-3 style-3 text-typing d-inline-block">ببساطة</span>'
+          h1: 'انتقل من <span class="text-warning">محلي</span> إلى <span class="text-warning">عالمي</span><br /><span class="underline-3 style-3 text-typing d-inline-block">ببساطة</span>'
         },
         appointment: {
           hero: {
@@ -735,6 +735,18 @@
       document.documentElement.removeAttribute('dir');
       document.documentElement.setAttribute('lang', lang);
     }
+
+    // swap hero background image for Arabic (and revert for other languages)
+    try {
+      const heroEl = document.querySelector('.wrapper.hero-enhanced');
+      if(heroEl) {
+        if(lang === 'ar'){
+          heroEl.style.backgroundImage = "url('./assets/img/photos/hero1-1800×1000.png.png')";
+        } else {
+          heroEl.style.backgroundImage = "url('./assets/img/photos/hero-1800×1000.png')";
+        }
+      }
+    } catch(e){ console.error('i18n: failed to swap hero image', e); }
   }
 
   function setLanguage(lang){
