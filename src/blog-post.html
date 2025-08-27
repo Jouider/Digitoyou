@@ -11,6 +11,7 @@
 				"otherClassList": "w-100 d-flex ms-auto",
 				"otherSearch": true,
 				"otherBtn": true,
+				"otherLanguageSelect": true,
 				"otherBtnClassList": "btn-sm btn-primary rounded-pill",
 				"otherBtnText": "Contact",
 				"otherBtnLink": "@@webRoot/contact.html"
@@ -23,22 +24,22 @@
 					<div class="col-md-10 col-xl-8 mx-auto">
 						<div class="post-header">
 							<div class="post-category text-line">
-								<a href="#" class="hover" rel="category">Digitalisation</a>
-								<a href="#" class="hover" rel="category">Entrepreneuriat</a>
+								<a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.digitalization"></a>
+								<a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.entrepreneurship"></a>
 							</div>
-							<h1 class="display-1 mb-4">Passez du Local à l'Online : Guide Pratique</h1>
+							<h1 class="display-1 mb-4" data-i18n="index.blog.post.single.title"></h1>
 							<ul class="post-meta mb-5">
 								<li class="post-date">
 									<i class="uil uil-calendar-alt"></i><span>4 Août 2025</span>
 								</li>
 								<li class="post-author">
-									<a href="#"><i class="uil uil-user"></i><span>Par Digitoyou</span></a>
+									<a href="#"><i class="uil uil-user"></i><span><span data-i18n="index.blog.post.meta.by"></span> <span data-i18n="index.blog.post.meta.author"></span></span></a>
 								</li>
 								<li class="post-comments">
-									<a href="#"><i class="uil uil-comment"></i>0<span> Commentaire</span></a>
+									<a href="#"><i class="uil uil-comment"></i><span class="comments-count">0</span> <span data-i18n="index.blog.post.meta.comments"></span></a>
 								</li>
 								<li class="post-likes">
-									<a href="#"><i class="uil uil-heart-alt"></i>0<span> Likes</span></a>
+									<a href="#"><i class="uil uil-heart-alt"></i><span class="likes-count">0</span> <span data-i18n="index.blog.post.meta.likes"></span></a>
 								</li>
 							</ul>
 						</div>
@@ -58,63 +59,39 @@
 								<div class="card-body">
 									<div class="classic-view">
 										<!-- Post content -->
-														  <article class="post">
-															<div class="post-content mb-5">
-															  <h2 class="h1 mb-4">Pourquoi digitaliser son activité locale ?</h2>
-															  <p>Dans un monde en constante évolution, la présence en ligne est devenue essentielle. Que vous soyez artisan, commerçant ou entrepreneur, le digital vous ouvre les portes de nouvelles opportunités : attirer plus de clients, améliorer votre visibilité, et professionnaliser votre image.</p>
-															  
-															  <p>Grâce à un site web bien conçu, une présence sur les réseaux sociaux et une stratégie adaptée à votre cible, vous pouvez transformer votre activité locale en un projet visible à l’échelle nationale, voire internationale.</p>
-										  
-															  <h3 class="h2 mb-4 mt-6">Les étapes clés pour passer à l'Online</h3>
-															  <ul class="list-unstyled mb-5">
-																<li>✅ Créez un site web moderne et responsive</li>
-																<li>✅ Mettez en avant vos produits ou services avec des visuels professionnels</li>
-																<li>✅ Intégrez des moyens de contact simples et efficaces</li>
-																<li>✅ Optimisez votre référencement pour Google</li>
-																<li>✅ Utilisez les réseaux sociaux pour communiquer et fidéliser</li>
-															  </ul>
-										  
-															  <blockquote class="fs-lg my-8">
-																<p>“Aujourd'hui, votre boutique ne ferme jamais : elle est en ligne 24h/24.”</p>
-																<footer class="blockquote-footer">Équipe Digitoyou</footer>
-															  </blockquote>
-										  
-															  <h3 class="h2 mb-4">Un accompagnement sur-mesure</h3>
-															  <p>Chez Digitoyou, nous vous aidons à franchir ce cap sereinement. Nos experts conçoivent des sites adaptés à vos besoins, à votre image, et optimisés pour vos clients. Passez du local à l’online, rapidement et simplement.</p>
-															</div>
-														  </article>
-														  <!-- /.post -->
-										  
-											<div class="post-footer d-md-flex flex-md-row justify-content-md-between align-items-center mt-8">
-												<div>
-													<ul class="list-unstyled tag-list mb-0">
-														<li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">coder</a></li>
-														<li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">digitaliser</a></li>
-														<li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">online</a></li>
-													</ul>
-												</div>
-												<div class="mb-0 mb-md-2">
-													<div class="dropdown share-dropdown btn-group">
-														<button class="btn btn-sm btn-red rounded-pill btn-icon btn-icon-start dropdown-toggle mb-0 me-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-															<i class="uil uil-share-alt"></i> Share </button>
-														<div class="dropdown-menu">
-															<a class="dropdown-item" href="#"><i class="uil uil-twitter"></i>Twitter</a>
-															<a class="dropdown-item" href="#"><i class="uil uil-facebook-f"></i>Facebook</a>
-															<a class="dropdown-item" href="#"><i class="uil uil-linkedin"></i>Linkedin</a>
-														</div>
-														<!--/.dropdown-menu -->
-													</div>
-													<!--/.share-dropdown -->
-												</div>
+										  <article class="post">
+											<div class="post-content mb-5" data-i18n-html="index.blog.post.single.body_html"></div>
+										  </article>
+										  <!-- /.post -->
+										
+										<div class="post-footer d-md-flex flex-md-row justify-content-md-between align-items-center mt-8">
+											<div>
+												<ul class="list-unstyled tag-list mb-0">
+													<li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0" data-i18n="index.blog.post.tags.coder"></a></li>
+													<li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0" data-i18n="index.blog.post.tags.digitaliser"></a></li>
+													<li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0" data-i18n="index.blog.post.tags.online"></a></li>
+												</ul>
 											</div>
-											<!-- /.post-footer -->
-										</article>
-										<!-- /.post -->
+											<div class="mb-0 mb-md-2">
+												<div class="dropdown share-dropdown btn-group">
+													<button class="btn btn-sm btn-red rounded-pill btn-icon btn-icon-start dropdown-toggle mb-0 me-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<i class="uil uil-share-alt"></i> Share </button>
+													<div class="dropdown-menu">
+														<a class="dropdown-item" href="#"><i class="uil uil-twitter"></i>Twitter</a>
+														<a class="dropdown-item" href="#"><i class="uil uil-facebook-f"></i>Facebook</a>
+														<a class="dropdown-item" href="#"><i class="uil uil-linkedin"></i>Linkedin</a>
+													</div>
+													<!--/.dropdown-menu -->
+												</div>
+												<!--/.share-dropdown -->
+											</div>
+										</div>
+										<!-- /.post-footer -->
 									</div>
 									<!-- /.classic-view -->
 									<!-- /.social -->
 									<hr />
-									<h3 class="mb-6">D'autres articles qui pourraient vous intéresser</h3>
+									<h3 class="mb-6" data-i18n="index.blog.post.single.more_title"></h3>
 									<div class="swiper-container blog grid-view mb-16" data-margin="30" data-dots="true" data-items-md="2" data-items-xs="1">
 										<div class="swiper">
 											<div class="swiper-wrapper">
@@ -122,23 +99,22 @@
 													<article>
 														<figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="@@webRoot/assets/img/photos/b4.jpg" alt="" /></a>
 															<figcaption>
-																<h5 class="from-top mb-0">Voir l'article</h5>
+																<h5 class="from-top mb-0" data-i18n="index.blog.post.read_more"></h5>
 															</figcaption>
 														</figure>
 														<div class="post-header">
 															<div class="post-category text-line">
-																<a href="#" class="hover" rel="category">Coding</a>
+																<a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.coding"></a>
 															</div>
 															<!-- /.post-category -->
-															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html">Travailler efficacement avec un code propre</a></h2>
+															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.grid1.title"></a></h2>
 														</div>
 														<!-- /.post-header -->
 														<div class="post-footer">
 															<ul class="post-meta mb-0">
-																<li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr 2022</span></li>
-																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i>4</a></li>
+																<li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid1.date"></span></li>
+																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">4</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
 															</ul>
-															<!-- /.post-meta -->
 														</div>
 														<!-- /.post-footer -->
 													</article>
@@ -149,23 +125,22 @@
 													<article>
 														<figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="@@webRoot/assets/img/photos/b5.jpg" alt="" /></a>
 															<figcaption>
-																<h5 class="from-top mb-0">Voir l'article</h5>
+																<h5 class="from-top mb-0" data-i18n="index.blog.post.read_more"></h5>
 															</figcaption>
 														</figure>
 														<div class="post-header">
 															<div class="post-category text-line">
-																<a href="#" class="hover" rel="category">Workspace</a>
+																<a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.workspace"></a>
 															</div>
 															<!-- /.post-category -->
-															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html">Créer un espace de travail motivant</a></h2>
+															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.grid2.title"></a></h2>
 														</div>
 														<!-- /.post-header -->
 														<div class="post-footer">
 															<ul class="post-meta mb-0">
-																<li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar 2022</span></li>
-																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3</a></li>
+																<li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid2.date"></span></li>
+																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">3</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
 															</ul>
-															<!-- /.post-meta -->
 														</div>
 														<!-- /.post-footer -->
 													</article>
@@ -176,23 +151,22 @@
 													<article>
 														<figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="@@webRoot/assets/img/photos/b6.jpg" alt="" /></a>
 															<figcaption>
-																<h5 class="from-top mb-0">Voir l'article</h5>
+																<h5 class="from-top mb-0" data-i18n="index.blog.post.read_more"></h5>
 															</figcaption>
 														</figure>
 														<div class="post-header">
 															<div class="post-category text-line">
-																<a href="#" class="hover" rel="category">Meeting</a>
+																<a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.meeting"></a>
 															</div>
 															<!-- /.post-category -->
-															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html">Optimiser vos réunions d’équipe</a></h2>
+															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.grid3.title"></a></h2>
 														</div>
 														<!-- /.post-header -->
 														<div class="post-footer">
 															<ul class="post-meta mb-0">
-																<li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb 2022</span></li>
-																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i>6</a></li>
+																<li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid3.date"></span></li>
+																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">6</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
 															</ul>
-															<!-- /.post-meta -->
 														</div>
 														<!-- /.post-footer -->
 													</article>
@@ -203,22 +177,21 @@
 													<article>
 														<figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="@@webRoot/assets/img/photos/b7.jpg" alt="" /></a>
 															<figcaption>
-																<h5 class="from-top mb-0">Voir l'article</h5>
+																<h5 class="from-top mb-0" data-i18n="index.blog.post.read_more"></h5>
 															</figcaption>
 														</figure>
 														<div class="post-header">
 															<div class="post-category text-line">
-																<a href="#" class="hover" rel="category">Business Tips</a>
+																<a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.business_tips"></a>
 															</div>
 															<!-- /.post-category -->
-															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html">Développer une stratégie business gagnante</a></h2>
+															<h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.grid4.title"></a></h2>
 														</div>
 														<div class="post-footer">
 															<ul class="post-meta mb-0">
-																<li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan 2022</span></li>
-																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i>2</a></li>
+																<li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid4.date"></span></li>
+																<li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">2</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
 															</ul>
-															<!-- /.post-meta -->
 														</div>
 														<!-- /.post-footer -->
 													</article>
@@ -233,26 +206,26 @@
 									<!-- /.swiper-container -->
 									
 									<hr />
-									<h3 class="mb-3">Would you like to share your thoughts?</h3>
-									<p class="mb-7">Your email address will not be published. Required fields are marked *</p>
+									<h3 class="mb-3" data-i18n="index.blog.post.comment_form.title"></h3>
+									<p class="mb-7" data-i18n="index.blog.post.comment_form.description"></p>
 									<form class="comment-form">
 										<div class="form-floating mb-4">
-											<input type="text" class="form-control" placeholder="Name*" id="c-name">
-											<label for="c-name">Name *</label>
+											<input type="text" class="form-control" placeholder="Name*" id="c-name" data-i18n-placeholder="index.blog.post.comment_form.name_placeholder">
+											<label for="c-name" data-i18n="index.blog.post.comment_form.name_label"></label>
 										</div>
 										<div class="form-floating mb-4">
-											<input type="email" class="form-control" placeholder="Email*" id="c-email">
-											<label for="c-email">Email*</label>
+											<input type="email" class="form-control" placeholder="Email*" id="c-email" data-i18n-placeholder="index.blog.post.comment_form.email_placeholder">
+											<label for="c-email" data-i18n="index.blog.post.comment_form.email_label"></label>
 										</div>
 										<div class="form-floating mb-4">
-											<input type="text" class="form-control" placeholder="Website" id="c-web">
-											<label for="c-web">Website</label>
+											<input type="text" class="form-control" placeholder="Website" id="c-web" data-i18n-placeholder="index.blog.post.comment_form.website_placeholder">
+											<label for="c-web" data-i18n="index.blog.post.comment_form.website_label"></label>
 										</div>
 										<div class="form-floating mb-4">
-											<textarea name="textarea" class="form-control" placeholder="Comment" style="height: 150px"></textarea>
-											<label>Comment *</label>
+											<textarea name="textarea" class="form-control" placeholder="Comment" style="height: 150px" data-i18n-placeholder="index.blog.post.comment_form.comment_placeholder"></textarea>
+											<label data-i18n="index.blog.post.comment_form.comment_label"></label>
 										</div>
-										<button type="submit" class="btn btn-primary rounded-pill mb-0">Submit</button>
+										<button type="submit" class="btn btn-primary rounded-pill mb-0" data-i18n="index.blog.post.comment_form.submit_button"></button>
 									</form>
 									<!-- /.comment-form -->
 								</div>
