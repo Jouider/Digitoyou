@@ -10,19 +10,19 @@
       links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
       index: {
         hero: {
-          prefix: 'Passez du ',
-          local: 'Local',
-          middle: " à l'",
-          online: 'Online',
-          typing: 'Simplement',
+          prefix: 'De votre ',
+          local: 'commerce local',
+          middle: " à une présence ",
+          online: 'digitale',
+          typing: 'en toute simplicité',
           // rotating words for hero typing (localized)
-          typing_words: ['Simplement','Rapidement','Facilement'],
-          lead: 'Nous développons <strong>des sites sur mesure</strong> pour artisans, commerçants et entrepreneurs.',
-          cta_long: 'Parlons de votre projet – 100% gratuit, 0 engagement',
-          cta_short: 'Parlons de votre projet',
-          expert_line: 'Un expert <b>Digitoyou</b> vous répond en 24h.',
-          h1: 'Passez du <span class="text-warning">Local</span> à l\' <span class="text-warning">Online</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
-        },
+          typing_words: ['Simplement','Rapidement','Sans effort'],
+          lead: 'Nous créons <strong>des sites web sur mesure</strong> qui mettent en valeur vos produits, vos services et votre savoir-faire.',
+          cta_long: 'Discutons de votre projet – 100% gratuit, sans engagement',
+          cta_short: 'Discutons de votre projet',
+          expert_line: 'Un expert <b>Digitoyou</b> vous répond sous 24h.',
+          h1: 'De votre <span class="text-warning"> Commerce Local</span> à une  <span class="text-warning">Présence Digitale</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
+        }, 
         // Appointment / Reservation translations
         appointment: {
           hero: {
@@ -242,6 +242,101 @@
             desc: 'Développement du site pour <strong>SyndicAZ</strong>, plateforme de gestion de copropriété et de conseil en immobilier dédiée à des services immobiliers.',
             cta: 'Visiter le site >'
           }
+        },
+
+        // Translations specific to the blog listing (blog2.html)
+        blog: {
+          hero: {
+            h1: 'Découvrez nos articles',
+            lead: 'Explorez nos conseils et astuces pour créer un site web performant et développer votre présence en ligne avec Digitoyou.',
+            cta_projects: 'Voir nos projets',
+            cta_more: 'En savoir plus'
+          },
+          post: {
+            read_more: 'Lire la suite',
+            categories: {
+              digitalization: 'Digitalisation',
+              entrepreneurship: 'Entrepreneuriat',
+              coding: 'Coding',
+              workspace: 'Workspace',
+              meeting: 'Meeting',
+              business_tips: 'Conseils Business',
+              websites: 'Sites Web',
+              artisans: 'Conseils Artisans',
+              case_studies: 'Études de cas',
+              tutorials: 'Tutoriels',
+              seo: 'SEO'
+            },
+            meta: {
+              by: 'Par',
+              comments: 'Commentaires',
+              likes: 'Likes',
+              author: 'Digitoyou'
+            },
+            posts: {
+              p1: { title: 'Créer un site web efficace pour votre activité locale', excerpt: 'Découvrez les étapes clés pour concevoir un site web qui attire des clients et reflète votre savoir-faire local.', date: '5 juil. 2025' },
+              p2: { title: 'Comment un commerçant a doublé ses ventes en ligne', excerpt: 'Retour sur la collaboration avec un commerçant local qui a vu son chiffre d’affaires digital doubler en 3 mois.', date: '25 juin 2025' },
+              p3: { title: 'Tuto : Intégrer une réservation en ligne à votre site', excerpt: 'Apprenez pas à pas comment ajouter un module de réservation en ligne pour faciliter la prise de rendez-vous de vos clients.', date: '18 mai 2025' },
+              grid1: { title: '5 astuces SEO pour artisans', excerpt: 'Optimisez votre visibilité sur Google grâce à ces conseils spécialement adaptés aux artisans.', date: '14 avr. 2025' }
+            },
+            tags: {
+              coder: 'coder',
+              digitaliser: 'digitaliser',
+              online: 'online'
+            },
+            comment_form: {
+              title: 'Laisser un commentaire',
+              description: 'Votre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués *.',
+              invite: 'Souhaitez-vous partager vos pensées ?',
+              privacy: 'Votre adresse e-mail ne sera pas publiée. Les champs obligatoires sont indiqués *',
+              name_placeholder: 'Nom*',
+              name_label: 'Nom *',
+              email_placeholder: 'E-mail*',
+              email_label: 'E-mail*',
+              website_placeholder: 'Site web',
+              website_label: 'Site web',
+              comment_placeholder: 'Commentaire',
+              comment_label: 'Commentaire *',
+              submit: 'Envoyer',
+              submit_button: 'Envoyer'
+            },
+            // Français
+          single: {
+            title: 'Passez du local au numérique : Un guide pratique',
+            date: '4 Juillet 2025',
+            more_title: 'Autres articles susceptibles de vous intéresser',
+            body_html: '<h2 class="h1 mb-4">Pourquoi digitaliser votre commerce local ?</h2>\n<p>Dans un monde en constante évolution, avoir une présence en ligne est devenu essentiel. Que vous soyez artisan, commerçant ou entrepreneur, le numérique ouvre la porte à de nouvelles opportunités : attirer plus de clients, améliorer votre visibilité et professionnaliser votre image.</p>\n<p>Avec un site web bien conçu, une présence sur les réseaux sociaux et une stratégie adaptée à votre audience, vous pouvez transformer votre activité locale en un projet visible à l’échelle nationale, voire internationale.</p>\n<h3 class="h2 mb-4 mt-6">Les étapes clés pour passer en ligne</h3>\n<ul class="list-unstyled mb-5"><li>✅ Créez un site moderne et responsive</li><li>✅ Mettez en valeur vos produits ou services avec des visuels professionnels</li><li>✅ Intégrez des moyens de contact simples et efficaces</li><li>✅ Optimisez votre référencement pour Google</li><li>✅ Utilisez les réseaux sociaux pour communiquer et fidéliser</li></ul>\n<blockquote class="fs-lg my-8"><p>« Aujourd’hui, votre boutique n’est jamais fermée : elle est en ligne 24h/24 et 7j/7. »</p><footer class="blockquote-footer">Équipe Digitoyou</footer></blockquote>\n<h3 class="h2 mb-4">Un accompagnement sur mesure</h3>\n<p>Chez Digitoyou, nous vous aidons à franchir cette étape en toute confiance. Nos experts conçoivent des sites adaptés à vos besoins, à votre image et optimisés pour vos clients. Passez du local au numérique, rapidement et simplement.</p>'
+          },
+          },
+          // comment form translations
+          
+          // Sidebar specific translations
+          sidebar: {
+            search_placeholder: 'Rechercher',
+            about_title: 'À propos',
+            about_html: 'Passez du <strong>Local</strong> à l’<strong>Online</strong> Rapidement !<br/>Nous concevons des sites sur mesure pour artisans, commerçants et entrepreneurs.<br/>Transformez votre savoir-faire en succès digital.',
+            popular_title: 'Articles populaires',
+            categories_title: 'Catégories',
+            tags_title: 'Tags',
+            archive_title: 'Archive',
+            tags: {
+              wordpress: 'WordPress',
+              woocommerce: 'WooCommerce',
+              reservation: 'Réservation',
+              seo: 'SEO',
+              case_study: 'Étude de cas',
+              tuto: 'Tuto',
+              figma: 'Figma'
+            },
+            archive: {
+              jul2025: 'Juillet 2025',
+              jun2025: 'Juin 2025',
+              may2025: 'Mai 2025',
+              apr2025: 'Avril 2025',
+              mar2025: 'Mars 2025'
+            }
+          },
+          pagination: { prev: 'Précédent', next: 'Suivant' }
         }
       },
       // Footer translations
@@ -272,17 +367,18 @@
       links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
       index: {
         hero: {
-          prefix: 'انتقل من ',
-          local: 'محلي',
-          middle: ' إلى ',
-          online: ' عالمي',
-          typing: 'ببساطة',
-          typing_words: ['ببساطة','بسرعة','بسهولة'],
-          lead: 'نقوم ببناء <strong>مواقع مخصصة</strong> للحرفيين وأصحاب المتاجر ورواد الأعمال.',
-          cta_long: 'لنتحدث عن مشروعك – مجاني 100%، دون التزام',
-          cta_short: 'تحدث عن مشروعك',
-          expert_line: 'سيجيبك خبير <b>Digitoyou</b> خلال 24 ساعة.',
-          h1: 'انتقل من <span class="text-warning">محلي</span> إلى <span class="text-warning">عالمي</span><br /><span class="underline-3 style-3 text-typing d-inline-block">ببساطة</span>'
+          prefix: 'من نشاطك ',
+          local: 'المحلي',
+          middle: " إلى حضور ",
+          online: 'رقمي',
+          typing: 'بكل سهولة',
+          // rotating words for hero typing
+          typing_words: ['بسهولة','بسرعة','بلا تعقيد'],
+          lead: 'نقوم بإنشاء <strong>مواقع إلكترونية مخصصة</strong> تبرز منتجاتك، خدماتك وخبرتك.',
+          cta_long: 'لنتحدث عن مشروعك – 100% مجاني وبدون أي التزام',
+          cta_short: 'لنتحدث عن مشروعك',
+          expert_line: 'خبير من <b>Digitoyou</b> يتواصل معك خلال 24 ساعة.',
+          h1: 'من <span class="text-warning">نشاطك المحلي</span> إلى <span class="text-warning">حضور رقمي</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
         },
         appointment: {
           hero: {
@@ -387,6 +483,100 @@
           agile5s: { title: 'Agile5S', desc: 'تطوير موقع <strong>Agile5S</strong>، شركة خدمات تقنية.', cta: 'زيارة الموقع >' },
           groupsaz: { title: 'Group SAZ', desc: 'تطوير موقع <strong>Group SAZ</strong>.', cta: 'زيارة الموقع >' },
           syndicaz: { title: 'SyndicAZ', desc: 'تطوير موقع <strong>SyndicAZ</strong>.', cta: 'زيارة الموقع >' }
+        },
+
+        // Translations specific to the blog listing (blog2.html)
+        blog: {
+          hero: {
+            h1: 'اكتشف مقالاتنا',
+            lead: 'استكشف نصائحنا وحيلنا لإنشاء موقع ويب فعال وتطوير وجودك على الإنترنت مع Digitoyou.',
+            cta_projects: 'عرض مشاريعنا',
+            cta_more: 'المزيد'
+          },
+          post: {
+            read_more: 'اقرأ المزيد',
+            categories: {
+              digitalization: 'الرقمنة',
+              entrepreneurship: 'ريادة الأعمال',
+              coding: 'البرمجة',
+              workspace: 'بيئة العمل',
+              meeting: 'الاجتماعات',
+              business_tips: 'نصائح الأعمال',
+              websites: 'مواقع الويب',
+              artisans: 'نصائح للحرفيين',
+              case_studies: 'دراسات حالة',
+              tutorials: 'دروس',
+              seo: 'تحسين محركات البحث'
+            },
+            meta: {
+              by: 'بواسطة',
+              comments: 'تعليقات',
+              likes: 'إعجابات',
+              author: 'Digitoyou'
+            },
+            posts: {
+              p1: { title: 'إنشاء موقع ويب فعال لنشاطك المحلي', excerpt: 'اكتشف الخطوات الأساسية لتصميم موقع ويب يجذب العملاء ويعكس مهاراتك المحلية.', date: '5 يوليو 2025' },
+              p2: { title: 'كيف ضاعف تاجر مبيعاته عبر الإنترنت', excerpt: 'نظرة على التعاون مع تاجر محلي شهد زيادة في مبيعاته الرقمية بنسبة 100% خلال 3 أشهر.', date: '25 يونيو 2025' },
+              p3: { title: 'درس: دمج حجز عبر الإنترنت في موقعك', excerpt: 'تعلم خطوة بخطوة كيفية إضافة وحدة حجز عبر الإنترنت لتسهيل حجز مواعيد عملائك.', date: '18 مايو 2025' },
+              grid1: { title: '5 نصائح لتحسين محركات البحث للحرفيين', excerpt: 'حسّن ظهورك على Google بفضل هذه النصائح المخصصة للحرفيين.', date: '14 أبريل 2025' }
+            },// small tag labels used inside single post pages
+            tags: {
+              coder: 'مبرمج',
+              digitaliser: 'رقمنة',
+              online: 'عبر الإنترنت'
+            },
+            comment_form: {
+              title: 'اترك تعليقًا',
+              description: 'لن يتم نشر عنوان بريدك الإلكتروني. الحقول الإلزامية مشار إليها بـ *.',
+              invite: 'هل ترغب في مشاركة أفكارك؟',
+              privacy: 'لن يتم نشر عنوان بريدك الإلكتروني. الحقول الإلزامية مشار إليها بـ *',
+              name_placeholder: 'الاسم*',
+              name_label: 'الاسم *',
+              email_placeholder: 'البريد الإلكتروني*',
+              email_label: 'البريد الإلكتروني*',
+              website_placeholder: 'الموقع الإلكتروني',
+              website_label: 'الموقع الإلكتروني',
+              comment_placeholder: 'التعليق',
+              comment_label: 'التعليق *',
+              submit: 'إرسال',
+              submit_button: 'إرسال'
+            },
+            single: {
+            title: 'من المحلي إلى الإنترنت: دليل عملي',
+            date: '4 يوليو 2025',
+            more_title: 'مقالات أخرى قد تهمك',
+            body_html: '<h2 class="h1 mb-4">لماذا تحول نشاطك المحلي إلى الرقمي؟</h2>\n<p>في عالم يتطور باستمرار، أصبحت التواجد على الإنترنت ضرورة. سواء كنت حرفيًا، صاحب متجر أو رائد أعمال، يفتح لك العالم الرقمي أبوابًا لفرص جديدة: جذب المزيد من العملاء، تحسين ظهورك، وإبراز صورة أكثر احترافية.</p>\n<p>من خلال موقع إلكتروني مصمم جيدًا، وحضور على شبكات التواصل الاجتماعي، واستراتيجية موجهة لجمهورك المستهدف، يمكنك تحويل نشاطك المحلي إلى مشروع مرئي على المستوى الوطني، بل وحتى الدولي.</p>\n<h3 class="h2 mb-4 mt-6">الخطوات الأساسية للانتقال إلى الإنترنت</h3>\n<ul class="list-unstyled mb-5"><li>✅ إنشاء موقع عصري ومتجاوب</li><li>✅ إبراز منتجاتك أو خدماتك بصور احترافية</li><li>✅ دمج وسائل تواصل بسيطة وفعّالة</li><li>✅ تحسين محركات البحث (SEO) على جوجل</li><li>✅ استخدام شبكات التواصل للتواصل وبناء الولاء</li></ul>\n<blockquote class="fs-lg my-8"><p>“اليوم، متجرك لا يغلق أبدًا: إنه متواجد على الإنترنت 24/7.”</p><footer class="blockquote-footer">فريق Digitoyou</footer></blockquote>\n<h3 class="h2 mb-4">مرافقة مخصصة</h3>\n<p>في Digitoyou، نساعدك على أخذ هذه الخطوة بثقة. خبراؤنا يصممون مواقع تلائم احتياجاتك، صورتك، ومهيأة لعملائك. انتقل من المحلي إلى الإنترنت بسرعة وبساطة.</p>'
+          }
+          },
+          // comment form translations
+         
+          // Sidebar specific translations
+          sidebar: {
+            search_placeholder: 'بحث',
+            about_title: 'حول',
+            about_html: 'انتقل من <strong>محلي</strong> إلى <strong>عالمي</strong> بسرعة!<br/>نقوم ببناء مواقع مخصصة للحرفيين وأصحاب المتاجر ورواد الأعمال.<br/>حوّل مهاراتك إلى نجاح رقمي.',
+            popular_title: 'المشاركات الشائعة',
+            categories_title: 'الفئات',
+            tags_title: 'العلامات',
+            archive_title: 'الأرشيف',
+            tags: {
+              wordpress: 'ووردبريس',
+              woocommerce: 'ووكومرس',
+              reservation: 'الحجز',
+              seo: 'تحسين محركات البحث',
+              case_study: 'دراسة حالة',
+              tuto: 'درس',
+              figma: 'فيجما'
+            },
+            archive: {
+              jul2025: 'يوليو 2025',
+              jun2025: 'يونيو 2025',
+              may2025: 'مايو 2025',
+              apr2025: 'أبريل 2025',
+              mar2025: 'مارس 2025'
+            }
+          },
+          pagination: { prev: 'السابق', next: 'التالي' }
         }
       },
       // Footer translations (Arabic)
@@ -403,19 +593,19 @@
       links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
       index: {
         hero: {
-          prefix: 'Go from ',
-          local: 'Local',
-          middle: ' to ',
-          online: 'Online',
-          typing: 'Simply',
-          // rotating words for hero typing (localized)
-          typing_words: ['Simply','Quickly','Easily'],
-          lead: 'We build <strong>custom websites</strong> for artisans, shop owners and entrepreneurs.',
+          prefix: 'From your ',
+          local: 'local business',
+          middle: " to a ",
+          online: 'digital presence',
+          typing: 'with ease',
+          // rotating words for hero typing
+          typing_words: ['Easily','Quickly','Effortlessly'],
+          lead: 'We design <strong>custom websites</strong> that showcase your products, services, and expertise.',
           cta_long: 'Let’s talk about your project – 100% free, no commitment',
-          cta_short: 'Talk about your project',
-          expert_line: 'A <b>Digitoyou</b> expert replies within 24h.',
-          h1: 'Go from <span class="text-warning">Local</span> to <span class="text-warning">Online</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simply</span>'
-        },
+          cta_short: 'Let’s talk about your project',
+          expert_line: 'A <b>Digitoyou</b> expert will get back to you within 24h.',
+          h1: 'From your <span class="text-warning">Local business</span> to a <span class="text-warning">Digital presence</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
+        },        
         // Appointment / Reservation translations
         appointment: {
           hero: {
@@ -635,6 +825,103 @@
             desc: 'Development of the website for <strong>SyndicAZ</strong>, a property management and co-ownership consulting platform dedicated to efficient .',
             cta: 'Visit Website >'
           }
+        },
+
+        // Translations specific to the blog listing (blog2.html)
+        blog: {
+          hero: {
+            h1: 'Discover our articles',
+            lead: 'Explore our tips and tricks for creating an effective website and growing your online presence with Digitoyou.',
+            cta_projects: 'See our projects',
+            cta_more: 'Learn more'
+          },
+          post: {
+            read_more: 'Read more',
+            categories: {
+              digitalization: 'Digitalization',
+              entrepreneurship: 'Entrepreneurship',
+              coding: 'Coding',
+              workspace: 'Workspace',
+              meeting: 'Meeting',
+              business_tips: 'Business Tips',
+              websites: 'Websites',
+              artisans: 'Artisan Tips',
+              case_studies: 'Case Studies',
+              tutorials: 'Tutorials',
+              seo: 'SEO'
+            },
+            meta: {
+              by: 'By',
+              comments: 'Comments',
+              likes: 'Likes',
+              author: 'Digitoyou'
+            },
+            posts: {
+              p1: { title: 'Creating an effective website for your local business', excerpt: 'Discover the key steps to designing a website that attracts customers and reflects your local expertise.', date: 'July 5, 2025' },
+              p2: { title: 'How a shop owner doubled their online sales', excerpt: 'A look back at the collaboration with a local shop owner who saw their digital revenue double in 3 months.', date: 'June 25, 2025' },
+              p3: { title: 'Tutorial: Integrate online booking into your site', excerpt: 'Learn step-by-step how to add an online booking module to make it easier for your clients to schedule appointments.', date: 'May 18, 2025' },
+              grid1: { title: '5 SEO tips for artisans', excerpt: 'Optimize your visibility on Google with these tips specifically tailored for artisans.', date: 'April 14, 2025' }
+            }
+            ,
+            // small tag labels used inside single post pages
+            tags: {
+              coder: 'coder',
+              digitaliser: 'digitaliser',
+              online: 'online'
+            },
+            // Single post content (used by blog-post.html)
+            single: {
+              title: 'Go from Local to Online: A Practical Guide',
+              date: 'July 4, 2025',
+              more_title: 'Other articles you might like',
+              body_html: '<h2 class="h1 mb-4">Why digitize your local business?</h2>\n<p>In a constantly evolving world, having an online presence has become essential. Whether you are an artisan, shop owner, or entrepreneur, the digital world opens doors to new opportunities: attracting more customers, improving your visibility, and professionalizing your image.</p>\n<p>With a well-designed website, a presence on social media, and a strategy tailored to your target audience, you can transform your local business into a project visible on a national, or even international, scale.</p>\n<h3 class="h2 mb-4 mt-6">Key steps to go Online</h3>\n<ul class="list-unstyled mb-5"><li>✅ Create a modern and responsive website</li><li>✅ Highlight your products or services with professional visuals</li><li>✅ Integrate simple and effective contact methods</li><li>✅ Optimize your SEO for Google</li><li>✅ Use social media to communicate and build loyalty</li></ul>\n<blockquote class="fs-lg my-8"><p>“Today, your shop never closes: it’s online 24/7.”</p><footer class="blockquote-footer">Digitoyou Team</footer></blockquote>\n<h3 class="h2 mb-4">Tailored support</h3>\n<p>At Digitoyou, we help you take this step with confidence. Our experts design websites tailored to your needs, your image, and optimized for your clients. Go from local to online, quickly and simply.</p>'
+            },
+            comment_form: {
+              title: 'Leave a comment',
+              description: 'Your email address will not be published. Required fields are marked *.',
+              invite: 'Would you like to share your thoughts?',
+              privacy: 'Your email address will not be published. Required fields are marked *',
+              name_placeholder: 'Name*',
+              name_label: 'Name *',
+              email_placeholder: 'Email*',
+              email_label: 'Email*',
+              website_placeholder: 'Website',
+              website_label: 'Website',
+              comment_placeholder: 'Comment',
+              comment_label: 'Comment *',
+              submit: 'Submit',
+              submit_button: 'Submit'
+            },
+          },
+          // comment form translations
+          
+          // Sidebar translations (English)
+          sidebar: {
+            search_placeholder: 'Search',
+            about_title: 'About',
+            about_html: 'Go from <strong>Local</strong> to <strong>Online</strong> quickly!<br/>We build custom sites for artisans, shop owners and entrepreneurs.<br/>Turn your craft into digital success.',
+            popular_title: 'Popular posts',
+            categories_title: 'Categories',
+            tags_title: 'Tags',
+            archive_title: 'Archive',
+            tags: {
+              wordpress: 'WordPress',
+              woocommerce: 'WooCommerce',
+              reservation: 'Reservation',
+              seo: 'SEO',
+              case_study: 'Case Study',
+              tuto: 'Tutorial',
+              figma: 'Figma'
+            },
+            archive: {
+              jul2025: 'July 2025',
+              jun2025: 'June 2025',
+              may2025: 'May 2025',
+              apr2025: 'April 2025',
+              mar2025: 'March 2025'
+            }
+          },
+          pagination: { prev: 'Previous', next: 'Next' }
         }
       },
       // Footer translations

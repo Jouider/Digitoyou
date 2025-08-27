@@ -7,14 +7,36 @@
   <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+<style>
+/* Ensure the stats card is visible in RTL (Arabic) layouts) */
+.about-stat-card{
+  position: absolute; /* keep absolute positioning as before */
+  bottom: 10%;
+  right: -3%; /* default for LTR */
+}
+/* When the page is RTL (Arabic), place the card using left so it's pushed into view */
+html[dir="rtl"] .about-stat-card{
+  right: auto;
+  left: 2%; /* move card towards center for RTL */
+}
+/* On small screens keep normal flow to avoid overlap */
+@media (max-width: 991.98px){
+  .about-stat-card{
+    position: static;
+    inset: auto;
+  }
+}
+</style>
+
 </head>
 <body>
   <div class="content-wrapper">
 		<header class="wrapper bg-light pt-1">
 			@@include('_navbar.html', {
-				"classList": "classic transparent navbar-light",
+				"classList": "fancy transparent navbar-light",
 				"logoAlt": "logo-dark",
-				"otherClassList": "ms-lg-4",
+				"fancy": true,
+			"otherClassList": "w-100 d-flex ms-auto",
 				"otherBtn": true,
         "otherLanguageSelect": true,
 				"otherBtnClassList": "btn-sm btn-primary rounded-pill",
@@ -33,7 +55,7 @@
       <div class="col-lg-6 order-lg-2 d-flex position-relative">
         <img class="img-fluid ms-auto mx-auto me-lg-8" src="@@webRoot/assets/img/pages/about-hero.png" srcset="@@webRoot/assets/img/pages/about-hero.png" alt="Digitoyou" data-cue="fadeIn" width="350">
         <div data-cue="slideInRight" data-delay="300">
-          <div class="card shadow-lg position-absolute" style="bottom: 10%; right: -3%;">
+          <div class="card shadow-lg position-absolute about-stat-card">
             <div class="card-body py-4 px-5">
               <div class="d-flex flex-row align-items-center">
                 <div>
