@@ -2,8 +2,8 @@
 <div class="widget">
   <form class="search-form">
     <div class="form-floating mb-0">
-      <input id="search-form" type="text" class="form-control" placeholder="Rechercher">
-      <label for="search-form">Rechercher</label>
+      <input id="search-form" type="text" class="form-control" data-i18n-placeholder="index.blog.sidebar.search_placeholder" placeholder="">
+      <label for="search-form" data-i18n="index.blog.sidebar.search_placeholder"></label>
     </div>
   </form>
 </div>
@@ -11,12 +11,8 @@
 
 <!-- À propos -->
 <div class="widget">
-  <h4 class="widget-title mb-3">À propos</h4>
-  <p>
-    Passez du Local à l’Online Rapidement !  
-    Nous concevons des sites sur mesure pour artisans, commerçants et entrepreneurs.  
-    Transformez votre savoir-faire en succès digital.
-  </p>
+  <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.about_title"></h4>
+  <p data-i18n-html="index.blog.sidebar.about_html"></p>
   <nav class="nav social">
     <a href="#"><i class="uil uil-twitter"></i></a>
     <a href="#"><i class="uil uil-facebook-f"></i></a>
@@ -29,7 +25,7 @@
 
 <!-- Articles populaires -->
 <div class="widget">
-  <h4 class="widget-title mb-3">Articles populaires</h4>
+  <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.popular_title"></h4>
   <ul class="image-list">
     <li>
       <figure class="rounded">
@@ -39,11 +35,11 @@
       </figure>
       <div class="post-content">
         <h6 class="mb-2">
-          <a class="link-dark" href="@@webRoot/blog-post.html">5 astuces SEO pour artisans</a>
+          <a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.grid1.title"></a>
         </h6>
         <ul class="post-meta">
-          <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 avr. 2025</span></li>
-          <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>4</a></li>
+          <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid1.date"></span></li>
+          <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">4</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
         </ul>
       </div>
     </li>
@@ -55,11 +51,11 @@
       </figure>
       <div class="post-content">
         <h6 class="mb-2">
-          <a class="link-dark" href="@@webRoot/blog-post.html">Étude de cas : e-commerce local</a>
+          <a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.p2.title"></a>
         </h6>
         <ul class="post-meta">
-          <li class="post-date"><i class="uil uil-calendar-alt"></i><span>25 juin 2025</span></li>
-          <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>5</a></li>
+          <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.p2.date"></span></li>
+          <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">5</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
         </ul>
       </div>
     </li>
@@ -71,11 +67,11 @@
       </figure>
       <div class="post-content">
         <h6 class="mb-2">
-          <a class="link-dark" href="@@webRoot/blog-post.html">Tuto : module de réservation</a>
+          <a class="link-dark" href="@@webRoot/blog-post.html" data-i18n="index.blog.post.posts.p3.title"></a>
         </h6>
         <ul class="post-meta">
-          <li class="post-date"><i class="uil uil-calendar-alt"></i><span>18 mai 2025</span></li>
-          <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>8</a></li>
+          <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.p3.date"></span></li>
+          <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">8</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
         </ul>
       </div>
     </li>
@@ -85,42 +81,42 @@
 
 <!-- Catégories -->
 <div class="widget">
-  <h4 class="widget-title mb-3">Catégories</h4>
+  <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.categories_title"></h4>
   <ul class="unordered-list bullet-primary text-reset">
-    <li><a href="#">Digitalisation (12)</a></li>
-    <li><a href="#">Sites Web (8)</a></li>
-    <li><a href="#">Études de cas (5)</a></li>
-    <li><a href="#">Tutoriels (7)</a></li>
-    <li><a href="#">SEO (4)</a></li>
-    <li><a href="#">Conseils Artisans (6)</a></li>
+    <li><a href="#"><span data-i18n="index.blog.post.categories.digitalization"></span> (12)</a></li>
+    <li><a href="#"><span data-i18n="index.blog.post.categories.websites"></span> (8)</a></li>
+    <li><a href="#"><span data-i18n="index.blog.post.categories.case_studies"></span> (5)</a></li>
+    <li><a href="#"><span data-i18n="index.blog.post.categories.tutorials"></span> (7)</a></li>
+    <li><a href="#"><span data-i18n="index.blog.post.categories.seo"></span> (4)</a></li>
+    <li><a href="#"><span data-i18n="index.blog.post.categories.artisans"></span> (6)</a></li>
   </ul>
 </div>
 <!-- /.widget -->
 
 <!-- Tags -->
 <div class="widget">
-  <h4 class="widget-title mb-3">Tags</h4>
+  <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.tags_title"></h4>
   <ul class="list-unstyled tag-list">
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">WordPress</a></li>
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">WooCommerce</a></li>
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">Réservation</a></li>
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">SEO</a></li>
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">Étude de cas</a></li>
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">Tuto</a></li>
-    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill">Figma</a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.wordpress"></a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.woocommerce"></a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.reservation"></a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.seo"></a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.case_study"></a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.tuto"></a></li>
+    <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.figma"></a></li>
   </ul>
 </div>
 <!-- /.widget -->
 
 <!-- Archive -->
 <div class="widget">
-  <h4 class="widget-title mb-3">Archive</h4>
+  <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.archive_title"></h4>
   <ul class="unordered-list bullet-primary text-reset">
-    <li><a href="#">Juillet 2025</a></li>
-    <li><a href="#">Juin 2025</a></li>
-    <li><a href="#">Mai 2025</a></li>
-    <li><a href="#">Avril 2025</a></li>
-    <li><a href="#">Mars 2025</a></li>
+    <li><a href="#" data-i18n="index.blog.sidebar.archive.jul2025"></a></li>
+    <li><a href="#" data-i18n="index.blog.sidebar.archive.jun2025"></a></li>
+    <li><a href="#" data-i18n="index.blog.sidebar.archive.may2025"></a></li>
+    <li><a href="#" data-i18n="index.blog.sidebar.archive.apr2025"></a></li>
+    <li><a href="#" data-i18n="index.blog.sidebar.archive.mar2025"></a></li>
   </ul>
 </div>
 <!-- /.widget -->

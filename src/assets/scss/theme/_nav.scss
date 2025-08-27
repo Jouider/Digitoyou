@@ -14,6 +14,11 @@
 .navbar-other .nav-link {
   cursor: pointer;
 }
+// Ensure spacing between language selector and schedule call button in navbar (supports RTL)
+.navbar-other .btn.btn-sm.btn-primary.rounded-pill {
+  margin-inline-start: 1rem; // logical start margin for RTL/LTR
+  margin-left: 1rem; // fallback for older browsers without logical properties
+}
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .navbar .navbar-collapse .nav-link {
     padding-right: 0.6rem;
