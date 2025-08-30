@@ -24,10 +24,10 @@
     </div>
     <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
       <div class="offcanvas-header d-lg-none">
-        <h3 class="text-white fs-30 mb-0">Sandbox</h3>
+        <img src="@@webRoot/assets/img/logo-light.svg" alt="Logo" width="160" />
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+  <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100 align-items-center align-items-lg-start text-center text-lg-start">
         @@if (!context.onePage && !context.onePageDemo) {
           @@if (!context.docs) {
             @@include('_menu-links.html')
@@ -42,7 +42,16 @@
         @@if (context.onePageDemo) {
           @@include('_menu-links-onepage-demo.html')
         }
-        <div class="offcanvas-footer d-lg-none">
+
+        <!-- Mobile-only CTA: Prendre RDV -->
+        <div class="mt-4 d-lg-none">
+          <a href="@@webRoot/appointment.html" class="btn btn-primary rounded-pill w-100 btn-icon btn-icon-start">
+            <i class="uil uil-schedule me-1"></i>
+            <span data-i18n-html="index.cta.button" >Prendre RDV</span>
+          </a>
+        </div>
+
+  <div class="offcanvas-footer d-lg-none text-center">
           @@include('_menu-offcanvas-footer.html')
         </div>
         <!-- /.offcanvas-footer -->
