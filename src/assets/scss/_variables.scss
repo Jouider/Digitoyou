@@ -50,19 +50,19 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) 
 //----------------------------------------------------------//
 $white: #fff !default;
 $black: #000 !default;
-$gray-100: #fafafa !default;
+$gray-100: #fff !default;
 $gray-200: #f6f7f9 !default;
 $gray-300: #cacaca !default;
 $gray-400: #aab0bc !default;
 $gray-500: #959ca9 !default;
-$gray-600: #60697b !default;
+$gray-600: #2f353a !default;
 $gray-700: #2f353a !default;
 $gray-800: #21262c !default;
 $gray-900: #1e2228 !default;
 $error: #de4747 !default;
 $light: $gray-100 !default;
 $gray: $gray-200 !default;
-$dark: #004aad !default;
+$dark: #1d3161 !default;
 $inverse: $gray-300 !default;
 $border: #a4aec6 !default;
 $border-light: rgba($border, 0.2) !default;
@@ -125,7 +125,7 @@ $gradient-3: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%) !default;
 $gradient-4: linear-gradient(125deg, #9040db, #ff72c2 50%, #ffd84f) !default;
 $gradient-5: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%) !default;
 $gradient-6: linear-gradient(45deg, #08AEEA 0%, #2AF598 100%) !default;
-$gradient-7: linear-gradient(100deg,#4a90e2 20%,#004aad 85%) !default;
+$gradient-7: linear-gradient(100deg,#b8d776 20%,#004aad 85%) !default;
 $gradient-8: linear-gradient(0deg, #2c46a7, #3757c4) !default;
 $gradient-9: linear-gradient(45deg, rgb(255, 222, 233), rgb(181, 255, 252)) !default;
 $gradients: (
