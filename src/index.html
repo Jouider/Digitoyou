@@ -20,7 +20,7 @@
       class="wrapper  position-relative overflow-hidden" style="background-color: #edf2fa;" data-image-src="./assets/img/photos/bg23.png"
     >
     <div class="hero-overlay" aria-hidden="true"></div>
-    <header class="wrapper transparent w-100 position-absolute top-0 start-0 z-3">
+    <header class="wrapper transparent w-100 position-absolute top-0 start-0 z-5">
 			@@include('_navbar.html', {
 			"classList": "fancy navbar-light navbar-bg-light caret-none",
 			"fancy": true,
@@ -38,10 +38,10 @@
       <div class="col-lg-6 col-xxl-5 position-relative" data-cues="slideInDown" data-group="page-title" data-delay="700">
         <img src="./assets/img/svg/doodle1.svg" class="h-9 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%" alt="">
         <img src="./assets/img/svg/doodle2.svg" class="h-15 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%" alt="">
-        <h1 class="display-1 fs-50 mb-4">Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span></h1>
-        <p class="lead fs-24 lh-sm mb-7">Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.</p>
+        <h1 class="display-1 fs-50 mb-4" data-i18n-html="index.hero.h1"></h1>
+        <p class="lead fs-24 lh-sm mb-7" data-i18n-html="index.hero.lead"></p>
         <div class="d-flex justify-content-center " data-cues="slideInDown" data-group="page-title-buttons" data-delay="1800">
-          <a href="#" class="btn btn-primary fs-20 w-100 rounded-pill " ><i class="uil uil-schedule me-2"></i>Réservez votre rendez-vous gratuit</a> 
+          <a href="appointment.html" class="btn btn-primary fs-20 w-100 rounded-pill " ><i class="uil uil-schedule me-2"></i><span data-i18n="index.hero.cta_long">Réservez votre rendez-vous gratuit</span></a> 
         </div>
       </div>
       <!-- /column -->

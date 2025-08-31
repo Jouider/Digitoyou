@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="content-wrapper">
-		<header class="wrapper bg-light">
+		<header class="wrapper transparent w-100 position-absolute top-0 start-0 z-5">
 			@@include('_navbar.html', {
 			"classList": "fancy navbar-light navbar-bg-light caret-none",
 			"fancy": true,
@@ -33,9 +33,10 @@
 		 <!-- /header -->
 		<section class="wrapper bg-light" 
 		style="
+		margin-top: 80px;
         min-height: 60vh;
         padding: 4rem 0;
-        background-image: url('./assets/img/photos/bg-pattern.png');
+        background-image: url('./assets/img/photos/bg-pattern.svg');
         background-size: cover;
         background-position: center;
       "
@@ -380,7 +381,53 @@
 					carousel.appendChild(fig);
 				});
 			}
+			// Hero dynamic typing (uses localized words from i18n.js)
+			(function(){
+				let words = window.i18nTypingWords || ['Simplement','Rapidement','Facilement'];
+				let typingEl = document.querySelector('.text-typing');
+				let wordIndex = 0, letterIndex = 0, typingForward = true, timer = null;
 
+				function resetTyping(newWords){
+					words = newWords && newWords.length ? newWords : words;
+					typingEl = document.querySelector('.text-typing');
+					wordIndex = 0; letterIndex = 0; typingForward = true;
+					if(typingEl) typingEl.textContent = words[0] || '';
+				}
+
+				function animateTyping(){
+					if(!typingEl) return;
+					const currentWord = words[wordIndex] || '';
+					if(typingForward){
+					letterIndex++;
+					if(letterIndex > currentWord.length){
+						typingForward = false;
+						timer = setTimeout(animateTyping, 1000);
+						return;
+					}
+					} else {
+					letterIndex--;
+					if(letterIndex === 0){
+						typingForward = true;
+						wordIndex = (wordIndex + 1) % words.length;
+					}
+					}
+					typingEl.textContent = currentWord.slice(0, letterIndex);
+					timer = setTimeout(animateTyping, typingForward ? 150 : 50);
+				}
+
+				// start
+				resetTyping(window.i18nTypingWords);
+				animateTyping();
+
+				// update when i18n changes
+				document.addEventListener('i18n:updated', () => {
+					if(window.i18nTypingWords && window.i18nTypingWords.length){
+					clearTimeout(timer);
+					resetTyping(window.i18nTypingWords);
+					animateTyping();
+					}
+				});
+				})();
 			// Modal population logic
 			document.addEventListener('DOMContentLoaded', () => {
 				// initial load

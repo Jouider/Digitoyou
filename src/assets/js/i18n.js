@@ -16,12 +16,12 @@
           online: 'digitale',
           typing: 'en toute simplicité',
           // rotating words for hero typing (localized)
-          typing_words: ['Simplement','Rapidement','Sans effort'],
-          lead: 'Nous créons <strong>des sites web sur mesure</strong> qui mettent en valeur vos produits, vos services et votre savoir-faire.',
-          cta_long: 'Discutons de votre projet – 100% gratuit, sans engagement',
-          cta_short: 'Discutons de votre projet',
-          expert_line: 'Un expert <b>Digitoyou</b> vous répond sous 24h.',
-          h1: 'De votre <span class="text-warning"> Commerce Local</span> à une  <span class="text-warning">Présence Digitale</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
+          typing_words: ['Simplement','Rapidement','Facilement'],
+          lead: 'Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.',
+          cta_long: 'Réservez votre rendez-vous gratuit',
+          cta_short: 'Réservez votre rendez-vous gratuit',
+          expert_line: '',
+          h1: 'Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
         }, 
         // Appointment / Reservation translations
         appointment: {
@@ -373,16 +373,16 @@
           online: 'رقمي',
           typing: 'بكل سهولة',
           // rotating words for hero typing
-          typing_words: ['بسهولة','بسرعة','بلا تعقيد'],
-          lead: 'نقوم بإنشاء <strong>مواقع إلكترونية مخصصة</strong> تبرز منتجاتك، خدماتك وخبرتك.',
-          cta_long: 'لنتحدث عن مشروعك – 100% مجاني وبدون أي التزام',
-          cta_short: 'لنتحدث عن مشروعك',
+          typing_words: ['بسهولة','بسرعة','بدون جهد'],
+          lead: 'مع <b>Digitoyou</b> تتحول أفكارك إلى تجارب فريدة وعملاء مخلصين.',
+          cta_long: 'احجز موعدك المجاني',
+          cta_short: 'احجز موعدك',
           expert_line: 'خبير من <b>Digitoyou</b> يتواصل معك خلال 24 ساعة.',
-          h1: 'من <span class="text-warning">نشاطك المحلي</span> إلى <span class="text-warning">حضور رقمي</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
+          h1: 'لا تتبع الرقمنة، <span class="text-gradient gradient-7">تحكّم بها</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
         },
         appointment: {
           hero: {
-            h1: 'احجز جلستك الاستراتيجية',
+            h1: 'احجز جلستك <span class="underline-3 style-3 text-warning">الاستراتيجية</span>',
             lead: 'معاً سنحدد <strong>خطة عمل واضحة وجدول زمني واقعي</strong> لمشروعك.',
             contact_prompt: 'هل تفضل التحدث مباشرة؟'
           },
@@ -600,11 +600,12 @@
           typing: 'with ease',
           // rotating words for hero typing
           typing_words: ['Easily','Quickly','Effortlessly'],
-          lead: 'We design <strong>custom websites</strong> that showcase your products, services, and expertise.',
-          cta_long: 'Let’s talk about your project – 100% free, no commitment',
-          cta_short: 'Let’s talk about your project',
+          // mirrored phrasing to match site's hero
+          lead: 'With <b>Digitoyou</b>, your ideas turn into unique experiences and loyal customers.',
+          cta_long: 'Book your free appointment',
+          cta_short: 'Book your free appointment',
           expert_line: 'A <b>Digitoyou</b> expert will get back to you within 24h.',
-          h1: 'From your <span class="text-warning">Local business</span> to a <span class="text-warning">Digital presence</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
+          h1: 'Don\'t follow digital, <span class="text-gradient gradient-7">take it in hand.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
         },        
         // Appointment / Reservation translations
         appointment: {

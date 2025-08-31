@@ -1192,5 +1192,25 @@ html[dir="rtl"] .testimonial-title { text-align: right; }
 /* Text alignment utility flip for elements using .text-start */
 html[dir="rtl"] .text-start { text-align: right !important; }
 
+/* RTL fixes for hero and utility classes (applies when <html dir="rtl">) */
+[dir="rtl"] .text-lg-start { text-align: right !important; }
+[dir="rtl"] .start-0 { left: auto !important; right: 0 !important; }
+[dir="rtl"] .end-0 { right: auto !important; left: 0 !important; }
+[dir="rtl"] .start-50 { left: auto !important; right: 50% !important; }
+[dir="rtl"] .translate-middle-x { transform: translate(50%, 0) !important; }
+[dir="rtl"] .ms-auto { margin-left: 0 !important; margin-right: auto !important; }
+[dir="rtl"] .ms-lg-auto { margin-left: 0 !important; margin-right: auto !important; }
+/* Doodle positioning inside hero: flip left/right for absolute decorations */
+
+
+/* Ensure text-typing span is displayed inline-block and not affected */
+[dir="rtl"] .text-typing { direction: rtl; }
+
+/* Ensure Unicons angle icons point the correct way in RTL layouts */
+html[dir="rtl"] .uil.uil-angle-left,
+html[dir="rtl"] .uil.uil-angle-right {
+  transform: scaleX(-1) !important;
+}
+
 /* End RTL adjustments */
 
