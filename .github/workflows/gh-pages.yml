@@ -31,6 +31,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
+          port: 21
+          security: explicit
           local-dir: ./dist/
+          dangerous-clean-slate: false
           # Different remote path depending on branch
           server-dir: ${{ github.ref == 'refs/heads/main' && '/public_html/' || '/staging_html/' }}
+
