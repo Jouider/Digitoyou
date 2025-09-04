@@ -6,7 +6,7 @@
 
   const translations = {
     fr: {
-      nav: { about: 'A propos', blog: 'Blog', case_client: 'Cas Client' },
+      nav: { about: 'À propos', blog: 'Blog', case_client: 'Cas Client' },
       links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
       index: {
         hero: {
@@ -27,7 +27,7 @@
         appointment: {
           hero: {
             // contains HTML, should be used with data-i18n-html
-            h1: 'Réservez votre <span class="underline-3 style-3 text-warning">Session</span> Stratégique',
+            h1: 'Réservez votre <span class="text-gradient gradient-7">Session</span> Stratégique',
             lead: 'Ensemble, définissons un <strong>plan d\'actions clair et un calendrier réaliste</strong> pour votre projet web.',
             contact_prompt: 'Vous préférez parler directement ?'
           },
@@ -82,12 +82,12 @@
           f1: 'Gagnez en visibilité',
           f2: 'Clarifiez votre message',
           f3: 'Débloquez des ventes',
-          f4: 'Market Research',
+          f4: 'Étude de marché',
           lead: 'Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité. Que vous soyez artisan, commerçant ou entrepreneur, Digitoyou vous connecte au monde en ligne, sans prise de tête.'
         },
         realizations: { small: 'Nos Réalisations', title: 'Nos derniers projets' },
         clients: {
-          heading: 'Déjà <span class="text-warning">5000 clients</span> clients satisfaits.<br>Et si vous étiez le prochain?'
+          heading: 'Déjà <span class="text-warning">5000 clients</span> satisfaits.<br>Et si vous étiez le prochain?'
         },
         counters: {
           completed: 'Projets réalisés',
@@ -171,7 +171,10 @@
           delivery: {
             title: 'Livraison garantie, ou services offerts',
             lead: 'Chez Digitoyou, on respecte les délais. Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous :',
-            benefits: ['2 mois de maintenance','2 mois d’hébergement','2 mois d’articles de blog','2 mois de social media']
+            benefit1: '2 mois de maintenance',
+            benefit2: '2 mois d’hébergement',
+            benefit3: '2 mois d’articles de blog',
+            benefit4: '2 mois de social media'
           }
         },
         offers: { small: 'Nos Offres', title: 'Des solutions digitales taillées pour faire décoller votre activité.' },
@@ -189,15 +192,6 @@
           ecommerce_cta: 'Je veux être contacté',
           ecommerce_desc: 'Vendez vos produits en ligne avec une boutique performante, facile à gérer et optimisée pour convertir.'
         },
-        delivery: {
-          title: 'Livraison garantie, ou services offerts',
-          lead: 'Chez Digitoyou, on respecte les délais. Sinon ? Vous recevez <strong>2 mois gratuits</strong> de chaque service ci-dessous :',
-          benefit1: '2 mois de maintenance',
-          benefit2: '2 mois d’hébergement',
-          benefit3: '2 mois d’hébergement',
-          benefit4: '2 mois d’articles de blog',
-          benefit5: '2 mois de social media'
-        },
         cta: {
           heading: 'Vous avez encore des questions ?<br>Discutons-en autour d’un appel rapide.',
           button: 'Prendre RDV'
@@ -209,7 +203,7 @@
           q2: { q: 'Quand pouvez-vous démarrer mon projet ?', a: 'Nous pouvons démarrer en 5 à 10 jours, selon nos disponibilités. On prend vite contact pour organiser ça ensemble.' },
           q3: { q: 'Quels types de projets réalisez-vous ?', a: 'Sites vitrines, e-commerce, landing pages, refontes, branding… On s’adapte à vos besoins pour livrer une solution clé en main, toujours orientée conversion.' },
           q4: { q: 'Et si je veux faire des ajustements après la livraison ?', a: 'Pas de souci. On inclut 2 à 3 mois de maintenance selon le projet, pour corriger, ajuster ou faire évoluer votre site. C’est compris dans notre engagement.' },
-          q5: { q: 'Quels sont vos tarifs ?', a: 'Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.' }
+          q5: { q: 'Quels sont vos tarifs ?', a: 'Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 300€, avec un vrai suivi, une vraie stratégie et un site sur mesure.' }
         },
         projects: {
           wgs: {
@@ -378,11 +372,11 @@
           cta_long: 'احجز موعدك المجاني',
           cta_short: 'احجز موعدك',
           expert_line: 'خبير من <b>Digitoyou</b> يتواصل معك خلال 24 ساعة.',
-          h1: 'لا تتبع الرقمنة، <span class="text-gradient gradient-7">تحكّم بها</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
+          h1: 'لا تلاحق الرقمنة، <span class="text-gradient gradient-7">تحكّم بها</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
         },
         appointment: {
           hero: {
-            h1: 'احجز جلستك <span class="underline-3 style-3 text-warning">الاستراتيجية</span>',
+            h1: 'احجز جلستك <span class="text-gradient gradient-7">الاستراتيجية</span>',
             lead: 'معاً سنحدد <strong>خطة عمل واضحة وجدول زمني واقعي</strong> لمشروعك.',
             contact_prompt: 'هل تفضل التحدث مباشرة؟'
           },
@@ -465,7 +459,7 @@
           showcase_title: 'موقع عرض', showcase_cta: 'ابدأ مشروعك', showcase_desc: 'اعرض نشاطك بأناقة مع تصميم متوافق.' ,
           ecommerce_title: 'متجر إلكتروني', ecommerce_cta: 'أرغب بالمراسلة', ecommerce_desc: 'بع منتجاتك عبر متجر متكامل وسهل الإدارة.'
         },
-        delivery: { title: 'تسليم مضمون أو خدمات مجانية', lead: 'نحترم المواعيد؛ وإلا ستحصل على <strong>شهرين مجاناً</strong> من كل خدمة:', benefit1: 'شهرين من الصيانة', benefit2: 'شهرين من الاستضافة', benefit3: 'شهرين من الاستضافة', benefit4: 'شهرين من المقالات', benefit5: 'شهرين من وسائل التواصل' },
+        delivery: { title: 'تسليم مضمون أو خدمات مجانية', lead: 'نحترم المواعيد؛ وإلا ستحصل على <strong>شهرين مجاناً</strong> من كل خدمة:', benefit1: 'شهرين من الصيانة', benefit2: 'شهرين من الاستضافة', benefit3: 'شهرين من المقالات', benefit4: 'شهرين من وسائل التواصل' },
         cta: { heading: 'هل لا تزال لديك أسئلة؟<br>هيا نناقشها في مكالمة سريعة.', button: 'حجز مكالمة' },
         faq: {
           title: 'الأسئلة المتكررة',
@@ -474,7 +468,7 @@
           q2: { q: 'متى يمكنكم بدء مشروعي؟', a: 'يمكننا البدء خلال 5 إلى 10 أيام حسب التوافر.' },
           q3: { q: 'ما أنواع المشاريع التي تنفذونها؟', a: 'مواقع عرض، متاجر إلكترونية، صفحات هبوط، إعادة تصميمات، علامات تجارية... نتكيف لتقديم حل جاهز.' },
           q4: { q: 'ماذا إذا أردت تعديلات بعد التسليم؟', a: 'لا مشكلة. نضمّن 2-3 أشهر من الصيانة حسب المشروع.' },
-          q5: { q: 'ما هي أسعاركم؟', a: 'كل مشروع فريد. لكن كبداية، تبدأ خدماتنا من 3000€.' }
+          q5: { q: 'ما هي أسعاركم؟', a: 'كل مشروع فريد. لكن كبداية، تبدأ خدماتنا من 300€.' }
         },
         projects: {
           wgs: { title: 'Wolves Groups Services', desc: 'تطوير موقع <strong>WGS.ma</strong>، شركة خدمات أمنية.', cta: 'زيارة الموقع >' },
@@ -604,14 +598,14 @@
           lead: 'With <b>Digitoyou</b>, your ideas turn into unique experiences and loyal customers.',
           cta_long: 'Book your free appointment',
           cta_short: 'Book your free appointment',
-          expert_line: 'A <b>Digitoyou</b> expert will get back to you within 24h.',
-          h1: 'Don\'t follow digital, <span class="text-gradient gradient-7">take it in hand.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
+          expert_line: 'A <b>Digitoyou</b> expert will get back to you within 24 hours.',
+          h1: 'Don\'t follow digital, <span class="text-gradient gradient-7">take control of it.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
         },        
         // Appointment / Reservation translations
         appointment: {
           hero: {
             // contains HTML, should be used with data-i18n-html
-            h1: 'Book your <span class="underline-3 style-3 text-warning">Strategic</span> Session',
+            h1: 'Book your <span class="text-gradient gradient-7">Strategic</span> Session',
             lead: 'Together, let’s define a <strong>clear action plan and a realistic timeline</strong> for your web project.',
             contact_prompt: 'Prefer to talk directly?'
           },
@@ -671,7 +665,7 @@
         },
         realizations: { small: 'Our Work', title: 'Our latest projects' },
         clients: {
-          heading: 'Already <span class="text-warning">5000 clients</span> satisfied customers.<br>Could you be next?'
+          heading: 'Already <span class="text-warning">+50 satisfied customers</span>.<br>Could you be next?'
         },
         counters: {
           completed: 'Completed Projects',
@@ -726,11 +720,16 @@
             }
           },
           cta_section: {
-            heading: 'Ready to boost your online presence?',
-            lead: 'At <strong>Digitoyou</strong>, we intentionally limit the number of projects to ensure personalized follow-up and fast results.',
-            bullets: ['🚀 A turnkey site delivered in less than 10 days','🤝 Human support at every step','📈 Unlimited adjustments until your approval'],
-            limited: '⚠️ Limited slots: 2 projects open this month.',
-            button: 'Book your free call'
+            heading: "Ready to grow your online presence?",
+            lead: "At <strong>Digitoyou</strong>, we take on only a few projects at a time to guarantee personalized support and fast results.",
+            bullets: [
+              "🚀 A turnkey website delivered in under 10 days",
+              "🤝 Dedicated guidance at every stage",
+              "📈 Unlimited revisions until you're fully satisfied"
+            ],
+            limited: "⚠️ Only 2 project spots available this month!",
+            button: "Book your free call"
+
           },
           process: {
             small: 'Our Process',
@@ -755,7 +754,10 @@
           delivery: {
             title: 'Guaranteed delivery, or services offered',
             lead: 'At Digitoyou, we respect deadlines. Otherwise? You receive <strong>2 months free</strong> of each service below:',
-            benefits: ['2 months of maintenance','2 months of hosting','2 months of blog articles','2 months of social media']
+            benefit1: '2 months of maintenance',
+            benefit2: '2 months of hosting',
+            benefit3: '2 months of blog articles',
+            benefit4: '2 months of social media'
           }
         },
         offers: { small: 'Our Offers', title: 'Digital solutions crafted to boost your business.' },
@@ -778,9 +780,8 @@
           lead: 'At Digitoyou, we respect deadlines. Otherwise? You receive <strong>2 months free</strong> of each service below:',
           benefit1: '2 months of maintenance',
           benefit2: '2 months of hosting',
-          benefit3: '2 months of hosting',
-          benefit4: '2 months of blog articles',
-          benefit5: '2 months of social media'
+          benefit3: '2 months of blog articles',
+          benefit4: '2 months of social media'
         },
         cta: {
           heading: 'Still have questions?<br>Let’s discuss them over a quick call.',
@@ -793,7 +794,7 @@
           q2: { q: 'When can you start my project?', a: 'We can start in 5 to 10 days, depending on our availability. We’ll get in touch quickly to organize it together.' },
           q3: { q: 'What types of projects do you handle?', a: 'Showcase sites, e-commerce, landing pages, redesigns, branding… We adapt to your needs to deliver a turnkey solution, always conversion-oriented.' },
           q4: { q: 'What if I want to make adjustments after delivery?', a: 'No problem. We include 2 to 3 months of maintenance depending on the project, to correct, adjust, or evolve your site. It’s part of our commitment.' },
-          q5: { q: 'What are your rates?', a: 'Each project is unique. But to give you an idea, our support starts from €3,000, with real follow-up, a real strategy, and a custom site.' }
+          q5: { q: 'What are your rates?', a: 'Each project is unique. But to give you an idea, our support starts from €300, with real follow-up, a real strategy, and a custom site.' }
         },
         projects: {
           wgs: {
@@ -823,7 +824,7 @@
           },
           syndicaz: {
             title: 'SyndicAZ',
-            desc: 'Development of the website for <strong>SyndicAZ</strong>, a property management and co-ownership consulting platform dedicated to efficient .',
+            desc: 'Development of the website for <strong>SyndicAZ</strong>, a property management and co-ownership consulting platform dedicated to efficient property management services.',
             cta: 'Visit Website >'
           }
         },
