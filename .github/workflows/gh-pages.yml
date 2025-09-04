@@ -32,9 +32,44 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          security: loose
+          security: strict
           local-dir: ./dist/
           dangerous-clean-slate: false
           # Different remote path depending on branch
           server-dir: ${{ github.ref == 'refs/heads/main' && '/public_html/' || '/staging_html/' }}
+          log-level: verbose
+
+  deploy-fallback-implicit:
+    name: Deploy Fallback (Implicit FTPS)
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
+    if: ${{ failure() && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npx gulp build:dist
+
+      - name: Deploy via Implicit FTPS (port 990)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 990
+          security: strict
+          local-dir: ./dist/
+          dangerous-clean-slate: false
+          server-dir: ${{ github.ref == 'refs/heads/main' && '/public_html/' || '/staging_html/' }}
+          log-level: verbose
 
