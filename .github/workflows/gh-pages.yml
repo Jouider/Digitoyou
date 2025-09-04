@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          security: explicit
+          security: loose
           local-dir: ./dist/
           dangerous-clean-slate: false
           # Different remote path depending on branch
