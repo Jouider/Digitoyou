@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          security: strict
+          security: loose
           local-dir: ./dist/
           dangerous-clean-slate: false
           server-dir: /staging_html/
@@ -48,7 +48,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          security: strict
+          security: loose
           local-dir: ./dist/
           dangerous-clean-slate: false
           server-dir: /public_html/
