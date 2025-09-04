@@ -24,17 +24,33 @@ jobs:
       - name: Build project
         run: npx gulp build:dist
 
-      - name: Deploy to FTP (plain)
+      - name: Deploy to STAGING (FTPS explicit:21)
+        if: github.ref != 'refs/heads/main'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          protocol: ftps
           port: 21
+          security: strict
           local-dir: ./dist/
           dangerous-clean-slate: false
-          # Different remote path depending on branch
-          server-dir: ${{ github.ref == 'refs/heads/main' && '/public_html/' || '/staging_html/' }}
+          server-dir: /staging_html/
+          log-level: verbose
+
+      - name: Deploy to PRODUCTION (FTPS explicit:21)
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: strict
+          local-dir: ./dist/
+          dangerous-clean-slate: false
+          server-dir: /public_html/
           log-level: verbose
 
