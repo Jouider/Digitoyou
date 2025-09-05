@@ -87,6 +87,9 @@ var gulp = require('gulp'),
     newer = require('gulp-newer'),
     replace = require('gulp-replace'),
     touch = require('gulp-touch-cmd');
+// Node stdlib helpers (avoid clashing with the `path` object above)
+var fs = require('fs');
+var nodePath = require('path');
     
 /* Server */
 var config = {
@@ -394,6 +397,75 @@ gulp.task('image:dist', function () {
     .on('end', () => { reload(); });
 });
 
+// Generate sitemap.xml with clean URLs based on src/*.html
+gulp.task('sitemap:dist', function (done) {
+  try {
+    var baseUrl = (process.env.SITE_URL || '').trim().replace(/\/$/, '');
+    if (!baseUrl) {
+      baseUrl = 'https://example.com';
+      console.warn('[sitemap] SITE_URL not set. Using placeholder https://example.com');
+    }
+
+    // Collect top-level HTML files in src (exclude partials and 404)
+    var files = fs.readdirSync('src')
+      .filter(function (f) { return f.toLowerCase().endsWith('.html'); })
+      .filter(function (f) { return f.toLowerCase() !== '404.html'; });
+
+    var urls = files.map(function (file) {
+      if (file.toLowerCase() === 'index.html') return baseUrl + '/';
+      return baseUrl + '/' + file.replace(/\.html?$/i, '');
+    });
+
+    var now = new Date().toISOString();
+    var xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+      + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+      + urls.map(function (u) {
+          var isHome = /\/$/.test(u);
+          return '  <url>\n'
+               + '    <loc>' + u + '</loc>\n'
+               + '    <lastmod>' + now + '</lastmod>\n'
+               + '    <changefreq>weekly</changefreq>\n'
+               + '    <priority>' + (isHome ? '1.0' : '0.8') + '</priority>\n'
+               + '  </url>';
+        }).join('\n')
+      + '\n</urlset>\n';
+
+    if (!fs.existsSync(path.dist.html)) fs.mkdirSync(path.dist.html, { recursive: true });
+    fs.writeFileSync(nodePath.join(path.dist.html, 'sitemap.xml'), xml, 'utf8');
+    console.log('[sitemap] Generated dist/sitemap.xml with', urls.length, 'URLs');
+  } catch (err) {
+    console.error('[sitemap] Failed to generate sitemap:', err);
+  }
+  done();
+});
+
+// Generate robots.txt (include sitemap in production)
+gulp.task('robots:dist', function (done) {
+  try {
+    var baseUrl = (process.env.SITE_URL || '').trim().replace(/\/$/, '');
+    var ref = process.env.GITHUB_REF || '';
+    var isProd = /\/main$/.test(ref) || process.env.NODE_ENV === 'production';
+    var disallow = process.env.ROBOTS === 'disallow' || process.env.DISALLOW_ROBOTS === '1' || !isProd;
+
+    var lines = [];
+    lines.push('User-agent: *');
+    if (disallow) {
+      lines.push('Disallow: /');
+    } else {
+      lines.push('Allow: /');
+      if (baseUrl) lines.push('Sitemap: ' + baseUrl + '/sitemap.xml');
+    }
+    lines.push('');
+
+    if (!fs.existsSync(path.dist.html)) fs.mkdirSync(path.dist.html, { recursive: true });
+    fs.writeFileSync(nodePath.join(path.dist.html, 'robots.txt'), lines.join('\n'), 'utf8');
+    console.log('[robots] Generated dist/robots.txt (disallow=' + disallow + ')');
+  } catch (err) {
+    console.error('[robots] Failed to generate robots.txt:', err);
+  }
+  done();
+});
+
 // Remove catalog dev
 gulp.task('clean:dev', function () {
   return del(path.clean.dev);
@@ -431,6 +503,8 @@ gulp.task('build:dist',
     gulp.series('clean:dist',
       gulp.parallel(
       'html:dist',
+  'sitemap:dist',
+  'robots:dist',
       'css:dist',
       'fontcss:dist',
       'colorcss:dist',
@@ -450,7 +524,7 @@ gulp.task('build:dist',
 
 // Launching tasks when files change
 gulp.task('watch', function () {
-    gulp.watch(path.watch.html, gulp.series('html:dist'));
+  gulp.watch(path.watch.html, gulp.series('html:dist', 'sitemap:dist', 'robots:dist'));
     gulp.watch(path.watch.css, gulp.series('css:dist'));
     gulp.watch(path.watch.fontcss, gulp.series('fontcss:dist'));
     gulp.watch(path.watch.colorcss, gulp.series('colorcss:dist'));
