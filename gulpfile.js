@@ -402,8 +402,8 @@ gulp.task('sitemap:dist', function (done) {
   try {
     var baseUrl = (process.env.SITE_URL || '').trim().replace(/\/$/, '');
     if (!baseUrl) {
-      baseUrl = 'https://example.com';
-      console.warn('[sitemap] SITE_URL not set. Using placeholder https://example.com');
+      baseUrl = 'https://digitoyou.com';
+      console.warn('[sitemap] SITE_URL not set. Using placeholder https://digitoyou.com');
     }
 
     // Collect top-level HTML files in src (exclude partials and 404)
