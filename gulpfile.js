@@ -302,7 +302,13 @@ gulp.task('themejs:dist', function () {
 
 // Copy other JS (i18n, etc.) to dist
 gulp.task('js:dist', function () {
-  return gulp.src([path.src.js + '*.js', '!' + path.src.themejs, '!' + path.src.vendorjs])
+  return gulp.src([
+      path.src.js + '*.js',
+      '!' + path.src.themejs,
+      '!' + path.src.vendorjs,
+      // Exclude empty config placeholder to avoid upload issues on some FTP servers
+      '!' + path.src.js + 'config.js'
+    ])
     .pipe(newer(path.dist.js))
     .pipe(gulp.dest(path.dist.js))
     .pipe(touch())
