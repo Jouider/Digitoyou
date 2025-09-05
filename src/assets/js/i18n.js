@@ -7,7 +7,7 @@
   const translations = {
     fr: {
       nav: { about: 'À propos', blog: 'Blog', case_client: 'Cas Client' },
-      links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
+  links: { about: '/about', blog: '/blog', case_client: '/contact' },
       index: {
         hero: {
           prefix: 'De votre ',
@@ -238,7 +238,7 @@
           }
         },
 
-        // Translations specific to the blog listing (blog2.html)
+        // Translations specific to the blog listing (blog.html)
         blog: {
           hero: {
             h1: 'Découvrez nos articles',
@@ -358,7 +358,7 @@
     // Arabic translations (expanded)
     ar: {
       nav: { about: 'معلومات', blog: 'مدونة', case_client: 'دراسات حالة' },
-      links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
+  links: { about: '/about', blog: '/blog', case_client: '/contact' },
       index: {
         hero: {
           prefix: 'من نشاطك ',
@@ -479,7 +479,7 @@
           syndicaz: { title: 'SyndicAZ', desc: 'تطوير موقع <strong>SyndicAZ</strong>.', cta: 'زيارة الموقع >' }
         },
 
-        // Translations specific to the blog listing (blog2.html)
+        // Translations specific to the blog listing (blog.html)
         blog: {
           hero: {
             h1: 'اكتشف مقالاتنا',
@@ -584,7 +584,7 @@
     },
     en: {
       nav: { about: 'About', blog: 'Blog', case_client: 'Case Studies' },
-      links: { about: '/about.html', blog: 'blog2.html', case_client: '/contact.html' },
+  links: { about: '/about', blog: '/blog', case_client: '/contact' },
       index: {
         hero: {
           prefix: 'From your ',
@@ -829,7 +829,7 @@
           }
         },
 
-        // Translations specific to the blog listing (blog2.html)
+        // Translations specific to the blog listing (blog.html)
         blog: {
           hero: {
             h1: 'Discover our articles',
