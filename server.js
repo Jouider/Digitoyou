@@ -11,6 +11,22 @@ app.use(express.json());
 // Serve static files from the `src` directory so assets are available at /assets/...
 app.use(express.static(path.join(__dirname, 'src')));
 
+// Support clean URLs in local dev: "/about" -> "/about.html"
+app.use((req, res, next) => {
+  // ignore requests that already have an extension or hit /assets etc.
+  if (path.extname(req.path) || req.path.startsWith('/assets') || req.path.startsWith('/api')) {
+    return next();
+  }
+  const candidate = path.join(__dirname, 'src', req.path.replace(/\/+/g, '/').replace(/^\/+/, '') + '.html');
+  if (req.path === '/' || req.path === '') {
+    return res.sendFile(path.join(__dirname, 'src', 'index.html'));
+  }
+  if (require('fs').existsSync(candidate)) {
+    return res.sendFile(candidate);
+  }
+  next();
+});
+
 // Proxy endpoint for Slack
 app.post('/api/slack-webhook', async (req, res) => {
   try {

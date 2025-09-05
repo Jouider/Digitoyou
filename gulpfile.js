@@ -39,7 +39,8 @@ var path = {
     img: 'src/assets/img/**/*.*',
     fonts: 'src/assets/fonts/**/*.*',
     media: 'src/assets/media/**/*.*',
-    php: 'src/assets/php/**/*.*'
+  php: 'src/assets/php/**/*.*',
+  rootExtras: ['src/.htaccess']
   },
   watch: {
     html: ['src/**/*.html', '!src/assets/php/**/*.html'],
@@ -90,8 +91,24 @@ var gulp = require('gulp'),
 /* Server */
 var config = {
     server: {
-        baseDir: './dist'
+    baseDir: './dist'
     },
+  // Map clean URLs like /about -> /about.html for local dev
+  middleware: [function (req, res, next) {
+    try {
+      var url = req.url.split('?')[0];
+      if (url === '/' || url === '') return next();
+      if (/\.[a-zA-Z0-9]+$/.test(url)) return next(); // has extension
+      if (url.startsWith('/assets/') || url.startsWith('/assets') || url.startsWith('/vendor/') || url.startsWith('/php/') || url.startsWith('/api/')) return next();
+      var fs = require('fs');
+      var candidate = pathJoin(process.cwd(), 'dist', url.replace(/^\/+/, '') + '.html');
+      if (fs.existsSync(candidate)) {
+        req.url = url + '.html' + (req.url.includes('?') ? '?' + req.url.split('?')[1] : '');
+      }
+    } catch (e) {}
+    next();
+    function pathJoin() { return Array.prototype.slice.call(arguments).join(require('path').sep); }
+  }],
     ghostMode: false, // By setting true, clicks, scrolls and form inputs on any device will be mirrored to all others
     notify: false
 };
@@ -339,6 +356,12 @@ gulp.task('php:dist', function () {
     .pipe(gulp.dest(path.dist.php));
 });
 
+// Copy root-level extras (.htaccess, etc.)
+gulp.task('root:dist', function () {
+  return gulp.src(path.src.rootExtras, { allowEmpty: true, dot: true })
+    .pipe(gulp.dest(path.dist.html));
+});
+
 // Image processing
 gulp.task('image:dev', function () {
   return gulp.src(path.src.img)
@@ -418,6 +441,7 @@ gulp.task('build:dist',
       'fonts:dist',
       'media:dist',
       'php:dist',
+  'root:dist',
       'image:dist'
       )
     )

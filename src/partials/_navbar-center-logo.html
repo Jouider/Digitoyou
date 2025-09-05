@@ -7,7 +7,7 @@
     <div class="navbar-collapse-wrapper bg-white d-lg-flex flex-row flex-nowrap w-100 justify-content-between align-items-center">
   }
     <div class="d-flex flex-row w-100 justify-content-between align-items-center d-lg-none">
-      <div class="navbar-brand"><a href="@@webRoot/index.html">
+  <div class="navbar-brand"><a href="@@webRoot/">
         @@if (!context.logoBoth) {       
           @@if (!context.logoLight) {
             <img src="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}.png" srcset="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}@2x.png 2x" alt="" />
@@ -42,14 +42,14 @@
         <div class="offcanvas-header mx-lg-auto order-0 order-lg-1 d-lg-flex px-lg-15">
           @@if (!context.logoBoth) {
             @@if (!context.logoLight) {
-              <a href="@@webRoot/index.html" class="transition-none d-none d-lg-flex"><img src="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}.png" srcset="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}@2x.png 2x" alt="" /></a>
+              <a href="@@webRoot/" class="transition-none d-none d-lg-flex"><img src="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}.png" srcset="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}@2x.png 2x" alt="" /></a>
             }
             @@if (context.logoLight) {
               <img class="transition-none d-none d-lg-flex logo-light" src="@@webRoot/assets/img/logo-light.png" srcset="@@webRoot/assets/img/logo-light@2x.png 2x" alt="" /></a>
             }
           }
           @@if (context.logoBoth) {
-            <a href="@@webRoot/index.html" class="transition-none d-none d-lg-flex"><img class="logo-dark" src="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}.png" srcset="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}@2x.png 2x" alt="" />
+            <a href="@@webRoot/" class="transition-none d-none d-lg-flex"><img class="logo-dark" src="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}.png" srcset="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}@2x.png 2x" alt="" />
             <img class="logo-light" src="@@webRoot/assets/img/logo-light.png" srcset="@@webRoot/assets/img/logo-light@2x.png 2x" alt="" /></a>
           }
           <h3 class="text-white fs-30 mb-0 d-lg-none">Sandbox</h3>
