@@ -6,8 +6,31 @@
 
   const translations = {
     fr: {
+      // SEO metadata per page
+      seo: {
+        home: {
+          title: 'Digitoyou | Marketing digital & solutions web au Maroc, Canada et Belgique',
+          description: 'Développez votre visibilité en ligne avec Digitoyou. Sites web, publicité et stratégies adaptées aux entreprises au Maroc, Canada et Belgique.',
+          keywords: 'Digitoyou, marketing digital, création de site, développement web, SEO, publicité en ligne, Maroc, Canada, Belgique, sites web, agence, croissance'
+        },
+        about: {
+          title: 'À propos de Digitoyou | Votre partenaire de croissance digitale',
+          description: 'Découvrez Digitoyou, une agence digitale qui accompagne les entreprises au Maroc, Canada et Belgique dans leur croissance.',
+          keywords: 'Digitoyou, à propos, agence digitale, Maroc, Canada, Belgique, experts web, équipe marketing, partenaire de croissance'
+        },
+        services: {
+          title: 'Nos services | Création de sites, marketing digital & publicité – Digitoyou',
+          description: 'Digitoyou propose des solutions digitales complètes : sites web, marketing et publicité pour développer votre entreprise.',
+          keywords: 'création de site, développement, e‑commerce, SEO, SEA, Google Ads, social ads, branding, contenu, maintenance, hébergement'
+        },
+        contact: {
+          title: 'Contactez Digitoyou | Construisons votre succès digital',
+          description: 'Prenez contact avec Digitoyou. Nous répondons à vos questions et lançons ensemble votre croissance digitale.',
+          keywords: 'contact Digitoyou, prise de contact, devis, consultation, appel gratuit, projet digital'
+        }
+      },
       nav: { about: 'À propos', blog: 'Blog', case_client: 'Cas Client' },
-  links: { about: '/about', blog: '/blog', case_client: '/contact' },
+    links: { about: '/about', blog: '/blog', case_client: '/contact' },
       index: {
         hero: {
           prefix: 'De votre ',
@@ -357,6 +380,29 @@
     },
     // Arabic translations (expanded)
     ar: {
+      // SEO metadata per page
+      seo: {
+        home: {
+          title: 'Digitoyou | التسويق الرقمي وحلول الويب في المغرب وكندا وبلجيكا',
+          description: 'طوّر حضورك الرقمي مع Digitoyou. مواقع إلكترونية، إعلانات واستراتيجيات مخصصة للأعمال في المغرب وكندا وبلجيكا.',
+          keywords: 'Digitoyou, التسويق الرقمي, تصميم مواقع, تطوير مواقع, سيو, إعلانات أونلاين, المغرب, كندا, بلجيكا, مواقع إلكترونية, وكالة, نمو'
+        },
+        about: {
+          title: 'حول Digitoyou | شريكك في النمو الرقمي',
+          description: 'تعرف على Digitoyou، وكالة رقمية تساعد الشركات في المغرب وكندا وبلجيكا على النمو باستخدام التكنولوجيا والتسويق.',
+          keywords: 'Digitoyou, حول, وكالة رقمية, المغرب, كندا, بلجيكا, خبراء الويب, فريق التسويق, شريك نمو'
+        },
+        services: {
+          title: 'خدماتنا | تصميم المواقع، التسويق الرقمي والإعلانات – Digitoyou',
+          description: 'تقدم Digitoyou حلولاً رقمية متكاملة: تصميم مواقع، تسويق رقمي وإعلانات لتطوير أعمالك في المغرب وكندا وبلجيكا.',
+          keywords: 'تصميم مواقع, تطوير مواقع, تجارة إلكترونية, سيو, إعلانات جوجل, إعلانات سوشيال, هوية بصرية, محتوى, صيانة, استضافة'
+        },
+        contact: {
+          title: 'اتصل بـ Digitoyou | لنحقق نجاحك الرقمي',
+          description: 'تواصل مع Digitoyou للإجابة على أسئلتك والبدء في بناء نموك الرقمي.',
+          keywords: 'اتصل بـ Digitoyou, تواصل, عرض سعر, استشارة, مكالمة مجانية, مشروع رقمي'
+        }
+      },
       nav: { about: 'معلومات', blog: 'مدونة', case_client: 'دراسات حالة' },
   links: { about: '/about', blog: '/blog', case_client: '/contact' },
       index: {
@@ -583,6 +629,29 @@
       }
     },
     en: {
+      // SEO metadata per page
+      seo: {
+        home: {
+          title: 'Digitoyou | Digital Marketing & Web Solutions in Morocco, Canada & Belgium',
+          description: 'Boost your online presence with Digitoyou. Websites, ads and strategies tailored for businesses in Morocco, Canada and Belgium.',
+          keywords: 'Digitoyou, digital marketing, web design, web development, SEO, online advertising, Morocco, Canada, Belgium, websites, growth, agency'
+        },
+        about: {
+          title: 'About Digitoyou | Your Digital Growth Partner',
+          description: 'Learn more about Digitoyou, a digital agency helping businesses in Morocco, Canada and Belgium grow through technology and marketing.',
+          keywords: 'Digitoyou, about, digital agency, Morocco, Canada, Belgium, web experts, marketing team, growth partner'
+        },
+        services: {
+          title: 'Our Services | Web Design, Digital Marketing & Ads – Digitoyou',
+          description: 'From websites to digital ads, Digitoyou provides complete marketing solutions to grow your business in Morocco, Canada and Belgium.',
+          keywords: 'web design, website development, e‑commerce, SEO, SEA, Google Ads, social ads, branding, content, maintenance, hosting'
+        },
+        contact: {
+          title: 'Contact Digitoyou | Let’s Build Your Digital Success',
+          description: 'Get in touch with Digitoyou. We’re here to answer your questions and start building your digital growth.',
+          keywords: 'contact Digitoyou, get in touch, quote, consultation, free call, digital project'
+        }
+      },
       nav: { about: 'About', blog: 'Blog', case_client: 'Case Studies' },
   links: { about: '/about', blog: '/blog', case_client: '/contact' },
       index: {
@@ -1036,6 +1105,62 @@
         }
       }
     } catch(e){ console.error('i18n: failed to swap hero image', e); }
+
+    // Update SEO: document title and meta description based on current page
+    try {
+      const pageKey = (function(){
+        // Prefer explicit data attribute if present
+        const el = document.querySelector('[data-page]');
+        if (el && el.getAttribute('data-page')) return el.getAttribute('data-page');
+        // Derive from path: supports clean URLs and .html
+        let p = (location.pathname || '').replace(/\/+$/, '');
+        // handle local dev where path may include /dist/
+        p = p.replace(/\/dist\//, '/');
+        if (p === '' || p === '/' || /\/index(\.html)?$/i.test(p)) return 'home';
+        const m = p.match(/\/([^\/]+?)(?:\.html)?$/i);
+        const slug = m ? m[1].toLowerCase() : '';
+        if (slug === 'about') return 'about';
+        if (slug === 'services') return 'services';
+        if (slug === 'contact') return 'contact';
+        // Map known pages to nearest SEO bucket
+        if (slug === 'appointment') return 'contact';
+        if (slug === 'blog' || slug === 'blog-post') return 'home';
+        return 'home';
+      })();
+      const seo = dict.seo && dict.seo[pageKey];
+      if (seo) {
+        if (seo.title) document.title = seo.title;
+        if (seo.description) {
+          let md = document.querySelector('meta[name="description"]');
+          if (!md) {
+            md = document.createElement('meta');
+            md.setAttribute('name', 'description');
+            document.head.appendChild(md);
+          }
+          md.setAttribute('content', seo.description);
+          // keywords
+          if (seo.keywords) {
+            let mk = document.querySelector('meta[name="keywords"]');
+            if (!mk) {
+              mk = document.createElement('meta');
+              mk.setAttribute('name', 'keywords');
+              document.head.appendChild(mk);
+            }
+            mk.setAttribute('content', seo.keywords);
+          }
+          
+          // Optional: update Open Graph and Twitter cards if present
+          const ogt = document.querySelector('meta[property="og:title"]');
+          if (ogt) ogt.setAttribute('content', seo.title || '');
+          const ogd = document.querySelector('meta[property="og:description"]');
+          if (ogd) ogd.setAttribute('content', seo.description || '');
+          const twt = document.querySelector('meta[name="twitter:title"]');
+          if (twt) twt.setAttribute('content', seo.title || '');
+          const twd = document.querySelector('meta[name="twitter:description"]');
+          if (twd) twd.setAttribute('content', seo.description || '');
+        }
+      }
+    } catch (e) { console.error('i18n: failed to set SEO meta', e); }
   }
 
   function setLanguage(lang){
