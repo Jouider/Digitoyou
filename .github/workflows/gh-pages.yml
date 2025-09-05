@@ -35,6 +35,12 @@ jobs:
           port: 21
           security: loose
           local-dir: ./dist/
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            assets/js/config.js
+            assets/img/svg/scribble.svg
+            assets/img/svg/tri.svg
           dangerous-clean-slate: false
           server-dir: /staging_html/
           log-level: verbose
@@ -50,6 +56,12 @@ jobs:
           port: 21
           security: loose
           local-dir: ./dist/
+          exclude: |
+            **/.git*
+            **/node_modules/**
+            assets/js/config.js
+            assets/img/svg/scribble.svg
+            assets/img/svg/tri.svg
           dangerous-clean-slate: false
           server-dir: /public_html/
           log-level: verbose
