@@ -443,6 +443,10 @@ gulp.task('sitemap:dist', function (done) {
 gulp.task('robots:dist', function (done) {
   try {
     var baseUrl = (process.env.SITE_URL || '').trim().replace(/\/$/, '');
+    if (!baseUrl) {
+      baseUrl = 'https://digitoyou.com';
+      console.warn('[robots] SITE_URL not set. Using placeholder https://digitoyou.com');
+    }
     var ref = process.env.GITHUB_REF || '';
     var isProd = /\/main$/.test(ref) || process.env.NODE_ENV === 'production';
     var disallow = process.env.ROBOTS === 'disallow' || process.env.DISALLOW_ROBOTS === '1' || !isProd;
