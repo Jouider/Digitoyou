@@ -87,7 +87,7 @@
         },
         realizations: { small: 'Nos Réalisations', title: 'Nos derniers projets' },
         clients: {
-          heading: 'Déjà <span class="text-warning">5000 clients</span> satisfaits.<br>Et si vous étiez le prochain?'
+          heading: 'Déjà <span class="text-warning">50 clients</span> satisfaits.<br>Et si vous étiez le prochain?'
         },
         counters: {
           completed: 'Projets réalisés',
@@ -406,7 +406,7 @@
           lead: 'نُنشئ <b>مواقع عرض مخصصة 100%</b>، مصممة لتلبية احتياجاتك وسوقك وواقعك. سواء كنت حرفياً أو صاحب متجر أو رائد أعمال، نربطك بعالم الإنترنت بسهولة.'
         },
         realizations: { small: 'أعمالنا', title: 'مشاريعنا الأخيرة' },
-        clients: { heading: 'أكثر من <span class="text-warning">5000 عميل</span> راضٍ.<br>هل ستكون التالي؟' },
+        clients: { heading: 'أكثر من <span class="text-warning">50 عميل</span> راضٍ.<br>هل ستكون التالي؟' },
         counters: { completed: 'المشروعات المنجزة', satisfied: 'عملاء راضون', experts: 'خبراء في خدمتك' },
         about: {
           card: { remote: { heading: 'عن بُعد 100%', sub: 'وكالة رقمية' } },
