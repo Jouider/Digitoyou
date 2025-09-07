@@ -899,22 +899,32 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Send to backend: Node in dev, PHP in production
-        const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-          ? 'http://localhost:3002/api/slack-webhook'
-          : '/assets/php/slack-webhook.php';
+    // Send to backend: Node in dev (JSON), PHP in production (URL-encoded payload)
+    const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+      ? 'http://localhost:3002/api/slack-webhook'
+      : '/assets/php/slack-webhook.php';
 
-        fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(slackMessage)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erreur lors de l\'envoi à Slack');
-            }
+    const isPhp = endpoint.indexOf('/assets/php/') === 0 || endpoint.includes('/assets/php/');
+    const fetchOptions = { method: 'POST', headers: {}, body: null };
+    if (isPhp) {
+      // Some shared hosts drop raw JSON; send as form urlencoded
+      fetchOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+      fetchOptions.body = 'payload=' + encodeURIComponent(JSON.stringify(slackMessage));
+    } else {
+      fetchOptions.headers['Content-Type'] = 'application/json';
+      fetchOptions.body = JSON.stringify(slackMessage);
+    }
+
+    fetch(endpoint, fetchOptions)
+    .then(async (response) => {
+      if (!response.ok) {
+        let info = '';
+        try {
+          const data = await response.json();
+          info = data && (data.error || JSON.stringify(data));
+        } catch (_) {}
+        throw new Error('Erreur lors de l\'envoi à Slack' + (info ? ' — ' + info : ''));
+      }
             const successModal = new bootstrap.Modal(document.getElementById('successModal'));
             successModal.show();
             form.reset();
@@ -926,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Erreur:', error);
-            alert("Une erreur est survenue lors de l'envoi du formulaire");
+      alert("Une erreur est survenue lors de l'envoi du formulaire: " + (error && error.message ? error.message : ''));
         });
     });
 
