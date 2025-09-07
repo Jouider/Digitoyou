@@ -736,9 +736,11 @@ document.addEventListener('DOMContentLoaded', function() {
             dayEl.textContent = day;
             
             const dateToCheck = new Date(currentYear, currentMonth, day);
-            if (dateToCheck >= new Date()) {
+            const today = new Date(); today.setHours(0,0,0,0);
+
+            if (dateToCheck >= today) {
                 dayEl.classList.add('available');
-                dayEl.onclick = () => selectDate(dateToCheck);
+                dayEl.addEventListener('click', (e) => selectDate(dateToCheck, e.currentTarget));
             } else {
                 dayEl.classList.add('disabled');
             }
@@ -754,48 +756,39 @@ document.addEventListener('DOMContentLoaded', function() {
         const slots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
         slots.forEach(time => {
             const slot = document.createElement('button');
+            slot.type = 'button';
             slot.className = 'btn btn-sm rounded-pill px-3 time-slot-btn';
             slot.textContent = time;
-            slot.onclick = () => selectTimeSlot(time);
+            slot.addEventListener('click', (e) => selectTimeSlot(time, e.currentTarget));
             timeSlotsGrid.appendChild(slot);
         });
     }
 
-    function selectDate(date) {
+    function selectDate(date, el) {
         selectedDate = date;
-        document.querySelectorAll('.calendar-day').forEach(day => {
-            day.classList.remove('selected');
-        });
-        event.target.classList.add('selected');
+        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+        el.classList.add('selected');
         generateTimeSlots(date);
         updateSelectedSlotDisplay();
     }
 
-    function selectTimeSlot(time) {
+    function selectTimeSlot(time, el) {
         selectedTimeSlot = time;
-        document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => {
-            btn.classList.remove('btn');
-            btn.classList.add('btn-outline');
-        });
-        event.target.classList.remove('btn-outline');
-        event.target.classList.add('btn');
+        document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => btn.classList.remove('selected'));
+        el.classList.add('selected');
         updateSelectedSlotDisplay();
     }
 
     function updateSelectedSlotDisplay() {
-        const display = document.getElementById('selectedSlotDisplay').querySelector('.alert');
+        const alertEl = document.getElementById('selectedSlotDisplay').querySelector('.alert');
         if (selectedDate && selectedTimeSlot) {
-            display.classList.remove('d-none');
-            const formattedDate = selectedDate.toLocaleDateString('fr-FR', { 
+            alertEl.classList.remove('d-none');
+            const formattedDate = selectedDate.toLocaleDateString('fr-FR', {
                 weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
             });
-
             document.getElementById('selectedDateTime').textContent = `${formattedDate} à ${selectedTimeSlot}`;
-
-            // Ajouter les valeurs dans les champs cachés
             document.getElementById('appointment_date').value = formattedDate;
             document.getElementById('appointment_time').value = selectedTimeSlot;
-
             document.getElementById('nextToContactInfo').style.display = 'block';
         }
     }
@@ -807,17 +800,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contactStep').style.display = 'block';
     });
 
-    // Update event listener for the return button
-    const backToCalendarButton = document.getElementById('backToCalendar');
-    backToCalendarButton.addEventListener('click', function() {
+    document.getElementById('backToCalendar').addEventListener('click', function() {
         document.getElementById('stepProgress').style.width = '50%';
         document.getElementById('contactStep').style.display = 'none';
         document.getElementById('calendarStep').style.display = 'block';
     });
 
-    // Formulaire
+    // SINGLE submit handler → Python only
     const form = document.getElementById('appointmentForm');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         if (!selectedDate || !selectedTimeSlot) {
@@ -825,121 +816,61 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const formData = new FormData(form);
-        formData.append('appointment_date', document.getElementById('appointment_date').value);
-        formData.append('appointment_time', document.getElementById('appointment_time').value);
+        const name = (document.getElementById('name')?.value || '').trim();
+        const email = (document.getElementById('email')?.value || '').trim();
+        const phone = (document.getElementById('phoneNumber')?.value || '').trim();
+        const date = (document.getElementById('appointment_date')?.value || '').trim();
+        const time = (document.getElementById('appointment_time')?.value || '').trim();
+        const comm = (document.querySelector('input[name="communication"]:checked')?.value || '').trim();
+        const message = (document.getElementById('message')?.value || '').trim();
 
-        // Convert form data to an object
-        const formDataObj = {};
-        formData.forEach((value, key) => formDataObj[key] = value);
-
-        // Format message for Slack
-        const slackMessage = {
-            text: "🎯 Nouveau rendez-vous !",
-            blocks: [
-                {
-                    type: "header",
-                    text: {
-                        type: "plain_text",
-                        text: "📅 Nouvelle demande de rendez-vous",
-                        emoji: true
-                    }
-                },
-                {
-                    type: "section",
-                    fields: [
-                        {
-                            type: "mrkdwn",
-                            text: `*Nom:*\n${document.getElementById('name').value}`
-                        },
-                        {
-                            type: "mrkdwn",
-                            text: `*Email:*\n${document.getElementById('email').value}`
-                        }
-                    ]
-                },
-                {
-                    type: "section",
-                    fields: [
-                        {
-                            type: "mrkdwn",
-                            text: `*Date:*\n${document.getElementById('appointment_date').value}`
-                        },
-                        {
-                            type: "mrkdwn",
-                            text: `*Heure:*\n${document.getElementById('appointment_time').value}`
-                        }
-                    ]
-                },
-                {
-                    type: "section",
-                    fields: [
-                        {
-                            type: "mrkdwn",
-                            text: `*Téléphone:*\n${document.getElementById('phoneNumber').value}`
-                        },
-                        {
-                            type: "mrkdwn",
-                            text: `*Mode de communication:*\n${document.querySelector('input[name="communication"]:checked').value}`
-                        }
-                    ]
-                }
-            ]
+        const payload = {
+          text: "🎯 Nouveau rendez-vous !",
+          blocks: [
+            { type: "header", text: { type: "plain_text", text: "📅 Nouvelle demande de rendez-vous", emoji: true } },
+            { type: "section", fields: [
+              { type: "mrkdwn", text: `*Nom:*\n${name || '-'}` },
+              { type: "mrkdwn", text: `*Email:*\n${email || '-'}` }
+            ]},
+            { type: "section", fields: [
+              { type: "mrkdwn", text: `*Date:*\n${date || '-'}` },
+              { type: "mrkdwn", text: `*Heure:*\n${time || '-'}` }
+            ]},
+            { type: "section", fields: [
+              { type: "mrkdwn", text: `*Téléphone:*\n${phone || '-'}` },
+              { type: "mrkdwn", text: `*Mode de communication:*\n${comm || '-'}` }
+            ]}
+          ]
         };
-
-        // Add message if provided
-        const message = document.getElementById('message').value;
         if (message) {
-            slackMessage.blocks.push({
-                type: "section",
-                text: {
-                    type: "mrkdwn",
-                    text: `*Message:*\n${message}`
-                }
-            });
+          payload.blocks.push({ type: "section", text: { type: "mrkdwn", text: `*Message:*\n${message}` } });
         }
 
-    // Send to backend: Node in dev (JSON), PHP in production (URL-encoded payload)
-        // Prefer a Python backend if exposed via window.APP_API_BASE; fallback to PHP endpoint
-        const apiBase = (typeof window !== 'undefined' && window.APP_API_BASE) ? window.APP_API_BASE.replace(/\/$/, '') : '';
-        const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-          ? 'http://localhost:3002/api/slack-webhook'
-          : (apiBase ? apiBase + '/api/slack-webhook' : '/assets/php/slack-webhook.php');
+        const apiBase = (window.APP_API_BASE || '').replace(/\/$/, '');
+        const url = `${apiBase}/slack-webhook`;
 
-        const isPhp = endpoint.includes('/assets/php/');
-    const fetchOptions = { method: 'POST', headers: {}, body: null };
-    if (isPhp) {
-      // Some shared hosts drop raw JSON; send as form urlencoded
-      fetchOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-      fetchOptions.body = 'payload=' + encodeURIComponent(JSON.stringify(slackMessage));
-    } else {
-      fetchOptions.headers['Content-Type'] = 'application/json';
-      fetchOptions.body = JSON.stringify(slackMessage);
-    }
-
-    fetch(endpoint, fetchOptions)
-    .then(async (response) => {
-      if (!response.ok) {
-        let info = '';
         try {
-          const data = await response.json();
-          info = data && (data.error || JSON.stringify(data));
-        } catch (_) {}
-        throw new Error('Erreur lors de l\'envoi à Slack' + (info ? ' — ' + info : ''));
-      }
-            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
-            form.reset();
-            selectedDate = null;
-            selectedTimeSlot = null;
-            generateCalendar();
-            document.getElementById('timeSlotsGrid').innerHTML = '';
-            document.getElementById('selectedSlotDisplay').querySelector('.alert').classList.add('d-none');
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-      alert("Une erreur est survenue lors de l'envoi du formulaire: " + (error && error.message ? error.message : ''));
-        });
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || data.success === false) {
+            throw new Error(data.error || `Statut ${res.status}`);
+          }
+
+          const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+          successModal.show();
+          form.reset();
+          selectedDate = null; selectedTimeSlot = null;
+          generateCalendar();
+          document.getElementById('timeSlotsGrid').innerHTML = '';
+          document.getElementById('selectedSlotDisplay').querySelector('.alert').classList.add('d-none');
+        } catch (err) {
+          console.error('Submit error:', err);
+          alert(`Erreur lors de l’envoi. Réessayez plus tard.\n${err?.message || ''}`);
+        }
     });
 
     generateCalendar();
@@ -947,7 +878,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.nextMonth = function() { currentDate.setMonth(currentDate.getMonth() + 1); generateCalendar(); };
 });
 </script>
-
 
   <!-- Calendar Styles -->
   <style>
