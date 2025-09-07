@@ -189,7 +189,8 @@
                       <div class="modal-body text-center p-6">
                           <i class="uil uil-check-circle text-primary" style="font-size: 3rem;"></i>
                           <h3 class="mt-4" data-i18n="index.appointment.booking.modal.success_title">Rendez-vous confirmé !</h3>
-                          <p class="mb-0" data-i18n="index.appointment.booking.modal.success_body" >Votre demande a été enregistrée avec succès.</p>
+                          <p class="mb-2" data-i18n="index.appointment.booking.modal.success_body" >Votre demande a été enregistrée avec succès.</p>
+                          <p id="successDetails" class="mb-0 small text-muted"></p>
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal" data-i18n="index.appointment.booking.modal.close" >Fermer</button>
@@ -662,6 +663,11 @@
 	@@include('_page-progress.html')
 	@@include('_scripts.html')
   <!-- Swiper JS -->
+  <!-- Hardcode API base so the form uses preprod API on all environments (including localhost) -->
+  <script>
+    window.APP_API_BASE = 'https://preprod.digitoyou.com/api';
+  </script>
+  
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
    <script>
     const swiper = new Swiper('.mySwiper', {
@@ -750,14 +756,14 @@ document.addEventListener('DOMContentLoaded', function() {
         calendar.appendChild(grid);
     }
 
-    function generateTimeSlots(date) {
+  function generateTimeSlots(date) {
         const timeSlotsGrid = document.getElementById('timeSlotsGrid');
         timeSlotsGrid.innerHTML = '';
         const slots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
         slots.forEach(time => {
             const slot = document.createElement('button');
-            slot.type = 'button';
-            slot.className = 'btn btn-sm rounded-pill px-3 time-slot-btn';
+      slot.type = 'button';
+      slot.className = 'btn btn-sm rounded-pill px-3 time-slot-btn btn-outline-primary';
             slot.textContent = time;
             slot.addEventListener('click', (e) => selectTimeSlot(time, e.currentTarget));
             timeSlotsGrid.appendChild(slot);
@@ -772,12 +778,18 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSelectedSlotDisplay();
     }
 
-    function selectTimeSlot(time, el) {
-        selectedTimeSlot = time;
-        document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => btn.classList.remove('selected'));
-        el.classList.add('selected');
-        updateSelectedSlotDisplay();
+  function selectTimeSlot(time, el) {
+    selectedTimeSlot = time;
+    document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => {
+      btn.classList.remove('selected', 'btn-primary');
+      if (!btn.classList.contains('btn-outline-primary')) btn.classList.add('btn-outline-primary');
+    });
+    if (el) {
+      el.classList.add('selected', 'btn-primary');
+      el.classList.remove('btn-outline-primary');
     }
+    updateSelectedSlotDisplay();
+  }
 
     function updateSelectedSlotDisplay() {
         const alertEl = document.getElementById('selectedSlotDisplay').querySelector('.alert');
@@ -807,7 +819,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // SINGLE submit handler → Python only
-    const form = document.getElementById('appointmentForm');
+  const form = document.getElementById('appointmentForm');
+  const submitBtn = document.getElementById('submitButton');
+  const submitBtnLabel = submitBtn ? submitBtn.innerHTML : '';
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -847,9 +861,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const apiBase = (window.APP_API_BASE || '').replace(/\/$/, '');
-        const url = `${apiBase}/api/slack-webhook`;
+        const url = `${apiBase}/slack-webhook`;
 
         try {
+          // Loading state
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Envoi…';
+          }
           const res = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -860,16 +879,43 @@ document.addEventListener('DOMContentLoaded', function() {
             throw new Error(data.error || `Statut ${res.status}`);
           }
 
-          const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+          // Fill modal details
+          const detailsEl = document.getElementById('successDetails');
+          const dtText = document.getElementById('selectedDateTime')?.textContent || '';
+
+          const modalEl = document.getElementById('successModal');
+          // Ensure modal is a direct child of body to avoid z-index/backdrop issues
+          if (modalEl && modalEl.parentElement !== document.body) {
+            document.body.appendChild(modalEl);
+          }
+          const successModal = new bootstrap.Modal(modalEl, { backdrop: true, keyboard: true });
           successModal.show();
-          form.reset();
-          selectedDate = null; selectedTimeSlot = null;
-          generateCalendar();
-          document.getElementById('timeSlotsGrid').innerHTML = '';
-          document.getElementById('selectedSlotDisplay').querySelector('.alert').classList.add('d-none');
+
+          // On close, reset the wizard back to step 1
+          const onHidden = () => {
+            form.reset();
+            selectedDate = null; selectedTimeSlot = null;
+            document.getElementById('stepProgress').style.width = '50%';
+            document.getElementById('contactStep').style.display = 'none';
+            document.getElementById('calendarStep').style.display = 'block';
+            generateCalendar();
+            document.getElementById('timeSlotsGrid').innerHTML = '';
+            document.getElementById('selectedSlotDisplay').querySelector('.alert').classList.add('d-none');
+            // Restore button
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = submitBtnLabel;
+            }
+            modalEl.removeEventListener('hidden.bs.modal', onHidden);
+          };
+          modalEl.addEventListener('hidden.bs.modal', onHidden);
         } catch (err) {
           console.error('Submit error:', err);
           alert(`Erreur lors de l’envoi. Réessayez plus tard.\n${err?.message || ''}`);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = submitBtnLabel;
+          }
         }
     });
 
@@ -1021,6 +1067,10 @@ document.addEventListener('DOMContentLoaded', function() {
         color: #b8d776 !important;
         padding: 10;
     }
+
+  /* Ensure modal overlays correctly above any site stacking contexts */
+  .modal { z-index: 1080 !important; }
+  .modal-backdrop { z-index: 1075 !important; }
   </style>
 
 </body>
