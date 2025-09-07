@@ -900,11 +900,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     // Send to backend: Node in dev (JSON), PHP in production (URL-encoded payload)
-    const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-      ? 'http://localhost:3002/api/slack-webhook'
-      : '/assets/php/slack-webhook.php';
+        // Prefer a Python backend if exposed via window.APP_API_BASE; fallback to PHP endpoint
+        const apiBase = (typeof window !== 'undefined' && window.APP_API_BASE) ? window.APP_API_BASE.replace(/\/$/, '') : '';
+        const endpoint = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+          ? 'http://localhost:3002/api/slack-webhook'
+          : (apiBase ? apiBase + '/api/slack-webhook' : '/assets/php/slack-webhook.php');
 
-    const isPhp = endpoint.indexOf('/assets/php/') === 0 || endpoint.includes('/assets/php/');
+        const isPhp = endpoint.includes('/assets/php/');
     const fetchOptions = { method: 'POST', headers: {}, body: null };
     if (isPhp) {
       // Some shared hosts drop raw JSON; send as form urlencoded
