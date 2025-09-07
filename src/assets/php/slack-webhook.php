@@ -2,7 +2,7 @@
 // Simple Slack webhook forwarder for PHP-only hosting.
 // Configure the webhook URL via environment or a small config file.
 
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -28,7 +28,15 @@ if (!$webhook) {
 }
 
 $raw = file_get_contents('php://input');
-if ($raw === false || $raw === '') {
+// Fallback: some hosts/proxies may convert to form-encoded
+if (($raw === false || trim($raw) === '') && !empty($_POST)) {
+    if (isset($_POST['payload'])) {
+        $raw = $_POST['payload'];
+    } else {
+        $raw = json_encode($_POST, JSON_UNESCAPED_UNICODE);
+    }
+}
+if ($raw === false || trim($raw) === '') {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Empty request body']);
     exit;
@@ -47,7 +55,14 @@ curl_close($ch);
 
 if ($err || $httpCode >= 400) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'Failed to send to Slack']);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Failed to send to Slack',
+        'details' => [
+            'httpCode' => $httpCode,
+            'response' => $response,
+        ]
+    ]);
     exit;
 }
 
