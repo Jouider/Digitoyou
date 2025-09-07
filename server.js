@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const path = require('path');
+require('dotenv').config();
 const app = express();
 
 // Enable CORS for your frontend domain
@@ -30,8 +31,14 @@ app.use((req, res, next) => {
 // Proxy endpoint for Slack
 app.post('/api/slack-webhook', async (req, res) => {
   try {
-    const SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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';
-    
+    const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+    if (!SLACK_WEBHOOK_URL) {
+      return res.status(500).json({
+        success: false,
+        error: 'Slack webhook is not configured on the server',
+      });
+    }
+
     await axios.post(SLACK_WEBHOOK_URL, req.body);
     res.json({ success: true });
   } catch (error) {
