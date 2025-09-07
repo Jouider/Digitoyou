@@ -847,7 +847,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const apiBase = (window.APP_API_BASE || '').replace(/\/$/, '');
-        const url = `${apiBase}/slack-webhook`;
+        const url = `${apiBase}/api/slack-webhook`;
 
         try {
           const res = await fetch(url, {
