@@ -42,28 +42,68 @@ if ($raw === false || trim($raw) === '') {
     exit;
 }
 
-$ch = curl_init($webhook);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+if (function_exists('curl_init')) {
+    $ch = curl_init($webhook);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+    // If your host has SSL issues, uncomment next 2 lines temporarily (not recommended for long-term)
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 
-$response = curl_exec($ch);
-$err = curl_error($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
+    $response = curl_exec($ch);
+    $err = curl_error($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 
-if ($err || $httpCode >= 400) {
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'error' => 'Failed to send to Slack',
-        'details' => [
-            'httpCode' => $httpCode,
-            'response' => $response,
+    if ($err || $httpCode >= 400) {
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'error' => 'Failed to send to Slack',
+            'details' => [
+                'httpCode' => $httpCode,
+                'response' => $response,
+                'curlError' => $err,
+            ]
+        ]);
+        exit;
+    }
+} else {
+    // Fallback without cURL
+    $context = stream_context_create([
+        'http' => [
+            'method' => 'POST',
+            'header' => "Content-Type: application/json\r\n",
+            'content' => $raw,
+            'timeout' => 10,
         ]
     ]);
-    exit;
+    $response = @file_get_contents($webhook, false, $context);
+    $httpCode = 0;
+    if (isset($http_response_header) && is_array($http_response_header)) {
+        foreach ($http_response_header as $line) {
+            if (preg_match('#^HTTP/\S+\s(\d{3})#', $line, $m)) {
+                $httpCode = (int)$m[1];
+                break;
+            }
+        }
+    }
+    if ($response === false || $httpCode >= 400) {
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'error' => 'Failed to send to Slack (no-curl)',
+            'details' => [
+                'httpCode' => $httpCode,
+                'response' => $response,
+            ]
+        ]);
+        exit;
+    }
 }
 
 echo json_encode(['success' => true]);
