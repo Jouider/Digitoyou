@@ -3,12 +3,18 @@
   <head>
     @@include('_head.html')
     <!-- Core Styles -->
-    <link rel="stylesheet" href="@@webRoot/assets/css/colors/orange.css">
+    <!-- Preload critical theme color CSS to avoid render-blocking while preserving stylesheet behavior -->
+    <link rel="preload" href="@@webRoot/assets/css/colors/orange.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="@@webRoot/assets/css/colors/orange.css"></noscript>
     <link rel="preload" href="@@webRoot/assets/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
+
+  
+    <!-- Preload Hero and Hero-bg images (LCP candidates) -->
+    <link rel="preload" as="image" href="@@webRoot/assets/img/pages/hero.webp" imagesrcset="@@webRoot/assets/img/pages/hero.webp 1x, @@webRoot/assets/img/pages/hero.webp 2x" imagesizes="100vw">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    
+
   </head>
   
 <body>
@@ -17,7 +23,7 @@
 		<!-- /header -->
 		<!-- Hero Section -->
     <section
-      class="wrapper  position-relative overflow-hidden" style="background-color: #edf2fa;" data-image-src="./assets/img/photos/bg23.png"
+      class="wrapper  position-relative overflow-hidden" style="background-color: #edf2fa; ; background-size: cover; background-position: center;" aria-hidden="false"
     >
     <div class="hero-overlay" aria-hidden="true"></div>
     <header class="wrapper transparent w-100 position-absolute top-0 start-0 z-5">
@@ -36,8 +42,8 @@
 <div class="container pt-16 pt-md-18 pb-9">
     <div class="row gx-0 gy-10 align-items-center text-center text-lg-start">
       <div class="col-lg-6 col-xxl-5 position-relative" data-cues="slideInDown" data-group="page-title" data-delay="700">
-        <img src="./assets/img/svg/doodle1.svg" class="h-9 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%" alt="">
-        <img src="./assets/img/svg/doodle2.svg" class="h-15 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%" alt="">
+        <img src="./assets/img/svg/doodle1.svg" width="46" height="96" class="h-9 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%" alt="">
+        <img src="./assets/img/svg/doodle2.svg" width="160" height="160" class="h-15 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%" alt="" >
         <h1 class="display-1 fs-50 mb-4" data-i18n-html="index.hero.h1"></h1>
         <p class="lead fs-24 lh-sm mb-7" data-i18n-html="index.hero.lead"></p>
         <div class="d-flex justify-content-center " data-cues="slideInDown" data-group="page-title-buttons" data-delay="1800">
@@ -46,7 +52,15 @@
       </div>
       <!-- /column -->
       <div class="col-lg-6 ms-auto mb-n20 mb-xxl-n22" data-cues="slideInDown" data-delay="600">
-        <figure><img src="./assets/img/pages/hero.webp" srcset="./assets/img/pages/hero.webp 2x" alt="" height="700"></figure>
+        <figure><img src="./assets/img/pages/hero.webp"
+          srcset="./assets/img/pages/hero.webp 2x"
+          alt="Digitoyou Hero"
+          width="1200"
+          height="700"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async" />
+     </figure>
       </div>
       <!-- /column -->
     </div>
@@ -78,22 +92,22 @@
 				<div class="col-xl-10 mx-auto">
 					<div class="row align-items-center counter-wrapper gy-6 text-center">
 					<div class="col-md-3">
-						<img src="./assets/img/icons/lineal/check-2.svg" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+						<img src="./assets/img/icons/lineal/check-2.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
 						<h2 data-i18n-html="index.features.f1"></h2>
 					</div>
 					<!--/column -->
 					<div class="col-md-3">
-						<img loading="lazy" src="./assets/img/icons/lineal/user.svg" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+						<img loading="lazy" src="./assets/img/icons/lineal/user.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
 						<h2 data-i18n-html="index.features.f2"></h2>
 					</div>
 					<!--/column -->
 					<div class="col-md-3">
-						<img loading="lazy" src="./assets/img/icons/lineal/briefcase-2.svg" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+						<img loading="lazy" src="./assets/img/icons/lineal/briefcase-2.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
 						<h2 data-i18n-html="index.features.f3"></h2>
 					</div>
 					<!--/column -->
 					<div class="col-md-3">
-						<img loading="lazy" src="./assets/img/icons/lineal/award-2.svg" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+						<img loading="lazy" src="./assets/img/icons/lineal/award-2.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
 						<h2 data-i18n-html="index.features.f4"></h2>
 					</div>
 					<!--/column -->
@@ -113,14 +127,14 @@
         <div class="swiper brand-swiper px-4">
           <div class="swiper-wrapper align-items-center">
             <!-- Slides -->
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c1.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c2.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c3.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c4.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c5.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c6.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c7.png" alt=""></div>
-            <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c8.png" alt=""></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c1.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c2.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c3.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c4.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c5.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c6.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c7.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+            <div class="swiper-slide brand-slide"><img loading="lazy" src="@@webRoot/assets/img/brands/c8.png" alt="" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
           </div>
         </div>
 
@@ -234,10 +248,10 @@
             <div class="col-lg-6 order-lg-2">
               <div class="row gx-md-5 gy-5">
                 <div class="col-md-6 align-self-end">
-                  <figure class="rounded"><img src="./assets/img/photos/g1.jpg" srcset="./assets/img/photos/g1@2x.jpg 2x" alt=""></figure>
+                  <figure class="rounded"><img loading="lazy"  src="./assets/img/photos/g1.jpg" srcset="./assets/img/photos/g1@2x.jpg 2x" alt=""></figure>
                 </div>
                 <div class="col-md-6 align-self-start d-none d-lg-block">
-                  <figure class="rounded"><img src="./assets/img/photos/g2.jpg" srcset="./assets/img/photos/g2@2x.jpg 2x" alt=""></figure>
+                  <figure class="rounded"><img loading="lazy"  src="./assets/img/photos/g2.jpg" srcset="./assets/img/photos/g2@2x.jpg 2x" alt=""></figure>
                 </div>
               </div>
             </div>
@@ -357,7 +371,7 @@
               </button>
             </div>
             <div id="faq-collapse-5" class="collapse" aria-labelledby="faq-heading-5" data-bs-parent="#faq-accordion">
-              <div class="card-body">
+              <div class="card-body"></div>
                 <p data-i18n="index.faq.q5.a">Chaque projet est unique. Mais pour vous donner un ordre d’idée, nos accompagnements démarrent à partir de 3.000€, avec un vrai suivi, une vraie stratégie et un site sur mesure.</p>
               </div>
             </div>
@@ -368,15 +382,15 @@
     </div>
 
     <!-- CTA -->
-<div class="row justify-content-center mt-10">
+<div class="row justify-content-center mt-10 mb-15">
   <div class="col-xl-10 mx-auto">
-    <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-500 position-relative" data-image-src="./assets/img/photos/bg3.jpg">
+    <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-500 position-relative" data-image-src="./assets/img/photos/bg3.jpg" style="background-image: url('./assets/img/photos/bg3.jpg'); background-size: cover; background-position: center;">
       <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-between text-center text-lg-start position-relative">
 
         <!-- ✅ Image flottante en bas à gauche -->
         <div class="position-absolute d-none d-lg-block" style="bottom:0; left:10%; width: 16%; z-index:2">
           <figure>
-            <img src="./assets/img/photos/co2.png" srcset="./assets/img/photos/co2@2x.png 2x" alt="">
+            <img loading="lazy"  src="./assets/img/photos/co2.png" srcset="./assets/img/photos/co2@2x.png 2x" alt="" width="240" height="160">
           </figure>
         </div>
 
@@ -415,7 +429,8 @@
   <!-- tsParticles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js" defer></script>
    <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
+    // Initialize non-critical UI after full load so LCP decoding/paint won't compete with JS execution
+    window.addEventListener('load', () => {
       // Dynamic Projects Loader then Swiper init
       const projectsSwiperEl = document.getElementById('projects-swiper');
       const projectsWrapper = document.getElementById('projects-swiper-wrapper');

@@ -1213,4 +1213,26 @@ html[dir="rtl"] .uil.uil-angle-right {
 }
 
 /* End RTL adjustments */
+ /* Reserve space for the projects swiper while slides are loaded */
+ #projects-swiper, .mySwiper { min-height: 280px; }
 
+ /* Reserve space for the CTA/bg image wrapper to avoid a late background replacing content */
+ .card.image-wrapper.bg-full.bg-image { min-height: 240px; }
+
+ /* Navbar critical layout: reserve space and prevent jumps */
+ .navbar { min-height: 60px; }
+ .navbar-brand img { display: block; width: 170px; height: auto; }
+ .navbar-collapse-wrapper { min-height: 60px; }
+
+ /* Hero critical layout: ensure LCP element has reserved space */
+ .wrapper.position-relative.overflow-hidden { min-height: 420px; }
+ @media (min-width: 992px) { .wrapper.position-relative.overflow-hidden { min-height: 560px; } }
+
+ /* Ensure lazy images still contribute layout space (non-invasive) */
+ img[loading="lazy"] { display: block; max-width: 100%; height: auto; }
+
+ /* Mobile adjustments */
+ @media (max-width: 767px) {
+   #projects-swiper, .mySwiper { min-height: 180px; }
+   .card.image-wrapper.bg-full.bg-image { min-height: 160px; }
+ }
