@@ -7,35 +7,55 @@ var theme = {
    * Do not forget to remove dependency from src/js/vendor/ and recompile.
    */
   init: function () {
+    // Essential immediate features (navbar + basic interactivity)
     theme.stickyHeader();
     theme.subMenu();
     theme.offCanvas();
-    theme.isotope();
     theme.onepageHeaderOffset();
     theme.spyScroll();
     theme.anchorSmoothScroll();
-    theme.svgInject();
-    theme.backgroundImage();
-    theme.backgroundImageMobile();
-    theme.imageHoverOverlay();
-    theme.rellax();
-    theme.scrollCue();
-    theme.swiperSlider();
-    theme.lightbox();
-    theme.plyr();
-    theme.progressBar();
-    theme.loader();
-    theme.pageProgress();
-    theme.counterUp();
-    theme.bsTooltips();
-    theme.bsPopovers();
-    theme.bsModal();
-    theme.iTooltip();
-    theme.forms();
     theme.passVisibility();
     theme.pricingSwitcher();
-    theme.textRotator();
-    theme.codeSnippet();
+    // Forms attach their own load handler internally; keep it
+    theme.forms();
+
+    // Defer heavy/non-critical modules: try requestIdleCallback, fallback to window.load
+    var runDeferred = function() {
+      // Non-critical / heavy features
+      theme.svgInject();
+      theme.backgroundImage();
+      theme.backgroundImageMobile();
+      theme.imageHoverOverlay();
+      theme.rellax();
+      theme.scrollCue();
+      theme.swiperSlider();
+      theme.lightbox();
+      theme.plyr();
+      theme.progressBar();
+      theme.loader();
+      theme.pageProgress();
+      theme.counterUp();
+      theme.bsTooltips();
+      theme.bsPopovers();
+      theme.bsModal();
+      theme.iTooltip();
+      theme.textRotator();
+      theme.codeSnippet();
+      theme.isotope();
+    };
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function() {
+        try { runDeferred(); } catch (e) { console.error('Deferred init error', e); }
+      }, {timeout: 2000});
+    } else {
+      // Ensure deferred run after load if rIC not available
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          try { runDeferred(); } catch (e) { console.error('Deferred init error', e); }
+        }, 200);
+      });
+    }
   },
   /**
    * Sticky Header
@@ -257,11 +277,16 @@ var theme = {
         img.classList.remove('svg-inject');
       }
     });
-    document.addEventListener('DOMContentLoaded', function() {
-      SVGInject(document.querySelectorAll('img.svg-inject'), {
-        useCache: true
+    // If DOM already loaded, run immediately; otherwise wait for DOMContentLoaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        SVGInject(document.querySelectorAll('img.svg-inject'), {
+          useCache: true
+        });
       });
-    });
+    } else {
+      SVGInject(document.querySelectorAll('img.svg-inject'), { useCache: true });
+    }
   },
   /**
    * Background Image
@@ -305,7 +330,7 @@ var theme = {
    */
   rellax: () => {
     if(document.querySelector(".rellax") != null) {
-      window.onload = function() {
+      var initRellax = function() {
         var rellax = new Rellax('.rellax', {
           speed: 2,
           center: true,
@@ -315,6 +340,11 @@ var theme = {
         imagesLoaded(projects_overflow, function() {
           rellax.refresh();
         });
+      };
+      if (document.readyState === 'complete') {
+        initRellax();
+      } else {
+        window.addEventListener('load', initRellax);
       }
     }
   },
@@ -916,4 +946,5 @@ var theme = {
     });
   },
 }
+// initialize theme
 theme.init();

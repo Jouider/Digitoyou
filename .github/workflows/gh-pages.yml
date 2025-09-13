@@ -21,6 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Configure Slack webhook (optional)
+        run: |
+          if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
+            mkdir -p src/assets/php
+            printf "<?php\nreturn [\n    'SLACK_WEBHOOK_URL' => '%s',\n];\n" "${{ secrets.SLACK_WEBHOOK_URL }}" > src/assets/php/slack-config.php
+          else
+            echo "SLACK_WEBHOOK_URL secret not set; skipping"
+          fi
+
       - name: Build project
         run: npx gulp build:dist
 

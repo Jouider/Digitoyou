@@ -189,7 +189,8 @@
                       <div class="modal-body text-center p-6">
                           <i class="uil uil-check-circle text-primary" style="font-size: 3rem;"></i>
                           <h3 class="mt-4" data-i18n="index.appointment.booking.modal.success_title">Rendez-vous confirmé !</h3>
-                          <p class="mb-0" data-i18n="index.appointment.booking.modal.success_body" >Votre demande a été enregistrée avec succès.</p>
+                          <p class="mb-2" data-i18n="index.appointment.booking.modal.success_body" >Votre demande a été enregistrée avec succès.</p>
+                          <p id="successDetails" class="mb-0 small text-muted"></p>
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal" data-i18n="index.appointment.booking.modal.close" >Fermer</button>
@@ -662,6 +663,11 @@
 	@@include('_page-progress.html')
 	@@include('_scripts.html')
   <!-- Swiper JS -->
+  <!-- Hardcode API base so the form uses preprod API on all environments (including localhost) -->
+  <script>
+    window.APP_API_BASE = 'https://preprod.digitoyou.com/api';
+  </script>
+  
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
    <script>
     const swiper = new Swiper('.mySwiper', {
@@ -736,9 +742,11 @@ document.addEventListener('DOMContentLoaded', function() {
             dayEl.textContent = day;
             
             const dateToCheck = new Date(currentYear, currentMonth, day);
-            if (dateToCheck >= new Date()) {
+            const today = new Date(); today.setHours(0,0,0,0);
+
+            if (dateToCheck >= today) {
                 dayEl.classList.add('available');
-                dayEl.onclick = () => selectDate(dateToCheck);
+                dayEl.addEventListener('click', (e) => selectDate(dateToCheck, e.currentTarget));
             } else {
                 dayEl.classList.add('disabled');
             }
@@ -748,54 +756,51 @@ document.addEventListener('DOMContentLoaded', function() {
         calendar.appendChild(grid);
     }
 
-    function generateTimeSlots(date) {
+  function generateTimeSlots(date) {
         const timeSlotsGrid = document.getElementById('timeSlotsGrid');
         timeSlotsGrid.innerHTML = '';
         const slots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
         slots.forEach(time => {
             const slot = document.createElement('button');
-            slot.className = 'btn btn-sm rounded-pill px-3 time-slot-btn';
+      slot.type = 'button';
+      slot.className = 'btn btn-sm rounded-pill px-3 time-slot-btn btn-outline-primary';
             slot.textContent = time;
-            slot.onclick = () => selectTimeSlot(time);
+            slot.addEventListener('click', (e) => selectTimeSlot(time, e.currentTarget));
             timeSlotsGrid.appendChild(slot);
         });
     }
 
-    function selectDate(date) {
+    function selectDate(date, el) {
         selectedDate = date;
-        document.querySelectorAll('.calendar-day').forEach(day => {
-            day.classList.remove('selected');
-        });
-        event.target.classList.add('selected');
+        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+        el.classList.add('selected');
         generateTimeSlots(date);
         updateSelectedSlotDisplay();
     }
 
-    function selectTimeSlot(time) {
-        selectedTimeSlot = time;
-        document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => {
-            btn.classList.remove('btn');
-            btn.classList.add('btn-outline');
-        });
-        event.target.classList.remove('btn-outline');
-        event.target.classList.add('btn');
-        updateSelectedSlotDisplay();
+  function selectTimeSlot(time, el) {
+    selectedTimeSlot = time;
+    document.querySelectorAll('#timeSlotsGrid .time-slot-btn').forEach(btn => {
+      btn.classList.remove('selected', 'btn-primary');
+      if (!btn.classList.contains('btn-outline-primary')) btn.classList.add('btn-outline-primary');
+    });
+    if (el) {
+      el.classList.add('selected', 'btn-primary');
+      el.classList.remove('btn-outline-primary');
     }
+    updateSelectedSlotDisplay();
+  }
 
     function updateSelectedSlotDisplay() {
-        const display = document.getElementById('selectedSlotDisplay').querySelector('.alert');
+        const alertEl = document.getElementById('selectedSlotDisplay').querySelector('.alert');
         if (selectedDate && selectedTimeSlot) {
-            display.classList.remove('d-none');
-            const formattedDate = selectedDate.toLocaleDateString('fr-FR', { 
+            alertEl.classList.remove('d-none');
+            const formattedDate = selectedDate.toLocaleDateString('fr-FR', {
                 weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
             });
-
             document.getElementById('selectedDateTime').textContent = `${formattedDate} à ${selectedTimeSlot}`;
-
-            // Ajouter les valeurs dans les champs cachés
             document.getElementById('appointment_date').value = formattedDate;
             document.getElementById('appointment_time').value = selectedTimeSlot;
-
             document.getElementById('nextToContactInfo').style.display = 'block';
         }
     }
@@ -807,17 +812,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('contactStep').style.display = 'block';
     });
 
-    // Update event listener for the return button
-    const backToCalendarButton = document.getElementById('backToCalendar');
-    backToCalendarButton.addEventListener('click', function() {
+    document.getElementById('backToCalendar').addEventListener('click', function() {
         document.getElementById('stepProgress').style.width = '50%';
         document.getElementById('contactStep').style.display = 'none';
         document.getElementById('calendarStep').style.display = 'block';
     });
 
-    // Formulaire
-    const form = document.getElementById('appointmentForm');
-    form.addEventListener('submit', function(e) {
+    // SINGLE submit handler → Python only
+  const form = document.getElementById('appointmentForm');
+  const submitBtn = document.getElementById('submitButton');
+  const submitBtnLabel = submitBtn ? submitBtn.innerHTML : '';
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         if (!selectedDate || !selectedTimeSlot) {
@@ -825,105 +830,93 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const formData = new FormData(form);
-        formData.append('appointment_date', document.getElementById('appointment_date').value);
-        formData.append('appointment_time', document.getElementById('appointment_time').value);
+        const name = (document.getElementById('name')?.value || '').trim();
+        const email = (document.getElementById('email')?.value || '').trim();
+        const phone = (document.getElementById('phoneNumber')?.value || '').trim();
+        const date = (document.getElementById('appointment_date')?.value || '').trim();
+        const time = (document.getElementById('appointment_time')?.value || '').trim();
+        const comm = (document.querySelector('input[name="communication"]:checked')?.value || '').trim();
+        const message = (document.getElementById('message')?.value || '').trim();
 
-        // Convert form data to an object
-        const formDataObj = {};
-        formData.forEach((value, key) => formDataObj[key] = value);
-
-        // Format message for Slack
-        const slackMessage = {
-            text: "🎯 Nouveau rendez-vous !",
-            blocks: [
-                {
-                    type: "header",
-                    text: {
-                        type: "plain_text",
-                        text: "📅 Nouvelle demande de rendez-vous",
-                        emoji: true
-                    }
-                },
-                {
-                    type: "section",
-                    fields: [
-                        {
-                            type: "mrkdwn",
-                            text: `*Nom:*\n${document.getElementById('name').value}`
-                        },
-                        {
-                            type: "mrkdwn",
-                            text: `*Email:*\n${document.getElementById('email').value}`
-                        }
-                    ]
-                },
-                {
-                    type: "section",
-                    fields: [
-                        {
-                            type: "mrkdwn",
-                            text: `*Date:*\n${document.getElementById('appointment_date').value}`
-                        },
-                        {
-                            type: "mrkdwn",
-                            text: `*Heure:*\n${document.getElementById('appointment_time').value}`
-                        }
-                    ]
-                },
-                {
-                    type: "section",
-                    fields: [
-                        {
-                            type: "mrkdwn",
-                            text: `*Téléphone:*\n${document.getElementById('phoneNumber').value}`
-                        },
-                        {
-                            type: "mrkdwn",
-                            text: `*Mode de communication:*\n${document.querySelector('input[name="communication"]:checked').value}`
-                        }
-                    ]
-                }
-            ]
+        const payload = {
+          text: "🎯 Nouveau rendez-vous !",
+          blocks: [
+            { type: "header", text: { type: "plain_text", text: "📅 Nouvelle demande de rendez-vous", emoji: true } },
+            { type: "section", fields: [
+              { type: "mrkdwn", text: `*Nom:*\n${name || '-'}` },
+              { type: "mrkdwn", text: `*Email:*\n${email || '-'}` }
+            ]},
+            { type: "section", fields: [
+              { type: "mrkdwn", text: `*Date:*\n${date || '-'}` },
+              { type: "mrkdwn", text: `*Heure:*\n${time || '-'}` }
+            ]},
+            { type: "section", fields: [
+              { type: "mrkdwn", text: `*Téléphone:*\n${phone || '-'}` },
+              { type: "mrkdwn", text: `*Mode de communication:*\n${comm || '-'}` }
+            ]}
+          ]
         };
-
-        // Add message if provided
-        const message = document.getElementById('message').value;
         if (message) {
-            slackMessage.blocks.push({
-                type: "section",
-                text: {
-                    type: "mrkdwn",
-                    text: `*Message:*\n${message}`
-                }
-            });
+          payload.blocks.push({ type: "section", text: { type: "mrkdwn", text: `*Message:*\n${message}` } });
         }
 
-        // Send to proxy server
-        fetch('http://localhost:3001/api/slack-webhook', {
+        const apiBase = (window.APP_API_BASE || '').replace(/\/$/, '');
+        const url = `${apiBase}/slack-webhook`;
+
+        try {
+          // Loading state
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Envoi…';
+          }
+          const res = await fetch(url, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(slackMessage)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erreur lors de l\'envoi à Slack');
-            }
-            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || data.success === false) {
+            throw new Error(data.error || `Statut ${res.status}`);
+          }
+
+          // Fill modal details
+          const detailsEl = document.getElementById('successDetails');
+          const dtText = document.getElementById('selectedDateTime')?.textContent || '';
+
+          const modalEl = document.getElementById('successModal');
+          // Ensure modal is a direct child of body to avoid z-index/backdrop issues
+          if (modalEl && modalEl.parentElement !== document.body) {
+            document.body.appendChild(modalEl);
+          }
+          const successModal = new bootstrap.Modal(modalEl, { backdrop: true, keyboard: true });
+          successModal.show();
+
+          // On close, reset the wizard back to step 1
+          const onHidden = () => {
             form.reset();
-            selectedDate = null;
-            selectedTimeSlot = null;
+            selectedDate = null; selectedTimeSlot = null;
+            document.getElementById('stepProgress').style.width = '50%';
+            document.getElementById('contactStep').style.display = 'none';
+            document.getElementById('calendarStep').style.display = 'block';
             generateCalendar();
             document.getElementById('timeSlotsGrid').innerHTML = '';
             document.getElementById('selectedSlotDisplay').querySelector('.alert').classList.add('d-none');
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-            alert("Une erreur est survenue lors de l'envoi du formulaire");
-        });
+            // Restore button
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = submitBtnLabel;
+            }
+            modalEl.removeEventListener('hidden.bs.modal', onHidden);
+          };
+          modalEl.addEventListener('hidden.bs.modal', onHidden);
+        } catch (err) {
+          console.error('Submit error:', err);
+          alert(`Erreur lors de l’envoi. Réessayez plus tard.\n${err?.message || ''}`);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = submitBtnLabel;
+          }
+        }
     });
 
     generateCalendar();
@@ -931,7 +924,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.nextMonth = function() { currentDate.setMonth(currentDate.getMonth() + 1); generateCalendar(); };
 });
 </script>
-
 
   <!-- Calendar Styles -->
   <style>
@@ -1075,6 +1067,10 @@ document.addEventListener('DOMContentLoaded', function() {
         color: #b8d776 !important;
         padding: 10;
     }
+
+  /* Ensure modal overlays correctly above any site stacking contexts */
+  .modal { z-index: 1080 !important; }
+  .modal-backdrop { z-index: 1075 !important; }
   </style>
 
 </body>
