@@ -26,7 +26,16 @@
   <!-- Favicon -->
   <link rel="icon" href="@@webRoot/assets/img/favicon.png" type="image/png">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="@@webRoot/assets/css/plugins.css">
-  <link rel="stylesheet" href="@@webRoot/assets/css/style.css">
+  <!-- Styles (load asynchronously to avoid render-blocking) -->
+  <!-- Load non-critical vendor CSS in a non-blocking way to reduce initial parse cost -->
+  <link href="@@webRoot/assets/css/plugins.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="@@webRoot/assets/css/plugins.css"></noscript>
+
+  <link rel="preload" href="@@webRoot/assets/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="@@webRoot/assets/css/style.css"></noscript>
+
+  <!-- NOTE: For more savings, split plugins.css into a small plugins-critical.css (only the vendor rules
+       that are required for above-the-fold) and a plugins-async.css loaded with the media=print trick.
+       Also consider running PurgeCSS on your compiled CSS during build to remove unused selectors. -->
+
 </head>
