@@ -5,7 +5,7 @@
 @import "../../../../node_modules/bootstrap/scss/mixins";
 
 // Font Variables
-$font-family-base: "THICCCBOI", sans-serif;
+$font-family-thiccc: "THICCCBOI", sans-serif;
 $font-size-base: 0.85rem;
 
 // Font Specific Settings
@@ -13,7 +13,6 @@ $font-size-base: 0.85rem;
   word-spacing: normal !important;
 }
 body {
-  font-family: $font-family-base;
   font-size: $font-size-base;
 }
 .nav-link,
@@ -79,6 +78,10 @@ blockquote {
 }
 .form-floating > label {
   padding-top: 0.65rem;
+}
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: $font-family-thiccc, sans-serif;
 }
 .h1, h1 {
   @include font-size(1.5rem);

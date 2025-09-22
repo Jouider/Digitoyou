@@ -4,10 +4,10 @@
       <div class="navbar-brand"><a href="@@webRoot/"><img src="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}.png" srcset="@@webRoot/assets/img/@@if(context.logoAlt){@@logoAlt}@@if(!context.logoAlt){logo}@2x.png 2x" alt="" width="170" height="46" /></a></div>
       <div class="navbar-other ms-auto">
         <ul class="navbar-nav flex-row align-items-center">
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"><i class="uil uil-info-circle"></i></a></li>
+          <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info" aria-label="Open site information"><i class="uil uil-info-circle"></i></a></li>
           @@include('_menu-others-lang.html')
           <li class="nav-item d-lg-none">
-            <button class="hamburger offcanvas-nav-btn"><span></span></button>
+            <button class="hamburger offcanvas-nav-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
           </li>
         </ul>
         <!-- /.navbar-nav -->
@@ -48,10 +48,10 @@
       <!-- /.navbar-collapse -->
       <div class="navbar-other ms-auto w-100 d-none d-lg-block">
         <nav class="nav social social-muted justify-content-end text-end">
-          <a href="#"><i class="uil uil-twitter"></i></a>
-          <a href="#"><i class="uil uil-facebook-f"></i></a>
-          <a href="#"><i class="uil uil-dribbble"></i></a>
-          <a href="#"><i class="uil uil-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="uil uil-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="uil uil-facebook-f"></i></a>
+          <a href="#" aria-label="Dribbble"><i class="uil uil-dribbble"></i></a>
+          <a href="#" aria-label="Instagram"><i class="uil uil-instagram"></i></a>
         </nav>
         <!-- /.social -->
       </div>

@@ -97,14 +97,14 @@
 				  <div class="swiper brand-swiper px-4 mt-10">
 					<div class="swiper-wrapper align-items-center">
 					  <!-- Slides -->
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c1.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c2.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c3.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c4.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c5.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c6.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c7.png" alt=""></div>
-					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c8.png" alt=""></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c1.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c2.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c3.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c4.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c5.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c6.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c7.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
+					  <div class="swiper-slide brand-slide"><img src="@@webRoot/assets/img/brands/c8.png" alt="" loading="lazy" width="160" height="60" style="aspect-ratio:160/60;object-fit:contain;"/></div>
 					</div>
 				  </div>
 				</div>
@@ -293,7 +293,12 @@
 	  <script>
 			// Delay until window load so Swiper library (loaded later) is available
 			window.addEventListener('load', () => {
+				function onIdle(cb){
+					if('requestIdleCallback' in window) requestIdleCallback(cb,{timeout:1500});
+					else setTimeout(cb,300);
+				}
 				if (window.Swiper) {
+					onIdle(()=>{
 					new Swiper('.brand-swiper', {
 						slidesPerView: 2,
 						spaceBetween: 30,
@@ -301,6 +306,7 @@
 						speed: 3000,
 						autoplay: { delay: 0, disableOnInteraction: false },
 						breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 }, 1200: { slidesPerView: 5 } }
+						});
 					});
 				}
 			});
@@ -497,7 +503,7 @@
 						slide.className = 'swiper-slide';
 						// Video without controls, no hover interaction
 						slide.innerHTML = `
-							<video class="w-100 h-100 object-fit-cover rounded" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="${raw.poster || ''}" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" style="pointer-events:none;">
+							<video class="w-100 h-100 object-fit-cover rounded" autoplay muted loop playsinline webkit-playsinline preload="none" poster="${raw.poster || ''}" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" style="pointer-events:none;">
 								<source src="${raw.video.src}" type="${raw.video.type || 'video/webm'}" />
 								Your browser does not support the video tag.
 							</video>`;
