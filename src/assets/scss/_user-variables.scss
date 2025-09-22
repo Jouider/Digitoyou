@@ -1,5 +1,10 @@
 // Use this to overwrite Bootstrap and theme variables
 
+// Set path to local font CSS so compiled CSS uses THICCCBOI instead of Google Manrope
+$path-to-fonts: '../fonts/thicccboi/thicccboi.css';
+// Make THICCCBOI the default sans-serif for the theme
+$font-family-sans-serif: "THICCCBOI", sans-serif;
+
 // Example of a variable override to change the primary color.
 // Remove the "//" to uncomment it and see it in action.
 // $primary: #36a6cf;

@@ -6,11 +6,26 @@
     <!-- Preload critical theme color CSS to avoid render-blocking while preserving stylesheet behavior -->
     <link rel="preload" href="@@webRoot/assets/css/colors/orange.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="@@webRoot/assets/css/colors/orange.css"></noscript>
-    <link rel="preload" href="@@webRoot/assets/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
+    <!-- Fonts: preconnect + preload to avoid late swaps/CLS -->
+    <link rel="preconnect" href="@@webRoot" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload the font CSS from the actual fonts folder and make it apply onload -->
+    <link rel="preload" href="@@webRoot/assets/fonts/thicccboi/thicccboi.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="@@webRoot/assets/fonts/thicccboi/thicccboi.css"></noscript>
+
+    <!-- Preload primary WOFF2 files actually used in the hero to reduce FOIT/CLS -->
+    <link rel="preload" as="font" href="@@webRoot/assets/fonts/thicccboi/THICCCBOI-Regular.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="@@webRoot/assets/fonts/thicccboi/THICCCBOI-Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="@@webRoot/assets/fonts/thicccboi/THICCCBOI-Medium.woff2" type="font/woff2" crossorigin>
+    
 
   
     <!-- Preload Hero and Hero-bg images (LCP candidates) -->
-    <link rel="preload" as="image" href="@@webRoot/assets/img/pages/hero.webp" imagesrcset="@@webRoot/assets/img/pages/hero.webp 1x, @@webRoot/assets/img/pages/hero.webp 2x" imagesizes="100vw">
+    <link rel="preload" as="image"
+      href="@@webRoot/assets/img/pages/hero-1200.webp"
+      imagesrcset="@@webRoot/assets/img/pages/hero-800.webp 800w, @@webRoot/assets/img/pages/hero-1200.webp 1200w, @@webRoot/assets/img/pages/hero-1600.webp 1600w"
+      imagesizes="(max-width: 600px) 100vw, 1200px">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -44,19 +59,20 @@
       <div class="col-lg-6 col-xxl-5 position-relative" data-cues="slideInDown" data-group="page-title" data-delay="700">
         <img src="./assets/img/svg/doodle1.svg" width="46" height="96" class="h-9 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%" alt="">
         <img src="./assets/img/svg/doodle2.svg" width="160" height="160" class="h-15 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%" alt="" >
-        <h1 class="display-1 fs-50 mb-4" data-i18n-html="index.hero.h1"></h1>
-        <p class="lead fs-24 lh-sm mb-7" data-i18n-html="index.hero.lead"></p>
+        <h1 class="display-1 fs-50 mb-4" data-i18n-html="index.hero.h1">Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span></h1>
+        <p class="lead fs-24 lh-sm mb-7" data-i18n-html="index.hero.lead">Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.</p>
         <div class="d-flex justify-content-center " data-cues="slideInDown" data-group="page-title-buttons" data-delay="1800">
           <a href="appointment.html" class="btn btn-primary fs-20 w-100 rounded-pill " ><i class="uil uil-schedule me-2"></i><span data-i18n="index.hero.cta_long">Réservez votre rendez-vous gratuit</span></a> 
         </div>
       </div>
       <!-- /column -->
       <div class="col-lg-6 ms-auto mb-n20 mb-xxl-n22" data-cues="slideInDown" data-delay="600">
-        <figure><img src="./assets/img/pages/hero.webp"
-          srcset="./assets/img/pages/hero.webp 2x"
+        <figure><img src="@@webRoot/assets/img/pages/hero-1200.webp"
+          srcset="@@webRoot/assets/img/pages/hero-800.webp 800w, @@webRoot/assets/img/pages/hero-1200.webp 1200w, @@webRoot/assets/img/pages/hero-1600.webp 1600w"
+          sizes="(max-width: 600px) 100vw, 1200px"
           alt="Digitoyou Hero"
           width="1200"
-          height="700"
+          height="1367"
           fetchpriority="high"
           loading="eager"
           decoding="async" />
@@ -431,6 +447,10 @@
    <script defer>
     // Initialize non-critical UI after full load so LCP decoding/paint won't compete with JS execution
     window.addEventListener('load', () => {
+      function onIdle(cb){
+        if('requestIdleCallback' in window) requestIdleCallback(cb,{timeout:1500});
+        else setTimeout(cb,300);
+      }
       // Dynamic Projects Loader then Swiper init
       const projectsSwiperEl = document.getElementById('projects-swiper');
       const projectsWrapper = document.getElementById('projects-swiper-wrapper');
@@ -442,7 +462,7 @@
         slide.innerHTML = `
           <div class="testimonial-card d-flex flex-column h-150">
             <div class="testimonial-img mb-3">
-              <video class="img-fluid rounded" autoplay muted loop playsinline preload="metadata" poster="${p.poster}" width="190">
+              <video class="img-fluid rounded" autoplay muted loop playsinline preload="none" poster="${p.poster}" width="190">
                 <source src="${p.video?.src || ''}" type="${p.video?.type || 'video/webm'}">
                 ${p.video?.label || p.name || ''}
               </video>
@@ -477,11 +497,13 @@
 
       function initProjectsSwiper(){
         if(projectsSwiperEl.dataset.initialized) return; // guard
-        new Swiper('.mySwiper', {
-          slidesPerView: 'auto', spaceBetween: 30, speed: 3000,
-          freeMode: true, freeModeMomentum: false,
-          autoplay: { delay: 0, disableOnInteraction: false },
-          breakpoints: { 320:{slidesPerView:1.2},768:{slidesPerView:2.2},1200:{slidesPerView:3.5} }
+        onIdle(()=>{
+          new Swiper('.mySwiper', {
+            slidesPerView: 'auto', spaceBetween: 30, speed: 3000,
+            freeMode: true, freeModeMomentum: false,
+            autoplay: { delay: 0, disableOnInteraction: false },
+            breakpoints: { 320:{slidesPerView:1.2},768:{slidesPerView:2.2},1200:{slidesPerView:3.5} }
+          });
         });
         projectsSwiperEl.dataset.initialized = 'true';
       }
@@ -489,13 +511,15 @@
       // Load projects then init brand swiper (independent)
       loadProjects();
 
-      new Swiper('.brand-swiper', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        loop: true,
-        speed: 3000,
-        autoplay: { delay: 0, disableOnInteraction: false },
-        breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 }, 1200: { slidesPerView: 5 } }
+      onIdle(()=>{
+        new Swiper('.brand-swiper', {
+          slidesPerView: 2,
+          spaceBetween: 30,
+          loop: true,
+          speed: 3000,
+          autoplay: { delay: 0, disableOnInteraction: false },
+          breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 }, 1200: { slidesPerView: 5 } }
+        });
       });
     // Hero dynamic typing (uses localized words from i18n.js)
     (function(){
