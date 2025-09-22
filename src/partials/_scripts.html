@@ -1,3 +1,46 @@
 <script src="@@webRoot/assets/js/plugins.js" defer></script>
 <script src="@@webRoot/assets/js/i18n.js" defer></script>
 <script src="@@webRoot/assets/js/theme.js" defer></script>
+
+<!-- Accessibility helpers: keep aria-expanded in sync and add missing labels -->
+<script defer>
+  document.addEventListener('DOMContentLoaded', function(){
+    // Ensure hamburger buttons have aria-expanded and toggle with offcanvas events when possible
+    document.querySelectorAll('.hamburger.offcanvas-nav-btn').forEach(function(btn){
+      if(!btn.hasAttribute('aria-expanded')) btn.setAttribute('aria-expanded','false');
+      // Try to find target offcanvas via data-bs-target
+      var target = btn.getAttribute('data-bs-target') || btn.getAttribute('data-target');
+      if(target){
+        var off = document.querySelector(target);
+        if(off){
+          off.addEventListener('show.bs.offcanvas', function(){ btn.setAttribute('aria-expanded','true'); });
+          off.addEventListener('hide.bs.offcanvas', function(){ btn.setAttribute('aria-expanded','false'); });
+        }
+      }
+      // Fallback: toggle on click
+      btn.addEventListener('click', function(){
+        var state = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', state ? 'false' : 'true');
+      });
+    });
+
+    // Add aria-label to trash/remove links in cart if missing
+    document.querySelectorAll('a > i.uil-trash-alt').forEach(function(icon){
+      var a = icon.closest('a');
+      if(a && !a.hasAttribute('aria-label')) a.setAttribute('aria-label','Remove item from cart');
+    });
+
+    // Add aria-label to any remaining social icon-only links (best-effort)
+    document.querySelectorAll('a:where(.nav.social a, nav.social a)').forEach(function(a){
+      // if link only contains an <i> and no accessible name, add a generic label if missing
+      if(a && !a.getAttribute('aria-label')){
+        var icon = a.querySelector('i');
+        if(icon){
+          var cls = (icon.className || '').split(' ').find(function(c){ return c.indexOf('uil-') === 0; });
+          var label = cls ? cls.replace('uil-','').replace(/-/g,' ') : 'Social link';
+          a.setAttribute('aria-label', label.charAt(0).toUpperCase() + label.slice(1));
+        }
+      }
+    });
+  });
+</script>

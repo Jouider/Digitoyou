@@ -36,3 +36,8 @@
 		margin: 1rem 0;
 	}
 }
+
+/* Reserve header height to avoid push-down when navbar becomes solid/sticky */
+:root { --nav-h: 64px; } /* tune */
+header.wrapper.transparent { height: var(--nav-h); }
+@media (min-width: 992px){ :root { --nav-h: 80px; } }
