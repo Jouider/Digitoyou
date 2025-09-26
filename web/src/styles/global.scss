@@ -1,0 +1,434 @@
+// Global stylesheet for Astro - imports existing project SCSS so we reuse variables/mixins/components
+@import "../../../public/assets/scss/style.scss";
+
+/* Small Astro-specific overrides can be added here. */
+/* Add :root custom properties here if needed, e.g. --site-accent: #ffb300; */
+/* Mobile: remove rounding from anything pill inside the navbar */
+@media (max-width: 991.98px) {
+    .navbar.rounded-pill,
+    .navbar .navbar-collapse-wrapper.rounded-pill {
+      border-radius: 0 !important;
+    }
+}
+
+/* Make primary button text smaller on very small screens */
+@media (max-width: 575.98px) {
+  .btn.btn-primary, .btn-primary {
+    font-size: 0.90rem !important;
+    padding: 0.55rem 1rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Slightly reduce .lead text on small viewports so it reads better with reduced button sizes */
+@media (max-width: 575.98px) {
+  .lead {
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* gentle reduction for small tablets / large phones */
+  .lead {
+    font-size: 1rem !important;
+  }
+}
+
+/* RTL support for index CTA block */
+html[dir="rtl"] .rtl-aware {
+  /* ensure internal flow is RTL-aware */
+  direction: rtl !important;
+}
+
+/* Flip the floating decorative image to the right in RTL */
+html[dir="rtl"] .rtl-aware .cta-floating {
+  left: auto !important;
+  right: 10% !important;
+  inset-inline-start: auto !important;
+  inset-inline-end: 10% !important;
+}
+
+/* Align heading and button for RTL inside the rtl-aware block */
+html[dir="rtl"] .rtl-aware .display-6,
+html[dir="rtl"] .rtl-aware h3,
+html[dir="rtl"] .rtl-aware p {
+  text-align: right !important;
+}
+
+/* Flip Bootstrap ms-lg-4 (margin-start) used on the CTA button to margin-inline-end in RTL */
+html[dir="rtl"] .rtl-aware .ms-lg-4 {
+  margin-inline-start: 0 !important;
+  margin-inline-end: 1.5rem !important; /* mirrors Bootstrap's spacing */
+}
+
+/* Ensure the auto margin that pushed content in LTR pushes correctly in RTL */
+html[dir="rtl"] .rtl-aware .ms-lg-auto {
+  margin-inline-start: 0 !important;
+  margin-inline-end: auto !important;
+}
+
+/* Small screens: keep floating image hidden and stack content properly in RTL */
+@media (max-width: 991.98px) {
+  html[dir="rtl"] .rtl-aware .cta-floating { display: none !important; }
+  html[dir="rtl"] .rtl-aware { text-align: center !important; }
+  html[dir="rtl"] .rtl-aware .ms-lg-auto { margin-inline-end: 0 !important; }
+}
+
+/* End RTL CTA tweaks */
+
+/* Testimonial/card fixes to prevent text cropping and keep CTA visible inside Swiper */
+.mySwiper .testimonial-card {
+  height: auto !important;
+  max-height: 360px; /* limit overall card height for a tidy grid */
+  min-height: 360px !important; /* allow flex children to shrink (fixed) */
+  overflow: hidden; /* keep cards visually consistent */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Let the description paragraph shrink inside flex column but scroll if needed */
+.mySwiper .testimonial-card .text-muted {
+  min-height: 0 !important;
+  overflow: auto; /* scroll inside the paragraph if content exceeds available space */
+  font-size: 0.70rem; /* slightly smaller paragraph text */
+  line-height: 1.18; /* reduce space between lines */
+  margin-bottom: 0.2rem;
+}
+
+/* Make media responsive inside the card and reduce its vertical footprint */
+.mySwiper .testimonial-card .testimonial-img img,
+.mySwiper .testimonial-card .testimonial-img video,
+.mySwiper .testimonial-card .testimonial-img .img-fluid {
+  width: 100%;
+  height: auto;
+  max-height: 120px; /* reduce media height so more room for text */
+  object-fit: cover;
+}
+
+/* If h-150 utility forces a fixed height, specifically override it for testimonial cards in .mySwiper */
+.mySwiper .testimonial-card.h-150 {
+  height: auto !important;
+}
+
+/* Ensure CTA stays visible and above media if needed */
+.mySwiper .testimonial-card a.mt-auto {
+  z-index: 2;
+  padding-top: 0.25rem;
+}
+
+/* Footer contact buttons: make them smaller and inline on mobile */
+@media (max-width: 575.98px) {
+  .contact-widget {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: nowrap; /* keep both buttons on one line when possible */
+    overflow: hidden;
+  }
+
+  .contact-widget .btn {
+    font-size: 0.79rem !important;
+    padding: 0.28rem 0.6rem !important;
+    line-height: 1 !important;
+    height: auto !important;
+    white-space: nowrap;
+    flex: 0 1 auto; /* allow shrinking to fit */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Remove the bottom margin that forces vertical stacking */
+  .contact-widget .btn.mb-2 {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* About page responsive tweaks -------------------------------------------------- */
+/* Targets the hero/intro and subsequent sections used in web/src/pages/about.astro */
+
+/* Medium screens: tablets and small laptops */
+@media (max-width: 991.98px) {
+  /* Reduce hero title and lead spacing so the block fits better */
+  section.wrapper.bg-light.mt-20 .display-2 {
+    font-size: 2.25rem; /* from large desktop down to tablet */
+    line-height: 1.08;
+  }
+  section.wrapper.bg-light.mt-20 .lead.fs-lg {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    padding-right: 0; /* remove extra end padding reserved for large screens */
+  }
+
+  /* Reduce mt-20 spacing for About hero on smaller screens */
+  section.wrapper.bg-light.mt-20 {
+    margin-top: 4.5rem !important; /* increased by +1rem from previous 2.5rem */
+  }
+
+  /* Make hero image smaller and remove large negative offsets */
+  .about-stat-card {
+    position: static !important;
+    transform: none !important;
+    right: auto !important;
+    left: auto !important;
+    margin-top: 1rem;
+    width: auto;
+  }
+
+  /* Reduce spacing inside the stat card */
+  .about-stat-card .card-body {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Make the hero image scale down on smaller viewports */
+  .col-lg-6.order-lg-2 img.img-fluid {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Feature cards: make icon slightly smaller so text wraps less */
+  .card .icon-svg-md {
+    width: 40px; height: 40px; /* keeps visual balance */
+  }
+}
+
+/* Small screens: phones */
+@media (max-width: 575.98px) {
+  /* Hero title smaller and with comfortable line-height */
+  section.wrapper.bg-light.mt-20 .display-2 {
+    font-size: 1.6rem;
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+  }
+  section.wrapper.bg-light.mt-20 .lead.fs-lg {
+    font-size: 0.98rem;
+    margin-bottom: 1rem;
+    padding-right: 0;
+  }
+
+  /* Reduce mt-20 spacing for About hero on smaller screens */
+  section.wrapper.bg-light.mt-20 {
+    margin-top: 5.5rem !important; /* increased by +0.5rem from previous 1rem */
+  }
+
+  /* Make CTA smaller to fit on narrow screens */
+  section.wrapper.bg-light.mt-20 .btn.btn-lg {
+    font-size: 0.92rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  /* Ensure the two columns stack nicely */
+  .row.gx-lg-8.gx-xl-0.gy-10.align-items-center {
+    gap: 1rem;
+  }
+
+  /* Images and videos should take full width of their column on phones */
+  .col-lg-6.order-lg-2, .col-lg-6 {
+    display: block;
+    width: 100%;
+  }
+  .col-lg-6.order-lg-2 img.img-fluid,
+  figure img,
+  video.img-fluid {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Tighten paddings for content blocks to avoid excessive vertical scrolling */
+  .card.bg-soft-primary .card-body {
+    padding: 1rem !important;
+  }
+
+  /* Counters and stat numbers should scale down */
+  .counter-lg, .counter.counter-lg {
+    font-size: 1.6rem !important;
+  }
+  .counter {
+    font-size: 1.2rem !important;
+  }
+
+  /* Feature cards: smaller spacing and text for better fit */
+  .col-lg-6.ms-auto .card-body {
+    padding: 0.85rem !important;
+  }
+  .col-lg-6.ms-auto h3.fs-21 {
+    font-size: 1rem;
+  }
+  .col-lg-6.ms-auto p.mb-0 {
+    font-size: 0.92rem;
+  }
+}
+
+/* Desktop: add a small extra top margin to separate the hero from the header */
+@media (min-width: 992px) {
+  section.wrapper.bg-light.mt-20 {
+    margin-top: 8rem !important; /* +1rem extra on desktop */
+  }
+}
+
+/* End About page responsive tweaks -------------------------------------------------- */
+
+/* Let clicks hit the <a> inside the figure overlay */
+figure.overlay span.bg { pointer-events: none; }
+
+
+/* Appointement page  -------------------------------------------------- */
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-top: 0.5rem;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 3px;
+  font-size: 0.75rem;
+}
+
+.calendar-day {
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.calendar-day.available:hover {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+.calendar-day.selected {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+.calendar-day.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+#timeSlotsGrid .time-slot-btn {
+  /* Initial state: transparent background */
+  background-color: transparent;
+  border: 1px solid var(--bs-primary);
+  color: var(--bs-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#timeSlotsGrid .time-slot-btn.selected {
+  /* Selected state: filled background */
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+
+/* Other slots become muted AFTER a selection */
+#timeSlotsGrid .time-slot-btn.muted{
+    background: var(--bs-gray-100);
+    color: var(--bs-gray-600);
+    border-color: var(--bs-gray-300);
+    opacity: .8;
+  }
+.steps-indicator .step {
+  color: #6c757d;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.steps-indicator .step.active {
+  color: var(--bs-primary);
+}
+
+.communication-icons .icon-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #dee2e6;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #6c757d;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.communication-icons .icon-option i {
+  font-size: 1.2rem !important;
+}
+
+.communication-icons .icon-option:hover {
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(var(--bs-primary-rgb), 0.2);
+}
+
+.communication-icons input:checked+.icon-option {
+  border-color: var(--bs-primary);
+  background-color: var(--bs-primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.communication-icons .icon-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+
+.communication-icons input:checked~.icon-label {
+  color: var(--bs-primary);
+}
+
+.form-check-icon {
+  min-width: 85px;
+  margin: 0 0.3rem;
+}
+
+.form-floating {
+  margin-bottom: 0.75rem !important;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alert-soft-primary {
+  background-color: rgba(var(--bs-primary-rgb), 0.1);
+  border: none;
+  color: var(--bs-primary);
+  padding-bottom: 11px;
+}
+
+.calendar-header button {
+  background: none !important;
+  color: #b8d776 !important;
+  padding: 10;
+}
+
+/* Ensure modal overlays correctly above any site stacking contexts */
+.modal {
+  z-index: 1080 !important;
+}
+
+.modal-backdrop {
+  z-index: 1075 !important;
+}
