@@ -1,0 +1,66 @@
+---
+import { Props } from 'astro';
+import MenuLinks from './MenuLinks.astro';
+import MenuOthersLang from './MenuOthersLang.astro';
+
+
+const {
+  ctaText = 'Prendre RDV',
+  ctaHref = '/appointment',
+} = Astro.props as { ctaText?: string; ctaHref?: string | URL | null };
+
+const OFFCANVAS_ID = 'navbarOffcanvas';
+const OFFCANVAS_LABEL = 'navbarOffcanvasLabel';
+---
+<nav class="navbar navbar-expand-lg rounded-pill py-1 px-3 fancy navbar-light navbar-bg-light caret-none">
+  <div class="container">
+    <div class="navbar-collapse-wrapper bg-white rounded-pill d-flex flex-row flex-nowrap w-100 justify-content-between align-items-center">
+      <!-- Brand -->
+      <div class="navbar-brand w-100">
+        <a href="/">
+          <img src="/assets/img/logo.svg" width="170" srcset="/assets/img/logo.svg" alt="Digitoyou" />
+        </a>
+      </div>
+
+      <!-- Desktop links: render MenuLinks inside desktop-only collapse -->
+      <div class="navbar-collapse d-none d-lg-flex">
+        <MenuLinks />
+      </div>
+
+      <!-- Offcanvas (mobile side nav) -->
+      <!-- Offcanvas markup moved to document root (Base.astro). This component's toggler still targets #navbarOffcanvas. -->
+
+      <!-- /.navbar-collapse -->
+
+      <!-- Right side: language, desktop CTA, hamburger -->
+      <div class="navbar-other w-100 d-flex ms-auto">
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+          <MenuOthersLang />
+
+          <li class="nav-item d-none d-md-block ms-5">
+            <a href={ctaHref} class="btn btn-sm btn-primary rounded-pill" data-i18n="index.cta.button">
+              <i class="uil uil-calendar-alt me-2"></i>{ctaText}
+            </a>
+          </li>
+
+          <li class="nav-item d-lg-none">
+            <!-- Wire the toggler to the offcanvas -->
+            <button class="hamburger offcanvas-nav-btn"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target={`#${OFFCANVAS_ID}`}
+                    aria-controls={OFFCANVAS_ID}>
+              <span></span>
+            </button>
+          </li>
+        </ul>
+        <!-- /.navbar-nav -->
+      </div>
+      <!-- /.navbar-other -->
+    </div>
+    <!-- /.navbar-collapse-wrapper -->
+  </div>
+  <!-- /.container -->
+</nav>

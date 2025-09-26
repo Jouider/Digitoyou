@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+import BrandMarquee from '../components/BrandMarquee.astro';
+import FAQ from '../components/FAQ.astro';
+---
+<Base title="Contact - Digitoyou">
+
+  <!-- HERO -->
+  <section class="wrapper bg-light" style="margin-top:80px; min-height:60vh; padding:4rem 0; background-size:cover; background-position:center;">
+    <div class="container pt-11 pt-md-13 mb-10 text-center">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto mb-2" data-cues="slideInDown" data-group="page-title">
+          <h1 class="display-1 fw-bold mb-4">
+            Passez du <span class="text-warning">Local</span> à l'<span class="text-warning">Online</span><br>
+            <span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>
+          </h1>
+          <p class="lead fs-lg px-lg-5 mb-8 px-xxl-8">
+            Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité.
+          </p>
+          <div class="d-flex justify-content-center">
+            <a href="/appointment" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 shadow btn-icon btn-icon-start d-inline-flex align-items-center">
+              <i class="uil uil-schedule me-2"></i>
+              <span class="d-none d-sm-inline">Parlons de votre projet – 100% gratuit, 0 engagement</span>
+              <span class="d-inline d-sm-none">Parlons de votre projet</span>
+            </a>
+          </div>
+          <p class="mt-3 mb-0">Un expert <b>Digitoyou</b> vous répond en 24h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS + BRANDS -->
+  <section class="wrapper bg-soft-primary ">
+    <div class="container pb-10 mt-10 text-center">
+      <div class="row text-center mb-10 ">
+        <div class="col-lg-10 mx-auto">
+          <h2 class="fs-15 text-uppercase text-muted mb-3 mt-10" data-i18n="index.realizations.small">Our Work</h2>
+          <h3 class="display-4 px-xl-10" data-i18n="index.realizations.title">Our Latest Projects</h3>
+        </div>
+      </div>
+
+      <div class="project-carousel-wrapper d-flex align-items-center justify-content-center flex-nowrap overflow-hidden w-100 position-relative">
+        <button class="carousel-arrow left text-warning d-none d-md-block" onclick="scrollProjects(-1)">&#10094;</button>
+        <div class="project-carousel d-flex flex-nowrap overflow-auto w-100 px-2" id="projectCarousel">
+          <div class="d-flex align-items-center justify-content-center text-muted py-5 w-100" id="projectCarouselLoading" style="min-width:360px;">Loading projects...</div>
+        </div>
+        <button class="carousel-arrow right text-warning d-none d-md-block" onclick="scrollProjects(1)">&#10095;</button>
+      </div>
+
+      <!-- Brands swiper -->
+      <BrandMarquee />
+
+    </div>
+  </section>
+
+  <!-- MAP COUNTERS -->
+  <section class="wrapper image-wrapper bg-auto no-overlay bg-image text-center bg-map"
+           data-image-src="/assets/img/map.png"
+           style="background-image:url('/assets/img/map.png')">
+    <div class="container pt-10 pb-14 pt-md-16 pb-md-18">
+      <div class="row">
+        <div class="col-lg-9 col-xxl-8 mx-auto">
+          <h3 class="display-4 mb-8 px-xl-12" data-i18n-html="index.clients.heading">
+            Already <span class="text-warning">5000 satisfied clients</span>.<br>Will you be next?
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-lg-9 col-xl-7 mx-auto">
+          <div class="row align-items-center counter-wrapper gy-4 gy-md-0">
+            <div class="col-md-4 text-center">
+              <h3 class="counter counter-lg text-primary">75</h3>
+              <p data-i18n="index.counters.completed">Completed Projects</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <h3 class="counter counter-lg text-primary">54</h3>
+              <p data-i18n="index.counters.satisfied">Satisfied Customers</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <h3 class="counter counter-lg text-primary">88</h3>
+              <p data-i18n="index.counters.experts">Experts at your service</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + CTA BANNER -->
+  <FAQ />
+
+  <!-- SINGLE Project Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-body p-0 position-relative">
+          <button type="button" class="btn-close position-absolute top-0 end-0 m-2 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="row g-0">
+            <div class="col-md-6 bg-dark position-relative">
+              <div class="swiper project-modal-swiper h-100 rounded-start">
+                <div class="swiper-wrapper" id="modalImageCarousel"></div>
+                <div class="swiper-button-next text-white"></div>
+                <div class="swiper-button-prev text-white"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+            <div class="col-md-6 p-5 d-flex flex-column">
+              <div class="pe-2">
+                <h2 id="modalProjectTitle" class="fw-bold mb-3 text-dark">Titre</h2>
+                <p id="modalProjectDescription" class="text-secondary mb-4">Description du projet ici...</p>
+                <div id="modalTechStack" class="d-flex flex-wrap gap-2 mb-4"></div>
+              </div>
+              <div class="mt-auto pt-4 border-top d-flex flex-column flex-sm-row gap-3 justify-content-sm-between align-items-stretch">
+                <a id="modalProjectLink" href="#" target="_blank" rel="noopener" class="btn btn-outline-primary w-100">
+                  <i class="uil uil-link"></i> <span data-i18n="index.projects.cta_visit">Voir le site</span>
+                </a>
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">
+                  <i class="uil uil-times"></i> <span data-i18n="index.projects.cta_close">Fermer</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+
+
+</Base>
