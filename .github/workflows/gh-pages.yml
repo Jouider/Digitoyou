@@ -52,7 +52,11 @@ jobs:
             assets/js/config.js
             assets/img/svg/scribble.svg
             assets/img/svg/tri.svg
-          dangerous-clean-slate: true # one-time to resolve file/dir conflicts; set false later
+          # IMPORTANT: set to false to avoid deleting remote-only folders like 'api'
+          dangerous-clean-slate: false
+          # Optionally protect a remote-only backend folder (uncomment next 2 lines if you add an api dir locally later)
+          # exclude: |
+          #   api/**
           state-name: staging-deploy-state.json
           server-dir: /staging_html/
           log-level: verbose
