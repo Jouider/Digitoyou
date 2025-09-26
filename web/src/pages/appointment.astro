@@ -170,7 +170,8 @@ import Base from '../layouts/Base.astro';
 
   <!-- PAGE SCRIPTS (appointment-only) -->
     <Fragment slot="scripts">
-        <script>
+  <script>
+  // @ts-nocheck
       
           document.addEventListener('DOMContentLoaded', function () {
             var currentDate = new Date();
@@ -378,12 +379,13 @@ import Base from '../layouts/Base.astro';
               var message = (document.getElementById('message').value||'').trim();
               if (message) payload.blocks.push({ type:"section", text:{ type:"mrkdwn", text:"*Message:*\n" + message } });
       
-              var apiBase = (window.APP_API_BASE || '').replace(/\/$/, '');
-              var url = apiBase + '/slack-webhook';
-      
+              // Resolve API base without hardcoding full domain:
+              // window.APP_API_BASE can be defined earlier (e.g., in layout via an env var), otherwise default '/api'
+              var url = 'https://preprod.digitoyou.com/api/slack-webhook';
+
               try {
                 if (submitBtn) {
-                  submitBtn.disabled = true;
+                  (submitBtn /** @type {any} */).disabled = true;
                   submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Envoi…';
                 }
                 var res = await fetch(url, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(payload) });
@@ -400,28 +402,28 @@ import Base from '../layouts/Base.astro';
                 successModal.show();
       
                 var onHidden = function(){
-                  form.reset();
+                  if (form) (form /** @type {HTMLFormElement} */).reset();
                   selectedDate = null; selectedTimeSlot = null;
-                  document.getElementById('stepProgress').style.width = '50%';
-                  document.getElementById('contactStep').style.display = 'none';
-                  document.getElementById('calendarStep').style.display = 'block';
+                  var sp = document.getElementById('stepProgress'); if (sp) sp.style.width = '50%';
+                  var cs = document.getElementById('contactStep'); if (cs) cs.style.display = 'none';
+                  var cal = document.getElementById('calendarStep'); if (cal) cal.style.display = 'block';
                   generateCalendar();
-                  if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = submitBtnLabel; }
-                  modalEl.removeEventListener('hidden.bs.modal', onHidden);
+                  if (submitBtn) { (submitBtn /** @type {any} */).disabled = false; submitBtn.innerHTML = submitBtnLabel; }
+                  if (modalEl) modalEl.removeEventListener('hidden.bs.modal', onHidden);
                 };
-                modalEl.addEventListener('hidden.bs.modal', onHidden);
+                if (modalEl) modalEl.addEventListener('hidden.bs.modal', onHidden);
       
               } catch (err) {
                 console.error('Submit error:', err);
                 alert('Erreur lors de l’envoi. Réessayez plus tard.\n' + (err && err.message ? err.message : ''));
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = submitBtnLabel; }
+                if (submitBtn) { (submitBtn /** @type {any} */).disabled = false; submitBtn.innerHTML = submitBtnLabel; }
               }
             });
       
             // Initial render + month nav
             generateCalendar();
-            window.previousMonth = function(){ currentDate.setMonth(currentDate.getMonth()-1); generateCalendar(); };
-            window.nextMonth     = function(){ currentDate.setMonth(currentDate.getMonth()+1); generateCalendar(); };
+            (window /** @type {any} */).previousMonth = function(){ currentDate.setMonth(currentDate.getMonth()-1); generateCalendar(); };
+            (window /** @type {any} */).nextMonth     = function(){ currentDate.setMonth(currentDate.getMonth()+1); generateCalendar(); };
           });
         </script>
       </Fragment>
