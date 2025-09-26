@@ -9,6 +9,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Security headers - quick wins
+// Note: HSTS should only be served on HTTPS in production. Adjust CSP origins to match your real asset/CDN domains.
+app.use((req, res, next) => {
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  res.setHeader('X-Frame-Options', 'DENY');
+  // Basic CSP - tighten this to the exact origins you use (scripts, styles, analytics, etc.)
+  res.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' https: data:; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' https://unpkg.com 'unsafe-inline'; connect-src 'self';");
+  // Additional useful headers
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
+  next();
+});
+
 // Serve static files from the `src` directory so assets are available at /assets/...
 const staticOptions = {
   dotfiles: 'ignore',
