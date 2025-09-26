@@ -1,0 +1,119 @@
+---
+import FAQ from '../components/FAQ.astro';
+import Base from '../layouts/Base.astro';
+import DeliverySec from '../components/DeliverySec.astro';
+import AboutSec from '../components/AboutSec.astro';
+---
+<Base title="À propos - Digitoyou">
+  <!-- Hero / Stat card -->
+  <section class="wrapper bg-light mt-20" data-cue="fadeIn">
+    <div class="container">
+      <div class="card bg-soft-primary rounded-4 mt-2 mb-13 mb-md-17" data-cue="slideInUp">
+        <div class="card-body p-md-10 py-xl-11 px-xl-15">
+          <div class="row gx-lg-8 gx-xl-0 gy-10 align-items-center">
+            <!-- Image + stat card -->
+            <div class="col-lg-6 order-lg-2 d-flex">
+                <div class="position-relative d-inline-block ms-auto me-lg-8" style="max-width: 350px;">
+                  <img class="img-fluid w-100" src="/assets/img/pages/about-hero.png" alt="Digitoyou" width="350" data-cue="fadeIn">
+                  <div data-cue="slideInRight" data-delay="300">
+                    <div class="card shadow-lg about-stat-card" style="position:absolute; bottom: clamp(12px, 8%, 64px); right: clamp(12px, 3vw, 40px);">
+                      <div class="card-body py-4 px-5">
+                        <div class="d-flex flex-row align-items-center">
+                          <div class="icon btn btn-circle btn-md btn-soft-primary pe-none mx-auto me-3">
+                            <i class="uil uil-globe"></i>
+                          </div>
+                          <div>
+                            <h3 class="counter mb-0 text-nowrap" data-i18n="index.about.card.remote.heading">100% Remote</h3>
+                            <p class="fs-14 lh-sm mb-0 text-nowrap" data-i18n="index.about.card.remote.sub">Agence Digitale</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+
+            <!-- Copy -->
+            <div class="col-lg-6 text-center text-lg-start" data-cues="slideInDown" data-group="page-title" data-delay="600">
+              <h1 class="display-2 mb-5" data-i18n-html="index.about.hero.h1">Nous créons des sites qui convertissent</h1>
+              <p class="lead fs-lg lh-sm mb-6 pe-xl-10" data-i18n-html="index.about.hero.lead">
+                Digitoyou accompagne les petites et moyennes entreprises dans la transformation digitale.
+              </p>
+              <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
+                <span><a href="/appointment" class="btn btn-lg btn-primary rounded-pill me-2" data-i18n="index.about.hero.cta_button">Prendre RDV</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.card -->
+    </div>
+  </section>
+
+  <!-- History + images + counters -->
+  <section class="wrapper bg-light" data-cue="fadeIn">
+    <div class="container py-14 py-md-16">
+      <div class="row gx-lg-8 gx-xl-12 gy-12 align-items-center">
+        <!-- Images (desktop) -->
+        <div class="col-lg-6 position-relative d-none d-lg-block" data-cue="slideInDown">
+          <div class="btn btn-circle btn-primary pe-none position-absolute counter-wrapper flex-column d-none d-md-flex"
+               style="top:50%;left:50%;transform:translate(-50%, -50%);width:170px;height:170px;">
+            <h3 class="text-white mb-1 mt-n2"><span class="counter counter-lg">4</span></h3>
+            <p data-i18n="index.about.counters.founders">Amis fondateurs</p>
+          </div>
+          <div class="row gx-md-5 gy-5 align-items-center">
+            <div class="col-md-6">
+              <div class="row gx-md-5 gy-5">
+                <div class="col-md-10 offset-md-2">
+                  <figure class="rounded"><img src="/assets/img/photos/ab1.jpg" srcset="/assets/img/photos/ab1@2x.jpg 2x" alt="Notre équipe Digitoyou" width="420" height="300" /></figure>
+                </div>
+                <div class="col-md-12">
+                  <figure class="rounded"><img src="/assets/img/photos/ab2.jpg" srcset="/assets/img/photos/ab2@2x.jpg 2x" alt="Collaboration Digitoyou" width="420" height="300" /></figure>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <figure class="rounded"><img src="/assets/img/photos/ab3.jpg" srcset="/assets/img/photos/ab3@2x.jpg 2x" alt="Travail en équipe Digitoyou" width="420" height="300" /></figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="col-lg-6">
+          <div class="text-center">
+            <img src="/assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-4" alt="Icône partenariat" width="48" height="48" />
+            <h3 class="display-5 mb-5" data-i18n="index.about.history.title">Notre histoire</h3>
+          </div>
+          <p class="mb-4" data-i18n-html="index.about.history.p1"></p>
+          <p class="mb-4" data-i18n-html="index.about.history.p2"></p>
+          <p class="mb-7" data-i18n-html="index.about.history.p3"></p>
+
+          <div class="row counter-wrapper gy-6 text-center text-md-start">
+            <div class="col-md-4">
+              <h3 class="counter text-primary">4</h3>
+              <p data-i18n="index.about.counters.founders">Amis fondateurs</p>
+            </div>
+            <div class="col-md-4">
+              <h3 class="counter text-primary">+20</h3>
+              <p data-i18n="index.about.counters.delivered">Projets livrés</p>
+            </div>
+            <div class="col-md-4">
+              <h3 class="counter text-primary">100%</h3>
+              <p data-i18n="index.about.counters.satisfaction">Satisfaction client</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.row -->
+    </div>
+  </section>
+
+  <!-- Advice sticky + feature cards -->
+  <AboutSec />
+
+  <!-- Delivery guarantee -->
+  <DeliverySec />
+
+  <!-- FAQ + CTA image banner -->
+  <FAQ />
+
+
+</Base>

@@ -1,0 +1,192 @@
+---
+import Base from '../layouts/Base.astro';
+import BrandMarquee from '../components/BrandMarquee.astro';
+import FAQ from '../components/FAQ.astro';
+import DeliverySec from '../components/DeliverySec.astro';
+---
+<Base title="Digitoyou - Accueil">
+
+  <!-- HERO -->
+  <section
+    class="wrapper position-relative overflow-hidden"
+    style="background-color: #edf2fa; background-size: cover; background-position: center;"
+    aria-hidden="false"
+  >
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container pt-16 pt-md-18 pb-9">
+      <div class="row gx-0 gy-10 align-items-center text-center text-lg-start">
+        <div class="col-lg-6 col-xxl-5 position-relative" data-cues="slideInDown" data-group="page-title" data-delay="700">
+          <img src="/assets/img/svg/doodle1.svg" width="46" height="96" class="h-9 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%" alt="">
+          <img src="/assets/img/svg/doodle2.svg" width="160" height="160" class="h-15 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%" alt="">
+
+          <h1 class="display-1 fs-50 mb-4" data-i18n-html="index.hero.h1">
+            Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span><br />
+            <span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>
+          </h1>
+          <p class="lead fs-24 lh-sm mb-7" data-i18n-html="index.hero.lead">
+            Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.
+          </p>
+          <div class="d-flex justify-content-center" data-cues="slideInDown" data-group="page-title-buttons" data-delay="1800">
+            <a href="/appointment" class="btn btn-primary fs-20 w-100 rounded-pill"><i class="uil uil-schedule me-2"></i><span data-i18n="index.hero.cta_long">Réservez votre rendez-vous gratuit</span></a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 ms-auto mb-n20 mb-xxl-n22" data-cues="slideInDown" data-delay="600">
+          <figure>
+            <img
+              src="/assets/img/pages/hero-1200.webp"
+              srcset="/assets/img/pages/hero-800.webp 800w, /assets/img/pages/hero-1200.webp 1200w, /assets/img/pages/hero-1600.webp 1600w"
+              sizes="(max-width: 600px) 100vw, 1200px"
+              alt="Digitoyou Hero"
+              width="1200"
+              height="1367"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="overflow-hidden" style="z-index:1;">
+      <div class="divider text-light mx-n2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><g fill="currentColor"><polygon points="1440 100 0 100 0 85 1440 0 1440 100" /></g></svg>
+      </div>
+    </div>
+
+    <div class="scroll-down position-absolute bottom-4 start-50 translate-middle-x">
+      <i class="uil uil-angle-down fs-1 text-light animate__bounce"></i>
+    </div>
+  </section>
+
+  <!-- FEATURES + BRANDS -->
+  <section class="wrapper bg-light">
+    <div class="container py-14 py-md-16">
+      <div class="row">
+        <div class="col-xl-10 mx-auto">
+          <div class="row align-items-center counter-wrapper gy-6 text-center">
+            <div class="col-md-3">
+              <img src="/assets/img/icons/lineal/check-2.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+              <h2 data-i18n-html="index.features.f1"></h2>
+            </div>
+            <div class="col-md-3">
+              <img loading="lazy" src="/assets/img/icons/lineal/user.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+              <h2 data-i18n-html="index.features.f2"></h2>
+            </div>
+            <div class="col-md-3">
+              <img loading="lazy" src="/assets/img/icons/lineal/briefcase-2.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+              <h2 data-i18n-html="index.features.f3"></h2>
+            </div>
+            <div class="col-md-3">
+              <img loading="lazy" src="/assets/img/icons/lineal/award-2.svg" width="48" height="48" class="svg-inject icon-svg icon-svg-lg text-yellow mb-3" alt="" />
+              <h2 data-i18n-html="index.features.f4"></h2>
+            </div>
+            <p class="lead fs-lg px-lg-5 mb-8 px-xxl-8" data-i18n-html="index.features.lead"></p>
+          </div>
+        </div>
+
+        <!-- Brand marquee (Swiper) -->
+        <BrandMarquee />
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REALIZATIONS / PROJECTS -->
+  <section class="wrapper bg-light ">
+    <div class="container pb-16 ">
+      <div class="row text-center mb-10">
+        <div class="col-lg-10 mx-auto">
+          <h2 class="fs-15 text-uppercase text-muted mb-3" data-i18n="index.realizations.small">Nos Réalisations</h2>
+          <h3 class="display-4 px-xl-10" data-i18n="index.realizations.title">Nos derniers projets</h3>
+        </div>
+      </div>
+
+      <div class="swiper mySwiper" id="projects-swiper" data-source="/assets/js/projects.json">
+        <div class="swiper-wrapper" id="projects-swiper-wrapper">
+          <div class="swiper-slide" data-placeholder hidden>
+            <div class="testimonial-card text-center py-5">
+              <div class="spinner-border text-primary" role="status" style="width:3rem;height:3rem;">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OFFERS -->
+  <section class="wrapper bg-dark ">
+    <div class="container py-14 py-md-16 text-center">
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+          <h2 class="fs-15 text-uppercase text-muted mb-3 text-white" data-i18n="index.offers.small">Nos Offres</h2>
+          <h3 class="display-4 mb-10 px-xl-10 text-white" data-i18n="index.offers.title">Des solutions digitales taillées pour faire décoller votre activité.</h3>
+        </div>
+      </div>
+      <div class="position-relative">
+        <div class="shape rounded-circle bg-soft-blue rellax w-16 h-16" data-rellax-speed="1" style="bottom: -0.5rem; right: -2.2rem; z-index: 0;"></div>
+        <div class="shape bg-dot yellow rellax w-16 h-17" data-rellax-speed="1" style="top: -0.5rem; left: -2.5rem; z-index: 0;"></div>
+        <div class="row gx-md-5 gy-5 text-center position-relative" style="z-index:1;">
+          <!-- Landing Page -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <img loading="lazy" src="/assets/img/icons/lineal/browser.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                <h4 data-i18n="index.offer_cards.landing_title">Landing Page</h4>
+                <p class="mb-2" data-i18n-html="index.offer_cards.landing_desc">Une page unique, rapide et ciblée pour transformer vos visiteurs en clients dès leur première visite.</p>
+                <a href="/appointment" class="btn btn-primary btn-sm rounded-pill"><span data-i18n="index.offer_cards.landing_cta">Parlez à un expert</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Refonte Site -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <img loading="lazy" src="/assets/img/icons/lineal/watercolor.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                <h4 data-i18n="index.offer_cards.redesign_title">Refonte de Site</h4>
+                <p class="mb-2" data-i18n-html="index.offer_cards.redesign_desc">Modernisez votre site avec un nouveau design, de meilleures performances et un impact renforcé.</p>
+                <a href="/appointment" class="btn btn-primary btn-sm rounded-pill"><span data-i18n="index.offer_cards.redesign_cta">Planifier mon rendez-vous</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- Site Vitrine -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <img loading="lazy" src="/assets/img/icons/lineal/smartphone.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                <h4 data-i18n="index.offer_cards.showcase_title">Site Vitrine</h4>
+                <p class="mb-2" data-i18n-html="index.offer_cards.showcase_desc">Présentez votre activité avec élégance. Design responsive, structure claire, résultats concrets.</p>
+                <a href="/appointment" class="btn btn-primary btn-sm rounded-pill"><span data-i18n="index.offer_cards.showcase_cta">Commencez votre projet</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- E-Commerce -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <img loading="lazy" src="/assets/img/icons/lineal/shop-3.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                <h4 data-i18n="index.offer_cards.ecommerce_title">Site E-Commerce</h4>
+                <p class="mb-2" data-i18n-html="index.offer_cards.ecommerce_desc">Vendez vos produits en ligne avec une boutique performante, facile à gérer et optimisée pour convertir.</p>
+                <a href="/appointment" class="btn btn-primary btn-sm rounded-pill"><span data-i18n="index.offer_cards.ecommerce_cta">Je veux être contacté</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY (bg-soft-primary) -->
+  
+  <DeliverySec />
+  <!-- FAQ -->
+  <FAQ />
+
+  <!-- External libs (moved to SiteScripts component) -->
+  <!-- Scripts and inline initialization were centralized in web/src/components/SiteScripts.astro -->
+</Base>

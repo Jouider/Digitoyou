@@ -1,0 +1,316 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Digitoyou- Sites web sur-mesure & performants">
+
+
+  <!-- Hero (identical structure & i18n keys) -->
+  <section class="wrapper bg-soft-primary ">
+    <div class="container pt-10 pb-10 pt-md-14 pb-md-10 text-center">
+      <div class="row">
+        <div class="col-md-7 col-lg-6 col-xl-5 mx-auto">
+          <h1 class="display-1 mb-3 mt-17" data-i18n="index.blog.hero.h1"></h1>
+          <p class="lead px-lg-5 px-xxl-8" data-i18n-html="index.blog.hero.lead"></p>
+          <a href="/contact" class="btn btn-primary btn-lg rounded-pill mt-4" data-i18n="index.blog.hero.cta_projects"></a>
+          <a href="#next-section" class="btn btn-outline-primary btn-lg rounded-pill mt-4 ms-2" data-i18n="index.blog.hero.cta_more"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog posts + Sidebar (matches HTML) -->
+  <section class="wrapper bg-light" id="next-section">
+    <div class="container py-14 py-md-16">
+      <div class="row gx-lg-8 gx-xl-12">
+        <!-- Main -->
+        <div class="col-lg-8">
+          <div class="blog classic-view">
+            <!-- Article 1 -->
+            <article class="post">
+              <div class="card">
+                <figure class="card-img-top overlay overlay-1 hover-scale">
+                  <a href="/blog-post">
+                    <img src="/assets/img/photos/b1.jpg" alt="Site web local efficace">
+                  </a>
+                  <figcaption>
+                    <h5 class="from-top mb-0" data-i18n="index.blog.post.read_more"></h5>
+                  </figcaption>
+                </figure>
+                <div class="card-body">
+                  <div class="post-header">
+                    <div class="post-category text-line">
+                      <a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.digitalization"></a>
+                      <a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.websites"></a>
+                      <a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.artisans"></a>
+                    </div>
+                    <h2 class="post-title mt-1 mb-0">
+                      <a class="link-dark" href="/blog-post">
+                        <span data-i18n="index.blog.post.posts.p1.title"></span>
+                      </a>
+                    </h2>
+                  </div>
+                  <div class="post-content">
+                    <p data-i18n="index.blog.post.posts.p1.excerpt"></p>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <ul class="post-meta d-flex mb-0">
+                    <li class="post-date">
+                      <i class="uil uil-calendar-alt"></i>
+                      <span data-i18n="index.blog.post.posts.p1.date"></span>
+                    </li>
+                    <li class="post-author">
+                      <a href="#"><i class="uil uil-user"></i>
+                        <span><span data-i18n="index.blog.post.meta.by"></span> <span data-i18n="index.blog.post.meta.author"></span></span>
+                      </a>
+                    </li>
+                    <li class="post-comments">
+                      <a href="#"><i class="uil uil-comment"></i><span class="comments-count">3</span> <span data-i18n="index.blog.post.meta.comments"></span></a>
+                    </li>
+                    <li class="post-likes ms-auto"><a href="#"><i class="uil uil-heart-alt"></i>3</a></li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 2 (slider) -->
+            <article class="post">
+              <div class="card">
+                <div class="post-slider card-img-top">
+                  <div class="swiper-container dots-over" data-margin="5" data-nav="true" data-dots="true">
+                    <div class="swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/assets/img/photos/b2.jpg" alt="Étude de cas projet 1"></div>
+                        <div class="swiper-slide"><img src="/assets/img/photos/b3.jpg" alt="Étude de cas projet 2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="post-header">
+                    <div class="post-category text-line">
+                      <a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.case_studies"></a>
+                    </div>
+                    <h2 class="post-title mt-1 mb-0">
+                      <a class="link-dark" href="/blog-post"><span data-i18n="index.blog.post.posts.p2.title"></span></a>
+                    </h2>
+                  </div>
+                  <div class="post-content">
+                    <p data-i18n="index.blog.post.posts.p2.excerpt"></p>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <ul class="post-meta d-flex mb-0">
+                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.p2.date"></span></li>
+                    <li class="post-author"><a href="#"><i class="uil uil-user"></i><span><span data-i18n="index.blog.post.meta.by"></span> <span data-i18n="index.blog.post.meta.author"></span></span></a></li>
+                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">5</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
+                    <li class="post-likes ms-auto"><a href="#"><i class="uil uil-heart-alt"></i>4</a></li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- Article 3 (video) -->
+            <article class="post">
+              <div class="card">
+                <div class="card-img-top">
+                  <div class="player" data-plyr-provider="youtube" data-plyr-embed-id="j_Y2Gwaj7Gs"></div>
+                </div>
+                <div class="card-body">
+                  <div class="post-header">
+                    <div class="post-category text-line">
+                      <a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.tutorials"></a>
+                    </div>
+                    <h2 class="post-title mt-1 mb-0">
+                      <a class="link-dark" href="/blog-post"><span data-i18n="index.blog.post.posts.p3.title"></span></a>
+                    </h2>
+                  </div>
+                  <div class="post-content">
+                    <p data-i18n="index.blog.post.posts.p3.excerpt"></p>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <ul class="post-meta d-flex mb-0">
+                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.p3.date"></span></li>
+                    <li class="post-author"><a href="#"><i class="uil uil-user"></i><span><span data-i18n="index.blog.post.meta.by"></span> <span data-i18n="index.blog.post.meta.author"></span></span></a></li>
+                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">8</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
+                    <li class="post-likes ms-auto"><a href="#"><i class="uil uil-heart-alt"></i>6</a></li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Grid view -->
+          <div class="blog grid grid-view">
+            <div class="row isotope gx-md-8 gy-8 mb-8">
+              <article class="item post col-md-6">
+                <div class="card">
+                  <figure class="card-img-top overlay overlay-1 hover-scale">
+                    <a href="/blog-post"><img src="/assets/img/photos/b4.jpg" alt="Conseil SEO pour artisans"></a>
+                    <figcaption><h5 class="from-top mb-0" data-i18n="index.blog.post.read_more"></h5></figcaption>
+                  </figure>
+                  <div class="card-body">
+                    <div class="post-header">
+                      <div class="post-category text-line">
+                        <a href="#" class="hover" rel="category" data-i18n="index.blog.post.categories.seo"></a>
+                      </div>
+                      <h2 class="post-title h3 mt-1 mb-3">
+                        <a class="link-dark" href="/blog-post"><span data-i18n="index.blog.post.posts.grid1.title"></span></a>
+                      </h2>
+                    </div>
+                    <div class="post-content"><p data-i18n="index.blog.post.posts.grid1.excerpt"></p></div>
+                  </div>
+                  <div class="card-footer">
+                    <ul class="post-meta d-flex mb-0">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid1.date"></span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">4</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
+                      <li class="post-likes ms-auto"><a href="#"><i class="uil uil-heart-alt"></i>5</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+              <!-- Add more grid items as needed -->
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <nav class="d-flex" aria-label="pagination">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" data-i18n-title="index.blog.pagination.prev">
+                  <span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" data-i18n-title="index.blog.pagination.next">
+                  <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar mt-8 mt-lg-6">
+          <!-- Search -->
+          <div class="widget">
+            <form class="search-form">
+              <div class="form-floating mb-0">
+                <input id="search-form" type="text" class="form-control" data-i18n-placeholder="index.blog.sidebar.search_placeholder" placeholder="">
+                <label for="search-form" data-i18n="index.blog.sidebar.search_placeholder"></label>
+              </div>
+            </form>
+          </div>
+
+          <!-- About -->
+          <div class="widget">
+            <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.about_title"></h4>
+            <p data-i18n-html="index.blog.sidebar.about_html"></p>
+            <nav class="nav social">
+              <a href="#"><i class="uil uil-twitter"></i></a>
+              <a href="#"><i class="uil uil-facebook-f"></i></a>
+              <a href="#"><i class="uil uil-instagram"></i></a>
+              <a href="#"><i class="uil uil-linkedin"></i></a>
+              <a href="#"><i class="uil uil-youtube"></i></a>
+            </nav>
+          </div>
+
+          <!-- Popular -->
+          <div class="widget">
+            <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.popular_title"></h4>
+            <ul class="image-list">
+              <li>
+                <figure class="rounded">
+                  <a href="/blog-post"><img src="/assets/img/photos/b4.jpg" alt="SEO artisans" /></a>
+                </figure>
+                <div class="post-content">
+                  <h6 class="mb-2">
+                    <a class="link-dark" href="/blog-post" data-i18n="index.blog.post.posts.grid1.title"></a>
+                  </h6>
+                  <ul class="post-meta">
+                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.grid1.date"></span></li>
+                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">4</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <figure class="rounded">
+                  <a href="/blog-post"><img src="/assets/img/photos/b5.jpg" alt="Etude de cas e-commerce" /></a>
+                </figure>
+                <div class="post-content">
+                  <h6 class="mb-2">
+                    <a class="link-dark" href="/blog-post" data-i18n="index.blog.post.posts.p2.title"></a>
+                  </h6>
+                  <ul class="post-meta">
+                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.p2.date"></span></li>
+                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">5</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <figure class="rounded">
+                  <a href="/blog-post"><img src="/assets/img/photos/b6.jpg" alt="Réservation en ligne" /></a>
+                </figure>
+                <div class="post-content">
+                  <h6 class="mb-2">
+                    <a class="link-dark" href="/blog-post" data-i18n="index.blog.post.posts.p3.title"></a>
+                  </h6>
+                  <ul class="post-meta">
+                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span data-i18n="index.blog.post.posts.p3.date"></span></li>
+                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i><span class="comments-count">8</span> <span data-i18n="index.blog.post.meta.comments"></span></a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="widget">
+            <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.categories_title"></h4>
+            <ul class="unordered-list bullet-primary text-reset">
+              <li><a href="#"><span data-i18n="index.blog.post.categories.digitalization"></span> (12)</a></li>
+              <li><a href="#"><span data-i18n="index.blog.post.categories.websites"></span> (8)</a></li>
+              <li><a href="#"><span data-i18n="index.blog.post.categories.case_studies"></span> (5)</a></li>
+              <li><a href="#"><span data-i18n="index.blog.post.categories.tutorials"></span> (7)</a></li>
+              <li><a href="#"><span data-i18n="index.blog.post.categories.seo"></span> (4)</a></li>
+              <li><a href="#"><span data-i18n="index.blog.post.categories.artisans"></span> (6)</a></li>
+            </ul>
+          </div>
+
+          <!-- Tags -->
+          <div class="widget">
+            <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.tags_title"></h4>
+            <ul class="list-unstyled tag-list">
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.wordpress"></a></li>
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.woocommerce"></a></li>
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.reservation"></a></li>
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.seo"></a></li>
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.case_study"></a></li>
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.tuto"></a></li>
+              <li><a href="#" class="btn btn-soft-primary btn-sm rounded-pill" data-i18n="index.blog.sidebar.tags.figma"></a></li>
+            </ul>
+          </div>
+
+          <!-- Archive -->
+          <div class="widget">
+            <h4 class="widget-title mb-3" data-i18n="index.blog.sidebar.archive_title"></h4>
+            <ul class="unordered-list bullet-primary text-reset">
+              <li><a href="#" data-i18n="index.blog.sidebar.archive.jul2025"></a></li>
+              <li><a href="#" data-i18n="index.blog.sidebar.archive.jun2025"></a></li>
+              <li><a href="#" data-i18n="index.blog.sidebar.archive.may2025"></a></li>
+              <li><a href="#" data-i18n="index.blog.sidebar.archive.apr2025"></a></li>
+              <li><a href="#" data-i18n="index.blog.sidebar.archive.mar2025"></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+</Base>
