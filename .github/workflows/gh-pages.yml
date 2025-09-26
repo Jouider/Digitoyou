@@ -31,7 +31,7 @@ jobs:
           fi
 
       - name: Build project
-        run: npx gulp build:dist
+        run: npm run build
 
       - name: Deploy to STAGING (FTPS explicit:21)
         if: github.ref != 'refs/heads/main'
