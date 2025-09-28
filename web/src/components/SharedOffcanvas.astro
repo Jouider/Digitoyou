@@ -1,0 +1,27 @@
+---
+import MenuLinks from './MenuLinks.astro';
+import OffcanvasFooter from './OffcanvasFooter.astro';
+---
+<div class="offcanvas offcanvas-nav offcanvas-start" id="navbarOffcanvas" data-bs-scroll="true" tabindex="-1" aria-labelledby="navbarOffcanvasLabel">
+  <div class="offcanvas-header d-lg-none">
+    <a href="/" class="d-flex align-items-center">
+      <img src="/assets/img/logo-light.svg" alt="Logo" width="160" />
+    </a>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column h-100 align-items-center align-items-lg-start text-center text-lg-start">
+    <MenuLinks />
+
+    <!-- Mobile-only CTA -->
+    <div class="mt-4 d-lg-none">
+      <a href="/appointment" class="btn btn-primary rounded-pill w-100 btn-icon btn-icon-start">
+        <i class="uil uil-schedule me-1"></i>
+        Prendre RDV
+      </a>
+    </div>
+
+    <div class="offcanvas-footer d-lg-none mt-auto">
+      <OffcanvasFooter />
+    </div>
+  </div>
+</div>

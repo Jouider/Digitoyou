@@ -1,0 +1,48 @@
+---
+import Footer from '../components/Footer.astro';
+import PageProgress from '../components/PageProgress.astro';
+import Head from '../components/Head.astro';
+import SiteScripts from '../components/SiteScripts.astro';
+import Navbar from '../components/Navbar.astro';
+import SharedOffcanvas from '../components/SharedOffcanvas.astro';
+
+import '../styles/global.scss';
+
+const { title = 'Digitoyou' } = Astro.props || {};
+---
+<!doctype html>
+<html lang="fr">
+  <Head title={title}>
+   
+
+    <slot name="head" />
+
+    <!-- If you keep shipping prebuilt CSS from /public/assets, load non-blocking -->
+    <link rel="preload" href="/assets/css/plugins.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/plugins.css"></noscript>
+
+  </Head>
+
+  <body>
+    <!-- Top nav -->
+    <header class="wrapper transparent w-100 position-absolute top-0 start-0 z-50">
+      <Navbar />
+    </header>
+
+    <!-- Shared offcanvas for mobile nav (single instance in the DOM) -->
+    <SharedOffcanvas />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Page progress indicator -->
+    <PageProgress />
+
+    <!-- Centralized scripts (ensure Bootstrap *JS* is included in SiteScripts) -->
+    <SiteScripts />
+    <slot name="scripts" />
+  </body>
+</html>

@@ -1,0 +1,16 @@
+---
+/* SiteScripts.astro */
+import siteLoaderUrl from '../scripts/site-loader.js?url';
+---
+
+<!-- keep any third-party scripts you still need -->
+<script src="/assets/js/plugins.js" defer></script>
+<script src="/assets/js/i18n.js" defer></script>
+<script src="/assets/js/theme.js" defer></script>
+
+<!-- Your app loader (bundled by Vite) -->
+<script type="module" src={siteLoaderUrl}></script>
+
+<style>
+  figure.overlay span.bg { pointer-events: none; }
+</style>
