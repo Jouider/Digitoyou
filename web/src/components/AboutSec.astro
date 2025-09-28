@@ -1,0 +1,154 @@
+---
+---
+<section class="wrapper bg-soft-primary " data-cue="fadeIn">
+    <div class="container py-14 py-md-16">
+      <div class="row d-flex align-items-start gy-10">
+        <div class="col-lg-5 position-lg-sticky" style="top: 8rem;">
+          <h3 class="display-2 mb-5" data-i18n="index.about.advice.title">On vous conseille</h3>
+          <p class="mb-7" data-i18n="index.about.advice.lead"></p>
+          <a href="/blog" class="btn btn-lg btn-primary btn-icon rounded-pill btn-icon-end" data-i18n="index.about.advice.button">
+            En savoir plus <i class="uil uil-arrow-up-right"></i>
+          </a>
+        </div>
+
+        <div class="col-lg-6 ms-auto">
+          {[
+            {icon:'target',   t:'card1', title:'Ciblage stratégique', desc:'Identifiez précisément votre audience.'},
+            {icon:'shield',   t:'card2', title:'Sécurité avancée',    desc:'Protégez vos données.'},
+            {icon:'performance', t:'card3', title:'Performance optimisée', desc:'Expérience fluide et rapide.'},
+            {icon:'workflows', t:'card4', title:'Automatisation intelligente', desc:'Libérez-vous des tâches répétitives.'},
+            {icon:'handshake', t:'card5', title:'Support dédié',      desc:'Accompagnement réactif.'},
+            {icon:'analytics', t:'card6', title:'Analyse performante', desc:'Données claires et exploitables.'},
+          ].map((c) => (
+            <div class={`card mb-6 ${c.icon==='shield'||c.icon==='workflows'||c.icon==='analytics' ? '' : ''}`}>
+              <div class="card-body d-flex flex-row">
+                <div>
+                  <img src={`/assets/img/icons/lineal/${c.icon}.svg`} class="svg-inject icon-svg icon-svg-md text-yellow me-5" alt="" width="48" height="48" />
+                </div>
+                <div>
+                  <h3 class="fs-21 mb-2" data-i18n={`index.about.features_cards.${c.t}.title`}>{c.title}</h3>
+                  <p class="mb-0" data-i18n={`index.about.features_cards.${c.t}.desc`}>{c.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process (video + 4 steps) -->
+  <section class="wrapper bg-soft-primary angled lower-end lower-star" data-cue="fadeIn">
+    <div class="container py-14 py-md-16">
+      <div class="row text-center">
+        <div class="col-md-10 col-lg-7 mx-auto position-relative">
+          <img src="/assets/img/svg/doodle5.svg" class="w-15 position-absolute d-none d-lg-block" data-delay="1800" style="bottom:-60%; right:10%; aspect-ratio:1/1;" alt="" />
+          <img src="/assets/img/svg/doodle6.svg" class="h-15 position-absolute d-none d-lg-block" data-delay="1800" style="top:-40%; left:-5%; aspect-ratio:1/1;" alt="" />
+          <h2 class="fs-16 text-uppercase text-muted mb-3" data-i18n="index.about.process.small">Notre Processus</h2>
+          <h3 class="display-3 mb-8 px-xl-6" data-i18n-html="index.about.process.title">Un processus simple, <span class="text-gradient gradient-7">transparent</span> et sans stress.</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xxl-11 mx-auto">
+          <div class="row gy-10 gy-lg-0 text-center d-flex align-items-center">
+            <div class="col-md-6 col-lg-4 mx-auto mb-n10 mb-lg-0">
+              <figure class="mx-auto">
+                <video class="img-fluid" autoplay muted loop playsinline preload="metadata" poster="/assets/img/pages/steps-phone-poster.jpg" aria-label="Processus simple Digitoyou">
+                  <source src="/assets/img/pages/steps-phone.webm" type="video/webm" />
+                </video>
+              </figure>
+            </div>
+
+            <div class="w-100 d-lg-none"></div>
+
+            <div class="col-md-6 col-lg-4 order-lg-first">
+              <div class="mb-8">
+                <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">01</span>
+                <h4 class="fs-20" data-i18n="index.about.process.step01.title">Des tarifs limpides</h4>
+                <p class="mb-0 px-xl-7" data-i18n="index.about.process.step01.desc">Des devis clairs, aucun frais caché.</p>
+              </div>
+              <div>
+                <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">02</span>
+                <h4 class="fs-20" data-i18n="index.about.process.step02.title">Une équipe ultra-disponible</h4>
+                <p class="mb-0 px-xl-7" data-i18n="index.about.process.step02.desc">90% des messages traités en &lt; 1h.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="mb-8">
+                <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">03</span>
+                <h4 class="fs-20" data-i18n="index.about.process.step03.title">Des délais respectés</h4>
+                <p class="mb-0 px-xl-7" data-i18n="index.about.process.step03.desc">Livraison rapide garantie.</p>
+              </div>
+              <div>
+                <span class="fs-60 lh-1 mb-3 fw-normal text-gradient gradient-7">04</span>
+                <h4 class="fs-20" data-i18n="index.about.process.step04.title">Un code conçu pour durer</h4>
+                <p class="mb-0 px-xl-7" data-i18n="index.about.process.step04.desc">Optimisé et évolutif.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.row -->
+    </div>
+  </section>
+
+  <!-- Method + services cards -->
+  <section class="wrapper bg-light" data-cue="fadeIn">
+    <div class="container py-14 py-md-16">
+      <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+        <!-- Cards with images -->
+        <div class="col-lg-7 order-lg-2">
+          <div class="row gx-md-5 gy-5">
+            <div class="col-md-5 offset-md-1 align-self-end">
+              <div class="card">
+                <div class="card-body">
+                  <img src="/assets/img/icons/lineal/web.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" width="48" height="48" />
+                  <h4 data-i18n="index.about.services_cards.wf.title">Wireframes & Workflows</h4>
+                  <p class="mb-0" data-i18n="index.about.services_cards.wf.desc">Maquettes offertes pour visualiser le projet.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 align-self-end">
+              <div class="card bg-pale-primary">
+                <div class="card-body">
+                  <img src="/assets/img/icons/lineal/clendar.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" width="48" height="48" />
+                  <h4 data-i18n="index.about.services_cards.weekly.title">Livraisons Hebdomadaires</h4>
+                  <p class="mb-0" data-i18n="index.about.services_cards.weekly.desc">Une nouvelle partie chaque semaine.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="card bg-pale-primary">
+                <div class="card-body">
+                  <img src="/assets/img/icons/lineal/refresh.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" width="48" height="48" />
+                  <h4 data-i18n="index.about.services_cards.flex.title">Flexibilité Totale</h4>
+                  <p class="mb-0" data-i18n="index.about.services_cards.flex.desc">On s’adapte à vos besoins en temps réel.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 align-self-start">
+              <div class="card">
+                <div class="card-body">
+                  <img src="/assets/img/icons/lineal/handshake.svg" class="svg-inject icon-svg icon-svg-md mb-3" alt="" width="48" height="48" />
+                  <h4 data-i18n="index.about.services_cards.post.title">Suivi Post-Livraison</h4>
+                  <p class="mb-0" data-i18n="index.about.services_cards.post.desc">3 mois de suivi inclus.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text + CTA -->
+        <div class="col-lg-5">
+          <h2 class="fs-15 text-uppercase text-muted mb-3" data-i18n="index.about.method.small">Notre Méthode</h2>
+          <h3 class="display-4 mb-5" data-i18n="index.about.method.title">Un seul objectif : transformer votre vision en réalité tangible.</h3>
+          <p data-i18n="index.about.method.lead">De la première esquisse à la mise en ligne...</p>
+          <a href="/appointment" class="btn btn-navy rounded-pill mt-3" data-i18n="index.about.method.button">Démarrer mon projet</a>
+        </div>
+      </div>
+    </div>
+  </section>
