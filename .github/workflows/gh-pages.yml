@@ -17,21 +17,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Configure Slack webhook (optional)
         run: |
           if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
-            mkdir -p src/assets/php
-            printf "<?php\nreturn [\n    'SLACK_WEBHOOK_URL' => '%s',\n];\n" "${{ secrets.SLACK_WEBHOOK_URL }}" > src/assets/php/slack-config.php
+            mkdir -p public/php
+            printf "<?php\nreturn [\n    'SLACK_WEBHOOK_URL' => '%s',\n];\n" "${{ secrets.SLACK_WEBHOOK_URL }}" > public/php/slack-config.php
+            echo "Created public/php/slack-config.php"
           else
             echo "SLACK_WEBHOOK_URL secret not set; skipping"
           fi
 
       - name: Build project
-        run: npx gulp build:dist
+        run: npm run build
 
       - name: Deploy to STAGING (FTPS explicit:21)
         if: github.ref != 'refs/heads/main'
@@ -50,7 +52,12 @@ jobs:
             assets/js/config.js
             assets/img/svg/scribble.svg
             assets/img/svg/tri.svg
+          # IMPORTANT: set to false to avoid deleting remote-only folders like 'api'
           dangerous-clean-slate: false
+          # Optionally protect a remote-only backend folder (uncomment next 2 lines if you add an api dir locally later)
+          # exclude: |
+          #   api/**
+          state-name: staging-deploy-state.json
           server-dir: /staging_html/
           log-level: verbose
 
@@ -72,6 +79,7 @@ jobs:
             assets/img/svg/scribble.svg
             assets/img/svg/tri.svg
           dangerous-clean-slate: false
+          state-name: production-deploy-state.json
           server-dir: /public_html/
           log-level: verbose
 
