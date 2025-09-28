@@ -1,6 +1,26 @@
 // Global stylesheet for Astro - imports existing project SCSS so we reuse variables/mixins/components
 @import "../../../public/assets/scss/style.scss";
 
+
+/* put this at top of global.scss */
+@font-face {
+    font-family: "THICCCBOI";
+    src: url("/assets/fonts/thicccboi/THICCCBOI-Regular.woff2") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "THICCCBOI";
+    src: url("/assets/fonts/thicccboi/THICCCBOI-Medium.woff2") format("woff2");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "THICCCBOI";
+    src: url("/assets/fonts/thicccboi/THICCCBOI-Bold.woff2") format("woff2");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+  html { font-family:"THICCCBOI", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+  
 /* Small Astro-specific overrides can be added here. */
 /* Add :root custom properties here if needed, e.g. --site-accent: #ffb300; */
 /* Mobile: remove rounding from anything pill inside the navbar */
@@ -10,6 +30,8 @@
       border-radius: 0 !important;
     }
 }
+
+figure.overlay span.bg { pointer-events: none; }
 
 /* Make primary button text smaller on very small screens */
 @media (max-width: 575.98px) {
