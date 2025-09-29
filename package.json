@@ -6,7 +6,12 @@
   "author": "elemis",
   "private": true,
   "type": "module",
+  "type": "module",
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -16,6 +21,7 @@
     "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.6.0",
     "@popperjs/core": "^2.11.8",
+    "astro": "^5.14.0",
     "astro": "^5.14.0",
     "autoprefixer": "^10.4.5",
     "bootstrap": "^5.3.2",
