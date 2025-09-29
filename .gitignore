@@ -55,3 +55,7 @@ dist.zip
 # build artifacts
 /dist/
 dist.zip
+
+# build artifacts
+/dist/
+dist.zip
