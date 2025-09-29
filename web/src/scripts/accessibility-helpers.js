@@ -35,4 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       a.setAttribute('aria-label', label.charAt(0).toUpperCase() + label.slice(1));
     });
   });
-  
+  // Tiny helper; add what you actually need later.
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
