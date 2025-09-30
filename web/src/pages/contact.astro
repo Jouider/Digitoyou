@@ -4,9 +4,20 @@ import BrandMarquee from '../components/BrandMarquee.astro';
 import FAQ from '../components/FAQ.astro';
 ---
 <Base title="Contact - Digitoyou">
-
+    <Fragment slot="head">
+        <!-- Swiper CSS (page-scoped, non-blocking) -->
+        <link
+          rel="preload"
+          as="style"
+          href="https://unpkg.com/swiper@12.0.2/swiper-bundle.min.css"
+          onload="this.onload=null;this.rel='stylesheet'">
+        <noscript>
+          <link rel="stylesheet" href="https://unpkg.com/swiper@12.0.2/swiper-bundle.min.css">
+        </noscript>
+      </Fragment>
+      
   <!-- HERO -->
-  <section class="wrapper bg-light" style="margin-top:80px; min-height:60vh; padding:4rem 0; background-size:cover; background-position:center;">
+  <section class="wrapper bg-soft-primary" style=" min-height:60vh; padding:4rem 0; background-size:cover; background-position:center;">
     <div class="container pt-11 pt-md-13 mb-10 text-center">
       <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto mb-2" data-cues="slideInDown" data-group="page-title">
@@ -31,8 +42,8 @@ import FAQ from '../components/FAQ.astro';
   </section>
 
   <!-- PROJECTS + BRANDS -->
-  <section class="wrapper bg-soft-primary ">
-    <div class="container pb-10 mt-10 text-center">
+  <section class="wrapper bg-white ">
+    <div class="container pb-10  text-center">
       <div class="row text-center mb-10 ">
         <div class="col-lg-10 mx-auto">
           <h2 class="fs-15 text-uppercase text-muted mb-3 mt-10" data-i18n="index.realizations.small">Our Work</h2>

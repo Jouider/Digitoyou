@@ -363,7 +363,7 @@
         contact: {
           title: 'Contact',
           email: 'hello@digitoyou.com',
-          phone: '+1 866 306 4636'
+          phone: '+212 662-160763'
         },
         resources: {
           title: 'Ressources',
@@ -623,7 +623,7 @@
       footer: {
         logo_alt: 'ديجيتويو',
         copyright: 'ديجيتويو © 2025. كل الحقوق محفوظة.',
-        contact: { title: 'اتصل', email: 'hello@digitoyou.com', phone: '+1 866 306 4636' },
+        contact: { title: 'اتصل', email: 'hello@digitoyou.com', phone: '+212 662-160763' },
         resources: { title: 'الموارد', blog: 'مدونة', legal: 'ملاحظات قانونية', privacy: 'سياسة الخصوصية' },
         discover: { title: 'اكتشف', about: 'معلومات عنا', services: 'خدماتنا' }
       }
@@ -1002,7 +1002,7 @@
         contact: {
           title: 'Contact',
           email: 'hello@digitoyou.com',
-          phone: '+1 866 306 4636'
+          phone: '+212 662-160763'
         },
         resources: {
           title: 'Resources',

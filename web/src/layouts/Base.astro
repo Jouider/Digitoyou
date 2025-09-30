@@ -13,13 +13,14 @@ const { title = 'Digitoyou' } = Astro.props || {};
 <!doctype html>
 <html lang="fr">
   <Head title={title}>
+   
+
     <slot name="head" />
-    <!-- Keep these only if you still serve prebuilt CSS from /public/assets/... -->
-    <link href="/assets/css/plugins.css" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- If you keep shipping prebuilt CSS from /public/assets, load non-blocking -->
+    <link rel="preload" href="/assets/css/plugins.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/assets/css/plugins.css"></noscript>
 
-    <link rel="preload" href="/assets/css/style.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/assets/css/style.css"></noscript>
   </Head>
 
   <body>
@@ -40,7 +41,7 @@ const { title = 'Digitoyou' } = Astro.props || {};
     <!-- Page progress indicator -->
     <PageProgress />
 
-    <!-- Centralized scripts (make sure this imports Bootstrap bundle) -->
+    <!-- Centralized scripts (ensure Bootstrap *JS* is included in SiteScripts) -->
     <SiteScripts />
     <slot name="scripts" />
   </body>

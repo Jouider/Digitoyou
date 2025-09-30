@@ -47,3 +47,16 @@ backend/python/venv/
 
 # Misc
 *.DS_Store
+
+# build artifacts
+/dist/
+dist.zip
+
+# build artifacts
+/dist/
+dist.zip
+
+# build artifacts
+/dist/
+dist.zip
+

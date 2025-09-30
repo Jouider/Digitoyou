@@ -8,9 +8,9 @@
 				"fr": "Conception et développement du site web institutionnel de Wolves Groups Services, une entreprise spécialisée dans la sécurité privée, la surveillance et la gestion des interventions. Le projet a inclus une optimisation UX/UI adaptée aux besoins B2B, une intégration responsive, ainsi qu’une architecture robuste assurant performance et fiabilité.",
 				"en": "Design and development of the corporate website for Wolves Groups Services, a company specialized in private security, surveillance, and intervention management. The project included UX/UI optimization tailored to B2B needs, a responsive design, and a robust architecture ensuring performance and reliability."
 			},
-			"images": ["./assets/img/projects/wgs.png"],
-			"poster": "./assets/img/projects/wgs.png",
-			"video": { "src": "./assets/img/projects/clients/wgs.webm", "type": "video/webm", "label": "WGS" },
+			"images": ["/assets/img/projects/wgs.png"],
+			"poster": "/assets/img/projects/wgs.png",
+			"video": { "src": "/assets/img/projects/clients/wgs.webm", "type": "video/webm", "label": "WGS" },
 			"tech": ["HTML", "CSS", "Laravel", "Bootstrap"],
 			"link": "https://www.wgs.ma/"
 		},
@@ -22,9 +22,9 @@
 				"fr": "Création du site Storymedia.ma, une agence de communication et de storytelling. Le projet a mis l’accent sur la créativité et la fluidité des parcours utilisateurs, tout en intégrant une charte graphique personnalisée et un design immersif pour valoriser les services de l’agence.",
 				"en": "Creation of Storymedia.ma’s website, a storytelling and communication agency. The project focused on creativity and seamless user journeys, with a custom visual identity and immersive design to showcase the agency’s services."
 			},
-			"images": ["./assets/img/projects/storymedia.png"],
-			"poster": "./assets/img/projects/storymedia.png",
-			"video": { "src": "./assets/img/projects/clients/storymedia.webm", "type": "video/webm", "label": "Story Media" },
+			"images": ["/assets/img/projects/storymedia.png"],
+			"poster": "/assets/img/projects/storymedia.png",
+			"video": { "src": "/assets/img/projects/clients/storymedia.webm", "type": "video/webm", "label": "Story Media" },
 			"tech": ["HTML", "CSS", "Laravel", "Bootstrap"],
 			"link": "https://www.storymedia.ma/"
 		},
@@ -36,9 +36,9 @@
 				"fr": "Développement du site vitrine pour Faciclean, une entreprise spécialisée dans le nettoyage professionnel et la gestion de la propreté. Le site a été conçu pour mettre en avant la fiabilité et la transparence des services, avec une interface simple et claire pour faciliter la prise de contact et les demandes de devis.",
 				"en": "Development of a showcase website for Faciclean, a company specializing in professional cleaning services. The website was designed to highlight reliability and transparency, with a clean interface to facilitate inquiries and quote requests."
 			},
-			"images": ["./assets/img/projects/faciclean.png"],
-			"poster": "./assets/img/projects/faciclean.png",
-			"video": { "src": "./assets/img/projects/clients/faciclean.webm", "type": "video/webm", "label": "Faciclean" },
+			"images": ["/assets/img/projects/faciclean.png"],
+			"poster": "/assets/img/projects/faciclean.png",
+			"video": { "src": "/assets/img/projects/clients/faciclean.webm", "type": "video/webm", "label": "Faciclean" },
 			"tech": ["HTML", "CSS", "JavaScript", "Bootstrap"],
 			"link": "https://faciclean.ma/"
 		},
@@ -50,9 +50,9 @@
 				"fr": "Conception et développement du site pour Agile5S, une société américaine de services IT spécialisée dans des solutions logicielles évolutives. Le projet a intégré une interface dynamique et moderne, avec une attention particulière portée à la performance et à l’adaptabilité sur différents supports.",
 				"en": "Design and development of the website for Agile5S, a US-based IT services company specializing in scalable software solutions. The project featured a dynamic and modern interface, with a strong focus on performance and adaptability across devices."
 			},
-			"images": ["./assets/img/projects/agile5s.png"],
-			"poster": "./assets/img/projects/agile5s.png",
-			"video": { "src": "./assets/img/projects/clients/agile5s.webm", "type": "video/webm", "label": "Agile5S" },
+			"images": ["/assets/img/projects/agile5s.png"],
+			"poster": "/assets/img/projects/agile5s.png",
+			"video": { "src": "/assets/img/projects/clients/agile5s.webm", "type": "video/webm", "label": "Agile5S" },
 			"tech": ["HTML", "CSS", "JavaScript", "Bootstrap"],
 			"link": "https://agile5s.com/"
 		},
@@ -64,9 +64,9 @@
 				"fr": "Développement du site pour Group SAZ, un groupe diversifié couvrant la gestion immobilière, le facility management, le conseil IT et l’aviation. L’objectif était de regrouper l’ensemble des activités sous une identité digitale cohérente et moderne, avec une navigation fluide et une architecture performante.",
 				"en": "Development of the website for Group SAZ, a diversified group covering property management, facility management, IT consulting, and aviation. The goal was to unify all activities under a coherent and modern digital identity, with smooth navigation and high-performing architecture."
 			},
-			"images": ["./assets/img/projects/groupsaz.png"],
-			"poster": "./assets/img/projects/groupsaz.png",
-			"video": { "src": "./assets/img/projects/clients/groupsaz.webm", "type": "video/webm", "label": "Group SAZ" },
+			"images": ["/assets/img/projects/groupsaz.png"],
+			"poster": "/assets/img/projects/groupsaz.png",
+			"video": { "src": "/assets/img/projects/clients/groupsaz.webm", "type": "video/webm", "label": "Group SAZ" },
 			"tech": ["React.js", "Gulp"],
 			"link": "https://groupsaz.com/"
 		},
@@ -78,9 +78,9 @@
 				"fr": "Mise en place de la plateforme SyndicAZ, dédiée à la gestion de copropriétés et au conseil en immobilier. Le site propose une interface intuitive permettant aux clients d’accéder rapidement aux informations et aux services, tout en assurant transparence et efficacité dans la gestion.",
 				"en": "Implementation of SyndicAZ platform, dedicated to co-ownership management and real estate consulting. The website provides an intuitive interface that allows clients to quickly access information and services, ensuring transparency and efficiency in management."
 			},
-			"images": ["./assets/img/projects/saz.png"],
-			"poster": "./assets/img/projects/saz.png",
-			"video": { "src": "./assets/img/projects/clients/saz.webm", "type": "video/webm", "label": "SyndicAZ" },
+			"images": ["/assets/img/projects/saz.png"],
+			"poster": "/assets/img/projects/saz.png",
+			"video": { "src": "/assets/img/projects/clients/saz.webm", "type": "video/webm", "label": "SyndicAZ" },
 			"tech": ["HTML", "CSS", "JavaScript", "Gulp"],
 			"link": "https://www.syndicaz.com/"
 		}
