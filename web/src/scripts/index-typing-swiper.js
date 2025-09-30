@@ -26,7 +26,7 @@ function buildSlide(p = {}) {
 
   slide.innerHTML = `
     <div class="testimonial-card d-flex flex-column">
-      <div class="testimonial-img mb-3">
+      <div class="testimonial-img ">
         <video class="img-fluid rounded" autoplay muted loop playsinline preload="none" poster="${poster}">
           ${vSrc ? `<source src="${vSrc}" type="${vType}">` : ''}
           ${vLabel || ''}
