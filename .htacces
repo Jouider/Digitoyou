@@ -1,0 +1,50 @@
+# --- Enable expires for static assets ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Long cache (1 year) for hashed static assets
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  # Shorter cache for JSON/data (you can tweak)
+  ExpiresByType application/json "access plus 10 minutes"
+</IfModule>
+
+# --- Cache-Control (mirrors the above) ---
+<IfModule mod_headers.c>
+  # Long cache + immutable for fingerprinted assets
+  <FilesMatch "\.(ico|jpg|jpeg|png|gif|webp|svg|css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header append Vary "Accept-Encoding"
+  </FilesMatch>
+
+  # JSON (e.g., your projects2.json)
+  <FilesMatch "\.json$">
+    Header set Cache-Control "public, max-age=600"
+    Header append Vary "Accept-Encoding"
+  </FilesMatch>
+
+
+  # DO NOT cache HTML (always revalidate)
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Service worker & manifest: allow quick updates
+  <FilesMatch "(service-worker\.js|sw\.js|manifest\.webmanifest|manifest\.json)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --- Optional: gzip/deflate compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
