@@ -27,10 +27,15 @@
           title: 'Contactez Digitoyou | Construisons votre succès digital',
           description: 'Prenez contact avec Digitoyou. Nous répondons à vos questions et lançons ensemble votre croissance digitale.',
           keywords: 'contact Digitoyou, prise de contact, devis, consultation, appel gratuit, projet digital'
+        },
+        pricing: {
+          title: 'Nos Packs | Tarifs & Solutions digitales adaptées – Digitoyou',
+          description: 'Découvrez nos packs digitaux transparents : sites web, marketing et publicité adaptés à votre budget et vos besoins.',
+          keywords: 'tarifs Digitoyou, packs digitaux, prix création site, devis marketing digital, solutions web abordables, forfaits'
         }
       },
-      nav: { about: 'À propos', blog: 'Blog', case_client: 'Cas Client' },
-    links: { about: '/about', blog: '/blog', case_client: '/contact' },
+      nav: { about: 'À propos', blog: 'Blog', case_client: 'Cas Client' , pricing: 'Nos Packs' },
+    links: { about: '/about', blog: '/blog', case_client: '/contact', pricing: '/pricing' },
       index: {
         hero: {
           prefix: 'De votre ',
@@ -356,6 +361,96 @@
           pagination: { prev: 'Précédent', next: 'Suivant' }
         }
       },
+      // Pricing page translations
+      pricing: {
+        hero: {
+          title: 'Des packs simples, clairs et adaptés à chaque<span class="underline-3 style-2 yellow"> besoin</span>',
+          subtitle: 'Que vous soyez une PME, un indépendant ou une marque ambitieuse, Digitoyou vous accompagne avec des solutions digitales sur mesure.',
+          cta_quote: 'Demander un devis',
+          cta_expert: 'Parler à un expert'
+        },
+        packs: {
+          title: 'Nos 4 Packs',
+          subtitle: 'Des solutions adaptées à chaque étape de votre croissance digitale',
+          essential: {
+            name: 'Pack Essentiel',
+            badge: 'Populaire',
+            description: 'Pour une présence professionnelle simple et rapide',
+            feature1: 'Site vitrine (1 à 5 pages)',
+            feature2: 'Design responsive & professionnel',
+            feature3: 'Formulaire de contact / WhatsApp',
+            feature4: 'Domaine + hébergement 1 an',
+            feature5: 'Sécurisation HTTPS',
+            feature6: '1 mois de support inclus',
+            cta: 'Obtenir ce pack'
+          },
+          pro: {
+            name: 'Pack Pro',
+            badge: 'Recommandé',
+            description: 'Pour développer votre visibilité et votre image',
+            feature1: 'Tout le pack Essentiel',
+            feature2: 'Blog ou actualités optimisé SEO',
+            feature3: 'Référencement Google My Business',
+            feature4: '3 visuels / mois pour réseaux sociaux',
+            feature5: 'Suivi statistiques Google Analytics',
+            feature6: '3 mois de support et mises à jour',
+            cta: 'Je passe au niveau Pro'
+          },
+          business: {
+            name: 'Pack Business',
+            badge: 'Recommandé',
+            from: 'à partir de',
+            description: 'Pour les entreprises qui veulent vendre et automatiser',
+            feature1: 'Site e-commerce complet (paiement en ligne)',
+            feature2: 'Tout le pack Pro',
+            feature3: '5 posts + 2 stories / mois (social media)',
+            feature4: 'Campagne publicitaire Facebook / Instagram',
+            feature5: 'SEO avancé + audit trimestriel',
+            feature6: '6 mois de maintenance premium',
+            cta: 'Créer mon site Business'
+          },
+          custom: {
+            name: 'Pack Sur-Mesure',
+            badge: 'Premium',
+            from: 'à partir de',
+            description: 'Pour les projets personnalisés et ambitieux',
+            feature1: 'Étude stratégique & conception sur mesure',
+            feature2: 'UX/UI design professionnel',
+            feature3: 'Intégrations avancées (CRM, API, réservation, etc.)',
+            feature4: 'Accompagnement dédié',
+            feature5: 'Support prioritaire',
+            cta: 'Demander une étude gratuite'
+          }
+        },
+        faq: {
+          title: 'Questions fréquentes sur nos packs',
+          lead: 'Vous hésitez entre nos différents packs ? Voici les réponses aux questions les plus courantes pour vous aider à faire le bon choix.',
+          q1: {
+            q: 'Quelle est la différence entre un site vitrine et un e-commerce ?',
+            a: 'Un site vitrine présente votre activité, vos services et permet aux visiteurs de vous contacter. Un e-commerce intègre en plus un système de paiement en ligne pour vendre directement vos produits ou services sur le web.'
+          },
+          q2: {
+            q: 'Peut-on payer en plusieurs fois ?',
+            a: 'Oui, nous proposons des facilités de paiement. Généralement 30% à la commande, 40% à mi-parcours et 30% à la livraison. Pour les gros projets, nous pouvons étaler sur 3 à 6 mois selon votre situation.'
+          },
+          q3: {
+            q: 'Combien de temps pour créer un site ?',
+            a: 'Pack Essentiel : 2-3 semaines. Pack Pro : 3-4 semaines. Pack Business : 4-6 semaines. Pack Sur-Mesure : 6-12 semaines selon la complexité. Ces délais incluent la création, les révisions et la mise en ligne.'
+          },
+          q4: {
+            q: 'Puis-je changer de pack plus tard ?',
+            a: 'Absolument ! Votre site peut évoluer avec votre business. Vous pouvez upgrader vers un pack supérieur à tout moment. On vous déduira ce que vous avez déjà payé pour un passage en douceur.'
+          },
+          q5: {
+            q: 'Que comprend la maintenance ?',
+            a: 'Mises à jour de sécurité, corrections de bugs, sauvegardes régulières, monitoring, petites modifications de contenu et support technique. La durée varie selon le pack : 1 à 6 mois inclus.'
+          }
+        },
+        cta: {
+          heading: 'Besoin d\'aide pour choisir ?<br>Discutons de votre projet ensemble.',
+          button: 'Prendre RDV'
+        }
+      },
       // Footer translations
       footer: {
         logo_alt: 'Digitoyou',
@@ -401,10 +496,15 @@
           title: 'اتصل بـ Digitoyou | لنحقق نجاحك الرقمي',
           description: 'تواصل مع Digitoyou للإجابة على أسئلتك والبدء في بناء نموك الرقمي.',
           keywords: 'اتصل بـ Digitoyou, تواصل, عرض سعر, استشارة, مكالمة مجانية, مشروع رقمي'
+        },
+        pricing: {
+          title: 'حزمنا | الأسعار والحلول الرقمية المخصصة – Digitoyou',
+          description: 'اكتشف حزمنا الرقمية الشفافة: مواقع إلكترونية وتسويق وإعلانات مخصصة لميزانيتك واحتياجاتك.',
+          keywords: 'أسعار Digitoyou, حزم رقمية, أسعار المواقع, عرض تسويق رقمي, حلول ويب ميسورة, خطط'
         }
       },
-      nav: { about: 'معلومات', blog: 'مدونة', case_client: 'دراسات حالة' },
-  links: { about: '/about', blog: '/blog', case_client: '/contact' },
+      nav: { about: 'معلومات', blog: 'مدونة', case_client: 'دراسات حالة', pricing: 'أسعارنا' },
+  links: { about: '/about', blog: '/blog', case_client: '/contact', pricing: '/pricing' },
       index: {
         hero: {
           prefix: 'من نشاطك ',
@@ -619,6 +719,96 @@
           pagination: { prev: 'السابق', next: 'التالي' }
         }
       },
+      // Pricing page translations
+      pricing: {
+        hero: {
+          title: 'حزم بسيطة وواضحة ومتكيفة مع كل<span class="underline-3 style-2 yellow"> احتياج</span>',
+          subtitle: 'سواء كنت شركة صغيرة أو متوسطة، أو عامل مستقل أو علامة تجارية طموحة، تدعمك Digitoyou بحلول رقمية مخصصة.',
+          cta_quote: 'طلب عرض سعر',
+          cta_expert: 'تحدث مع خبير'
+        },
+        packs: {
+          title: 'حزمنا الأربع',
+          subtitle: 'حلول متكيفة مع كل مرحلة من مراحل نموك الرقمي',
+          essential: {
+            name: 'الحزمة الأساسية',
+            badge: 'شائع',
+            description: 'لحضور مهني بسيط وسريع',
+            feature1: 'موقع تعريفي (1 إلى 5 صفحات)',
+            feature2: 'تصميم متجاوب ومهني',
+            feature3: 'نموذج اتصال / واتساب',
+            feature4: 'نطاق + استضافة لسنة واحدة',
+            feature5: 'حماية HTTPS',
+            feature6: 'شهر واحد من الدعم مشمول',
+            cta: 'احصل على هذه الحزمة'
+          },
+          pro: {
+            name: 'الحزمة الاحترافية',
+            badge: 'موصى به',
+            description: 'لتطوير ظهورك وصورتك',
+            feature1: 'كل ما في الحزمة الأساسية',
+            feature2: 'مدونة أو أخبار محسنة لمحركات البحث',
+            feature3: 'فهرسة في Google My Business',
+            feature4: '3 صور بصرية / شهر لوسائل التواصل الاجتماعي',
+            feature5: 'تتبع إحصائيات Google Analytics',
+            feature6: '3 أشهر من الدعم والتحديثات',
+            cta: 'أنتقل إلى المستوى الاحترافي'
+          },
+          business: {
+            name: 'حزمة الأعمال',
+            badge: 'موصى به',
+            from: 'ابتداءً من',
+            description: 'للشركات التي تريد البيع والأتمتة',
+            feature1: 'موقع تجارة إلكترونية كامل (دفع أونلاين)',
+            feature2: 'كل ما في الحزمة الاحترافية',
+            feature3: '5 منشورات + 2 قصص / شهر (وسائل التواصل)',
+            feature4: 'حملة إعلانية على فيسبوك / انستغرام',
+            feature5: 'SEO متقدم + تدقيق ربع سنوي',
+            feature6: '6 أشهر صيانة ممتازة',
+            cta: 'إنشاء موقع الأعمال'
+          },
+          custom: {
+            name: 'الحزمة المخصصة',
+            badge: 'مميز',
+            from: 'ابتداءً من',
+            description: 'للمشاريع الشخصية والطموحة',
+            feature1: 'دراسة استراتيجية وتصميم مخصص',
+            feature2: 'تصميم UX/UI احترافي',
+            feature3: 'تكاملات متقدمة (CRM، API، حجوزات، إلخ)',
+            feature4: 'مرافقة مخصصة',
+            feature5: 'دعم أولوية',
+            cta: 'طلب دراسة مجانية'
+          }
+        },
+        faq: {
+          title: 'الأسئلة الشائعة حول حزمنا',
+          lead: 'تتردد بين حزمنا المختلفة؟ إليك إجابات الأسئلة الأكثر شيوعاً لمساعدتك في اتخاذ القرار الصحيح.',
+          q1: {
+            q: 'ما الفرق بين الموقع التعريفي والمتجر الإلكتروني؟',
+            a: 'الموقع التعريفي يعرض نشاطك وخدماتك ويتيح للزوار الاتصال بك. المتجر الإلكتروني يضيف نظام دفع أونلاين لبيع منتجاتك أو خدماتك مباشرة على الويب.'
+          },
+          q2: {
+            q: 'هل يمكن الدفع على أقساط؟',
+            a: 'نعم، نقدم تسهيلات في الدفع. عادة 30% عند الطلب، 40% في منتصف المشروع، و30% عند التسليم. للمشاريع الكبيرة، يمكننا التوزيع على 3 إلى 6 أشهر حسب وضعيتك.'
+          },
+          q3: {
+            q: 'كم يستغرق إنشاء موقع إلكتروني؟',
+            a: 'الحزمة الأساسية: 2-3 أسابيع. الحزمة المتقدمة: 3-4 أسابيع. حزمة الأعمال: 4-6 أسابيع. الحزمة المخصصة: 6-12 أسبوع حسب التعقيد. هذه المدد تشمل الإنشاء والمراجعات والإطلاق.'
+          },
+          q4: {
+            q: 'هل يمكنني تغيير الحزمة لاحقاً؟',
+            a: 'بالطبع! موقعك يمكن أن يتطور مع عملك. يمكنك الترقية لحزمة أعلى في أي وقت. سنخصم ما دفعته مسبقاً لانتقال سلس.'
+          },
+          q5: {
+            q: 'ماذا تشمل الصيانة؟',
+            a: 'تحديثات الأمان، إصلاح الأخطاء، النسخ الاحتياطية المنتظمة، المراقبة، تعديلات صغيرة على المحتوى والدعم التقني. المدة تختلف حسب الحزمة: من 1 إلى 6 أشهر مشمولة.'
+          }
+        },
+        cta: {
+          heading: 'تحتاج مساعدة في الاختيار؟<br>لنناقش مشروعك معاً.',
+          button: 'حجز موعد'
+        }
+      },
       // Footer translations (Arabic)
       footer: {
         logo_alt: 'ديجيتويو',
@@ -650,10 +840,15 @@
           title: 'Contact Digitoyou | Let’s Build Your Digital Success',
           description: 'Get in touch with Digitoyou. We’re here to answer your questions and start building your digital growth.',
           keywords: 'contact Digitoyou, get in touch, quote, consultation, free call, digital project'
+        },
+        pricing: {
+          title: 'Our Packs | Pricing & Digital Solutions Tailored – Digitoyou',
+          description: 'Discover our transparent digital packages: websites, marketing and advertising tailored to your budget and needs.',
+          keywords: 'Digitoyou pricing, digital packages, website prices, digital marketing quote, affordable web solutions, plans'
         }
       },
-      nav: { about: 'About', blog: 'Blog', case_client: 'Case Studies' },
-  links: { about: '/about', blog: '/blog', case_client: '/contact' },
+      nav: { about: 'About', blog: 'Blog', case_client: 'Case Studies' , pricing: 'Our Packs' },
+  links: { about: '/about', blog: '/blog', case_client: '/contact', pricing: '/pricing' },
       index: {
         hero: {
           prefix: 'From your ',
@@ -993,6 +1188,97 @@
             }
           },
           pagination: { prev: 'Previous', next: 'Next' }
+        }
+      },
+      // Pricing page translations
+      pricing: {
+        hero: {
+          title: 'Simple, clear packages adapted to every<span class="underline-3 style-2 yellow"> need</span>',
+          subtitle: 'Whether you are an SME, a freelancer or an ambitious brand, Digitoyou supports you with tailor-made digital solutions.',
+          cta_quote: 'Request a quote',
+          cta_expert: 'Talk to an expert'
+        },
+        packs: {
+          title: 'Our 4 Packages',
+          subtitle: 'Solutions adapted to every stage of your digital growth',
+          essential: {
+            name: 'Essential Pack',
+            badge: 'Popular',
+            description: 'For a simple and fast professional presence',
+            feature1: 'Showcase website (1 to 5 pages)',
+            feature2: 'Responsive & professional design',
+            feature3: 'Contact form / WhatsApp',
+            feature4: 'Domain + hosting 1 year',
+            feature5: 'HTTPS security',
+            feature6: '1 month support included',
+            cta: 'Get this pack'
+          },
+          pro: {
+            name: 'Pro Pack',
+            badge: 'Recommended',
+            from: 'starting from',
+            description: 'To develop your visibility and image',
+            feature1: 'Everything in Essential pack',
+            feature2: 'SEO-optimized blog or news',
+            feature3: 'Google My Business listing',
+            feature4: '3 visuals/month for social media',
+            feature5: 'Google Analytics tracking',
+            feature6: '3 months support & updates',
+            cta: 'Upgrade to Pro level'
+          },
+          business: {
+            name: 'Business Pack',
+            badge: 'Recommended',
+            from: 'starting from',
+            description: 'For businesses that want to sell and automate',
+            feature1: 'Complete e-commerce site (online payment)',
+            feature2: 'Everything in Pro pack',
+            feature3: '5 posts + 2 stories/month (social media)',
+            feature4: 'Facebook / Instagram advertising campaign',
+            feature5: 'Advanced SEO + quarterly audit',
+            feature6: '6 months premium maintenance',
+            cta: 'Create my Business site'
+          },
+          custom: {
+            name: 'Custom Pack',
+            badge: 'Premium',
+            from: 'starting from',
+            description: 'For personalized and ambitious projects',
+            feature1: 'Strategic study & custom design',
+            feature2: 'Professional UX/UI design',
+            feature3: 'Advanced integrations (CRM, API, booking, etc.)',
+            feature4: 'Dedicated support',
+            feature5: 'Priority support',
+            cta: 'Request a free study'
+          }
+        },
+        faq: {
+          title: 'Frequently Asked Questions about our packages',
+          lead: 'Hesitating between our different packages? Here are the answers to the most common questions to help you make the right choice.',
+          q1: {
+            q: 'What is the difference between a showcase website and an e-commerce?',
+            a: 'A showcase website presents your activity, your services and allows visitors to contact you. An e-commerce additionally integrates an online payment system to sell your products or services directly on the web.'
+          },
+          q2: {
+            q: 'Can we pay in installments?',
+            a: 'Yes, we offer payment facilities. Generally 30% on order, 40% midway and 30% on delivery. For large projects, we can spread over 3 to 6 months depending on your situation.'
+          },
+          q3: {
+            q: 'How long does it take to create a website?',
+            a: 'Essential Pack: 2-3 weeks. Pro Pack: 3-4 weeks. Business Pack: 4-6 weeks. Custom Pack: 6-12 weeks depending on complexity. These deadlines include creation, revisions and going live.'
+          },
+          q4: {
+            q: 'Can I change packages later?',
+            a: 'Absolutely! Your site can evolve with your business. You can upgrade to a higher package at any time. We will deduct what you have already paid for a smooth transition.'
+          },
+          q5: {
+            q: 'What does maintenance include?',
+            a: 'Security updates, bug fixes, regular backups, monitoring, small content changes and technical support. Duration varies by package: 1 to 6 months included.'
+          }
+        },
+        cta: {
+          heading: 'Need help choosing?<br>Let\'s discuss your project together.',
+          button: 'Book Appointment'
         }
       },
       // Footer translations
