@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import BrandMarquee from '../components/BrandMarquee.astro';
+import FAQ from '../components/FAQ.astro';
+import FAQPricing from '../components/FAQ-Pricing.astro';
+import DeliverySec from '../components/DeliverySec.astro';
+import PricingCard from '../components/PricingCard.astro';
+---
+<Base title="Digitoyou - Nos Packs" metaTitle="pricing">
+    <Fragment slot="head">
+        <style is:global>
+          .btn-whatsapp svg {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
+        </style>
+        <script is:inline>
+          document.addEventListener('DOMContentLoaded', function() {
+            const whatsappBtn = document.getElementById('whatsapp-expert-btn');
+            if (whatsappBtn) {
+              whatsappBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get current language from localStorage or default to 'fr'
+                const currentLang = localStorage.getItem('site_lang') || 'fr';
+                
+                // Messages par langue
+                const messages = {
+                  fr: "Bonjour ! Je souhaite discuter de mes besoins en création de site web et obtenir des conseils personnalisés pour choisir le bon pack.",
+                  en: "Hello! I would like to discuss my website creation needs and get personalized advice to choose the right package.",
+                  ar: "مرحباً! أود مناقشة احتياجاتي لإنشاء موقع إلكتروني والحصول على نصائح شخصية لاختيار الحزمة المناسبة."
+                };
+                
+                const message = messages[currentLang] || messages.fr;
+                const phoneNumber = '212662160763';
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                
+                window.open(whatsappUrl, '_blank');
+              });
+            }
+          });
+        </script>
+      </Fragment>
+
+<section class="wrapper bg-soft-primary" data-image-src="./assets/img/photos/bg16.png">
+  <div class="container pt-17 pb-0 pt-md-18 pb-md-0 text-center">
+    <div class="row">
+      <div class="col-lg-8 col-xl-7 col-xxl-6 mx-auto" data-cues="slideInDown" data-group="page-title">
+        <h1 class="display-1  fs-60 mb-4" data-i18n-html="pricing.hero.title">Des packs simples, clairs et adaptés à chaque<span class="underline-3 style-2 yellow"> besoin</span></h1>
+        <p class="lead lh-sm mb-7 mx-md-13 mx-lg-10" data-i18n="pricing.hero.subtitle">Que vous soyez une PME, un indépendant ou une marque ambitieuse, Digitoyou vous accompagne avec des solutions digitales sur mesure.</p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+          <a href="/appointment" class="btn btn-white rounded-pill mb-10 mb-xxl-5" data-i18n="pricing.hero.cta_quote">Demander un devis </a>
+          <a href="#" class="btn btn-whatsapp rounded-pill d-inline-flex align-items-center justify-content-center gap-2 mb-10 mb-xxl-5" id="whatsapp-expert-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" focusable="false" role="img">
+              <path fill="currentColor" d="M16.04 3C9.39 3 4 8.39 4 15.04c0 2.65.87 5.11 2.35 7.12L4.05 29l6.95-2.24a12.01 12.01 0 0 0 5.04 1.12c6.65 0 12.04-5.39 12.04-12.04C28.08 8.39 22.69 3 16.04 3zm0 21.58c-1.68 0-3.32-.45-4.76-1.31l-.34-.2-4.12 1.33 1.34-4.01-.22-.35a10.01 10.01 0 1 1 8.1 4.54zm5.6-7.14c-.31-.16-1.82-.9-2.1-1-.28-.1-.48-.16-.68.16-.2.31-.78.99-.95 1.2-.17.2-.35.23-.66.08-.31-.16-1.32-.49-2.5-1.56-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.48.13-.63.13-.13.31-.35.46-.52.15-.18.2-.31.31-.52.1-.2.05-.39-.02-.55-.07-.16-.68-1.64-.93-2.25-.24-.58-.49-.5-.68-.51-.18-.01-.39-.01-.6-.01s-.55.08-.84.39c-.28.31-1.1 1.08-1.1 2.63 0 1.55 1.13 3.05 1.29 3.26.16.2 2.2 3.36 5.32 4.72.74.32 1.32.51 1.77.65.74.23 1.42.2 1.95.12.59-.09 1.82-.74 2.08-1.46.26-.72.26-1.34.18-1.46-.07-.12-.28-.2-.59-.35z"/>
+            </svg>
+            <span data-i18n="pricing.hero.cta_expert">Parler à un expert</span>
+          </a>
+        </div>
+      </div>
+      <!-- /column -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+  <div class="overflow-hidden">
+    <div class="divider text-light mx-n2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60"><path fill="currentColor" d="M0,0V60H1440V0A5771,5771,0,0,1,0,0Z"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="wrapper bg-light">
+  <div class="container py-2 py-md-4">
+    <div class="row">
+      <div class="col-lg-10 col-xl-8 mx-auto text-center ">
+        <h2 class="display-4 mb-4" data-i18n="pricing.packs.title">Nos 4 Packs</h2>
+        <p class="lead" data-i18n="pricing.packs.subtitle">Des solutions adaptées à chaque étape de votre croissance digitale</p>
+      </div>
+    </div>
+    <div class="row gy-6 mt-5">
+      <!-- Pack Essentiel -->
+      <PricingCard 
+        name="essential"
+        price="390"
+        description="Pour une présence professionnelle simple et rapide"
+        features={[
+          "Site vitrine (1 à 5 pages)",
+          "Design responsive & professionnel", 
+          "Formulaire de contact / WhatsApp",
+          "Domaine + hébergement 1 an",
+          "Sécurisation HTTPS",
+          "1 mois de support inclus"
+        ]}
+        cta="Obtenir ce pack"
+        color="primary"
+        badge="Populaire"
+      />
+
+      <!-- Pack Pro -->
+      <PricingCard 
+        name="pro"
+        price="590"
+        description="Pour développer votre visibilité et votre image"
+        features={[
+          "Tout le pack Essentiel",
+          "Blog ou actualités optimisé SEO",
+          "Référencement Google My Business", 
+          "3 visuels / mois pour réseaux sociaux",
+          "Suivi statistiques Google Analytics",
+          "3 mois de support et mises à jour"
+        ]}
+        cta="Je passe au niveau Pro"
+        badge="Recommandé"
+        color="purple"
+      />
+
+      <!-- Pack Business -->
+      <PricingCard 
+        name="business"
+        price="990"
+        description="Pour les entreprises qui veulent vendre et automatiser"
+        features={[
+          "Site e-commerce complet (paiement en ligne)",
+          "Tout le pack Pro",
+          "5 posts + 2 stories / mois (social media)",
+          "Campagne publicitaire Facebook / Instagram",
+          "SEO avancé + audit trimestriel",
+          "6 mois de maintenance premium"
+        ]}
+        cta="Créer mon site Business"
+        color="primary"
+        isCustom={true}
+        customPricePrefix="à partir de"
+      />
+
+      <!-- Pack Sur-Mesure -->
+      <PricingCard 
+        name="custom"
+        price="1500"
+        description="Pour les projets personnalisés et ambitieux"
+        features={[
+          "Étude stratégique & conception sur mesure",
+          "UX/UI design professionnel",
+          "Intégrations avancées (CRM, API, réservation, etc.)",
+          "Accompagnement dédié",
+          "Support prioritaire"
+        ]}
+        cta="Demander une étude gratuite"
+        color="primary"
+        isCustom={true}
+        customPricePrefix="à partir de"
+      />
+    </div>
+  </div>
+</section>
+<!-- /section -->
+
+<FAQPricing />
+
+</Base>

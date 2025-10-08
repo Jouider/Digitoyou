@@ -1,0 +1,115 @@
+---
+export interface Props {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  cta: string;
+  color: 'success' | 'primary' | 'purple' | 'dark';
+  badge?: string;
+  isCustom?: boolean;
+  customPricePrefix?: string;
+  href?: string;
+}
+
+const { 
+  name, 
+  price, 
+  description, 
+  features, 
+  cta, 
+  color, 
+  badge, 
+  isCustom = false, 
+  customPricePrefix,
+  href = "/appointment"
+} = Astro.props;
+
+const colorClasses = {
+  success: {
+    bg: 'bg-success',
+    text: 'text-success',
+    bullet: 'bullet-success',
+    btn: 'btn-success',
+    soft: 'bg-soft-success'
+  },
+  primary: {
+    bg: 'bg-primary',
+    text: 'text-primary',
+    bullet: 'bullet-primary',
+    btn: 'btn-primary',
+    soft: 'bg-soft-primary'
+  },
+  purple: {
+    bg: 'bg-dark',
+    text: 'text-dark',
+    bullet: 'bullet-dark',
+    btn: 'btn-dark',
+    soft: 'bg-soft-primary'
+  },
+  dark: {
+    bg: 'bg-dark',
+    text: 'text-dark',
+    bullet: 'bullet-dark',
+    btn: 'btn-dark',
+    soft: 'bg-soft-primary'
+  }
+};
+
+const currentColor = colorClasses[color];
+const cardClass = color === 'purple' ? `pricing card border-0 shadow-lg ${currentColor.soft}` : 'pricing card border-0 shadow-lg';
+const badgeClass = color === 'purple' || color === 'dark' ? 
+  `badge ${currentColor.bg} text-white rounded-pill mb-1` : 
+  `badge ${currentColor.soft} ${currentColor.text} rounded-pill mb-1`;
+---
+
+<div class="col-lg-6 col-xl-3 d-flex">
+  <div class={`${cardClass} w-100`}>
+    <div class="card-body p-6 d-flex flex-column">
+      <div class="d-flex align-items-center mb-4">
+        <div>
+          <h2 class="card-title mb-0" data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.name`}>
+            {name}
+          </h2>
+        {badge && (
+            <span class={badgeClass} data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.badge`}>
+              {badge}
+            </span>
+          )}
+        </div>
+      </div>
+      
+      <div class="prices text-dark mb-4">
+        {isCustom && customPricePrefix && (
+          <>
+            <span class="text-muted fs-16" data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.from`}>
+              {customPricePrefix}
+            </span>
+            <br>
+          </>
+        )}
+        <span class="price-currency fs-18">€</span>
+        <span class={`price-value display-4 fw-bold ${currentColor.text}`}>{price}</span>
+      </div>
+      
+      <p class="text-muted mb-4" data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.description`}>
+        {description}
+      </p>
+      
+      <ul class={`icon-list bullet-bg ${currentColor.bullet} mt-4 mb-6 flex-grow-1`}>
+        {features.map((feature, index) => (
+          <li>
+            <i class="uil uil-check"></i>
+            <span data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.feature${index + 1}`} class="fs-15">
+              {feature}
+            </>
+          </li>
+        ))}
+      </ul>
+      
+      <a href={href} class={`btn ${currentColor.btn} rounded-pill w-100 mt-auto`} data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.cta`}>
+        {cta}
+      </a>
+    </div>
+  </div>
+</div>
