@@ -412,7 +412,7 @@
           custom: {
             name: 'Pack Sur-Mesure',
             badge: 'Premium',
-            from: 'à partir de',
+            from: 'Sur devis',
             description: 'Pour les projets personnalisés et ambitieux',
             feature1: 'Étude stratégique & conception sur mesure',
             feature2: 'UX/UI design professionnel',
@@ -770,7 +770,7 @@
           custom: {
             name: 'الحزمة المخصصة',
             badge: 'مميز',
-            from: 'ابتداءً من',
+            from: 'حسب العرض',
             description: 'للمشاريع الشخصية والطموحة',
             feature1: 'دراسة استراتيجية وتصميم مخصص',
             feature2: 'تصميم UX/UI احترافي',
@@ -1242,7 +1242,7 @@
           custom: {
             name: 'Custom Pack',
             badge: 'Premium',
-            from: 'starting from',
+            from: 'On quote',
             description: 'For personalized and ambitious projects',
             feature1: 'Strategic study & custom design',
             feature2: 'Professional UX/UI design',

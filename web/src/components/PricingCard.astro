@@ -80,16 +80,28 @@ const badgeClass = color === 'purple' || color === 'dark' ?
       </div>
       
       <div class="prices text-dark mb-4">
-        {isCustom && customPricePrefix && (
+        {isCustom && customPricePrefix && price === "" ? (
+          <span class={`display-4 fw-bold ${currentColor.text}`} data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.from`}>
+            {customPricePrefix}
+          </span>
+        ) : (
           <>
-            <span class="text-muted fs-16" data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.from`}>
-              {customPricePrefix}
-            </span>
-            <br>
+            {isCustom && customPricePrefix && (
+              <>
+                <span class="text-muted fs-16" data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.from`}>
+                  {customPricePrefix}
+                </span>
+                <br>
+              </>
+            )}
+            {price && (
+              <>
+                <span class="price-currency fs-18">€</span>
+                <span class={`price-value display-4 fw-bold ${currentColor.text}`}>{price}</span>
+              </>
+            )}
           </>
         )}
-        <span class="price-currency fs-18">€</span>
-        <span class={`price-value display-4 fw-bold ${currentColor.text}`}>{price}</span>
       </div>
       
       <p class="text-muted mb-4" data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.description`}>
