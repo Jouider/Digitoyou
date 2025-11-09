@@ -36,6 +36,10 @@
       },
       nav: { about: 'À propos', blog: 'Blog', case_client: 'Cas Client' , pricing: 'Nos Packs' },
     links: { about: '/about', blog: '/blog', case_client: '/contact', pricing: '/pricing' },
+      whatsapp: {
+        tooltip: '💬 Besoin d\'aide ? Parlons maintenant !',
+        aria_label: 'Contactez-nous sur WhatsApp'
+      },
       index: {
         hero: {
           prefix: 'De votre ',
@@ -505,6 +509,10 @@
       },
       nav: { about: 'معلومات', blog: 'مدونة', case_client: 'دراسات حالة', pricing: 'أسعارنا' },
   links: { about: '/about', blog: '/blog', case_client: '/contact', pricing: '/pricing' },
+      whatsapp: {
+        tooltip: '💬 هل تحتاج مساعدة؟ دعنا نتحدث الآن!',
+        aria_label: 'اتصل بنا عبر واتساب'
+      },
       index: {
         hero: {
           prefix: 'من نشاطك ',
@@ -849,6 +857,10 @@
       },
       nav: { about: 'About', blog: 'Blog', case_client: 'Case Studies' , pricing: 'Our Packs' },
   links: { about: '/about', blog: '/blog', case_client: '/contact', pricing: '/pricing' },
+      whatsapp: {
+        tooltip: '💬 Need help? Let\'s talk now!',
+        aria_label: 'Contact us on WhatsApp'
+      },
       index: {
         hero: {
           prefix: 'From your ',
