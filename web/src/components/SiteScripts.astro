@@ -10,6 +10,177 @@
 <!-- Local script in src/ — let Astro process it. NO other attributes! -->
 <script src="../scripts/site-loader.js"></script>
 
+<!-- WhatsApp location-based phone number -->
+<script is:inline>
+  // WhatsApp phone numbers by location
+  const phoneNumbers = {
+    morocco: {
+      whatsapp: '212708156603',
+      display: '+212 708 156 603',
+      tel: '+212708156603'
+    },
+    international: {
+      whatsapp: '32466903791',
+      display: '+32 466 903 791',
+      tel: '+32466903791'
+    }
+  };
+
+  // Detect user location (used globally)
+  async function detectUserLocation() {
+    try {
+      const cachedLocation = localStorage.getItem('user_location');
+      const cacheTimestamp = localStorage.getItem('location_timestamp');
+      const oneHour = 60 * 60 * 1000; // 1 hour cache
+      
+      // Return cached if valid
+      if (cachedLocation && cacheTimestamp && (Date.now() - parseInt(cacheTimestamp)) < oneHour) {
+        console.log('✅ Using cached location:', cachedLocation);
+        return cachedLocation;
+      }
+      
+      console.log('🔍 Fetching location from API...');
+      
+      // Try primary API
+      try {
+        const response = await fetch('https://ipapi.co/json/', {
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          console.log('📍 API Response:', data);
+          const userCountry = data.country_code || data.country;
+          
+          if (userCountry) {
+            localStorage.setItem('user_location', userCountry);
+            localStorage.setItem('location_timestamp', Date.now().toString());
+            console.log('💾 Location cached:', userCountry);
+            return userCountry;
+          }
+        }
+      } catch (apiError) {
+        console.warn('⚠️ Primary API failed, trying backup...', apiError);
+      }
+      
+      // Fallback to ip-api.com
+      try {
+        const backupResponse = await fetch('http://ip-api.com/json/');
+        const backupData = await backupResponse.json();
+        const userCountry = backupData.countryCode;
+        
+        if (userCountry) {
+          localStorage.setItem('user_location', userCountry);
+          localStorage.setItem('location_timestamp', Date.now().toString());
+          console.log('💾 Location cached (backup API):', userCountry);
+          return userCountry;
+        }
+      } catch (backupError) {
+        console.error('❌ Backup API also failed:', backupError);
+      }
+      
+      // Default to international
+      return 'US';
+    } catch (error) {
+      console.error('❌ Location detection failed:', error);
+      return localStorage.getItem('user_location') || 'US';
+    }
+  }
+
+  // Update all phone numbers and WhatsApp links based on location
+  async function updatePhoneNumbers() {
+    try {
+      // Detect location first
+      const userCountry = await detectUserLocation();
+      
+      console.log(`🔍 Current location: ${userCountry}`);
+      
+      const isInMorocco = userCountry === 'MA';
+      const numbers = isInMorocco ? phoneNumbers.morocco : phoneNumbers.international;
+      
+      console.log(`📱 Updating phone numbers for: ${isInMorocco ? 'Morocco 🇲🇦' : 'International 🌍'}`);
+      console.log(`📞 New WhatsApp: ${numbers.whatsapp}, Display: ${numbers.display}`);
+      
+      // Update i18n translations for phone numbers
+      if (window.translations) {
+        ['fr', 'en', 'ar'].forEach(lang => {
+          if (window.translations[lang] && window.translations[lang].footer) {
+            window.translations[lang].footer.contact.phone = numbers.display;
+          }
+        });
+      }
+      
+      // Update WhatsApp Float Bubble
+      const whatsappFloat = document.getElementById('whatsapp-float-bubble');
+      if (whatsappFloat) {
+        const oldHref = whatsappFloat.href;
+        whatsappFloat.href = `https://wa.me/${numbers.whatsapp}`;
+        console.log(`✅ WhatsApp bubble updated: ${oldHref} → ${whatsappFloat.href}`);
+      } else {
+        console.warn('⚠️ WhatsApp bubble not found');
+      }
+      
+      // Update all WhatsApp links with class
+      const whatsappLinks = document.querySelectorAll('.dynamic-whatsapp-link');
+      console.log(`Found ${whatsappLinks.length} dynamic WhatsApp links`);
+      whatsappLinks.forEach(link => {
+        link.href = `https://wa.me/${numbers.whatsapp}`;
+      });
+      
+      // Update Footer phone link
+      const footerPhoneLink = document.getElementById('footer-phone-link');
+      if (footerPhoneLink) {
+        footerPhoneLink.href = `tel:${numbers.tel}`;
+        footerPhoneLink.textContent = numbers.display;
+        footerPhoneLink.setAttribute('aria-label', `Appeler ${numbers.display}`);
+      }
+      
+      // Update all phone text elements
+      const phoneTexts = document.querySelectorAll('.dynamic-phone-text');
+      phoneTexts.forEach(text => {
+        text.textContent = numbers.display;
+      });
+      
+      // Update WhatsApp expert button on pricing page
+      const whatsappExpertBtn = document.getElementById('whatsapp-expert-btn');
+      if (whatsappExpertBtn) {
+        whatsappExpertBtn.setAttribute('data-phone', numbers.whatsapp);
+      }
+      
+      console.log(`✅ All phone numbers updated to: ${numbers.display}`);
+      
+      // Trigger event for pricing page
+      window.dispatchEvent(new CustomEvent('phoneNumbersUpdated', { 
+        detail: { country: userCountry, numbers: numbers }
+      }));
+      
+    } catch (error) {
+      console.error('Failed to update phone numbers:', error);
+    }
+  }
+
+  // Run on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updatePhoneNumbers);
+  } else {
+    updatePhoneNumbers();
+  }
+  
+  // Also listen for storage changes (when location is updated on pricing page)
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'user_location') {
+      console.log('🔄 Location changed in storage, updating phone numbers...');
+      updatePhoneNumbers();
+    }
+  });
+  
+  // Custom event listener for same-window updates
+  window.addEventListener('locationUpdated', function() {
+    console.log('🔄 Location updated event received, refreshing phone numbers...');
+    setTimeout(updatePhoneNumbers, 100);
+  });
+</script>
+
 <style>
   figure.overlay span.bg { pointer-events: none; }
 </style>

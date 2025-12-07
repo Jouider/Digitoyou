@@ -395,7 +395,7 @@
             feature1: 'Tout le pack Essentiel',
             feature2: 'Blog ou actualités optimisé SEO',
             feature3: 'Référencement Google My Business',
-            feature4: '3 visuels / mois pour réseaux sociaux',
+            feature4: 'Optimisation SEO avancée',
             feature5: 'Suivi statistiques Google Analytics',
             feature6: '3 mois de support et mises à jour',
             cta: 'Je passe au niveau Pro'
@@ -407,8 +407,8 @@
             description: 'Pour les entreprises qui veulent vendre et automatiser',
             feature1: 'Site e-commerce complet (paiement en ligne)',
             feature2: 'Tout le pack Pro',
-            feature3: '5 posts + 2 stories / mois (social media)',
-            feature4: 'Campagne publicitaire Facebook / Instagram',
+            feature3: 'Intégration passerelle de paiement',
+            feature4: 'Gestion avancée des produits',
             feature5: 'SEO avancé + audit trimestriel',
             feature6: '6 mois de maintenance premium',
             cta: 'Créer mon site Business'
@@ -462,7 +462,7 @@
         contact: {
           title: 'Contact',
           email: 'hello@digitoyou.com',
-          phone: '+212 662-160763'
+          phone: '+212 708 156 603'
         },
         resources: {
           title: 'Ressources',
@@ -757,7 +757,7 @@
             feature1: 'كل ما في الحزمة الأساسية',
             feature2: 'مدونة أو أخبار محسنة لمحركات البحث',
             feature3: 'فهرسة في Google My Business',
-            feature4: '3 صور بصرية / شهر لوسائل التواصل الاجتماعي',
+            feature4: 'تحسين SEO متقدم',
             feature5: 'تتبع إحصائيات Google Analytics',
             feature6: '3 أشهر من الدعم والتحديثات',
             cta: 'أنتقل إلى المستوى الاحترافي'
@@ -769,8 +769,8 @@
             description: 'للشركات التي تريد البيع والأتمتة',
             feature1: 'موقع تجارة إلكترونية كامل (دفع أونلاين)',
             feature2: 'كل ما في الحزمة الاحترافية',
-            feature3: '5 منشورات + 2 قصص / شهر (وسائل التواصل)',
-            feature4: 'حملة إعلانية على فيسبوك / انستغرام',
+            feature3: 'تكامل بوابة الدفع',
+            feature4: 'إدارة متقدمة للمنتجات',
             feature5: 'SEO متقدم + تدقيق ربع سنوي',
             feature6: '6 أشهر صيانة ممتازة',
             cta: 'إنشاء موقع الأعمال'
@@ -821,7 +821,7 @@
       footer: {
         logo_alt: 'ديجيتويو',
         copyright: 'ديجيتويو © 2025. كل الحقوق محفوظة.',
-        contact: { title: 'اتصل', email: 'hello@digitoyou.com', phone: '+212 662-160763' },
+        contact: { title: 'اتصل', email: 'hello@digitoyou.com', phone: '+212 708 156 603' },
         resources: { title: 'الموارد', blog: 'مدونة', legal: 'ملاحظات قانونية', privacy: 'سياسة الخصوصية' },
         discover: { title: 'اكتشف', about: 'معلومات عنا', services: 'خدماتنا' }
       }
@@ -1233,7 +1233,7 @@
             feature1: 'Everything in Essential pack',
             feature2: 'SEO-optimized blog or news',
             feature3: 'Google My Business listing',
-            feature4: '3 visuals/month for social media',
+            feature4: 'Advanced SEO optimization',
             feature5: 'Google Analytics tracking',
             feature6: '3 months support & updates',
             cta: 'Upgrade to Pro level'
@@ -1245,8 +1245,8 @@
             description: 'For businesses that want to sell and automate',
             feature1: 'Complete e-commerce site (online payment)',
             feature2: 'Everything in Pro pack',
-            feature3: '5 posts + 2 stories/month (social media)',
-            feature4: 'Facebook / Instagram advertising campaign',
+            feature3: 'Payment gateway integration',
+            feature4: 'Advanced product management',
             feature5: 'Advanced SEO + quarterly audit',
             feature6: '6 months premium maintenance',
             cta: 'Create my Business site'
@@ -1300,7 +1300,7 @@
         contact: {
           title: 'Contact',
           email: 'hello@digitoyou.com',
-          phone: '+212 662-160763'
+          phone: '+212 708 156 603'
         },
         resources: {
           title: 'Resources',
