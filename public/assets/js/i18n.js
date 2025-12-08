@@ -126,6 +126,12 @@
           satisfied: 'Clients satisfaits',
           experts: 'Experts à votre service'
         },
+        instagram: {
+          subtitle: 'Suivez-nous',
+          title: 'Nos dernières actualités Instagram',
+          description: 'Découvrez nos projets, conseils et inspirations digitales',
+          cta: 'Suivez-nous @digitoyou'
+        },
         about: {
           card: {
             remote: {
@@ -562,6 +568,12 @@
         realizations: { small: 'أعمالنا', title: 'مشاريعنا الأخيرة' },
         clients: { heading: 'أكثر من <span class="text-warning">50 عميل</span> راضٍ.<br>هل ستكون التالي؟' },
         counters: { completed: 'المشروعات المنجزة', satisfied: 'عملاء راضون', experts: 'خبراء في خدمتك' },
+        instagram: {
+          subtitle: 'تابعنا',
+          title: 'آخر أخبارنا على إنستغرام',
+          description: 'اكتشف مشاريعنا ونصائحنا وإلهامنا الرقمي',
+          cta: 'تابعنا @digitoyou'
+        },
         about: {
           card: { remote: { heading: 'عن بُعد 100%', sub: 'وكالة رقمية' } },
           hero: { h1: 'ديجيتويو، الرقمي يصبح لك.', lead: 'نصمم مواقع حديثة وفعّالة تعكس هويتك وتجذب عملاءك وتحول كل زيارة إلى فرصة.', cta_button: 'احجز استشارتك المجانية' },
@@ -947,6 +959,12 @@
           completed: 'Completed Projects',
           satisfied: 'Satisfied Customers',
           experts: 'Experts at your service'
+        },
+        instagram: {
+          subtitle: 'Follow us',
+          title: 'Our latest Instagram updates',
+          description: 'Discover our projects, tips and digital inspiration',
+          cta: 'Follow us @digitoyou'
         },
         about: {
           card: {
