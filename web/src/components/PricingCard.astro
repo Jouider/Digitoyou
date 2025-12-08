@@ -10,6 +10,7 @@ export interface Props {
   isCustom?: boolean;
   customPricePrefix?: string;
   href?: string;
+  packKey?: string; // Key for dynamic pricing (e.g., 'essential', 'pro', 'business')
 }
 
 const { 
@@ -22,7 +23,8 @@ const {
   badge, 
   isCustom = false, 
   customPricePrefix,
-  href = "/appointment"
+  href = "/appointment",
+  packKey
 } = Astro.props;
 
 const colorClasses = {
@@ -79,7 +81,7 @@ const badgeClass = color === 'purple' || color === 'dark' ?
         </div>
       </div>
       
-      <div class="prices text-dark mb-4">
+      <div class="prices text-dark mb-4 price-loading" data-pack-name={packKey}>
         {isCustom && customPricePrefix && price === "" ? (
           <span class={`display-4 fw-bold ${currentColor.text}`} data-i18n={`pricing.packs.${name.toLowerCase().replace(/\s+/g, '')}.from`}>
             {customPricePrefix}
