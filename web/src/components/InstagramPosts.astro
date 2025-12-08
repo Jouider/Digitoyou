@@ -1,0 +1,52 @@
+---
+// Instagram Feed Component using Elfsight
+---
+
+<section class="wrapper bg-light" id="instagram-section">
+  <div class="container py-14 py-md-16">
+    <!-- Elfsight Instagram Feed -->
+    <div class="row">
+      <div class="col-12">
+        <div class="elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637" data-elfsight-app-lazy></div>
+      </div>
+    </div>
+
+    <!-- CTA to Instagram Profile -->
+    <div class="text-center mt-8">
+      <a href="https://www.instagram.com/digitoyou/" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-primary rounded-pill">
+        <i class="uil uil-instagram me-2"></i>
+        <span data-i18n="index.instagram.cta">Suivez-nous @digitoyou</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Elfsight Instagram Feed Script -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+
+<style>
+  /* Ensure Elfsight widget is responsive */
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 {
+    width: 100%;
+  }
+  
+  /* Hide Elfsight branding badge and free widget text */
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 [class*="eapps-link"],
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 [class*="eapps-branding"],
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 a[href*="elfsight"],
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 [class*="eapps-instagram-feed-title"],
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 div[class*="header"],
+  #instagram-section div[class*="eapps-instagram-feed-header"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+  
+  /* Additional fallback to hide any text containing "Free" */
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 *:has-text("Free"),
+  #instagram-section .elfsight-app-2629ee21-1417-4f37-bd07-21d9cea25637 *:contains("Free") {
+    display: none !important;
+  }
+</style>
