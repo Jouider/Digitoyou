@@ -1,0 +1,44 @@
+---
+/**
+ * Section Header Component
+ * Provides consistent section title and subtitle styling
+ */
+
+interface Props {
+  subtitle?: string;
+  title?: string;
+  subtitleKey?: string;
+  titleKey?: string;
+  dark?: boolean;
+  class?: string;
+}
+
+const { 
+  subtitle, 
+  title, 
+  subtitleKey, 
+  titleKey, 
+  dark = false, 
+  class: className = '' 
+} = Astro.props;
+---
+
+<div class={`section-header ${className}`}>
+  {(subtitle || subtitleKey) && (
+    <h2 
+      class="section-header-subtitle" 
+      data-i18n={subtitleKey}
+    >
+      {subtitle}
+    </h2>
+  )}
+  {(title || titleKey) && (
+    <h3 
+      class="section-header-title" 
+      data-i18n={titleKey}
+    >
+      {title}
+    </h3>
+  )}
+  <slot />
+</div>

@@ -1,0 +1,139 @@
+/* ===================================================================
+   DIGITOYOU BUTTON STYLES
+   Centralized button components using design tokens
+   =================================================================== */
+
+/* ===== PRIMARY CTA (Glass Morphism) ===== */
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  position: relative;
+  overflow: visible;
+}
+
+/* Desktop Glass Effect */
+@media (min-width: 1024px) {
+  .hero-section-dark .cta-primary {
+    background: rgba(185, 226, 125, var(--opacity-medium)) !important;
+    border: 1px solid var(--color-border-white-soft) !important;
+    color: var(--color-text-dark) !important;
+    box-shadow: var(--shadow-soft-md) !important;
+    backdrop-filter: var(--blur-sm);
+    -webkit-backdrop-filter: var(--blur-sm);
+  }
+
+  .hero-section-dark .cta-primary:hover {
+    background: rgba(185, 226, 125, var(--opacity-strong)) !important;
+    box-shadow: var(--shadow-soft-lg) !important;
+    transform: translateY(-1px);
+    border-color: var(--color-border-white-medium) !important;
+  }
+
+  .hero-section-dark .cta-primary:hover i {
+    transform: translateX(2px);
+  }
+}
+
+/* Mobile Solid Style */
+@media (max-width: 1023px) {
+  .hero-section-dark .cta-primary {
+    background: var(--color-accent-green) !important;
+    border: 1px solid var(--color-border-green-soft) !important;
+    color: var(--color-text-dark) !important;
+    box-shadow: var(--shadow-card) !important;
+  }
+
+  .hero-section-dark .cta-primary:hover,
+  .hero-section-dark .cta-primary:active {
+    background: var(--color-accent-green-hover) !important;
+    transform: scale(0.98);
+    box-shadow: var(--shadow-card) !important;
+  }
+}
+
+/* Active State */
+.cta-primary:active {
+  transform: translateY(0) scale(0.98) !important;
+  box-shadow: var(--shadow-pressed) !important;
+}
+
+/* Focus State (Accessibility) */
+.cta-primary:focus,
+.cta-primary:focus-visible {
+  outline: none !important;
+  box-shadow: var(--shadow-focus) !important;
+  border-color: var(--color-border-white-strong) !important;
+}
+
+/* Icon Transition */
+.cta-primary i {
+  transition: transform var(--transition-base);
+}
+
+/* Size Variants */
+.cta-sm {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.cta-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+/* ===== SECONDARY BUTTON (Outlined) ===== */
+
+.btn-secondary-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-primary-blue);
+  background: transparent;
+  color: var(--color-primary-blue);
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.btn-secondary-outline:hover {
+  background: var(--color-primary-blue);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft-md);
+}
+
+.btn-secondary-outline:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .cta-primary,
+  .cta-primary i,
+  .btn-secondary-outline {
+    transition: none !important;
+  }
+
+  .cta-primary:hover,
+  .btn-secondary-outline:hover {
+    transform: none !important;
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: high) {
+  .cta-primary {
+    border-width: 2px !important;
+  }
+}

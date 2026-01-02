@@ -1,0 +1,276 @@
+---
+/**
+ * Hero Section Component
+ * Full-screen hero with animated background and CTA
+ */
+---
+
+<section
+  class="wrapper position-relative overflow-hidden hero-section-dark"
+  style="background-color: #0A0F1C; background-size: cover; background-position: center;"
+  aria-hidden="false"
+>
+  <!-- Unicorn Studio Background - Fully Responsive -->
+  <div class="unicorn-studio-container">
+    <div data-us-project="hIguHEKGW3erp4KqfWmE"></div>
+  </div>
+
+  <div class="container pt-16 pt-md-18 pb-9" style="position: relative; z-index: 2;">
+    <div class="row gx-0 gy-10 align-items-center text-center text-lg-start">
+      <div class="col-lg-6 col-xxl-5 position-relative hero-content" data-cues="slideInDown" data-group="page-title" data-delay="700">
+        <img src="/assets/img/svg/doodle1.svg" width="46" height="96" class="h-9 position-absolute d-none d-lg-block hero-doodle" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%; opacity: 0.5; filter: hue-rotate(180deg);" alt="">
+        <img src="/assets/img/svg/doodle2.svg" width="160" height="160" class="h-15 position-absolute d-none d-lg-block hero-doodle" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%; opacity: 0.5; filter: hue-rotate(180deg);" alt="">
+
+        <h1 class="display-1 fs-50 mb-4 hero-headline" data-i18n-html="index.hero.h1">
+          De votre commerce local<span class="hero-headline-accent">à une présence digitale.</span>
+        </h1>
+        <p class="lead fs-24 lh-sm mb-7 hero-subtext" data-i18n-html="index.hero.lead">
+          Nous concevons des sites web modernes et performants pour développer votre activité en ligne.
+        </p>
+        <div class="d-flex justify-content-center" data-cues="slideInDown" data-group="page-title-buttons" data-delay="1800">
+          <a href="/appointment" class="cta-primary cta-lg w-100"><i class="uil uil-schedule me-2"></i><span data-i18n="index.hero.cta_long">Réservez votre rendez-vous gratuit</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overflow-hidden" style="z-index:3; position: relative;">
+    <div class="divider text-light mx-n2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><g fill="currentColor"><polygon points="1440 100 0 100 0 85 1440 0 1440 100" /></g></svg>
+    </div>
+  </div>
+
+  <div class="scroll-down position-absolute bottom-4 start-50 translate-middle-x" style="z-index: 3;">
+    <i class="uil uil-angle-down fs-1 text-light animate__bounce"></i>
+  </div>
+  
+  <!-- Unicorn Studio Script - Load once globally -->
+  <script type="text/javascript" is:inline>
+    !function(){
+      // Load Unicorn Studio for all screen sizes
+      if(!window.UnicornStudio){
+        window.UnicornStudio={isInitialized:false};
+        var i=document.createElement("script");
+        i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.0/dist/unicornStudio.umd.js";
+        i.onload=function(){
+          if(!window.UnicornStudio.isInitialized){
+            UnicornStudio.init();
+            window.UnicornStudio.isInitialized=true;
+            console.log('🎨 Unicorn Studio initialized - Responsive mode active');
+          }
+        };
+        (document.head || document.body).appendChild(i)
+      }
+    }();
+  </script>
+</section>
+
+<style>
+  /* ===================================================================
+     HERO SECTION - ENHANCED READABILITY & CTA PROMINENCE
+     =================================================================== */
+  
+  /* ===== UNICORN STUDIO RESPONSIVE CONTAINER ===== */
+  
+  .unicorn-studio-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .unicorn-studio-container > div,
+  .unicorn-studio-container canvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+  
+  /* Hero section minimum heights for fluid responsiveness */
+  .hero-section-dark {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Tablet: Adjust hero height for comfortable viewing */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-section-dark {
+      min-height: 85vh;
+    }
+  }
+  
+  /* Mobile: Optimize hero height for smaller screens */
+  @media (max-width: 767px) {
+    .hero-section-dark {
+      min-height: 700px;
+      max-height: 100vh;
+      padding-top: 80px;
+    }
+    
+    .unicorn-studio-container {
+      transform: translateY(12%);
+    }
+    
+    .unicorn-studio-container > div {
+      transform: scale(1.15);
+      transform-origin: center center;
+    }
+    
+    .hero-section-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      display: block !important;
+    }
+    
+    .hero-section-dark .container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+  
+  /* Very small screens: Further optimize */
+  @media (max-width: 375px) {
+    .hero-section-dark {
+      min-height: 650px;
+    }
+  }
+  
+  /* Landscape mobile: Reduce height to prevent excessive scrolling */
+  @media (max-width: 767px) and (orientation: landscape) {
+    .hero-section-dark {
+      min-height: 600px;
+    }
+  }
+  
+  /* Desktop: Dark background with gradient overlay for left text contrast */
+  @media (min-width: 1024px) {
+    .hero-section-dark {
+      background-color: var(--color-bg-dark) !important;
+    }
+    
+    .hero-section-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 55%;
+      height: 100%;
+      background: var(--gradient-overlay-left);
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .hero-section-dark .container {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  
+  /* ===== HEADLINE STYLING ===== */
+  
+  .hero-headline {
+    color: var(--color-primary-blue) !important;
+    text-shadow: var(--shadow-text-blue);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    margin-bottom: 1.75rem !important;
+  }
+  
+  .hero-headline-accent {
+    background: var(--gradient-accent) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .hero-headline-typing {
+    color: var(--color-accent-green) !important;
+    text-shadow: var(--shadow-text-green-glow);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  /* ===== SUBTEXT STYLING ===== */
+  
+  .hero-subtext {
+    color: var(--color-text-light) !important;
+    opacity: var(--opacity-almost-full);
+    text-shadow: var(--shadow-text-subtle);
+    line-height: var(--line-height-relaxed);
+  }
+  
+  .hero-subtext b {
+    color: var(--color-text-light-bright) !important;
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  /* ===== DECORATIVE ELEMENTS ===== */
+  
+  .hero-doodle {
+    opacity: var(--opacity-subtle) !important;
+    color: aliceblue !important;
+    filter: hue-rotate(180deg) brightness(24) !important;
+  }
+  
+  /* ===== MOBILE RESPONSIVE STYLING ===== */
+  
+  @media (max-width: 1023px) {
+    .hero-section-dark {
+      background-color: var(--color-bg-light) !important;
+    }
+    
+    .hero-section-dark::before {
+      display: none;
+    }
+    
+    .hero-headline {
+      color: var(--color-text-dark) !important;
+      text-shadow: none !important;
+      margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-headline-typing {
+      color: var(--color-primary-blue) !important;
+      text-shadow: none !important;
+    }
+    
+    .hero-subtext {
+      color: var(--color-text-dark) !important;
+      opacity: var(--opacity-opaque);
+      text-shadow: none !important;
+    }
+    
+    .hero-subtext b {
+      color: var(--color-text-dark) !important;
+      opacity: 1;
+    }
+    
+    .hero-doodle {
+      opacity: 1 !important;
+      filter: none !important;
+    }
+  }
+  
+  /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+  
+  @media (prefers-contrast: high) {
+    .hero-headline {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+</style>

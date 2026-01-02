@@ -1,6 +1,11 @@
 // Global stylesheet for Astro - imports existing project SCSS so we reuse variables/mixins/components
 @import "../../../public/assets/scss/style.scss";
 
+/* Import Design System Tokens */
+@import "./tokens.css";
+@import "./buttons.css";
+@import "./sections.css";
+
 /* ==========================================================================
    BRAND COLOR DESIGN TOKENS - Cohesive Digital Agency Palette
    ========================================================================== */

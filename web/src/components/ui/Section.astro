@@ -1,0 +1,23 @@
+---
+/**
+ * Section Wrapper Component
+ * Provides consistent section backgrounds and spacing
+ */
+
+interface Props {
+  variant?: 'light' | 'dark' | 'white';
+  class?: string;
+}
+
+const { variant = 'light', class: className = '' } = Astro.props;
+
+const variantClass = {
+  light: 'section-bg-light',
+  dark: 'section-bg-dark',
+  white: 'section-bg-white'
+}[variant];
+---
+
+<section class={`wrapper ${variantClass} ${className}`}>
+  <slot />
+</section>

@@ -1,0 +1,16 @@
+---
+/**
+ * Container Component
+ * Provides consistent max-width and padding
+ */
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`container ${className}`}>
+  <slot />
+</div>
