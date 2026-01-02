@@ -4,5 +4,5 @@ PORT=3002
 
 # Supabase Configuration
 # Get these from your Supabase project settings: https://supabase.com/dashboard/project/_/settings/api
-SUPABASE_URL=https://your-project-id.supabase.co
-SUPABASE_ANON_KEY=Sizxic-duncem-xiqzy5
+SUPABASE_URL=https://hbyqdcifgpaygmrhzrcw.supabase.co
+SUPABASE_ANON_KEY=eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhieXFkY2lmZ3BheWdtcmh6cmN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5ODE3MzcsImV4cCI6MjA4MTU1NzczN30.vBXAYwDiG0msYHJpoNaaqjdBX3lcQ44WZ0O8M2Wa_TE
