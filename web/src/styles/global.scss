@@ -1,6 +1,814 @@
 // Global stylesheet for Astro - imports existing project SCSS so we reuse variables/mixins/components
 @import "../../../public/assets/scss/style.scss";
 
+/* Import Design System Tokens */
+@import "./tokens.css";
+@import "./buttons.css";
+@import "./sections.css";
+
+/* ==========================================================================
+   BRAND COLOR DESIGN TOKENS - Cohesive Digital Agency Palette
+   ========================================================================== */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #1E4ED8;
+  --brand-primary-light: #4a72e5;
+  --brand-primary-dark: #1640b8;
+  --brand-primary-rgb: 30, 78, 216;
+  
+  /* Accent Colors */
+  --brand-accent: #B9E27D;
+  --brand-accent-light: #cae99b;
+  --brand-accent-dark: #a8d169;
+  --brand-accent-rgb: 185, 226, 125;
+  
+  /* Neutral Colors */
+  --brand-neutral-text: #C9D1E1;
+  --brand-neutral-light: #e5e7eb;
+  --brand-neutral-dark: #9ca3af;
+  
+  /* Dark/Contrast Colors */
+  --brand-dark-text: #0A0F1C;
+  --brand-dark-bg: #0a0e1a;
+  
+  /* Semantic Colors (using brand palette) */
+  --color-success: var(--brand-accent);
+  --color-info: var(--brand-primary);
+  --color-warning: var(--brand-accent);
+  --color-danger: #dc3545;
+  
+  /* Background Colors */
+  --bg-light: #f6f7f9;
+  --bg-white: #ffffff;
+  --bg-dark: var(--brand-dark-bg);
+  
+  /* Text Colors */
+  --text-primary: var(--brand-dark-text);
+  --text-secondary: var(--brand-neutral-text);
+  --text-muted: var(--brand-neutral-dark);
+  --text-on-dark: var(--brand-neutral-light);
+  
+  /* Border Colors */
+  --border-color: rgba(30, 78, 216, 0.15);
+  --border-light: rgba(30, 78, 216, 0.08);
+  
+  /* Button Colors */
+  --btn-primary-bg: var(--brand-primary);
+  --btn-primary-text: #ffffff;
+  --btn-accent-bg: var(--brand-accent);
+  --btn-accent-text: var(--brand-dark-text);
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(30, 78, 216, 0.15);
+  --shadow-accent: rgba(185, 226, 125, 0.25);
+}
+
+/* Dark mode overrides (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-light: #1a1f2e;
+    --bg-white: #0f1419;
+  }
+}
+
+/* ==========================================================================
+   DIGITOYOU SIGNATURE CTA - Single, Consistent Primary Button
+   ========================================================================== */
+
+/* 
+ * THE DIGITOYOU SIGNATURE CTA
+ * This is the ONLY primary CTA style used across the entire website
+ * DO NOT create alternate primary button styles
+ */
+
+.cta-primary {
+  /* Shape & Size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 0 30px;
+  border-radius: 999px; /* Perfect pill shape */
+  
+  /* Colors - Brand palette only */
+  background: rgba(185, 226, 125, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #0A0F1C !important;
+  
+  /* Typography */
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  /* Depth & Shadows */
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  /* Ensure z-index for proper layering */
+  z-index: 1;
+}
+
+/* Desktop: Glass effect with backdrop blur */
+@media (min-width: 992px) {
+  .cta-primary {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(185, 226, 125, 0.7) !important;
+  }
+}
+
+/* Inner highlight for glass depth */
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.8;
+}
+
+/* Icon styling within CTA */
+.cta-primary i {
+  margin-right: 8px;
+  font-size: 1.15rem;
+  color: inherit;
+  transition: transform 0.18s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Text styling */
+.cta-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover state - Desktop only */
+@media (min-width: 992px) {
+  .cta-primary:hover {
+    background: rgba(185, 226, 125, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 
+      0 12px 40px rgba(185, 226, 125, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px);
+    color: #0A0F1C !important;
+  }
+  
+  .cta-primary:hover::before {
+    opacity: 1;
+  }
+  
+  .cta-primary:hover i {
+    transform: translateX(2px);
+  }
+}
+
+/* Active/pressed state */
+.cta-primary:active {
+  transform: scale(0.97) !important;
+  box-shadow: 
+    0 4px 20px rgba(185, 226, 125, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Focus state - WCAG AA compliant */
+.cta-primary:focus,
+.cta-primary:focus-visible {
+  outline: none !important;
+  box-shadow: 
+    0 0 0 4px rgba(30, 78, 216, 0.3),
+    0 8px 30px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(30, 78, 216, 0.5) !important;
+}
+
+/* Mobile: Simplified (no blur for performance) */
+@media (max-width: 991px) {
+  .cta-primary {
+    height: auto !important; /* Allow dynamic height */
+    min-height: 52px;
+    padding: 14px 28px;
+    background: rgba(185, 226, 125, 0.75) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 
+      0 6px 24px rgba(185, 226, 125, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    white-space: normal !important; /* Allow text wrapping */
+    line-height: 1.3;
+    text-align: center;
+  }
+  
+  .cta-primary:hover,
+  .cta-primary:active {
+    background: rgba(185, 226, 125, 0.85) !important;
+    transform: scale(0.98);
+  }
+}
+
+/* Additional mobile fixes for CTA */
+@media (max-width: 767px) {
+  .cta-primary {
+    max-width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+    padding: 14px 20px;
+  }
+  
+  /* Ensure icon and text align properly when wrapping */
+  .cta-primary i {
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  
+  .cta-primary span {
+    display: inline;
+    word-break: break-word;
+  }
+}
+
+/* Very small screens: adjust further */
+@media (max-width: 375px) {
+  .cta-primary {
+    font-size: 0.9rem;
+    padding: 12px 18px;
+    max-width: 95%;
+  }
+}
+
+/* Size variants while maintaining signature style */
+.cta-primary.cta-lg {
+  height: 58px;
+  padding: 0 36px;
+  font-size: 1.05rem;
+}
+
+.cta-primary.cta-sm {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 0.95rem;
+}
+
+/* Width variants */
+.cta-primary.w-100 {
+  width: 100%;
+}
+
+.cta-primary.w-auto {
+  width: auto;
+}
+
+/* Disabled state */
+.cta-primary:disabled,
+.cta-primary.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Loading state */
+.cta-primary.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.cta-primary.loading::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  margin-left: -9px;
+  margin-top: -9px;
+  border: 2px solid rgba(10, 15, 28, 0.2);
+  border-radius: 50%;
+  border-top-color: #0A0F1C;
+  animation: cta-spinner 0.6s linear infinite;
+  z-index: 2;
+}
+
+@keyframes cta-spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .cta-primary {
+    border-width: 2px !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cta-primary,
+  .cta-primary i,
+  .cta-primary::before {
+    transition: none !important;
+  }
+  
+  .cta-primary:hover {
+    transform: none !important;
+  }
+}
+
+/* 
+ * DEPRECATED CLASSES - Use .cta-primary instead
+ * These are kept temporarily for backward compatibility
+ * TODO: Remove after migration is complete
+ */
+.btn-glass-primary {
+  /* This class is deprecated - use .cta-primary instead */
+}
+
+/* ==========================================================================
+   DIGITOYOU SECONDARY CTA - Complementary Action Button
+   ========================================================================== */
+
+/* 
+ * THE DIGITOYOU SECONDARY CTA
+ * Used for alternative actions alongside primary CTAs
+ * Maintains visual hierarchy while providing clear secondary option
+ */
+
+.cta-secondary {
+  /* Shape & Size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 0 30px;
+  border-radius: 999px; /* Perfect pill shape */
+  
+  /* Colors - Primary blue with glass effect */
+  background: rgba(30, 78, 216, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  
+  /* Typography */
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  /* Depth & Shadows */
+  box-shadow: 
+    0 8px 30px rgba(30, 78, 216, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  /* Ensure z-index for proper layering */
+  z-index: 1;
+}
+
+/* Desktop: Glass effect with backdrop blur */
+@media (min-width: 992px) {
+  .cta-secondary {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(30, 78, 216, 0.7) !important;
+  }
+}
+
+/* Inner highlight for glass depth */
+.cta-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.6;
+}
+
+/* Icon styling within CTA */
+.cta-secondary i,
+.cta-secondary svg {
+  margin-right: 8px;
+  font-size: 1.15rem;
+  color: inherit;
+  transition: transform 0.18s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-secondary svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Text styling */
+.cta-secondary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover state - Desktop only */
+@media (min-width: 992px) {
+  .cta-secondary:hover {
+    background: rgba(30, 78, 216, 0.85) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 
+      0 12px 40px rgba(30, 78, 216, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-1px);
+    color: #ffffff !important;
+  }
+  
+  .cta-secondary:hover::before {
+    opacity: 0.8;
+  }
+  
+  .cta-secondary:hover i,
+  .cta-secondary:hover svg {
+    transform: translateX(2px);
+  }
+}
+
+/* Active/pressed state */
+.cta-secondary:active {
+  transform: scale(0.97) !important;
+  box-shadow: 
+    0 4px 20px rgba(30, 78, 216, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Focus state - WCAG AA compliant */
+.cta-secondary:focus,
+.cta-secondary:focus-visible {
+  outline: none !important;
+  box-shadow: 
+    0 0 0 4px rgba(30, 78, 216, 0.3),
+    0 8px 30px rgba(30, 78, 216, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(30, 78, 216, 0.7) !important;
+}
+
+/* Mobile: Simplified (no blur for performance) */
+@media (max-width: 991px) {
+  .cta-secondary {
+    height: 52px;
+    padding: 0 28px;
+    background: rgba(30, 78, 216, 0.75) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 
+      0 6px 24px rgba(30, 78, 216, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  }
+  
+  .cta-secondary:hover,
+  .cta-secondary:active {
+    background: rgba(30, 78, 216, 0.85) !important;
+    transform: scale(0.98);
+  }
+}
+
+/* Size variants */
+.cta-secondary.cta-lg {
+  height: 58px;
+  padding: 0 36px;
+  font-size: 1.05rem;
+}
+
+.cta-secondary.cta-sm {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 0.95rem;
+}
+
+/* Width variants */
+.cta-secondary.w-100 {
+  width: 100%;
+}
+
+.cta-secondary.w-auto {
+  width: auto;
+}
+
+/* Disabled state */
+.cta-secondary:disabled,
+.cta-secondary.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Loading state */
+.cta-secondary.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.cta-secondary.loading::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  margin-left: -9px;
+  margin-top: -9px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: cta-spinner 0.6s linear infinite;
+  z-index: 2;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .cta-secondary {
+    border-width: 2px !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cta-secondary,
+  .cta-secondary i,
+  .cta-secondary svg,
+  .cta-secondary::before {
+    transition: none !important;
+  }
+  
+  .cta-secondary:hover {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   GLASSMORPHISM BUTTON SYSTEM - Refined, Lighter, User-Friendly
+   ========================================================================== */
+
+/* Base glassmorphism utility class for PRIMARY CTAs only */
+.btn-glass-primary {
+  position: relative;
+  background: rgba(185, 226, 125, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #0A0F1C !important;
+  font-weight: 600 !important;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2rem !important; /* Increased pill shape */
+}
+
+/* Desktop only: backdrop blur for glassmorphism effect */
+@media (min-width: 992px) {
+  .btn-glass-primary {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(185, 226, 125, 0.7) !important;
+  }
+}
+
+/* Glass effect inner highlight for depth */
+.btn-glass-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.8;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Hover state - desktop only (lighter, lifted) */
+@media (min-width: 992px) {
+  .btn-glass-primary:hover {
+    background: rgba(185, 226, 125, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 0 4px 24px rgba(185, 226, 125, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-1px);
+    color: #0A0F1C !important;
+  }
+
+  .btn-glass-primary:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Mobile: simplified glass effect (no blur) */
+@media (max-width: 991px) {
+  .btn-glass-primary {
+    background: rgba(185, 226, 125, 0.75) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 2px 12px rgba(185, 226, 125, 0.2) !important;
+  }
+
+  .btn-glass-primary:hover,
+  .btn-glass-primary:active {
+    background: rgba(185, 226, 125, 0.85) !important;
+    transform: scale(0.98);
+  }
+}
+
+/* Active/pressed state (lighter press) */
+.btn-glass-primary:active {
+  transform: scale(0.98) !important;
+  box-shadow: 0 2px 12px rgba(185, 226, 125, 0.2) !important;
+}
+
+/* Focus state - WCAG AA accessible */
+.btn-glass-primary:focus,
+.btn-glass-primary:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(185, 226, 125, 0.4), 0 4px 20px rgba(185, 226, 125, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Secondary glass variant for blue accent */
+.btn-glass-secondary {
+  position: relative;
+  background: rgba(30, 78, 216, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 999px; /* Perfect pill shape */
+}
+
+@media (min-width: 992px) {
+  .btn-glass-secondary {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(30, 78, 216, 0.7) !important;
+  }
+
+  .btn-glass-secondary:hover {
+    background: rgba(30, 78, 216, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 0 4px 24px rgba(30, 78, 216, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-1px);
+    color: #ffffff !important;
+  }
+}
+
+.btn-glass-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.6;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Mobile simplified */
+@media (max-width: 991px) {
+  .btn-glass-secondary {
+    background: rgba(30, 78, 216, 0.75) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 2px 12px rgba(30, 78, 216, 0.2) !important;
+  }
+
+  .btn-glass-secondary:hover,
+  .btn-glass-secondary:active {
+    background: rgba(30, 78, 216, 0.85) !important;
+    transform: scale(0.98);
+  }
+}
+
+.btn-glass-secondary:active {
+  transform: scale(0.98) !important;
+}
+
+.btn-glass-secondary:focus,
+.btn-glass-secondary:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(30, 78, 216, 0.4), 0 4px 20px rgba(30, 78, 216, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Large glass button variant for hero sections */
+.btn-glass-lg {
+  padding: 0.85rem 2rem !important;
+  font-size: 1.05rem !important;
+  border-radius: 2.5rem !important; /* Extra rounded for large buttons */
+  font-weight: 600 !important;
+}
+
+/* Medium glass button (default) */
+.btn-glass-md {
+  padding: 0.65rem 1.5rem !important;
+  font-size: 0.95rem !important;
+  border-radius: 2rem !important;
+}
+
+/* Small glass button for card CTAs - NO glassmorphism, keep standard */
+.btn-glass-sm {
+  /* Intentionally empty - small buttons keep standard styling */
+}
+
+/* Icon support inside glass buttons */
+.btn-glass-primary i,
+.btn-glass-secondary i {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.18s ease;
+  color: inherit;
+}
+
+@media (min-width: 992px) {
+  .btn-glass-primary:hover i,
+  .btn-glass-secondary:hover i {
+    transform: translateX(2px);
+  }
+}
+
+/* Ensure text is always readable */
+.btn-glass-primary span,
+.btn-glass-secondary span {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+/* Performance optimization: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .btn-glass-primary,
+  .btn-glass-secondary,
+  .btn-glass-primary i,
+  .btn-glass-secondary i {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .btn-glass-primary:hover,
+  .btn-glass-secondary:hover {
+    transform: none !important;
+  }
+}
+
+/* Loading state for glass buttons */
+.btn-glass-primary.loading,
+.btn-glass-secondary.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn-glass-primary.loading::after,
+.btn-glass-secondary.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid rgba(10, 15, 28, 0.3);
+  border-radius: 50%;
+  border-top-color: #0A0F1C;
+  animation: btn-spinner 0.6s linear infinite;
+}
+
+@keyframes btn-spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* High contrast mode enhancement */
+@media (prefers-contrast: high) {
+  .btn-glass-primary,
+  .btn-glass-secondary {
+    border-width: 2px !important;
+    font-weight: 700 !important;
+  }
+}
 
 /* put this at top of global.scss */
 @font-face {

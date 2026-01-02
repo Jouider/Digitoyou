@@ -1,0 +1,144 @@
+/* ===================================================================
+   DIGITOYOU DESIGN TOKENS
+   Centralized design system values for consistent styling
+   =================================================================== */
+
+:root {
+  /* ===== COLOR PALETTE ===== */
+  
+  /* Primary Colors */
+  --color-primary-blue: #1E4ED8;
+  --color-accent-green: #B9E27D;
+  --color-accent-green-hover: #a8d169;
+  
+  /* Background Colors */
+  --color-bg-dark: #0A0F1C;
+  --color-bg-light: #edf2fa;
+  --color-bg-overlay-dark: rgba(10, 15, 28, 0.52);
+  --color-bg-overlay-dark-mid: rgba(10, 15, 28, 0.32);
+  --color-bg-overlay-transparent: rgba(10, 15, 28, 0);
+  
+  /* Text Colors */
+  --color-text-light: #D8DFE9;
+  --color-text-light-bright: #EDF2FA;
+  --color-text-dark: #0A0F1C;
+  --color-text-muted: #6c757d;
+  
+  /* Border Colors */
+  --color-border-white-soft: rgba(255, 255, 255, 0.2);
+  --color-border-white-medium: rgba(255, 255, 255, 0.3);
+  --color-border-white-strong: rgba(255, 255, 255, 0.4);
+  --color-border-green-soft: rgba(168, 209, 105, 0.3);
+  
+  /* ===== SPACING SCALE ===== */
+  
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+  --spacing-4xl: 6rem;      /* 96px */
+  
+  /* Section Spacing */
+  --section-padding-y: 3.5rem;         /* py-14 equivalent */
+  --section-padding-y-md: 4rem;        /* py-md-16 equivalent */
+  
+  /* Hero Spacing */
+  --hero-padding-top: 4rem;            /* pt-16 equivalent */
+  --hero-padding-top-md: 4.5rem;       /* pt-md-18 equivalent */
+  --hero-padding-bottom: 2.25rem;      /* pb-9 equivalent */
+  
+  /* ===== BORDER RADIUS ===== */
+  
+  --radius-sm: 0.25rem;     /* 4px */
+  --radius-md: 0.5rem;      /* 8px */
+  --radius-lg: 1rem;        /* 16px */
+  --radius-pill: 2.5rem;    /* Full rounded pill */
+  --radius-full: 9999px;    /* Perfect circle */
+  
+  /* ===== SHADOWS ===== */
+  
+  /* Soft Shadows */
+  --shadow-soft-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-soft-md: 0 3px 16px rgba(185, 226, 125, 0.18), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-soft-lg: 0 5px 24px rgba(185, 226, 125, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);
+  
+  /* Active/Pressed Shadows */
+  --shadow-pressed: 0 2px 10px rgba(185, 226, 125, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  /* Focus Shadows */
+  --shadow-focus: 0 0 0 3px rgba(185, 226, 125, 0.4), 0 4px 20px rgba(185, 226, 125, 0.25);
+  
+  /* Card Shadows */
+  --shadow-card: 0 4px 20px rgba(185, 226, 125, 0.25);
+  --shadow-card-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Text Shadows */
+  --shadow-text-subtle: 0 1px 4px rgba(0, 0, 0, 0.1);
+  --shadow-text-blue: 0 1px 10px rgba(0, 0, 0, 0.25);
+  --shadow-text-green-glow: 0 2px 12px rgba(185, 226, 125, 0.3);
+  
+  /* ===== GRADIENTS ===== */
+  
+  /* Text Gradient */
+  --gradient-accent: linear-gradient(135deg, #B9E27D 0%, #1E4ED8 100%);
+  
+  /* Overlay Gradients */
+  --gradient-overlay-left: linear-gradient(
+    to right,
+    rgba(10, 15, 28, 0.52) 0%,
+    rgba(10, 15, 28, 0.32) 50%,
+    rgba(10, 15, 28, 0) 100%
+  );
+  
+  /* ===== TRANSITIONS ===== */
+  
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s ease-in-out;
+  
+  /* ===== TYPOGRAPHY ===== */
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  
+  /* ===== BACKDROP BLUR ===== */
+  
+  --blur-sm: blur(8px);
+  --blur-md: blur(12px);
+  --blur-lg: blur(16px);
+  
+  /* ===== Z-INDEX SCALE ===== */
+  
+  --z-background: 0;
+  --z-content: 1;
+  --z-overlay: 2;
+  --z-nav: 3;
+  --z-modal: 100;
+  
+  /* ===== OPACITY SCALE ===== */
+  
+  --opacity-subtle: 0.35;
+  --opacity-medium: 0.55;
+  --opacity-strong: 0.72;
+  --opacity-opaque: 0.85;
+  --opacity-near-full: 0.92;
+  --opacity-almost-full: 0.98;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS (for reference in media queries) ===== */
+/* 
+  Mobile: < 768px
+  Tablet: 768px - 1023px
+  Desktop: >= 1024px
+  
+  Use these values consistently across components
+*/

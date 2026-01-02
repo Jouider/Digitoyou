@@ -14,7 +14,7 @@ import AboutSec from '../components/AboutSec.astro';
             <!-- Image + stat card -->
             <div class="col-lg-6 order-lg-2 d-flex">
                 <div class="position-relative d-inline-block ms-auto me-lg-8" style="max-width: 350px;">
-                  <img class="img-fluid w-100" src="/assets/img/pages/about-hero.png" alt="Digitoyou" width="350" data-cue="fadeIn">
+                  <img class="img-fluid w-100" src="/assets/img/pages/about-hero.svg" alt="Digitoyou" width="350" data-cue="fadeIn">
                   <div data-cue="slideInRight" data-delay="300">
                     <div class="card shadow-lg about-stat-card" style="position:absolute; bottom: clamp(12px, 8%, 64px); right: clamp(12px, 3vw, 40px);">
                       <div class="card-body py-4 px-5">
@@ -40,7 +40,7 @@ import AboutSec from '../components/AboutSec.astro';
                 Digitoyou accompagne les petites et moyennes entreprises dans la transformation digitale.
               </p>
               <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
-                <span><a href="/appointment" class="btn btn-lg btn-primary rounded-pill me-2" data-i18n="index.about.hero.cta_button">Prendre RDV</a></span>
+                <a href="/appointment" class="cta-primary cta-lg"><i class="uil uil-schedule me-2"></i><span data-i18n="index.about.hero.cta_button">Prendre RDV</span></a>
               </div>
             </div>
           </div>

@@ -42,18 +42,11 @@
       },
       index: {
         hero: {
-          prefix: 'De votre ',
-          local: 'commerce local',
-          middle: " à une présence ",
-          online: 'digitale',
-          typing: 'en toute simplicité',
-          // rotating words for hero typing (localized)
-          typing_words: ['Simplement','Rapidement','Facilement'],
-          lead: 'Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.',
-          cta_long: 'Réservez votre rendez-vous gratuit',
-          cta_short: 'Réservez votre rendez-vous gratuit',
+          lead: 'Nous concevons des sites web modernes et performants pour développer votre activité en ligne.',
+          cta_long: 'Devis gratuit',
+          cta_short: 'Devis gratuit',
           expert_line: '',
-          h1: 'Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
+          h1: 'De votre commerce local <span class="text-gradient gradient-7">à une présence digitale.</span>'
         }, 
         // Appointment / Reservation translations
         appointment: {
@@ -111,11 +104,31 @@
           }
         },
         features: {
+          subtitle: 'Nos Engagements',
+          title: 'Pourquoi nous choisir',
           f1: 'Gagnez en visibilité',
           f2: 'Clarifiez votre message',
           f3: 'Débloquez des ventes',
           f4: 'Étude de marché',
-          lead: 'Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité. Que vous soyez artisan, commerçant ou entrepreneur, Digitoyou vous connecte au monde en ligne, sans prise de tête.'
+          lead: 'Nous créons <b>des sites vitrines 100% sur mesure</b>, adaptés à vos besoins, votre marché et votre réalité. Que vous soyez artisan, commerçant ou entrepreneur, Digitoyou vous connecte au monde en ligne, sans prise de tête.',
+          brands_title: 'Ils nous font confiance'
+        },
+        value: {
+          title: 'Des résultats concrets pour votre activité',
+          subtitle: 'Un site web pensé pour attirer, convaincre et faire grandir votre business.',
+          brands_title: 'Ils nous font confiance',
+          card1_title: 'Augmentez vos ventes',
+          card1_text: 'Un site web clair et bien structuré attire les bons visiteurs et les transforme plus facilement en clients.',
+          card1_impact: '+ conversions • + opportunités',
+          card2_title: 'Gagnez du temps au quotidien',
+          card2_text: 'Votre site automatise l\'essentiel : présentation, informations, prise de contact — vous restez concentré sur votre activité.',
+          card2_impact: '-60% d\'efforts inutiles',
+          card3_title: 'Fidélisez vos clients',
+          card3_text: 'Une expérience rapide et fluide inspire confiance et donne envie de revenir.',
+          card3_impact: '+98% de satisfaction client',
+          card4_title: 'Soyez présent à tout moment',
+          card4_text: 'Même quand vous n\'êtes pas disponible, votre site répond et guide vos clients.',
+          card4_impact: 'Temps de réponse < 2s'
         },
         realizations: { small: 'Nos Réalisations', title: 'Nos derniers projets' },
         clients: {
@@ -521,18 +534,11 @@
       },
       index: {
         hero: {
-          prefix: 'من نشاطك ',
-          local: 'المحلي',
-          middle: " إلى حضور ",
-          online: 'رقمي',
-          typing: 'بكل سهولة',
-          // rotating words for hero typing
-          typing_words: ['بسهولة','بسرعة','بدون جهد'],
-          lead: 'مع <b>Digitoyou</b> تتحول أفكارك إلى تجارب فريدة وعملاء مخلصين.',
+          lead: "نصمّم مواقع إلكترونية حديثة وعالية الجودة لمساعدتك على تنمية نشاطك عبر الإنترنت.",
           cta_long: 'احجز موعدك المجاني',
           cta_short: 'احجز موعدك',
           expert_line: 'خبير من <b>Digitoyou</b> يتواصل معك خلال 24 ساعة.',
-          h1: 'لا تلاحق الرقمنة، <span class="text-gradient gradient-7">تحكّم بها</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
+          h1: 'من نشاطك المحلي، <span class="text-gradient gradient-7">.إلى حضور رقمي قوي</span>'
         },
         appointment: {
           hero: {
@@ -562,10 +568,32 @@
           }
         },
         features: {
-          f1: 'زد من ظهورك', f2: 'وضّح رسالتك', f3: 'افتح إمكانيات المبيعات', f4: 'بحث السوق',
-          lead: 'نُنشئ <b>مواقع عرض مخصصة 100%</b>، مصممة لتلبية احتياجاتك وسوقك وواقعك. سواء كنت حرفياً أو صاحب متجر أو رائد أعمال، نربطك بعالم الإنترنت بسهولة.'
+          subtitle: 'التزاماتنا',
+          title: 'لماذا تختارنا',
+          f1: 'زد من ظهورك',
+          f2: 'وضّح رسالتك',
+          f3: 'افتح إمكانيات المبيعات',
+          f4: 'بحث السوق',
+          lead: 'نُنشئ <b>مواقع عرض مخصصة 100%</b>، مصممة لتلبية احتياجاتك وسوقك وواقعك. سواء كنت حرفياً أو صاحب متجر أو رائد أعمال، نربطك بعالم الإنترنت بسهولة.',
+          brands_title: 'يثقون بنا'
         },
-        realizations: { small: 'أعمالنا', title: 'مشاريعنا الأخيرة' },
+        value: {
+          title: 'نتائج ملموسة لنشاطك',
+          subtitle: 'موقع ويب مصمم لجذب العملاء، إقناعهم وتنمية عملك.',
+          brands_title: 'يثقون بنا',
+          card1_title: 'زد من مبيعاتك',
+          card1_text: 'موقع واضح ومنظم بشكل جيد يجذب الزوار المناسبين ويحولهم بسهولة إلى عملاء.',
+          card1_impact: '+ تحويلات • + فرص',
+          card2_title: 'وفّر وقتك اليومي',
+          card2_text: 'موقعك يؤتمت الأساسيات: العرض، المعلومات، التواصل — تبقى مركزاً على نشاطك.',
+          card2_impact: '-60% من الجهود غير المجدية',
+          card3_title: 'اكسب ولاء عملائك',
+          card3_text: 'تجربة سريعة وسلسة تبني الثقة وتشجع على العودة.',
+          card3_impact: '+98% رضا العملاء',
+          card4_title: 'كن متاحاً في كل الأوقات',
+          card4_text: 'حتى عندما تكون غير متاح، موقعك يجيب ويوجه عملاءك.',
+          card4_impact: 'وقت الاستجابة < 2 ثانية'
+        },
         clients: { heading: 'أكثر من <span class="text-warning">50 عميل</span> راضٍ.<br>هل ستكون التالي؟' },
         counters: { completed: 'المشروعات المنجزة', satisfied: 'عملاء راضون', experts: 'خبراء في خدمتك' },
         instagram: {
@@ -883,11 +911,11 @@
           // rotating words for hero typing
           typing_words: ['Easily','Quickly','Effortlessly'],
           // mirrored phrasing to match site's hero
-          lead: 'With <b>Digitoyou</b>, your ideas turn into unique experiences and loyal customers.',
-          cta_long: 'Book your free appointment',
-          cta_short: 'Book your free appointment',
+          lead: 'We design modern, high-quality websites to help grow your business online.',
+          cta_long: 'Free appointment',
+          cta_short: ' appointment',
           expert_line: 'A <b>Digitoyou</b> expert will get back to you within 24 hours.',
-          h1: 'Don\'t follow digital, <span class="text-gradient gradient-7">take control of it.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
+          h1: 'From your local business <span class="text-gradient gradient-7">to a strong digital presence.</span>'
         },        
         // Appointment / Reservation translations
         appointment: {
@@ -945,11 +973,31 @@
           }
         },
         features: {
+          subtitle: 'Our Commitments',
+          title: 'Why choose us',
           f1: 'Get more visibility',
           f2: 'Clarify your message',
           f3: 'Unlock sales',
           f4: 'Market Research',
-          lead: 'We create <b>100% custom showcase websites</b>, tailored to your needs, your market, and your reality. Whether you are an artisan, shop owner, or entrepreneur, Digitoyou connects you to the online world, hassle-free.'
+          lead: 'We create <b>100% custom showcase websites</b>, tailored to your needs, your market, and your reality. Whether you are an artisan, shop owner, or entrepreneur, Digitoyou connects you to the online world, hassle-free.',
+          brands_title: 'They trust us'
+        },
+        value: {
+          title: 'Tangible results for your business',
+          subtitle: 'A website designed to attract, convince, and grow your business.',
+          brands_title: 'They trust us',
+          card1_title: 'Increase your sales',
+          card1_text: 'A clear and well-structured website attracts the right visitors and converts them into customers more easily.',
+          card1_impact: '+ conversions • + opportunities',
+          card2_title: 'Save time every day',
+          card2_text: 'Your website automates the essentials: presentation, information, contact — you stay focused on your business.',
+          card2_impact: '-60% wasted effort',
+          card3_title: 'Build customer loyalty',
+          card3_text: 'A fast and smooth experience builds trust and encourages repeat visits.',
+          card3_impact: '+98% customer satisfaction',
+          card4_title: 'Be available anytime',
+          card4_text: "Even when you're not available, your website responds and guides your customers.",
+          card4_impact: 'Response time < 2s'
         },
         realizations: { small: 'Our Work', title: 'Our latest projects' },
         clients: {

@@ -1,16 +1,24 @@
-// Theme Colors
-$sky: #5eb9f0 !default;
-$blue: #3f78e0 !default;
-$grape: #605dba !default;
-$purple: #747ed1 !default;
-$violet: #a07cc5 !default;
-$pink: #d16b86 !default;
-$fuchsia: #e668b3 !default;
-$red: #e2626b !default;
-$orange: #4A90E2 !default;
-$yellow: #b8d776 !default;
-$green: #45c4a0 !default;
-$leaf: #7cb798 !default;
-$aqua: #54a8c7 !default;
-$navy: #1d3161 !default;
-$ash: #9499a3 !default;
+// Theme Colors - Refactored to Brand Palette
+// PRIMARY BRAND PALETTE
+$primary-blue: #1E4ED8 !default;
+$accent-green: #B9E27D !default;
+$neutral-text: #C9D1E1 !default;
+$dark-text: #0A0F1C !default;
+$dark-bg: #0a0e1a !default;
+
+// LEGACY COLORS MAPPED TO BRAND PALETTE
+$sky: lighten($primary-blue, 20%) !default; // Lighter blue variant
+$blue: $primary-blue !default;
+$grape: $primary-blue !default; // Consolidated to primary
+$purple: $primary-blue !default; // Consolidated to primary
+$violet: $primary-blue !default; // Consolidated to primary
+$pink: $primary-blue !default; // Consolidated to primary
+$fuchsia: $primary-blue !default; // Consolidated to primary
+$red: #dc3545 !default; // Keep for errors/danger only
+$orange: $primary-blue !default; // Consolidated to primary
+$yellow: $accent-green !default; // Use accent green instead
+$green: $accent-green !default;
+$leaf: $accent-green !default;
+$aqua: $primary-blue !default; // Consolidated to primary
+$navy: darken($primary-blue, 15%) !default;
+$ash: $neutral-text !default;

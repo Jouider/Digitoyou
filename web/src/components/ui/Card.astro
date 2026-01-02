@@ -1,0 +1,20 @@
+---
+/**
+ * Card Component
+ * Reusable card for offers, projects, etc.
+ */
+
+interface Props {
+  class?: string;
+  shadow?: boolean;
+}
+
+const { class: className = '', shadow = true } = Astro.props;
+const shadowClass = shadow ? 'shadow-lg' : '';
+---
+
+<div class={`card ${shadowClass} ${className}`}>
+  <div class="card-body">
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,102 @@
+/* ===================================================================
+   DIGITOYOU SECTION STYLES
+   Shared section backgrounds, spacing, and layouts
+   =================================================================== */
+
+/* ===== SECTION WRAPPER BASE ===== */
+
+.section-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ===== BACKGROUND VARIANTS ===== */
+
+.section-bg-light {
+  background-color: var(--color-bg-light);
+}
+
+.section-bg-dark {
+  background-color: var(--color-bg-dark);
+  color: white;
+}
+
+.section-bg-white {
+  background-color: white;
+}
+
+/* ===== SECTION SPACING ===== */
+
+.section-padding-y {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+@media (min-width: 768px) {
+  .section-padding-y {
+    padding-top: var(--section-padding-y-md);
+    padding-bottom: var(--section-padding-y-md);
+  }
+}
+
+/* Custom section spacing variants */
+.section-padding-top {
+  padding-top: var(--section-padding-y);
+}
+
+.section-padding-bottom {
+  padding-bottom: var(--section-padding-y);
+}
+
+@media (min-width: 768px) {
+  .section-padding-top {
+    padding-top: var(--section-padding-y-md);
+  }
+  
+  .section-padding-bottom {
+    padding-bottom: var(--section-padding-y-md);
+  }
+}
+
+/* ===== SECTION HEADERS ===== */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-header-subtitle {
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.section-header-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+/* Dark section header variant */
+.section-bg-dark .section-header-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.section-bg-dark .section-header-title {
+  color: white;
+}
+
+/* ===== NAVBAR REFINEMENT ===== */
+
+@media (min-width: 1024px) {
+  .navbar.navbar-expand-lg {
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+  }
+  
+  .navbar.navbar-expand-lg.navbar-light {
+    background-color: rgba(255, 255, 255, var(--opacity-near-full)) !important;
+  }
+}
