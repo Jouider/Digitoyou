@@ -18,33 +18,37 @@ import InstagramPosts from '../components/InstagramPosts.astro';
         </noscript>
       </Fragment>
       
+      
   <!-- HERO -->
   <section
-    class="wrapper position-relative overflow-hidden"
-    style="background-color: #edf2fa; background-size: cover; background-position: center;"
+    class="wrapper position-relative overflow-hidden hero-section-dark"
+    style="background-color: #0A0F1C; background-size: cover; background-position: center;"
     aria-hidden="false"
   >
-    <div class="hero-overlay" aria-hidden="true"></div>
+    <!-- Unicorn Studio Background - Fully Responsive -->
+    <div class="unicorn-studio-container">
+      <div data-us-project="hIguHEKGW3erp4KqfWmE"></div>
+    </div>
 
-    <div class="container pt-16 pt-md-18 pb-9">
+    <div class="container pt-16 pt-md-18 pb-9" style="position: relative; z-index: 2;">
       <div class="row gx-0 gy-10 align-items-center text-center text-lg-start">
-        <div class="col-lg-6 col-xxl-5 position-relative" data-cues="slideInDown" data-group="page-title" data-delay="700">
-          <img src="/assets/img/svg/doodle1.svg" width="46" height="96" class="h-9 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%" alt="">
-          <img src="/assets/img/svg/doodle2.svg" width="160" height="160" class="h-15 position-absolute d-none d-lg-block" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%" alt="">
+        <div class="col-lg-6 col-xxl-5 position-relative hero-content" data-cues="slideInDown" data-group="page-title" data-delay="700">
+          <img src="/assets/img/svg/doodle1.svg" width="46" height="96" class="h-9 position-absolute d-none d-lg-block hero-doodle" data-cue="fadeIn" data-delay="3000" style="top: -9%; left: -6%; opacity: 0.5; filter: hue-rotate(180deg);" alt="">
+          <img src="/assets/img/svg/doodle2.svg" width="160" height="160" class="h-15 position-absolute d-none d-lg-block hero-doodle" data-cue="fadeIn" data-delay="3000" style="bottom: 9%; right: -22%; opacity: 0.5; filter: hue-rotate(180deg);" alt="">
 
-          <h1 class="display-1 fs-50 mb-4" data-i18n-html="index.hero.h1">
-            Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span><br />
-            <span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>
+          <h1 class="display-1 fs-50 mb-4 hero-headline" data-i18n-html="index.hero.h1">
+            Ne suivez pas le digital,<span class="hero-headline-accent">prenez-le en main.</span><br />
+            <span class="underline-3 style-3 text-typing d-inline-block hero-headline-typing">Simplement</span>
           </h1>
-          <p class="lead fs-24 lh-sm mb-7" data-i18n-html="index.hero.lead">
+          <p class="lead fs-24 lh-sm mb-7 hero-subtext" data-i18n-html="index.hero.lead">
             Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.
           </p>
           <div class="d-flex justify-content-center" data-cues="slideInDown" data-group="page-title-buttons" data-delay="1800">
-            <a href="/appointment" class="btn btn-primary fs-20 w-100 rounded-pill"><i class="uil uil-schedule me-2"></i><span data-i18n="index.hero.cta_long">Réservez votre rendez-vous gratuit</span></a>
+            <a href="/appointment" class="cta-primary cta-lg w-100"><i class="uil uil-schedule me-2"></i><span data-i18n="index.hero.cta_long">Réservez votre rendez-vous gratuit</span></a>
           </div>
         </div>
 
-        <div class="col-lg-6 ms-auto mb-n20 mb-xxl-n22" data-cues="slideInDown" data-delay="600">
+        <!-- <div class="col-lg-6 ms-auto mb-n20 mb-xxl-n22" data-cues="slideInDown" data-delay="600">
           <figure>
             <img
               src="/assets/img/pages/hero-1200.webp"
@@ -57,20 +61,378 @@ import InstagramPosts from '../components/InstagramPosts.astro';
               loading="eager"
               decoding="async"
             />
-          </figure>
+          </figure> -->
         </div>
       </div>
     </div>
 
-    <div class="overflow-hidden" style="z-index:1;">
+    <div class="overflow-hidden" style="z-index:3; position: relative;">
       <div class="divider text-light mx-n2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><g fill="currentColor"><polygon points="1440 100 0 100 0 85 1440 0 1440 100" /></g></svg>
       </div>
     </div>
 
-    <div class="scroll-down position-absolute bottom-4 start-50 translate-middle-x">
+    <div class="scroll-down position-absolute bottom-4 start-50 translate-middle-x" style="z-index: 3;">
       <i class="uil uil-angle-down fs-1 text-light animate__bounce"></i>
     </div>
+    
+    <!-- Unicorn Studio Script - Load once globally -->
+    <script type="text/javascript" is:inline>
+      !function(){
+        // Load Unicorn Studio for all screen sizes
+        if(!window.UnicornStudio){
+          window.UnicornStudio={isInitialized:false};
+          var i=document.createElement("script");
+          i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.0/dist/unicornStudio.umd.js";
+          i.onload=function(){
+            if(!window.UnicornStudio.isInitialized){
+              UnicornStudio.init();
+              window.UnicornStudio.isInitialized=true;
+              console.log('🎨 Unicorn Studio initialized - Responsive mode active');
+            }
+          };
+          (document.head || document.body).appendChild(i)
+        }
+      }();
+    </script>
+    
+    <!-- Hero Color Styling - Refined for Better Readability & Hierarchy -->
+    <style>
+      /* ===================================================================
+         HERO SECTION - ENHANCED READABILITY & CTA PROMINENCE
+         =================================================================== */
+      
+      /* ===== UNICORN STUDIO RESPONSIVE CONTAINER ===== */
+      
+      /* Responsive container for Unicorn Studio animation */
+      .unicorn-studio-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      
+      /* Make Unicorn Studio canvas fill container responsively */
+      .unicorn-studio-container > div,
+      .unicorn-studio-container canvas {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+      }
+      
+      /* Hero section minimum heights for fluid responsiveness */
+      .hero-section-dark {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      
+      /* Tablet: Adjust hero height for comfortable viewing */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .hero-section-dark {
+          min-height: 85vh;
+        }
+      }
+      
+      /* Mobile: Optimize hero height for smaller screens */
+      @media (max-width: 767px) {
+        .hero-section-dark {
+          min-height: 700px;
+          max-height: 100vh;
+          padding-top: 80px; /* Extra top padding for headline breathing room */
+        }
+        
+        /* Shift Unicorn Studio background DOWN on mobile for better focal point */
+        .unicorn-studio-container {
+          transform: translateY(12%); /* Move background down to sit behind CTA area */
+        }
+        
+        .unicorn-studio-container > div {
+          transform: scale(1.15); /* Slightly larger scale for better coverage */
+          transform-origin: center center;
+        }
+        
+        /* Enhanced gradient overlay for better text readability on mobile */
+        .hero-section-dark::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          /* background: linear-gradient(
+            to bottom,
+            rgba(237, 242, 250, 0.85) 0%,
+            rgba(237, 242, 250, 0.6) 35%,
+            rgba(237, 242, 250, 0.75) 100%
+          ); */
+          z-index: 1;
+          pointer-events: none;
+          display: block !important;
+        }
+        
+        /* Additional spacing for hero content */
+        .hero-section-dark .container {
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+        }
+      }
+      
+      /* Very small screens: Further optimize */
+      @media (max-width: 375px) {
+        .hero-section-dark {
+          min-height: 650px;
+        }
+      }
+      
+      /* Landscape mobile: Reduce height to prevent excessive scrolling */
+      @media (max-width: 767px) and (orientation: landscape) {
+        .hero-section-dark {
+          min-height: 600px;
+        }
+      }
+      
+      /* Desktop: Dark background with gradient overlay for left text contrast */
+      @media (min-width: 1024px) {
+        .hero-section-dark {
+          background-color: #0A0F1C !important;
+        }
+        
+        /* Gradient overlay behind left content for improved text contrast */
+        .hero-section-dark::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 55%;
+          height: 100%;
+          /* background: linear-gradient(
+            to right,
+            rgba(10, 15, 28, 0.45) 0%,
+            rgba(10, 15, 28, 0.25) 50%,
+            rgba(10, 15, 28, 0) 100%
+          ); */
+          z-index: 1;
+          pointer-events: none;
+        }
+        
+        /* Ensure container content is above the overlay */
+        .hero-section-dark .container {
+          position: relative;
+          z-index: 2;
+        }
+      }
+      
+      /* ===== HEADLINE STYLING ===== */
+      
+      /* Primary headline - Enhanced contrast with subtle shadow */
+      .hero-headline {
+        color: #1E4ED8 !important;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      
+      /* Headline accent - Action words in gradient */
+      .hero-headline-accent {
+        background: linear-gradient(135deg, #B9E27D 0%, #1E4ED8 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        font-weight: 700;
+      }
+      
+      /* Typing animation text - Accent green with enhanced glow */
+      .hero-headline-typing {
+        color: #B9E27D !important;
+        text-shadow: 0 2px 12px rgba(185, 226, 125, 0.3);
+        font-weight: 700;
+      }
+      
+      /* ===== SUBTEXT STYLING ===== */
+      
+      /* Paragraph - Clear secondary hierarchy */
+      .hero-subtext {
+        color: #C9D1E1 !important;
+        opacity: 0.95;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        line-height: 1.6;
+      }
+      
+      .hero-subtext b {
+        color: #e5e7eb !important;
+        font-weight: 600;
+      }
+      
+      /* ===== PRIMARY CTA ENHANCEMENT ===== */
+      
+      /* Enhanced CTA with refined glass effect - lighter and more inviting */
+      .hero-section-dark .btn-glass-primary {
+        background: rgba(185, 226, 125, 0.7) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        color: #0A0F1C !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 20px rgba(185, 226, 125, 0.25), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+        transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative;
+        overflow: visible;
+        border-radius: 2.5rem !important;
+      }
+      
+      /* Desktop hover - subtle lift with soft glow */
+      @media (min-width: 992px) {
+        .hero-section-dark .btn-glass-primary:hover {
+          background: rgba(185, 226, 125, 0.85) !important;
+          box-shadow: 0 6px 28px rgba(185, 226, 125, 0.35), 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+          transform: translateY(-1px);
+          border-color: rgba(255, 255, 255, 0.35) !important;
+        }
+        
+        /* Icon animation on hover */
+        .hero-section-dark .btn-glass-primary:hover i {
+          transform: translateX(2px);
+        }
+      }
+      
+      /* Active/pressed state */
+      .hero-section-dark .btn-glass-primary:active {
+        transform: translateY(0) scale(0.98) !important;
+        box-shadow: 0 2px 12px rgba(185, 226, 125, 0.2), 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+      }
+      
+      /* Focus state - Enhanced for accessibility */
+      .hero-section-dark .btn-glass-primary:focus,
+      .hero-section-dark .btn-glass-primary:focus-visible {
+        outline: none !important;
+        box-shadow: 0 0 0 3px rgba(185, 226, 125, 0.4), 0 4px 20px rgba(185, 226, 125, 0.25) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+      }
+      
+      /* Icon transition */
+      .hero-section-dark .btn-glass-primary i {
+        transition: transform 0.18s ease;
+      }
+      
+      /* ===== DECORATIVE ELEMENTS ===== */
+      
+      /* Doodles - Subtle and muted */
+      .hero-doodle {
+        opacity: 0.35 !important;
+        filter: hue-rotate(180deg) brightness(0.7) !important;
+      }
+      
+      /* ===================================================================
+         MOBILE RESPONSIVE STYLING
+         =================================================================== */
+      
+      @media (max-width: 1023px) {
+        /* Light background for mobile */
+        .hero-section-dark {
+          background-color: #edf2fa !important;
+        }
+        
+        /* Remove gradient overlay on mobile */
+        .hero-section-dark::before {
+          display: none;
+        }
+        
+        /* Headline - Dark text on light background */
+        .hero-headline {
+          color: #0A0F1C !important;
+          text-shadow: none !important;
+        }
+        
+        /* Typing text - Primary blue */
+        .hero-headline-typing {
+          color: #1E4ED8 !important;
+          text-shadow: none !important;
+        }
+        
+        /* Subtext - Dark with opacity */
+        .hero-subtext {
+          color: #0A0F1C !important;
+          opacity: 0.85;
+          text-shadow: none !important;
+        }
+        
+        .hero-subtext b {
+          color: #0A0F1C !important;
+          opacity: 1;
+        }
+        
+        /* CTA - Solid green for clarity on mobile */
+        .hero-section-dark .btn-glass-primary {
+          background: #B9E27D !important;
+          border: 1px solid rgba(168, 209, 105, 0.3) !important;
+          color: #0A0F1C !important;
+          box-shadow: 0 4px 20px rgba(185, 226, 125, 0.25) !important;
+        }
+        
+        .hero-section-dark .btn-glass-primary:hover,
+        .hero-section-dark .btn-glass-primary:active {
+          background: #a8d169 !important;
+          transform: scale(0.98);
+          box-shadow: 0 4px 20px rgba(185, 226, 125, 0.3) !important;
+        }
+        
+        /* Doodles - Full opacity on mobile */
+        .hero-doodle {
+          opacity: 1 !important;
+          filter: none !important;
+        }
+      }
+      
+      /* ===== RESPONSIVE DISPLAY LOGIC ===== */
+      
+      .unicorn-studio-background-desktop {
+        display: none !important;
+      }
+      
+      @media (min-width: 1024px) {
+        .unicorn-studio-background-desktop {
+          display: block !important;
+        }
+      }
+      
+      /* Center the Unicorn Studio canvas */
+      .unicorn-studio-background-desktop > div {
+        margin: 0 auto;
+        display: block;
+      }
+      
+      /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+      
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-section-dark .btn-glass-primary,
+        .hero-section-dark .btn-glass-primary i {
+          transition: none !important;
+        }
+        
+        .hero-section-dark .btn-glass-primary:hover {
+          transform: none !important;
+        }
+      }
+      
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .hero-headline {
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-section-dark .btn-glass-primary {
+          border-width: 2px !important;
+        }
+      }
+    </style>
   </section>
 
   <!-- FEATURES + BRANDS -->

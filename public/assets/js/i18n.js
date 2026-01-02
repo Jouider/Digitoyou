@@ -42,18 +42,11 @@
       },
       index: {
         hero: {
-          prefix: 'De votre ',
-          local: 'commerce local',
-          middle: " à une présence ",
-          online: 'digitale',
-          typing: 'en toute simplicité',
-          // rotating words for hero typing (localized)
-          typing_words: ['Simplement','Rapidement','Facilement'],
-          lead: 'Avec <b>Digitoyou</b>, vos idées se transforment en expériences uniques et en clients fidèles.',
-          cta_long: 'Réservez votre rendez-vous gratuit',
-          cta_short: 'Réservez votre rendez-vous gratuit',
+          lead: 'Nous concevons des sites web modernes et performants pour développer votre activité en ligne.',
+          cta_long: 'Devis gratuit',
+          cta_short: 'Devis gratuit',
           expert_line: '',
-          h1: 'Ne suivez pas le digital,<span class="text-gradient gradient-7">prenez-le en main.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Simplement</span>'
+          h1: 'De votre commerce local <span class="text-gradient gradient-7">à une présence digitale.</span>'
         }, 
         // Appointment / Reservation translations
         appointment: {
@@ -521,18 +514,11 @@
       },
       index: {
         hero: {
-          prefix: 'من نشاطك ',
-          local: 'المحلي',
-          middle: " إلى حضور ",
-          online: 'رقمي',
-          typing: 'بكل سهولة',
-          // rotating words for hero typing
-          typing_words: ['بسهولة','بسرعة','بدون جهد'],
-          lead: 'مع <b>Digitoyou</b> تتحول أفكارك إلى تجارب فريدة وعملاء مخلصين.',
+          lead: "نصمّم مواقع إلكترونية حديثة وعالية الجودة لمساعدتك على تنمية نشاطك عبر الإنترنت.",
           cta_long: 'احجز موعدك المجاني',
           cta_short: 'احجز موعدك',
           expert_line: 'خبير من <b>Digitoyou</b> يتواصل معك خلال 24 ساعة.',
-          h1: 'لا تلاحق الرقمنة، <span class="text-gradient gradient-7">تحكّم بها</span><br /><span class="underline-3 style-3 text-typing d-inline-block">بسهولة</span>'
+          h1: 'من نشاطك المحلي، <span class="text-gradient gradient-7">.إلى حضور رقمي قوي</span>'
         },
         appointment: {
           hero: {
@@ -883,11 +869,11 @@
           // rotating words for hero typing
           typing_words: ['Easily','Quickly','Effortlessly'],
           // mirrored phrasing to match site's hero
-          lead: 'With <b>Digitoyou</b>, your ideas turn into unique experiences and loyal customers.',
-          cta_long: 'Book your free appointment',
-          cta_short: 'Book your free appointment',
+          lead: 'We design modern, high-quality websites to help grow your business online.',
+          cta_long: 'Free appointment',
+          cta_short: ' appointment',
           expert_line: 'A <b>Digitoyou</b> expert will get back to you within 24 hours.',
-          h1: 'Don\'t follow digital, <span class="text-gradient gradient-7">take control of it.</span><br /><span class="underline-3 style-3 text-typing d-inline-block">Easily</span>'
+          h1: 'From your local business <span class="text-gradient gradient-7">to a strong digital presence.</span>'
         },        
         // Appointment / Reservation translations
         appointment: {
